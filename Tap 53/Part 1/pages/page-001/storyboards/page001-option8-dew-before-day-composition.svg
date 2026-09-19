@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="#a8cfd2"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+  <path d="M425 0 L500 0 L478 575 L425 575Z" fill="#454b43"/><path d="M448 0 L454 575 M480 0 L486 575" stroke="#927b60" stroke-width="8"/>
+  <path d="M500 385 Q625 315 790 350 L790 575 L500 575Z" fill="#8db4a0"/>
+  <path d="M705 350 Q716 160 748 40 M640 358 Q660 210 690 95" fill="none" stroke="#557e5b" stroke-width="17"/>
+  <path d="M514 575 L525 410 Q565 370 625 413 L647 575Z" fill="#66523e" stroke="#dfc18d" stroke-width="4"/>
+  <ellipse cx="568" cy="386" rx="27" ry="28" fill="#d78a22" stroke="#f7cc7a" stroke-width="4"/>
+  <path d="M535 470 q24 10 42 0 M604 450 q22 10 38 0" fill="none" stroke="#d8eee2" stroke-width="4"/>
+  <path d="M458 535 L480 535 L476 495 Q469 480 462 495Z" fill="#e1b548" stroke="#ffe19c" stroke-width="3"/>
+  <text x="425" y="35" fill="#fff" font-family="sans-serif" font-size="18" font-weight="700">Focus: sân vắng còn ướt sương</text><text x="425" y="58" fill="#f4ffff" font-family="sans-serif" font-size="15">Camera: từ vai Nalini nhìn ra</text><text x="425" y="80" fill="#f4ffff" font-family="sans-serif" font-size="15">Dư âm: không gian chờ ngày đến</text>
+</svg>

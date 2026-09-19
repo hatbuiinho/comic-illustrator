@@ -1,0 +1,32 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.015
+  },
+  "spreads": [
+    {
+      "id": "part1-spread05",
+      "canvas": { "width": 1410, "height": 1000 },
+      "pageImage": "../../../tmp/pdf_pages/page_05_hi.png",
+      "frames": [
+        {
+          "id": "bottom-hero",
+          "shape": "rect",
+          "box": { "x": 0, "y": 0.665, "width": 1, "height": 0.335 },
+          "output": "../../outputs/REPLACE-WITH-OUTPUT.png",
+          "textReserve": [],
+          "spine": null,
+          "critical": [
+            {
+              "id": "visakha-face",
+              "box": { "x": 0.62, "y": 0.73, "width": 0.10, "height": 0.12 }
+            },
+            {
+              "id": "nalini-hands",
+              "box": { "x": 0.34, "y": 0.80, "width": 0.11, "height": 0.10 }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

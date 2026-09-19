@@ -1,0 +1,69 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.015,
+    "printTrim": {
+      "trimPercent": { "x": 0.0104895, "y": 0.0147783 },
+      "criticalSafePercent": { "x": 0.0279720, "y": 0.0394089 }
+    }
+  },
+  "spreads": [
+    {
+      "id": "part1-spread12-punna-sanitation-request",
+      "optionAlignment": {
+        "sourceRead": [
+          "Tap 53/Part 1/pages/page-012/storyboards/page12-g1-source-context.md",
+          "Tap 53/Part 1/pages/page-012/storyboards/page12-g2-options.md"
+        ],
+        "selectedOption": "page12-option10-turn-between",
+        "userAction": "Chọn option: page12-option10-turn-between",
+        "userConfirmed": false
+      },
+      "canvas": { "width": 810.709, "height": 575.433 },
+      "pageImage": "storyboards/page12-layout-source.png",
+      "frames": [
+        {
+          "id": "H1",
+          "shape": "ellipse",
+          "bleedBottom": true,
+          "box": { "x": 0.3342, "y": 0.6030, "width": 0.3316, "height": 0.4673 },
+          "textReserve": [],
+          "spine": { "x": 0.4700, "y": 0.6030, "width": 0.0600, "height": 0.3970 },
+          "narrativeFunction": "đối thoại ngầm / phản ứng",
+          "contentFrame": { "x": 0, "y": 0, "width": 1, "height": 1 },
+          "critical": [
+            {
+              "id": "nalini-face-and-gaze",
+              "box": { "x": 0.5480, "y": 0.6650, "width": 0.0770, "height": 0.1200 }
+            },
+            {
+              "id": "foundation-work-readability",
+              "box": { "x": 0.5450, "y": 0.7850, "width": 0.0900, "height": 0.0550 }
+            }
+          ],
+          "visibilityPriority": {
+            "punnaFaceAndGaze": "requiredComplete",
+            "naliniReadability": "requiredReadable",
+            "foundationWork": "requiredReadable",
+            "workersAndSoil": "optionalSupport"
+          },
+          "optionAlignment": {
+            "selectedOption": "page12-option10-turn-between",
+            "userAction": "Chọn option: page12-option10-turn-between",
+            "userConfirmed": false
+          },
+          "recognitionCores": ["hố móng đang đào dở", "đất đào/bao đất", "đồng bằng mở"],
+          "cropBuffers": ["đất công trường", "trời/nền đồng bằng", "thợ xa"],
+          "output": null,
+          "deliveryHistory": [
+            {
+              "output": "outputs/part1-page12-option9-foundation-people-v1.png",
+              "status": "interrupted",
+              "reason": "Sai logic hướng nhìn: Punna quay lưng về background, trái ý đồ storyboard."
+            }
+          ],
+          "status": "storyboard-pending"
+        }
+      ]
+    }
+  ]
+}

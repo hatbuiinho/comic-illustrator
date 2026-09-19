@@ -1,0 +1,34 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.015,
+    "printTrim": { "trimPercent": { "x": 0.0104895, "y": 0.0147783 }, "criticalSafePercent": { "x": 0.0279720, "y": 0.0394089 } }
+  },
+  "spreads": [
+    {
+      "id": "part1-spread05-community-worksite-restart-v9",
+      "canvas": { "width": 2027, "height": 1439 },
+      "pageImage": "../tmp/page-005-source/layout.png",
+      "frames": [
+        {
+          "id": "page05-community-worksite-strip",
+          "shape": "rect",
+          "box": { "x": 0, "y": 0.6644, "width": 1, "height": 0.3356 },
+          "textReserve": [],
+          "spine": { "x": 0.47, "y": 0.6644, "width": 0.06, "height": 0.3356 },
+          "contentFrame": { "x": 0, "y": 0.390625, "width": 1, "height": 0.357421875 },
+          "critical": [
+            { "id": "visakha-face-and-clasped-hands", "box": { "x": 0.68, "y": 0.69, "width": 0.14, "height": 0.24 } },
+            { "id": "nalini-face-and-blueprint", "box": { "x": 0.82, "y": 0.67, "width": 0.15, "height": 0.26 } }
+          ],
+          "optionManifest": "../pages/page-005/options/page05-restart-option4-visakha-chap-tay-cam-ta-expanded/manifest.json",
+          "output": "../pages/page-005/outputs/part1-page05-option4-foreground-depth-v9-facing-community-flat-horizon.png",
+          "delivery": {
+            "required": true,
+            "status": "generated",
+            "output": "../pages/page-005/outputs/part1-page05-option4-foreground-depth-v9-facing-community-flat-horizon.png"
+          }
+        }
+      ]
+    }
+  ]
+}

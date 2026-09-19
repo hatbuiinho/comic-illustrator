@@ -1,0 +1,43 @@
+{
+  "defaults": { "ratioTolerance": 0.03, "printTrim": { "trimPercent": { "x": 0.0104895, "y": 0.0147783 }, "criticalSafePercent": { "x": 0.0279720, "y": 0.0394089 } } },
+  "spreads": [
+    {
+      "id": "part1-page24-optionA",
+      "canvas": { "width": 1400, "height": 1000 },
+      "pageImage": "../../../../tmp/pdf_pages/page_24.png",
+      "frames": [
+        {
+          "id": "H1-fist-silences-circle",
+          "shape": "rect",
+          "box": { "x": 0, "y": 0.7639, "width": 0.43, "height": 0.2349 },
+          "output": "outputs/part1-page24-page24-2d-optionA-h1-v4.png",
+          "optionManifest": "manifest.json",
+          "delivery": { "required": true, "status": "generated", "output": "outputs/part1-page24-page24-2d-optionA-h1-v4.png" },
+          "textReserve": [],
+          "spine": { "x": 0.47, "y": 0.7639, "width": 0.06, "height": 0.2349 },
+          "critical": [
+            { "id": "elder-fist", "box": { "x": 0.045, "y": 0.82, "width": 0.10, "height": 0.10 } },
+            { "id": "elder-face", "box": { "x": 0.16, "y": 0.80, "width": 0.09, "height": 0.09 } },
+            { "id": "four-supporting-profiles", "box": { "x": 0.22, "y": 0.80, "width": 0.15, "height": 0.15 } },
+            { "id": "small-burning-flame", "box": { "x": 0.285, "y": 0.92, "width": 0.035, "height": 0.035 } }
+          ]
+        },
+        {
+          "id": "H2-extinguished-lamp",
+          "shape": "rect",
+          "box": { "x": 0.57, "y": 0.7639, "width": 0.43, "height": 0.2349 },
+          "output": "outputs/part1-page24-page24-2d-optionA-h2-v3.png",
+          "optionManifest": "manifest.json",
+          "delivery": { "required": true, "status": "generated", "output": "outputs/part1-page24-page24-2d-optionA-h2-v3.png" },
+          "textReserve": [],
+          "spine": { "x": 0.47, "y": 0.7639, "width": 0.06, "height": 0.2349 },
+          "critical": [
+            { "id": "black-wick", "box": { "x": 0.765, "y": 0.86, "width": 0.07, "height": 0.07 } },
+            { "id": "horizontal-graphic-smoke", "box": { "x": 0.80, "y": 0.80, "width": 0.15, "height": 0.08 } },
+            { "id": "cracked-wall", "box": { "x": 0.90, "y": 0.88, "width": 0.08, "height": 0.09 } }
+          ]
+        }
+      ]
+    }
+  ]
+}

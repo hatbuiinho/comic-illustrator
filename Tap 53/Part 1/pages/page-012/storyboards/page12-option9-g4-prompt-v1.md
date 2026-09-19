@@ -1,0 +1,15 @@
+# Page 12 — G4 prompt v1 — Đường móng, đường người
+
+```text
+Use case: illustration-story
+Asset type: single square raster artwork for the circular bottom-bleed inset of a Vietnamese historical comic spread
+Input images: Punna.png — identity reference for Punna; Bác Nalini.png — identity reference for Nalini
+Primary request: A single, quiet historical-comic shot at an unfinished ancient Indian monastery construction site. Punna has just seen the wide foundation work and turns toward master builder Nalini, before speaking. Show a moral aftertaste through the practical setting: respect for people becomes a responsibility to shape the place they will inhabit. Do not use symbols, religious icons, text, or didactic poses.
+Scene/backdrop: clear daylight at a worksite opening to a flat plain. Only shallow, unfinished foundation trenches run low and diagonally across the earth from Punna toward Nalini; they must read as normal construction lines, not decorative stripes. A simple rolled blueprint rests low with Nalini. No completed structures.
+Subjects: exactly two visible people. Punna is the focus on the left, three-quarter view, just turning his head and shoulders toward Nalini; his expression is thoughtful and quietly resolved, not commanding. Preserve Punna's identity: orange-red turban with pearl band and central jewel, black curls, moustache, blue tunic and saffron-gold drape. Nalini is on the right, listening with attentive respect; preserve his profile: older master builder, orange-gold turban with bead band, long dark curls, moustache and short beard, cream shirt and saffron drape.
+Composition/framing: square canvas. Keep Punna's complete head and gaze within x=36%–46%, y=27%–57%; keep Nalini's complete head and gaze within x=55%–65%, y=30%–60%. The central vertical strip x=47%–53% contains only empty earth and shallow foundation-line background: no face, hand, blueprint or important action. Keep both faces in the middle band of the square, away from the top/right circle curve. Place the rolled blueprint below Nalini, outside the central strip. The lowest 25% is only continuous soil crop buffer for the bottom bleed. Eye path: Punna's turning gaze -> Nalini -> low foundation lines.
+Style/medium: pure hand-drawn 2D animation comic art. Clear consistent dark line art; flat color fills; one or two hard cel-shading planes only; background uses the same 2D graphic language.
+Lighting/mood: restrained warm daylight, earth ochres, calm pause before a decision.
+Constraints: ancient India, around the 5th century BCE; natural anatomy and profile fidelity; exactly two people; no text, captions, panel border, watermark or graphic UI.
+Avoid: photorealism, 3D/2.5D, CGI, digital painting, soft airbrush shading, heavy gradients, realistic texture, bloom, lens flare, volumetric light, depth of field, blur, bokeh; modern sanitation fixtures; completed walls, columns, roofs or pavement; monks, nuns, Visakha, carts, workers, the Chandala man, mountains, hills, cliffs, rivers, lakes or dense forest.
+```

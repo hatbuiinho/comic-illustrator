@@ -1,0 +1,150 @@
+{
+  "pageId": "page-005",
+  "optionId": "page05-restart-option4-visakha-chap-tay-cam-ta-expanded",
+  "optionAlignment": {
+    "optionId": "page05-restart-option4-visakha-chap-tay-cam-ta-expanded",
+    "selectedBrief": "Bố cục xa–gần: Visakha chắp tay và Nalini ở tiền cảnh bên phải, cùng nhìn về 9–12 người đang góp sức thi công theo nhiều cụm ở trung cảnh; lớp xa tiếp tục gợi bằng lưng, vai, thúng và cán cuốc, không vẽ mặt hay tay nhỏ.",
+    "sourceRead": [
+      "Tap 53/notes.md",
+      "Tap 53/shot_notes.md",
+      "Tap 53/workflow.md",
+      "Tap 53/workflow_schema.md",
+      "Tap 53/workflow_templates.md",
+      "Tap 53/Part 1/scripts/chapter1.md",
+      "Tap 53/Part 1/tmp/page-005-source/layout.png",
+      "Tap 53/characters/Visakha.png",
+      "Tap 53/characters/Bác Nalini.png"
+    ],
+    "mustMatch": [
+      "Visakha chắp tay biết ơn và Nalini cầm bản vẽ ở tiền cảnh bên phải",
+      "9–12 người lao động đọc được như một tập thể ở trung cảnh, chia thành các cụm đào đất, chuyển thúng và vận chuyển gỗ",
+      "đám đông chỉ được gợi bằng silhouette không có mặt và tay nhỏ",
+      "gáy sách chỉ đi qua nền công trường"
+    ],
+    "forbidden": [
+      "nhân vật hoặc cử chỉ quan trọng trong vùng gáy",
+      "đám đông tí hon có mặt và tay chi tiết",
+      "công trình hoàn thiện hoặc hoạt động thuộc cảnh sau",
+      "phong cách 2.5D, 3D hoặc bán hiện thực"
+    ],
+    "layoutMapping": [
+      "contentFrame của output 1536×1024 là x=0, y=420, width=1536, height=366",
+      "contentFrame được ánh xạ vào frame xanh 2027×483",
+      "phần trời phía trên và đất phía dưới là blendExtension"
+    ],
+    "alignmentRationale": [
+      {
+        "optionRequirement": "Visakha và Nalini ở foreground",
+        "manifestEvidence": "visibilityPriority và contentFrame bảo vệ Visakha, tay chắp, Nalini và bản vẽ ở bên phải",
+        "whyMatch": "Hai nhân vật chính là các khối lớn nhất và dẫn hướng nhìn về công trường"
+      },
+      {
+        "optionRequirement": "nhóm đông góp sức thi công ở xa",
+        "manifestEvidence": "9–12 người trung cảnh được chia theo cụm công việc, kết hợp dãy silhouette hậu cảnh không có chi tiết mặt/tay",
+        "whyMatch": "lực lượng trung cảnh đủ đông để khớp kịch bản, còn lớp xa chỉ gợi quy mô lớn hơn nhằm giảm lỗi nhân vật nhỏ"
+      }
+    ],
+    "userConfirmed": true,
+    "userAction": "Chọn option: page05-restart-option4-visakha-chap-tay-cam-ta-expanded",
+    "optionSelected": true,
+    "compositionConfirmed": true,
+    "compositionConfirmationAction": "Xác nhận Composition QA: page-005 — bố cục xa–gần, Visakha và Nalini ở tiền cảnh",
+    "revisionReason": "Người dùng nhận thấy Visakha và Nalini đang quay lưng về phía mọi người, không đúng quan hệ trong kịch bản; lượt v9 sửa toàn bộ hướng đầu, mắt, vai và thân của hai nhân vật cùng hướng về nhóm người công quả."
+  },
+  "contextSnapshot": {
+    "time": "Nắng đã lên cao tại công trường mới khởi công.",
+    "presentCharacters": ["Visakha", "Bác Nalini", "người dân tình nguyện đang làm việc"],
+    "currentAction": "Sau khi nghe Nalini giải thích, Visakha chắp tay hướng về đám đông đang làm việc để bày tỏ lòng biết ơn và cầu phúc lành cho họ.",
+    "forbiddenFuture": ["cảnh phát đồ ăn", "cảnh nghỉ tay", "khảo sát buổi chiều", "công trình hoàn thiện"]
+  },
+  "shotThesis": "Lòng biết ơn của Visakha làm cho sự chung tay của cộng đồng trở thành cảm xúc trung tâm của cảnh.",
+  "emotionLock": "Biết ơn, kính trọng và ấm áp; người lao động vui vẻ nhưng vẫn đang thực sự làm việc.",
+  "contentFrame": {
+    "sourceCanvas": { "width": 1536, "height": 1024 },
+    "box": { "x": 0, "y": 400, "width": 1536, "height": 366 },
+    "mapping": "Ánh xạ toàn bộ vào frame xanh 2027 × 483 của layout page 5."
+  },
+  "blendExtensionLock": {
+    "applicable": true,
+    "top": 0.390625,
+    "bottom": 0.251953125,
+    "left": 0,
+    "right": 0,
+    "allowedBackground": ["trời thoáng", "đất nện", "nền phụ liên tục"],
+    "forbiddenContent": ["gương mặt", "bàn tay", "cử chỉ", "hành động", "đạo cụ kể chuyện", "neo bối cảnh thiết yếu"],
+    "layoutTreatment": "Mask hoặc hòa gradient phần trời/nền phụ trong InDesign; không che contentFrame."
+  },
+  "visibilityPriority": [
+    { "id": "visakha-face-and-clasped-hands", "priority": "requiredComplete" },
+    { "id": "nalini-face-and-blueprint", "priority": "requiredReadable" },
+    { "id": "midground-community-workforce", "priority": "requiredReadable" },
+    { "id": "faceless-background-work-rhythm", "priority": "optionalSupport" },
+    { "id": "carriage", "priority": "outOfFrame" }
+  ],
+  "backgroundContinuityLock": {
+    "physicalStage": "Công trường mới khởi công, đang đào móng.",
+    "mustShow": ["đất nện", "hố móng nông", "cọc định vị", "gỗ thô hoặc thúng đất"],
+    "forbidden": ["tường hoàn thiện", "mái", "cột hoàn chỉnh", "núi", "nước", "rừng dày"]
+  },
+  "profileReferenceRefreshGate": {
+    "status": "PASS",
+    "attempt": "v9-facing-community-flat-horizon",
+    "refreshedAt": "2026-09-16",
+    "originalProfiles": [
+      "Tap 53/characters/Visakha.png",
+      "Tap 53/characters/Bác Nalini.png",
+      "Tap 53/characters/thợ phụ.png"
+    ],
+    "referenceMapping": {
+      "Visakha.png": "identity authority for Visakha",
+      "Bác Nalini.png": "identity authority for Nalini",
+      "thợ phụ.png": "worker design and tools only",
+      "page05-restart-option4-foreground-depth-canvas.png": "approved composition only",
+      "v4 and earlier outputs": "not used as identity reference"
+    },
+    "mustPreserveChecked": [
+      "Visakha: face, black hair, green veil, blue blouse, green-gold saree, emerald-gold jewelry, modest slim silhouette",
+      "Nalini: older face, orange pearl-banded turban, curly black-grey hair, salt-and-pepper moustache and beard, cream-yellow drape and brown dhoti"
+    ],
+    "forbiddenDriftChecked": [
+      "không trẻ hóa Nalini",
+      "không đổi turban, tóc hoặc râu Nalini",
+      "không đổi khuôn mặt, khăn saree, màu áo hoặc trang sức Visakha",
+      "không cho thợ phụ mượn nhận diện của nhân vật chính"
+    ],
+    "generationMode": "Tạo lại từ profile gốc; các lượt sửa hướng thân, framing và đường chân trời đều truyền lại đồng thời profile gốc. Output trước chỉ dùng làm composition/edit target, không làm baseline nhận diện."
+  },
+  "compositionQa": {
+    "preliminaryCompositionCard": "../../storyboards/page05-restart-option4-foreground-depth-canvas.png",
+    "confirmedCompositionCard": "../../storyboards/page05-restart-option4-foreground-depth-canvas.png",
+    "confirmedOverlay": "../../storyboards/page05-restart-option4-foreground-depth-in-layout.png",
+    "semanticThumbnailGate": "PASS sơ bộ — Visakha chắp tay ở tiền cảnh là focus; hướng nhìn dẫn tới nhịp lao động ở xa.",
+    "backgroundOnlyGate": "PASS sơ bộ — đất nện, hố móng, cọc và nhịp thúng/cán cuốc gợi đúng công trường mới khởi công.",
+    "anatomySilhouetteGate": "PASS sơ bộ — hai nhân vật tiền cảnh là khối lớn; người xa chỉ giữ silhouette hỗ trợ.",
+    "priorityConflictGate": "PASS sơ bộ — gáy chỉ cắt nền và khoảng cách giữa các lớp nhân vật.",
+    "status": "approved"
+  },
+  "delivery": {
+    "required": true,
+    "output": "../../outputs/part1-page05-option4-foreground-depth-v9-facing-community-flat-horizon.png",
+    "status": "generated",
+    "layoutPreview": "../../qa-v9/part1-spread05-community-worksite-restart-v9-overlay.png",
+    "overlayQa": "../../qa-v9/part1-spread05-community-worksite-restart-v9-overlay.png",
+    "note": "Output v9 đọc và truyền lại profile gốc; Visakha và Nalini cùng xoay ba phần tư về nhóm người công quả; framing panorama thấp ánh xạ vào frame xanh, vùng gáy sạch và chân trời phẳng."
+  },
+  "outputQa": {
+    "status": "passed-awaiting-user-selection",
+    "layoutQa": "PASS — contentFrame y=400–766 khớp frame với sai lệch 0.01%; preview dùng layout gốc có chữ; vùng gáy x=47%–53% chỉ có nền công trường, rãnh móng và cọc; mặt, tay và đạo cụ quan trọng nằm ngoài gáy.",
+    "styleQa": "PASS — line art rõ, màu phẳng và cel-shading giới hạn; trời chuyển sắc nhẹ mang tính đồ họa; không có CGI, blur hoặc ánh sáng render.",
+    "locationQa": "PASS — công trường mới đào móng có đất nện, rãnh móng nông, cọc định vị, thúng đất và gỗ thô; đường chân trời phẳng với hàng cây thấp, không có núi/đồi hoặc kiến trúc hoàn thiện.",
+    "storyboardQa": "PASS — Visakha chắp tay và Nalini cầm bản vẽ ở tiền cảnh phải; đầu, mắt, vai và thân của cả hai xoay ba phần tư sang trái, trực tiếp hướng về 9–12 người công quả đang đào đất, chuyền thúng và vận chuyển gỗ.",
+    "visualDeltaQa": "PASS — đối chiếu trực tiếp với profile gốc: Visakha giữ khuôn mặt, tóc, khăn saree xanh, áo xanh lam, trang sức và tay chắp; Nalini giữ tuổi, turban cam viền hạt, tóc/râu pha bạc và y phục kem-vàng/nâu. Thay đổi có chủ đích chỉ là hướng thân/ánh nhìn, framing xa hơn và loại dải đồi; nhóm lao động trái và vùng gáy sạch được giữ.",
+    "profileDriftFromOriginal": {
+      "Visakha": "PASS — nhận diện mặt, tóc, khăn, bảng màu, trang sức, vóc dáng và cử chỉ khớp profile gốc.",
+      "Nalini": "PASS — nhận diện mặt lớn tuổi, turban, tóc/râu, bảng màu và silhouette khớp profile gốc.",
+      "workers": "PASS — dùng ngôn ngữ thiết kế thợ phụ nhưng không vay nhận diện của Visakha hoặc Nalini."
+    },
+    "report": "../../qa-v9/frame-report.md",
+    "overlay": "../../qa-v9/part1-spread05-community-worksite-restart-v9-overlay.png"
+  }
+}

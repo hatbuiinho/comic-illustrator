@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1100" viewBox="0 0 1400 1100">
+  <rect width="1400" height="1100" fill="#f5f1e8"/>
+  <text x="40" y="52" font-family="sans-serif" font-size="28" font-weight="700" fill="#292724">PAGE 24 — OPTION A · COMPARISON CARD</text>
+  <text x="40" y="86" font-family="sans-serif" font-size="18" fill="#5b554d">Storyboard đã duyệt → output H1/H2 → vị trí trên layout</text>
+  <text x="40" y="132" font-family="sans-serif" font-size="20" font-weight="700" fill="#292724">1. Composition contract</text>
+  <image href="page24-reprocess-optionA-composition.svg" x="40" y="150" width="580" height="412"/>
+  <text x="690" y="132" font-family="sans-serif" font-size="20" font-weight="700" fill="#292724">2. Outputs mới</text>
+  <image href="../../outputs/part1-page24-reprocess-optionA-h1-fist-silences-circle-v1.png" x="690" y="150" width="650" height="253" preserveAspectRatio="xMidYMid meet"/>
+  <image href="../../outputs/part1-page24-reprocess-optionA-h2-wind-extinguishes-lamp-v1.png" x="690" y="423" width="650" height="253" preserveAspectRatio="xMidYMid meet"/>
+  <text x="40" y="622" font-family="sans-serif" font-size="20" font-weight="700" fill="#292724">3. Layout placement</text>
+  <image href="../../../tmp/pdf_pages/page_24.png" x="40" y="644" width="760" height="540" preserveAspectRatio="xMidYMid meet"/>
+  <rect x="40" y="1058" width="760" height="126" fill="#00a9e0" opacity=".88"/>
+  <image href="../../outputs/part1-page24-reprocess-optionA-h1-fist-silences-circle-v1.png" x="40" y="1058" width="327" height="126" preserveAspectRatio="xMidYMid slice"/>
+  <image href="../../outputs/part1-page24-reprocess-optionA-h2-wind-extinguishes-lamp-v1.png" x="473" y="1058" width="327" height="126" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="367" y="1058" width="106" height="126" fill="#c84e4e" fill-opacity=".35"/>
+  <text x="892" y="750" font-family="sans-serif" font-size="19" fill="#3b3732">H1 PASS: nắm tay → lão → bốn profile phụ;</text>
+  <text x="892" y="782" font-family="sans-serif" font-size="19" fill="#3b3732">đèn còn cháy, không đi trước timeline.</text>
+  <text x="892" y="842" font-family="sans-serif" font-size="19" fill="#3b3732">H2 PASS: tim đèn đen → khói ngang → khe nứt;</text>
+  <text x="892" y="874" font-family="sans-serif" font-size="19" fill="#3b3732">không người, không lửa. Gáy giữ nền trống.</text>
+</svg>

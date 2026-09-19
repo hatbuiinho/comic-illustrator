@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="#24353b"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+  <path d="M425 0 L510 0 L475 575 L425 575Z" fill="#372c26"/>
+  <path d="M448 0 L454 575 M480 0 L486 575" stroke="#96785a" stroke-width="8"/>
+  <path d="M500 75 L790 38 L790 575 L500 575Z" fill="#a8d0d4" stroke="#e0f2f2" stroke-width="5"/>
+  <path d="M695 575 Q717 225 751 55" fill="none" stroke="#527f5b" stroke-width="19"/>
+  <path d="M525 555 L536 348 Q584 291 646 351 L667 555Z" fill="#574536" stroke="#d9bc85" stroke-width="5"/>
+  <ellipse cx="584" cy="310" rx="34" ry="36" fill="#d98720" stroke="#f6cc79" stroke-width="4"/>
+  <path d="M552 312 Q584 277 616 307" fill="none" stroke="#f6cc79" stroke-width="4"/>
+  <path d="M644 122 q8 -8 16 0 M674 150 q8 -8 16 0 M710 110 q8 -8 16 0" fill="none" stroke="#46636c" stroke-width="3"/>
+  <text x="425" y="35" fill="#fff" font-family="sans-serif" font-size="18" font-weight="700">Focus: khoảng trống Nalini lắng nghe</text>
+  <text x="425" y="58" fill="#d7ecf8" font-family="sans-serif" font-size="15">Camera: qua vai, Nalini đặt thấp</text>
+  <text x="425" y="80" fill="#d7ecf8" font-family="sans-serif" font-size="15">Dư âm: tiếng động ở ngoài hình</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2027" height="1439" viewBox="0 0 2027 1439">
+  <image href="../../../../tmp/page-005-source/layout.png" width="2027" height="1439"/>
+  <rect x="0" y="956" width="2027" height="483" fill="#e9be7c"/>
+  <path d="M0 1150H2027M0 1285H2027M930 956V1439M1074 956V1439" stroke="#9c713e" stroke-width="7" opacity=".58"/>
+  <!-- Hậu cảnh: chỉ dấu nhịp lao động, không có mặt hay bàn tay nhỏ -->
+  <g opacity=".55" stroke="#4b3829" stroke-width="10"><path d="M90 1210Q122 1115 155 1210V1300H90ZM335 1205Q370 1100 405 1205V1300H335ZM590 1215Q625 1110 660 1215V1300H590ZM800 1200Q835 1095 870 1200V1300H800Z" fill="#8a5a3b"/><path d="M122 1115L88 1015M370 1100L420 1005M625 1110L580 1015M835 1095L885 1000"/></g>
+  <!-- Tiền/trung cảnh: ba người lao động đủ lớn để đọc rõ -->
+  <g stroke="#24211d" stroke-width="12" stroke-linejoin="round">
+    <circle cx="225" cy="1080" r="48" fill="#9b5c36"/><path d="M175 1125Q225 1095 275 1125L300 1330H150Z" fill="#a65f40"/><path d="M178 1165L95 1270M272 1165L360 1205M180 1330L150 1405M270 1330L300 1405" fill="none"/>
+    <circle cx="505" cy="1090" r="48" fill="#8f5133"/><path d="M455 1135Q505 1105 555 1135L580 1330H430Z" fill="#6e8f64"/><path d="M455 1170L370 1235M555 1170L650 1220M460 1330L435 1405M550 1330L575 1405" fill="none"/>
+    <circle cx="770" cy="1085" r="47" fill="#a4643c"/><path d="M720 1130Q770 1100 820 1130L845 1325H695Z" fill="#d49c45"/><path d="M720 1165L635 1225M820 1165L910 1220M725 1325L700 1405M815 1325L840 1405" fill="none"/>
+    <!-- Visakha: chắp tay, đứng ngoài gáy -->
+    <circle cx="1430" cy="1060" r="56" fill="#b46e46"/><path d="M1370 1110Q1430 1075 1490 1110L1520 1340H1340Z" fill="#0d6d54"/><path d="M1380 1145Q1410 1190 1430 1220Q1450 1190 1480 1145" fill="none"/><path d="M1430 1160V1240" stroke="#e9c27a" stroke-width="18"/><path d="M1420 1175L1430 1155L1440 1175" fill="none" stroke="#e9c27a" stroke-width="12"/><path d="M1370 1340L1350 1408M1490 1340L1510 1408" fill="none"/>
+    <!-- Nalini: đứng cạnh, cuộn bản vẽ -->
+    <circle cx="1735" cy="1065" r="55" fill="#a5633b"/><path d="M1677 1115Q1735 1080 1793 1115L1820 1340H1650Z" fill="#edc877"/><path d="M1680 1155L1620 1220M1790 1155L1855 1200" fill="none"/><rect x="1590" y="1190" width="70" height="25" rx="12" fill="#8b5a34"/><path d="M1680 1340L1660 1408M1790 1340L1810 1408" fill="none"/>
+  </g>
+  <path d="M925 1050Q1120 990 1310 1060" fill="none" stroke="#5b4734" stroke-width="8" stroke-dasharray="20 20"/>
+  <g font-family="sans-serif" font-size="30" fill="#1f2933" font-weight="700"><text x="62" y="1005">PHƯƠNG ÁN 4 — VISAKHA CHẮP TAY CẢM TẠ</text><text x="1255" y="1020">FOCUS: LÒNG BIẾT ƠN</text><text x="100" y="1395">NGƯỜI GẦN VẼ RÕ · HẬU CẢNH KHÔNG MẶT GỢI RẤT NHIỀU NGƯỜI CÙNG LÀM</text></g>
+  <rect x="953" y="958" width="122" height="479" fill="#ed7777" opacity=".45"/><text x="962" y="1000" font-family="sans-serif" font-size="25" fill="#7a1d1d" transform="rotate(90 962 1000)">GÁY — CHỈ ĐẤT NỀN</text>
+</svg>

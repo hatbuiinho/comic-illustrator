@@ -1,0 +1,116 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.015,
+    "printTrim": {
+      "trimPercent": {
+        "x": 0.0104895,
+        "y": 0.0147783
+      },
+      "criticalSafePercent": {
+        "x": 0.027972,
+        "y": 0.0394089
+      }
+    }
+  },
+  "spreads": [
+    {
+      "id": "part1-page006-process-20260918",
+      "canvas": {
+        "width": 810.709,
+        "height": 575.433
+      },
+      "pageImage": "storyboards/page006-layout-source-v1.png",
+      "textReserve": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 0.39901430748671
+        }
+      ],
+      "frames": [
+        {
+          "id": "rest-meal",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.39901430748671,
+            "width": 0.9999987665117817,
+            "height": 0.60098569251329
+          },
+          "contentFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          },
+          "aspectRatio": 2.344258834619622,
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.39901430748671,
+            "width": 0.06,
+            "height": 0.60098569251329
+          },
+          "narrativeFunction": "Hệ quả của sự chăm lo: người lao động gần gũi trong bữa nghỉ",
+          "safeZone": {
+            "x": 0.027972,
+            "y": 0.0394089,
+            "width": 0.944056,
+            "height": 0.9211822
+          },
+          "visibilityPriority": [],
+          "recognitionCores": [
+            "cột buộc dây dưới mái lá nhẹ",
+            "đất liên tục ra công trường",
+            "hố móng và cọc ở ngoài lán"
+          ],
+          "cropBuffers": [
+            "đất",
+            "mái lá phụ",
+            "phần kéo dài của cột"
+          ],
+          "delivery": {
+            "required": true,
+            "status": "storyboard-pending"
+          },
+          "optionAlignment": {
+            "userAction": "process page 6 ạ",
+            "userConfirmed": false,
+            "selectedOption": null,
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/workflow_schema.md",
+              "Tap 53/workflow_templates.md",
+              "Tap 53/storyboard_composition_reference.md",
+              "Tap 53/Part 1/scripts/chapter1.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/thợ phụ.png",
+              "Tap 53/characters/Gia nhân.png"
+            ],
+            "sourceContext": "storyboards/page006-g1-source-context-v1.md"
+          },
+          "storyboardQa": {
+            "status": "g2-options-ready",
+            "options": [
+              {
+                "id": "page006-option1-bua-nghi-chung",
+                "preliminaryCompositionCard": "storyboards/page006-option1-bua-nghi-chung-composition-v2.png",
+                "details": "storyboards/page006-g2-options-v1.md",
+                "userConfirmed": false
+              },
+              {
+                "id": "page006-option2-cau-chuyen-ben-chen-nuoc",
+                "preliminaryCompositionCard": "storyboards/page006-option2-cau-chuyen-ben-chen-nuoc-composition-v2.png",
+                "details": "storyboards/page006-g2-options-v1.md",
+                "userConfirmed": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

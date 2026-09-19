@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
+  <rect width="1536" height="1024" fill="#b9d9dc"/>
+  <rect y="560" width="1536" height="464" fill="#d9ad70"/>
+  <path d="M0 735H1536M0 850H1536" stroke="#9a6f3f" stroke-width="5" opacity=".45"/>
+
+  <!-- Hậu cảnh: nhịp đông người, chỉ lưng/vai/thúng/cán cuốc, không vẽ mặt hay tay nhỏ -->
+  <g opacity=".42" stroke="#4c392b" stroke-width="7" stroke-linejoin="round">
+    <path d="M70 760Q98 690 126 760V860H70Z" fill="#8b6042"/><path d="M98 690L62 610"/>
+    <path d="M175 748Q205 675 235 748V855H175Z" fill="#75634c"/><path d="M205 675L245 600"/>
+    <path d="M285 765Q315 690 345 765V865H285Z" fill="#9a6a44"/><path d="M315 690L275 610"/>
+    <path d="M395 750Q425 680 455 750V858H395Z" fill="#7c6044"/><path d="M425 680L465 600"/>
+    <path d="M510 770Q540 695 570 770V870H510Z" fill="#8b6042"/><path d="M540 695L505 620"/>
+    <path d="M620 755Q650 680 680 755V860H620Z" fill="#75634c"/><path d="M650 680L690 610"/>
+    <path d="M830 765Q860 690 890 765V868H830Z" fill="#9a6a44"/><path d="M860 690L825 615"/>
+    <path d="M920 750Q950 680 980 750V858H920Z" fill="#75634c"/><path d="M950 680L990 605"/>
+  </g>
+
+  <!-- Trung cảnh: ba người đủ lớn để đọc hành động, không nhấn chi tiết mặt -->
+  <g stroke="#24211d" stroke-width="8" stroke-linejoin="round">
+    <circle cx="250" cy="715" r="30" fill="#9b5c36"/><path d="M218 747Q250 727 282 747L300 850H200Z" fill="#a65f40"/><path d="M220 775L165 835M280 775L335 815M225 850L210 920M275 850L292 920" fill="none"/>
+    <circle cx="475" cy="705" r="31" fill="#8f5133"/><path d="M442 738Q475 718 508 738L528 850H422Z" fill="#6e8f64"/><path d="M444 770L385 820M506 770L565 815M450 850L435 920M500 850L515 920" fill="none"/>
+    <circle cx="705" cy="715" r="30" fill="#a4643c"/><path d="M673 748Q705 728 737 748L757 852H653Z" fill="#d49c45"/><path d="M675 778L615 830M735 778L795 815M680 852L665 920M730 852L745 920" fill="none"/>
+    <ellipse cx="565" cy="846" rx="55" ry="24" fill="#9c6b3f"/>
+  </g>
+
+  <!-- Tiền cảnh: Visakha và Nalini lớn, nhìn về cộng đồng -->
+  <g stroke="#24211d" stroke-width="10" stroke-linejoin="round">
+    <circle cx="1190" cy="750" r="52" fill="#b46e46"/>
+    <path d="M1125 800Q1190 760 1255 800L1295 1045H1085Z" fill="#0d6d54"/>
+    <path d="M1128 830Q1165 865 1190 902Q1215 865 1252 830" fill="none"/>
+    <path d="M1190 850V935" stroke="#e9c27a" stroke-width="18"/>
+    <path d="M1179 870L1190 846L1201 870" fill="none" stroke="#e9c27a" stroke-width="12"/>
+
+    <circle cx="1420" cy="760" r="50" fill="#a5633b"/>
+    <path d="M1360 808Q1420 772 1480 808L1515 1050H1325Z" fill="#edc877"/>
+    <path d="M1362 850L1305 910M1478 850L1525 890" fill="none"/>
+    <rect x="1280" y="902" width="92" height="28" rx="14" fill="#8b5a34"/>
+  </g>
+
+  <!-- Eye path và vùng gáy chỉ có nền -->
+  <path d="M1135 780Q930 700 745 755" fill="none" stroke="#5b4734" stroke-width="6" stroke-dasharray="15 15"/>
+  <rect x="725" y="682" width="86" height="342" fill="#d67e7e" opacity=".22"/>
+  <text x="738" y="705" font-family="sans-serif" font-size="18" fill="#792424" transform="rotate(90 738 705)">GÁY — CHỈ NỀN ĐẤT</text>
+
+  <rect x="50" y="682" width="1436" height="342" fill="none" stroke="#1f9d55" stroke-width="8"/>
+  <rect x="0" y="0" width="1536" height="682" fill="#4a90e2" opacity=".08"/>
+  <text x="55" y="55" font-family="sans-serif" font-size="29" font-weight="700" fill="#163b4a">BỐ CỤC XA–GẦN — VISAKHA VÀ NALINI Ở TIỀN CẢNH</text>
+  <text x="55" y="95" font-family="sans-serif" font-size="22" fill="#315b68">Nhóm đông thi công ở trung–hậu cảnh; vùng trời mở rộng dùng để hòa lấp</text>
+  <text x="70" y="718" font-family="sans-serif" font-size="20" font-weight="700" fill="#176c3a">VÙNG NỘI DUNG CHÍNH</text>
+</svg>

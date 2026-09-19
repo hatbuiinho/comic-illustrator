@@ -1,0 +1,39 @@
+{
+  "manifest": "/workspace/Tap 53/Part 1/pages/page-015/layout-option2-v2.json",
+  "failures": [],
+  "warnings": [],
+  "passes": [
+    {
+      "scope": "part1-page15-option2-v2/printTrimLock",
+      "message": "Page 286×203 mm; trim 3 mm; critical-safe 8 mm."
+    },
+    {
+      "scope": "part1-page15-option2-v2/layoutQa",
+      "message": "Đã dùng layout gốc có text làm nền overlay: ../../tmp/pdf_all/p15.png."
+    },
+    {
+      "scope": "part1-page15-option2-v2/page15-chapter1-ending-hero/optionAlignment",
+      "message": "Option page15-option2-torchline-ots đã được người dùng xác nhận."
+    },
+    {
+      "scope": "part1-page15-option2-v2/page15-chapter1-ending-hero",
+      "message": "Tỷ lệ khớp frame (0.15% lệch)."
+    }
+  ],
+  "optionAlignment": [
+    {
+      "scope": "part1-page15-option2-v2/page15-chapter1-ending-hero/optionAlignment",
+      "optionId": "page15-option2-torchline-ots",
+      "userConfirmed": true,
+      "missing": []
+    }
+  ],
+  "spreads": [
+    {
+      "id": "part1-page15-option2-v2",
+      "overlay": "/workspace/Tap 53/Part 1/pages/page-015/qa/v2/part1-page15-option2-v2-overlay.svg",
+      "frames": 1,
+      "sourceLayout": "../../tmp/pdf_all/p15.png"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "page": 6,
+  "part": 1,
+  "episode": "Tap 53",
+  "status": "g2-options-ready",
+  "userAction": "process page 6 ạ",
+  "userConfirmed": false,
+  "selectedOption": null,
+  "sourceContext": "storyboards/page006-g1-source-context-v1.md",
+  "optionsDocument": "storyboards/page006-g2-options-v1.md",
+  "options": [
+    {
+      "id": "page006-option1-bua-nghi-chung",
+      "preliminaryCompositionCard": "storyboards/page006-option1-bua-nghi-chung-composition-v2.png",
+      "details": "storyboards/page006-g2-options-v1.md",
+      "userConfirmed": false
+    },
+    {
+      "id": "page006-option2-cau-chuyen-ben-chen-nuoc",
+      "preliminaryCompositionCard": "storyboards/page006-option2-cau-chuyen-ben-chen-nuoc-composition-v2.png",
+      "details": "storyboards/page006-g2-options-v1.md",
+      "userConfirmed": false
+    }
+  ],
+  "delivery": [
+    {
+      "frame": "rest-meal",
+      "required": true,
+      "status": "storyboard-pending"
+    }
+  ],
+  "continuityInput": "Script và PDF 5–7: chăm lo cho người lao động → bữa nghỉ chung → khảo sát buổi chiều; không dùng output page khác."
+}

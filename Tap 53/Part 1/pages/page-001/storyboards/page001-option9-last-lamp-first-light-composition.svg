@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="#a5cbd1"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+  <path d="M425 575 L425 180 Q508 140 585 185 L602 575Z" fill="#4d4a40"/>
+  <path d="M625 0 L790 0 L790 320 L625 355Z" fill="#b3d7d6"/>
+  <path d="M686 350 Q700 165 745 15" fill="none" stroke="#557d5b" stroke-width="16"/>
+  <path d="M532 575 L540 440 Q578 410 620 438 L633 575Z" fill="#66513d" stroke="#dfc18c" stroke-width="4"/>
+  <ellipse cx="580" cy="421" rx="19" ry="21" fill="#d78920" stroke="#f7cd7b" stroke-width="3"/>
+  <path d="M448 555 L528 555 L512 410 Q490 360 468 410Z" fill="#d9a842" stroke="#ffe29b" stroke-width="5"/>
+  <path d="M469 410 Q490 335 511 410" fill="#f5d374" stroke="#fff0b1" stroke-width="4"/>
+  <path d="M642 110 q8 -8 16 0 M672 135 q8 -8 16 0" fill="none" stroke="#49646b" stroke-width="3"/>
+  <text x="425" y="35" fill="#fff" font-family="sans-serif" font-size="18" font-weight="700">Focus: đêm vừa rút</text><text x="425" y="58" fill="#f4ffff" font-family="sans-serif" font-size="15">Camera: góc thấp từ cạnh chiếu</text><text x="425" y="80" fill="#f4ffff" font-family="sans-serif" font-size="15">Dư âm: ánh sáng thay phiên rất nhẹ</text>
+</svg>

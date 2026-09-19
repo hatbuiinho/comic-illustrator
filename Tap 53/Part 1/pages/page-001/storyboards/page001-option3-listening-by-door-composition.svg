@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+  <image x="0" y="0" width="810.709" height="575.433" xlink:href="page001-layout-source.png"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="#29333a" opacity=".75"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+  <path d="M425 0 L475 0 L455 575 L425 575Z" fill="#43342b" stroke="#dec397" stroke-width="4"/>
+  <path d="M715 65 L790 45 L790 420 L715 395Z" fill="#9bc8d5" stroke="#d9f0f5" stroke-width="4"/>
+  <path d="M727 393 Q750 240 770 65" fill="none" stroke="#537d5b" stroke-width="12"/>
+  <path d="M500 548 L510 265 Q580 210 657 255 L680 548Z" fill="#73533d" stroke="#f0d5a9" stroke-width="5"/>
+  <ellipse cx="592" cy="212" rx="44" ry="47" fill="#cf8f57" stroke="#f0d5a9" stroke-width="5"/>
+  <path d="M550 213 Q590 164 635 207 L637 235 Q592 252 550 229Z" fill="#dc8821" stroke="#f7d07d" stroke-width="4"/>
+  <path d="M574 225 Q590 235 609 224" fill="none" stroke="#38251c" stroke-width="4"/>
+  <path d="M465 530 L492 530 L488 475 Q480 456 472 475Z" fill="#e2b34d" stroke="#f8dfa1" stroke-width="3"/>
+  <path d="M475 474 Q480 446 487 474" fill="#f5d873" stroke="#ffecac" stroke-width="3"/>
+  <text x="425" y="35" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="700">Focus: ánh mắt Nalini lắng nghe</text>
+  <text x="425" y="58" fill="#d7ecf8" font-family="sans-serif" font-size="15">Camera: medium nhìn chéo vào lều</text>
+  <text x="425" y="80" fill="#d7ecf8" font-family="sans-serif" font-size="15">Dư âm: điều lạ ở ngoài cửa</text>
+</svg>

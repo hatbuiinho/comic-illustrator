@@ -1,0 +1,58 @@
+{
+  "manifest": "/workspace/Tap 53/Part 1/pages/page-024/layout.json",
+  "failures": [
+    {
+      "scope": "part1-page24-optionA/H2-extinguished-lamp/cracked-wall",
+      "message": "Chi tiết quan trọng vượt critical-safe 8 mm và có nguy cơ bị xén."
+    }
+  ],
+  "warnings": [],
+  "passes": [
+    {
+      "scope": "part1-page24-optionA/printTrimLock",
+      "message": "Page 286×203 mm; trim 3 mm; critical-safe 8 mm."
+    },
+    {
+      "scope": "part1-page24-optionA/layoutQa",
+      "message": "Đã dùng layout gốc có text làm nền overlay: ../../../../tmp/pdf_pages/page_24.png."
+    },
+    {
+      "scope": "part1-page24-optionA/H1-fist-silences-circle/optionAlignment",
+      "message": "Option page24-2d-optionA đã được người dùng xác nhận."
+    },
+    {
+      "scope": "part1-page24-optionA/H1-fist-silences-circle",
+      "message": "Tỷ lệ khớp frame (0.34% lệch)."
+    },
+    {
+      "scope": "part1-page24-optionA/H2-extinguished-lamp/optionAlignment",
+      "message": "Option page24-2d-optionA đã được người dùng xác nhận."
+    },
+    {
+      "scope": "part1-page24-optionA/H2-extinguished-lamp",
+      "message": "Tỷ lệ khớp frame (0.34% lệch)."
+    }
+  ],
+  "optionAlignment": [
+    {
+      "scope": "part1-page24-optionA/H1-fist-silences-circle/optionAlignment",
+      "optionId": "page24-2d-optionA",
+      "userConfirmed": true,
+      "missing": []
+    },
+    {
+      "scope": "part1-page24-optionA/H2-extinguished-lamp/optionAlignment",
+      "optionId": "page24-2d-optionA",
+      "userConfirmed": true,
+      "missing": []
+    }
+  ],
+  "spreads": [
+    {
+      "id": "part1-page24-optionA",
+      "overlay": "/workspace/Tap 53/Part 1/pages/page-024/qa/part1-page24-optionA-overlay.svg",
+      "frames": 2,
+      "sourceLayout": "../../../../tmp/pdf_pages/page_24.png"
+    }
+  ]
+}

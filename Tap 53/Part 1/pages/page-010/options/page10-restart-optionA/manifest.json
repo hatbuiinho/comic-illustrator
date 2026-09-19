@@ -1,0 +1,161 @@
+{
+  "pageId": "page-010",
+  "optionId": "page10-restart-optionA",
+  "status": "generated",
+  "activeVariant": null,
+  "promptFile": "page10-restart-optionA-prompts.md",
+  "layout": "../../layout.json",
+  "sourceRead": [
+    "../../../../../notes.md",
+    "../../../../../shot_notes.md",
+    "../../../../../workflow.md",
+    "../../../../scripts/chapter1.md",
+    "../../../../../characters/Bác Nalini.png",
+    "../../../../../characters/Visakha.png",
+    "../../../../../tmp/pdf_pages/page_10_hi.png"
+  ],
+  "optionAlignment": {
+    "optionId": "page10-restart-optionA",
+    "selectedBrief": "Medium close-up 3/4 ngang trong oval: Visakha mở lòng bàn tay về các tảng đá xanh; Nalini ở phía đối diện nhìn theo và bắt đầu chuyển từ cân nhắc chi phí sang kính trọng.",
+    "mustMatch": [
+      "chỉ Nalini và Visakha là nhân vật nhìn thấy rõ",
+      "Visakha dẫn nhận thức bằng bàn tay mở về đá, không phải ngón tay ra lệnh",
+      "Nalini tiếp nhận bằng ánh mắt mềm và thân hơi hướng về focus chung",
+      "đá và hai nhân vật nằm hai phía gáy, dải gáy chỉ là nền"
+    ],
+    "forbidden": [
+      "Punna làm chủ thể",
+      "công trình hoàn thiện, tường, cột hoặc mái cố định",
+      "tỳ kheo ni hoặc cảnh xảy ra sau đó",
+      "ngón trỏ đơn độc, tư thế ra lệnh, hai người đối đầu với người đọc"
+    ],
+    "layoutMapping": [
+      "ellipse x=0.3346 y=0.5774 w=0.3305 h=0.4221",
+      "Nalini ở nửa trái oval; Visakha ở nửa phải",
+      "mặt, tay, bản vẽ và đá tránh ellipse edge; spine x=0.47–0.53 chỉ là background"
+    ],
+    "alignmentRationale": [
+      {
+        "optionRequirement": "Lời đề nghị của Visakha phải đọc là trân trọng dành đá cho hương thất.",
+        "manifestEvidence": "gestureSemanticsLock và critical visakha-open-palm-to-stone.",
+        "whyMatch": "Bàn tay mở, lòng bàn tay chếch về đá và đá là neo chung; hình không dùng ngón trỏ ra lệnh."
+      },
+      {
+        "optionRequirement": "Nalini bắt đầu chuyển biến nhận thức trong cùng khoảnh khắc.",
+        "manifestEvidence": "emotionLock, relationalFocusLock và critical nalini-face.",
+        "whyMatch": "Nalini nhìn theo đường Visakha → đá rồi lắng lại, với mặt đủ lớn trong oval để đọc biểu cảm."
+      },
+      {
+        "optionRequirement": "Giữ đúng layout oval và vùng gáy.",
+        "manifestEvidence": "frameMap và spineSafeZone.",
+        "whyMatch": "Hai silhouette được tách hai bên; các critical box không đặt vào dải gáy đỏ."
+      }
+    ],
+    "sourceRead": ["../../../../../notes.md", "../../../../../shot_notes.md", "../../../../../workflow.md", "../../../../scripts/chapter1.md"],
+    "userConfirmed": true
+  },
+  "frames": [
+    {
+      "id": "h1-stone-offering-reception",
+      "shape": "ellipse",
+      "box": { "x": 0.3346, "y": 0.5774, "width": 0.3305, "height": 0.4221 },
+      "textReserve": [],
+      "spine": { "x": 0.47, "y": 0.5774, "width": 0.06, "height": 0.4221 },
+      "safeZone": { "x": 0.35, "y": 0.60, "width": 0.30, "height": 0.37 },
+      "narrativeFunction": "reaction-and-shared-value",
+      "critical": [
+        { "id": "nalini-face", "box": { "x": 0.375, "y": 0.66, "width": 0.075, "height": 0.095 } },
+        { "id": "nalini-blueprint", "box": { "x": 0.405, "y": 0.8, "width": 0.045, "height": 0.055 } },
+        { "id": "visakha-face", "box": { "x": 0.55, "y": 0.66, "width": 0.075, "height": 0.095 } },
+        { "id": "visakha-open-palm-to-stone", "box": { "x": 0.535, "y": 0.8, "width": 0.045, "height": 0.05 } },
+        { "id": "stone-focus", "box": { "x": 0.38, "y": 0.86, "width": 0.06, "height": 0.04 } }
+      ],
+      "frameReadabilityLock": {
+        "displayContext": "oval frame nhỏ ở đáy spread, xem cùng text phía trên",
+        "shotSizeAllowed": ["medium close-up", "close-up hai người bán thân"],
+        "subjectScale": "mỗi mặt khoảng 15–18% chiều cao oval; tay và đá là mảng rõ",
+        "minimumReadableElements": ["mặt Nalini", "mặt Visakha", "bàn tay mở", "đá xanh"],
+        "forbiddenScale": ["full-body", "establishing rộng", "worker/background lấn subject"],
+        "scaleProof": "Hai nhân vật bán thân chiếm hai nửa oval; background chỉ là vài mảng đất/xe/gạch ở xa."
+      },
+      "shotThesis": {
+        "dramaticMeaning": "Lòng thành kín đáo của Visakha làm Nalini bắt đầu nhìn vật liệu bằng giá trị tinh thần lớn hơn chi phí.",
+        "moment": "Trong hành động: Visakha vừa đưa lời đề nghị, Nalini chưa nói lời đồng ý nhưng đã tiếp nhận.",
+        "pointOfView": "Qua sự tiếp nhận của Nalini; người đọc đi theo cử chỉ Visakha đến đá rồi trở về mắt Nalini.",
+        "focusAndEyePath": "Bàn tay mở của Visakha → các khối đá xanh → ánh mắt mềm của Nalini.",
+        "outOfFrame": "Punna, lời giải thích chi phí đầy đủ, việc xây hương thất về sau và mọi cảnh sau đoạn này."
+      },
+      "emotionLock": {
+        "intendedEmotion": "Visakha trân trọng và Nalini kính trọng, bắt đầu thấu hiểu.",
+        "readerFeeling": "Người đọc nhận ra một lựa chọn vật liệu đang trở thành lựa chọn về giá trị.",
+        "facialCues": ["mắt Visakha dịu, tập trung về đá", "mắt Nalini mềm và dừng lại", "lông mày Nalini thả, miệng khép nhẹ"],
+        "bodyCues": ["lòng bàn tay Visakha mở, khuỷu mềm", "Nalini hơi nghiêng về focus chung", "bản vẽ hạ tự nhiên, không chống cằm"],
+        "wrongReadings": ["Visakha ra lệnh", "Nalini đang nghi ngờ hoặc chỉ tính tiền", "hai người đối đầu", "Visakha phô trương quyền lực"]
+      },
+      "relationalFocusLock": {
+        "sharedFocusAnchor": "các tảng đá xanh dành cho hương thất của Thế Tôn",
+        "gazeChoreography": { "visakha": "mắt và lòng bàn tay hướng về đá", "nalini": "nhìn theo về đá rồi lắng lại ở ý nghĩa của đề nghị" },
+        "relationshipState": "Visakha dẫn nhận thức bằng lòng thành; Nalini tiếp nhận và bắt đầu đồng thuận.",
+        "forbiddenReadings": ["hai người nhìn lệch nhau", "đối thoại trực diện với người đọc", "hai hoạt động tách rời"]
+      },
+      "gestureSemanticsLock": {
+        "intendedMeaning": "trân trọng giới thiệu và xin dành vật liệu tốt cho nơi thanh tịnh",
+        "handShape": "bàn tay mở, ngón khép mềm, không duỗi riêng ngón trỏ",
+        "palmDirection": "lòng bàn tay chếch xuống/về phía các tảng đá",
+        "target": "đá xanh ở vùng thấp, tránh gáy",
+        "supportingPose": "vai thả, thân Visakha hơi hướng về đá; Nalini hạ bản vẽ và nhìn theo",
+        "forbiddenGestures": ["chỉ một ngón", "ra lệnh", "khoanh tay", "nắm tay căng"]
+      },
+      "contextSnapshot": {
+        "time": "buổi chiều, ngay khi xe vật liệu vừa đến",
+        "present": ["Nalini", "Visakha", "Punna", "người thợ báo tin"],
+        "happening": "gạch thường chưa bốc xuống, đá dư đang được chuyển vào góc; Visakha đề nghị dùng đá cho hương thất",
+        "forbiddenFuture": ["Nalini đã tính xong và đồng ý", "hương thất đã xây", "tỳ kheo ni đến thăm", "công trình hoàn thiện"]
+      },
+      "backgroundContinuityLock": {
+        "physicalStage": "bãi tập kết vật liệu của công trường đang thi công ban đầu",
+        "mustShow": ["đất công trường thô", "đá xanh nguyên khối"],
+        "mayShow": ["xe bò chở gạch chưa bốc", "worker rất nhỏ đang chuyển đá"],
+        "forbiddenBackground": ["tường/cột/mái hoàn thiện", "hương thất", "tỳ kheo ni", "nội thất"],
+        "backgroundProof": "Chương 1 câu về xe vừa đến, gạch chưa bốc và thợ chuyển đá; các hạng mục sau chỉ xuất hiện khi ba người tiếp tục đi."
+      },
+      "narrativeInferenceLock": {
+        "explicit": "Visakha chỉ đá và xin dùng cho hương thất; Nalini đang cân nhắc chi phí.",
+        "stronglyImplied": "Visakha đặt giá trị thanh tịnh lên trên sự phô trương; Nalini bắt đầu kính trọng điều đó.",
+        "unknown": "vị trí chính xác của Punna/người thợ và lượng đá cụ thể; không đưa họ thành focus."
+      }
+    }
+  ],
+  "storyboardQa": { "status": "approved", "compositionCard": "../../storyboards/page10-restart-optionA-composition.svg", "userConfirmed": true },
+  "variants": [
+    {
+      "id": "h1-v1",
+      "output": "../../outputs/part1-page10-restart-optionA-h1-v1.png",
+      "status": "preserved",
+      "userPreference": "preferred for emotion, pose and hand gesture"
+    },
+    {
+      "id": "h1-v2",
+      "output": "../../outputs/part1-page10-restart-optionA-h1-v2.png",
+      "status": "generated",
+      "userPreference": "not selected"
+    },
+    {
+      "id": "h1-v3-bgfix",
+      "output": "../../outputs/part1-page10-restart-optionA-h1-v3-bgfix.png",
+      "status": "pending-user-visual-approval",
+      "userRequestedDelta": [
+        "giữ cảm xúc, tư thế và cử chỉ tay của H1 v1",
+        "chỉnh background thành bãi tập kết vật liệu ở giai đoạn thi công ban đầu",
+        "không đưa công trình hoàn thiện hoặc bối cảnh tương lai vào ảnh"
+      ],
+      "visualDeltaQa": {
+        "background": "pass-by-review: rough construction-material staging, blue-green stones, unloaded brick carts, distant subordinate workers",
+        "characterEmotionPoseGesture": "requires-user-review against h1-v1",
+        "style": "requires-user-review for pure 2D consistency",
+        "layoutRatio": "pass: 1315x1196, matching the existing near-square target"
+      }
+    }
+  ],
+  "delivery": { "required": true, "output": "../../outputs/part1-page10-restart-optionA-h1-v3-bgfix.png", "status": "generated", "technicalQa": "pending-user-visual-approval" }
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="620" viewBox="0 0 1400 620">
+  <rect width="1400" height="620" fill="#eee5d5"/>
+  <text x="32" y="38" font-family="sans-serif" font-size="24" font-weight="700" fill="#382d27">PAGE 24 · OPTION A · COMPOSITION CARD</text>
+  <text x="32" y="65" font-family="sans-serif" font-size="14" fill="#665549">H1: nắm tay ép vòng họp im lặng · H2: tim đèn tắt và khói ngang</text>
+  <rect x="0" y="110" width="602" height="235" fill="#3f3836"/>
+  <path d="M0 110H602V175L520 160L445 205L360 168L260 215L165 170L70 205L0 180Z" fill="#65544a"/>
+  <path d="M0 345H602V110H0Z" fill="none" stroke="#271f1c" stroke-width="5"/>
+  <path d="M40 335L50 210L120 180L170 335Z" fill="#5a382a" stroke="#211b19" stroke-width="5"/>
+  <circle cx="164" cy="203" r="32" fill="#c68c68" stroke="#211b19" stroke-width="5"/>
+  <path d="M135 182Q163 150 190 182" fill="none" stroke="#eee1c2" stroke-width="12"/>
+  <path d="M175 230Q130 255 105 315" fill="none" stroke="#bd7345" stroke-width="30" stroke-linecap="round"/>
+  <path d="M95 302Q140 280 177 302Q146 337 107 331Z" fill="#d49a72" stroke="#211b19" stroke-width="5"/>
+  <circle cx="265" cy="225" r="23" fill="#b87b5c" stroke="#211b19" stroke-width="4"/>
+  <circle cx="330" cy="210" r="25" fill="#b87b5c" stroke="#211b19" stroke-width="4"/>
+  <circle cx="408" cy="225" r="29" fill="#b87b5c" stroke="#211b19" stroke-width="4"/>
+  <circle cx="505" cy="232" r="20" fill="#b87b5c" stroke="#211b19" stroke-width="4"/>
+  <path d="M240 265L280 335H230ZM305 250L355 335H290ZM370 270L450 335H360ZM485 260L540 335H470Z" fill="#76563d" stroke="#211b19" stroke-width="4"/>
+  <path d="M405 316V292H435V316" fill="#b67643" stroke="#211b19" stroke-width="3"/>
+  <path d="M420 288Q413 270 420 258Q427 270 420 288Z" fill="#e6a13a" stroke="#211b19" stroke-width="3"/>
+  <path d="M545 110V345" stroke="#171414" stroke-width="22"/>
+  <text x="16" y="132" font-family="sans-serif" font-size="16" font-weight="700" fill="#f4dfb0">FOCUS: NẮM TAY → MẶT LÃO</text>
+  <text x="16" y="330" font-family="sans-serif" font-size="13" fill="#f4dfb0">5 profile · đèn còn cháy nhỏ · đá tối giản ở mép gáy</text>
+  <rect x="672" y="110" width="602" height="235" fill="#29292b"/>
+  <path d="M672 110H1274V345H672Z" fill="none" stroke="#211b19" stroke-width="5"/>
+  <path d="M672 310L760 255L830 300L930 230L1015 285L1105 245L1274 290V345H672Z" fill="#514843" stroke="#211b19" stroke-width="5"/>
+  <path d="M905 270H1035V345H905Z" fill="#a56d43" stroke="#171414" stroke-width="5"/>
+  <path d="M905 285H1035" stroke="#d69a61" stroke-width="5"/>
+  <path d="M970 285Q948 250 970 220Q992 250 970 285Z" fill="#252326" stroke="#111" stroke-width="4"/>
+  <path d="M980 205Q1060 190 1135 210Q1190 225 1240 198" fill="none" stroke="#c8c0b4" stroke-width="7"/>
+  <path d="M980 205Q1060 190 1135 210Q1190 225 1240 198" fill="none" stroke="#746d67" stroke-width="3"/>
+  <text x="688" y="132" font-family="sans-serif" font-size="16" font-weight="700" fill="#f4dfb0">FOCUS: TIM ĐEN → KHÓI NGANG → KHE NỨT</text>
+  <text x="688" y="330" font-family="sans-serif" font-size="13" fill="#f4dfb0">không người · không lửa · không blur/bloom</text>
+  <rect x="0" y="110" width="602" height="235" fill="none" stroke="#65a6c7" stroke-width="3"/>
+  <rect x="672" y="110" width="602" height="235" fill="none" stroke="#65a6c7" stroke-width="3"/>
+  <rect x="620" y="100" width="32" height="255" fill="#81756c"/>
+  <text x="625" y="240" transform="rotate(-90 625 240)" font-family="sans-serif" font-size="13" fill="white">GÁY / SAFE ZONE</text>
+</svg>

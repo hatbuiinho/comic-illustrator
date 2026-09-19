@@ -1,0 +1,39 @@
+{
+  "manifest": "/workspace/Tap 53/Part 1/scripts/page05-layout-frame.json",
+  "failures": [],
+  "warnings": [],
+  "passes": [
+    {
+      "scope": "part1-spread05-community-worksite-restart-v5/printTrimLock",
+      "message": "Trim x 1.049% · y 1.478%; critical-safe x 2.797% · y 3.941%."
+    },
+    {
+      "scope": "part1-spread05-community-worksite-restart-v5/layoutQa",
+      "message": "Đã dùng layout gốc có text làm nền overlay: ../tmp/page-005-source/layout.png."
+    },
+    {
+      "scope": "part1-spread05-community-worksite-restart-v5/page05-community-worksite-strip/optionAlignment",
+      "message": "Option page05-restart-option4-visakha-chap-tay-cam-ta-expanded đã được người dùng xác nhận."
+    },
+    {
+      "scope": "part1-spread05-community-worksite-restart-v5/page05-community-worksite-strip",
+      "message": "Tỷ lệ contentFrame khớp frame (0.01% lệch)."
+    }
+  ],
+  "optionAlignment": [
+    {
+      "scope": "part1-spread05-community-worksite-restart-v5/page05-community-worksite-strip/optionAlignment",
+      "optionId": "page05-restart-option4-visakha-chap-tay-cam-ta-expanded",
+      "userConfirmed": true,
+      "missing": []
+    }
+  ],
+  "spreads": [
+    {
+      "id": "part1-spread05-community-worksite-restart-v5",
+      "overlay": "/workspace/Tap 53/Part 1/pages/page-005/qa-v5/part1-spread05-community-worksite-restart-v5-overlay.svg",
+      "frames": 1,
+      "sourceLayout": "../tmp/page-005-source/layout.png"
+    }
+  ]
+}

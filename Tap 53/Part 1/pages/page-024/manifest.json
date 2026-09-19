@@ -1,0 +1,127 @@
+{
+  "page": "024",
+  "part": "1",
+  "status": "pending-user-selection",
+  "userAction": "Chọn option: page24-2d-optionA",
+  "optionAlignment": {
+    "optionId": "page24-2d-optionA",
+    "userConfirmed": true,
+    "selectedBrief": "Nắm tay của lão đạo trưởng ép vòng họp năm người vào im lặng; H2 là đèn tắt không người.",
+    "mustMatch": ["đúng năm đạo sĩ", "nắm tay foreground trái", "đèn H1 còn cháy nhỏ", "H2 tim đen và khói ngang", "thuần 2D"],
+    "forbidden": ["người thứ sáu", "hành động tương lai", "vũ khí", "lửa ở H2", "3D/photoreal"],
+    "layoutMapping": ["H1 x=0–0.43 y=0.7639–0.9988", "H2 x=0.57–1 y=0.7639–0.9988", "gáy x=0.47–0.53"],
+    "sourceRead": [
+      "notes.md",
+      "shot_notes.md",
+      "workflow.md",
+      "Part 1/scripts/chapter3.md",
+      "tmp/pdf_pages/page_24.png",
+      "characters/Lao dao truong.png",
+      "characters/Dao si tre gay go.png",
+      "characters/Ga dao si xoa man suon.png",
+      "characters/Dao si cao to tho kech.png",
+      "characters/Dao si ngoi gan cua.png"
+    ],
+    "alignmentRationale": [
+      {"optionRequirement": "Nắm tay foreground trái", "manifestEvidence": "compositionContract.h1.fistBox = x=0.07–0.19", "whyMatch": "Giữ lực kịch tính và eye path của Option A."},
+      {"optionRequirement": "Đủ năm đạo sĩ trong vòng họp", "manifestEvidence": "compositionContract.h1.visibleCharacters = 5", "whyMatch": "Không bỏ mất phản ứng hoặc thêm người."},
+      {"optionRequirement": "H2 là đèn tắt không người", "manifestEvidence": "compositionContract.h2.visibleCharacters = 0 và noFlame = true", "whyMatch": "Giữ đúng chuyển beat vật lý ngay sau H1."}
+    ],
+    "confirmation": "Xác nhận Storyboard QA: page 24 — page24-2d-optionA"
+  },
+  "contextSnapshot": {
+    "location": "điện thờ đá cổ khuất trong rừng",
+    "timeline": "H1 ngay sau đề nghị cuối và trước khi gió tắt đèn; H2 ngay sau đó",
+    "presentCharacters": ["Lao đạo trưởng", "đạo sĩ trẻ gầy", "gã xoa mạn sườn", "gã to cao", "đạo sĩ ngồi gần cửa"],
+    "futureActionsForbidden": true,
+    "h2State": "đèn đã tắt, tim đen, khói mảnh kéo ngang qua khe tường nứt"
+  },
+  "profileReferenceSet": [
+    "characters/Lao dao truong.png",
+    "characters/Dao si tre gay go.png",
+    "characters/Ga dao si xoa man suon.png",
+    "characters/Dao si cao to tho kech.png",
+    "characters/Dao si ngoi gan cua.png"
+  ],
+  "referenceMode": "visual-profile",
+  "referenceMapping": {
+    "lao-dao-truong": "characters/Lao dao truong.png",
+    "dao-si-tre-gay": "characters/Dao si tre gay go.png",
+    "ga-xoa-man-suon": "characters/Ga dao si xoa man suon.png",
+    "ga-to-cao": "characters/Dao si cao to tho kech.png",
+    "dao-si-gan-cua": "characters/Dao si ngoi gan cua.png"
+  },
+  "profileFidelityLock": [
+    {"characterId": "lao-dao-truong", "profileSource": "characters/Lao dao truong.png", "mustPreserve": ["tóc và râu trắng dài", "búi tóc cao", "khăn/khăn choàng cam", "mặt già góc cạnh, lông mày trắng", "chuỗi hạt nâu"], "shotReadability": ["mặt", "búi tóc trắng", "khăn cam", "nắm tay"], "distinctFrom": ["bốn đạo sĩ tóc đen"], "forbiddenDrift": ["trẻ hóa", "tóc đen", "râu đen", "thân hình lực lưỡng kiểu gã to cao"], "visibilityPlan": "mặt 3/4 lớn ở trái, nắm tay foreground", "confidence": "high"},
+    {"characterId": "dao-si-tre-gay", "profileSource": "characters/Dao si tre gay go.png", "mustPreserve": ["thân hình gầy", "tóc đen búi cao và tóc dài phía sau", "ria mép và chòm râu nhỏ", "mắt to lo âu", "áo nâu-be và dải vải đỏ nâu"], "shotReadability": ["mặt lo âu", "tóc đen", "thân mảnh"], "distinctFrom": ["gã xoa sườn", "gã to cao"], "forbiddenDrift": ["râu quai nón", "thân hình cơ bắp", "tóc trắng", "ria mép dày"], "visibilityPlan": "mặt bán thân ở lớp sau lão", "confidence": "high"},
+    {"characterId": "ga-xoa-man-suon", "profileSource": "characters/Ga dao si xoa man suon.png", "mustPreserve": ["thân hình trung bình", "tóc đen búi cao", "ria mép đen dày, không râu dài", "áo nâu cam", "tay trái xoa mạn sườn"], "shotReadability": ["ria dày", "tay trái ở mạn sườn", "áo nâu cam"], "distinctFrom": ["đạo sĩ trẻ gầy", "đạo sĩ gần cửa"], "forbiddenDrift": ["râu quai nón", "tay phải xoa sườn", "thân hình khổng lồ", "khăn kem"], "visibilityPlan": "mặt nghiêng và tay trái giữ sườn", "confidence": "high"},
+    {"characterId": "ga-to-cao", "profileSource": "characters/Dao si cao to tho kech.png", "mustPreserve": ["thân hình cao và cơ bắp lớn nhất nhóm phụ", "tóc đen búi cao", "ria mép cong dày", "chòm râu nhọn dưới cằm", "khăn choàng đỏ nâu và chuỗi hạt"], "shotReadability": ["vai/thân lớn", "ria cong và chòm râu", "khăn đỏ nâu"], "distinctFrom": ["ba nhân vật còn lại"], "forbiddenDrift": ["thân hình gầy", "râu trắng", "dải vải kem", "gương mặt trẻ"], "visibilityPlan": "vai và mặt lớn ở nền phải nhưng không che lão", "confidence": "high"},
+    {"characterId": "dao-si-gan-cua", "profileSource": "characters/Dao si ngoi gan cua.png", "mustPreserve": ["thân hình vừa", "tóc nâu đen búi cao", "râu quai nón và ria", "dải vải kem chạy chéo ngực", "áo choàng nâu"], "shotReadability": ["dải vải kem", "râu quai nón", "vị trí gần cửa"], "distinctFrom": ["gã xoa sườn", "gã to cao"], "forbiddenDrift": ["ria đơn không râu", "khăn đỏ nâu", "tóc trắng", "đặt giữa vòng"], "visibilityPlan": "mặt và vai sát cửa nứt ở far right", "confidence": "high"}
+  ],
+  "identityConflictCheck": {
+    "status": "locked",
+    "pairs": ["trẻ gầy ≠ xoa sườn: mắt to/thân mảnh vs ria dày/tay trái ở sườn", "xoa sườn ≠ gần cửa: không râu dài vs râu quai nón/dải kem", "to cao ≠ tất cả: vai và thân cơ bắp lớn nhất, ria cong/chòm râu nhọn", "lão ≠ tất cả: tóc/râu trắng và khăn cam"]
+  },
+  "backgroundContinuityLock": {
+    "h1": "nội thất đá cũ, tường nứt/đổ, sàn tối, không ngoại cảnh",
+    "h2": "cận đèn trong cùng tường đá nứt, không chuyển sang cảnh khác"
+  },
+  "visualComponentLock": {
+    "allVisibleComponents": "thuần 2D animation; line art rõ, mảng màu phẳng, 1–2 cấp cel-shading cạnh cứng",
+    "h1": ["nắm tay lão là foreground lớn nhất", "đúng năm profile, mỗi người còn ít nhất hai dấu hiệu nhận dạng", "đèn còn lửa nhỏ", "đá là mảng phẳng góc cạnh"],
+    "h2": ["đèn đất nung cận cảnh", "tim đen", "khói 1–2 dải đồ họa ngang", "khe tường nứt"],
+    "forbidden": ["photoreal texture", "3D/2.5D", "soft shading", "bloom", "volumetric light", "blur", "vũ khí", "người thứ sáu", "người ngoài năm đạo sĩ"]
+  },
+  "frameReadabilityLock": {
+    "displayContext": "hai strip ngang ở đáy spread, kích thước thật trên trang",
+    "h1": {"box": "x=0–0.43, y=0.7639–0.9988", "ratio": "2.57:1", "subjectScale": "nắm tay và mặt lão lớn; bốn profile phụ vẫn đọc được", "forbiddenScale": "không để toàn nhóm thành silhouette nhỏ"},
+    "h2": {"box": "x=0.57–1, y=0.7639–0.9988", "ratio": "2.57:1", "subjectScale": "tim đèn và khói ngang đủ lớn để đọc khi thu nhỏ", "forbiddenScale": "không dùng toàn cảnh hoặc lửa còn cháy"}
+  },
+  "shotThesis": {
+    "h1": {
+      "dramaticMeaning": "nắm tay của lão ép lời đề nghị cuối thành sự im lặng chung",
+      "moment": "trong khoảnh khắc siết tay sau lời đề nghị",
+      "pointOfView": "low medium-wide từ trong vòng họp",
+      "focusPath": "nắm tay → mặt lão → bốn profile im lặng → đèn còn cháy nhỏ",
+      "outsideFrame": "nội dung kế hoạch và hành động tương lai"
+    },
+    "h2": {
+      "dramaticMeaning": "dư âm của sự im lặng chuyển thành dấu hiệu vật lý lạnh đi",
+      "moment": "ngay sau khi gió tắt đèn",
+      "pointOfView": "extreme close-up ngang vào đèn",
+      "focusPath": "tim đen → khói ngang → khe tường nứt → tối",
+      "outsideFrame": "toàn bộ năm người và mọi hành động tiếp theo"
+    }
+  },
+  "compositionContract": {
+    "optionId": "page24-2d-optionA",
+    "compositionCard": "storyboards/page24-2d-optionA-composition.svg",
+    "h1": {"camera": "low medium-wide", "visibleCharacters": 5, "fistBox": "x=0.07–0.19", "elderFaceBox": "x=0.18–0.27", "supportingProfilesBox": "x=0.22–0.37", "lampBox": "x=0.29–0.33", "spineReserve": "x=0.47–0.53"},
+    "h2": {"camera": "extreme close-up", "visibleCharacters": 0, "wick": "black", "smokeDirection": "horizontal", "crackedWall": true, "noFlame": true},
+    "style": "pure 2D across characters, props, stone, smoke and light",
+    "promptFile": "storyboards/page24-2d-optionA-prompts.md"
+  },
+  "critical": ["H1 fist", "H1 elder face", "four supporting profile identifiers", "H1 small flame", "H2 black wick", "H2 horizontal smoke", "H2 cracked wall", "spine and text reserve"],
+  "delivery": {
+    "h1": {"required": true, "output": "outputs/part1-page24-page24-2d-optionA-h1-v4.png", "status": "qa-passed"},
+    "h2": {"required": true, "output": "outputs/part1-page24-page24-2d-optionA-h2-v3.png", "status": "qa-passed"}
+  },
+  "technicalQa": {
+    "status": "PASS",
+    "report": "qa/frame-report.md",
+    "overlay": "qa/part1-page24-optionA-h1-v4-h2-v3-layout-overlay.svg"
+  },
+  "visualDeltaQa": {
+    "status": "PASS",
+    "h1": {
+      "status": "PASS",
+      "evidence": [
+        "đúng năm đạo sĩ với nắm tay foreground trái và đèn còn cháy nhỏ",
+        "không còn phù điêu/tượng tôn giáo, cửa mở hoặc rừng ngoài",
+        "toàn cảnh dùng line art rõ, mảng màu phẳng và cel shading cạnh cứng"
+      ]
+    },
+    "h2": {"status": "PASS", "evidence": ["cùng silhouette chén dầu đất nung thấp như H1 (không quai, không vòi)", "tim đèn đen", "không còn lửa", "khói đi ngang", "khe tường nứt", "không có nhân vật"]},
+    "userSelectedOutput": false
+  }
+}

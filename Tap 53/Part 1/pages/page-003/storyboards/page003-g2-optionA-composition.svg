@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1622" height="1151" viewBox="0 0 1622 1151">
+  <image href="page003-layout-source.png" x="0" y="0" width="1622" height="1151"/>
+  <rect x="0" y="646" width="762" height="505" fill="#234d5b" opacity=".82"/>
+  <rect x="860" y="646" width="762" height="505" fill="#28495d" opacity=".82"/>
+  <rect x="0" y="646" width="762" height="505" fill="none" stroke="#55d7ff" stroke-width="5" stroke-dasharray="15 10"/>
+  <rect x="860" y="646" width="762" height="505" fill="none" stroke="#55d7ff" stroke-width="5" stroke-dasharray="15 10"/>
+  <rect x="762" y="646" width="98" height="505" fill="#ef6958" opacity=".48"/>
+  <text x="780" y="690" fill="#fff4d5" font-family="sans-serif" font-size="21" text-anchor="middle" transform="rotate(90 780 690)">GÁY — chỉ nền</text>
+  <path d="M180 1040 C270 920 365 835 464 840 C548 845 607 925 625 1020" fill="none" stroke="#f3c28a" stroke-width="94" stroke-linecap="round"/>
+  <path d="M185 1042 C280 925 362 882 455 882" fill="none" stroke="#5f5147" stroke-width="31" stroke-linecap="round"/>
+  <path d="M449 884 C520 866 577 912 625 1015" fill="none" stroke="#f3c28a" stroke-width="40" stroke-linecap="round"/>
+  <path d="M240 987 L330 918 M278 1018 L367 944" stroke="#d0a072" stroke-width="9"/>
+  <circle cx="1265" cy="812" r="104" fill="#d98c4c" stroke="#241f20" stroke-width="9"/>
+  <path d="M1160 782 Q1265 650 1368 782" fill="#e78e21" stroke="#241f20" stroke-width="10"/>
+  <path d="M1175 760 Q1265 700 1355 760" fill="none" stroke="#fff0bc" stroke-width="8" stroke-dasharray="5 12"/>
+  <path d="M1150 910 Q1265 855 1380 910 L1435 1120 L1095 1120Z" fill="#d9b05a" stroke="#241f20" stroke-width="10"/>
+  <path d="M1285 910 L1350 1080" stroke="#785031" stroke-width="32"/>
+  <path d="M1130 960 Q1010 1010 957 1060" fill="none" stroke="#d9b05a" stroke-width="39" stroke-linecap="round"/>
+  <path d="M957 1060 L1012 1090" stroke="#876c45" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1015 1090 L1084 1060" stroke="#8d5c39" stroke-width="18" stroke-linecap="round"/>
+  <path d="M920 1110 Q1265 1015 1570 1070" fill="none" stroke="#9e7954" stroke-width="17" opacity=".8"/>
+  <path d="M1015 950 Q1080 875 1125 850" fill="none" stroke="#9ab18d" stroke-width="16" opacity=".8"/>
+  <text x="35" y="682" fill="#ffffff" font-family="sans-serif" font-size="27" font-weight="700">Focus: bàn tay được nâng niu và miếng vá vai áo</text>
+  <text x="35" y="718" fill="#e7f7ff" font-family="sans-serif" font-size="23">Camera: cận cảnh ngang, nhìn chéo từ ngang thắt lưng</text>
+  <text x="35" y="754" fill="#e7f7ff" font-family="sans-serif" font-size="23">Dư âm: một sự tin cậy vừa được trao</text>
+  <text x="895" y="682" fill="#ffffff" font-family="sans-serif" font-size="27" font-weight="700">Focus: Nalini dừng lại, ôm cuộn bản vẽ</text>
+  <text x="895" y="718" fill="#e7f7ff" font-family="sans-serif" font-size="23">Camera: medium ngang, ba phần tư từ phía bà lão</text>
+  <text x="895" y="754" fill="#e7f7ff" font-family="sans-serif" font-size="23">Dư âm: ông nhận ra ý nguyện chung của mọi người</text>
+</svg>

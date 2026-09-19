@@ -1,0 +1,64 @@
+{
+  "id": "page004-community-work",
+  "shape": "rect",
+  "box": {
+    "x": 0.0006167441091686413,
+    "y": 0.444581732365019,
+    "width": 0.9987652782934444,
+    "height": 0.5554182676349809
+  },
+  "textReserve": [],
+  "spine": {
+    "x": 0.485,
+    "y": 0,
+    "width": 0.03,
+    "height": 1
+  },
+  "narrativeFunction": "Toàn cảnh cộng đồng chung tay lao động",
+  "sourceMeasurement": {
+    "pdfPage": 4,
+    "bookPages": [
+      10,
+      11
+    ],
+    "boxPoints": [
+      0.5,
+      255.827,
+      810.208,
+      575.433
+    ],
+    "aspectRatio": 2.5334568187080344
+  },
+  "safeZone": {
+    "x": 0.027972,
+    "y": 0.0394089,
+    "width": 0.944056,
+    "height": 0.9211822
+  },
+  "visibilityPriority": [],
+  "options": [
+    {
+      "id": "page004-option1",
+      "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option1-composition-v1.png",
+      "userConfirmed": false
+    },
+    {
+      "id": "page004-option2",
+      "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option2-composition-v1.png",
+      "userConfirmed": false
+    },
+    {
+      "id": "page004-option3",
+      "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option3-composition-v1.png",
+      "userConfirmed": false,
+      "status": "storyboard-pending"
+    },
+    {
+      "id": "page004-option4",
+      "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option4-composition-v1.png",
+      "userConfirmed": false,
+      "status": "storyboard-pending"
+    }
+  ],
+  "status": "storyboard-pending"
+}

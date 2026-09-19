@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="994" viewBox="0 0 1400 994">
+  <image href="page004-layout-source.png" x="0" y="0" width="1400" height="994"/>
+  <style>
+    .label{font:22px Arial,sans-serif;fill:#35463b}.small{font:18px Arial,sans-serif;fill:#35463b}
+    .skin{fill:#b97955;stroke:#49382f;stroke-width:2}.cloth{fill:#8c7867;stroke:#49382f;stroke-width:2}
+    .accent{fill:#b86547;stroke:#49382f;stroke-width:2}.line{fill:none;stroke:#49382f;stroke-width:4;stroke-linecap:round}
+    .thin{fill:none;stroke:#6e5a45;stroke-width:2;stroke-linecap:round}.far{opacity:.9}
+  </style>
+  <rect x="0" y="442" width="1400" height="552" fill="#e9d9b1"/>
+  <path d="M0 500 Q170 482 345 505 T700 493 T1050 503 T1400 488 L1400 442 L0 442Z" fill="#c8d0ad"/>
+  <path d="M0 510 Q195 497 390 514 T780 506 T1160 511 T1400 500" fill="none" stroke="#93a578" stroke-width="7"/>
+  <g fill="#7d9c69">
+    <ellipse cx="65" cy="475" rx="42" ry="17"/><ellipse cx="205" cy="474" rx="47" ry="18"/><ellipse cx="350" cy="478" rx="49" ry="18"/>
+    <ellipse cx="1060" cy="475" rx="47" ry="18"/><ellipse cx="1210" cy="473" rx="45" ry="18"/><ellipse cx="1340" cy="477" rx="43" ry="17"/>
+  </g>
+  <g stroke="#75694b" stroke-width="6"><path d="M65 488l-6 53"/><path d="M205 489l-4 49"/><path d="M350 492l-1 47"/><path d="M1060 489l3 49"/><path d="M1210 487l1 52"/><path d="M1340 490l5 50"/></g>
+
+  <!-- Những đường công trường thu về chân trời: máy chỉ cao hơn tầm mắt -->
+  <path d="M-50 985 L505 602 L622 585 L325 994Z" fill="#aa936c"/>
+  <path d="M1450 970 L905 604 L797 588 L1124 994Z" fill="#b79f76"/>
+  <path d="M280 994 L610 625 L666 607 L545 994Z" fill="#8f7657" opacity=".72"/>
+  <path d="M860 994 L756 615 L805 604 L1040 994Z" fill="#9a805e" opacity=".62"/>
+  <g stroke="#695947" stroke-width="4" fill="none">
+    <path d="M-30 935 L518 594"/><path d="M318 994 L627 603"/>
+    <path d="M1470 934 L888 596"/><path d="M1100 994 L789 604"/>
+  </g>
+
+  <!-- lớp xa: nhịp cụm người và công cụ, không cần chi tiết mặt -->
+  <g class="far" stroke="#4a3b31" stroke-width="2" fill="none">
+    <g transform="translate(95 520)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v17m0-11l-10 10m10-8l11 8m-11 1l-6 13m6-13l7 13"/></g>
+    <g transform="translate(140 530)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v17m0-10l-13 5m13-5l12 7m-12 3l-7 13m7-13l8 13"/><path class="thin" d="M-13 18l-7 16"/></g>
+    <g transform="translate(205 514)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v18m0-11l-13 8m13-8l12 8m-12 3l-7 13m7-13l7 13"/></g>
+    <g transform="translate(266 526)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v17m0-10l-14 5m14-5l12 8m-12 2l-8 13m8-13l8 13"/></g>
+    <g transform="translate(330 516)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v18m0-12l-11 9m11-9l14 6m-14 6l-6 13m6-13l8 13"/></g>
+    <g transform="translate(390 532)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v17m0-10l-13 7m13-7l13 7m-13 3l-7 13m7-13l8 13"/></g>
+    <g transform="translate(455 516)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v18m0-11l-14 6m14-6l13 7m-13 4l-7 13m7-13l7 13"/></g>
+    <g transform="translate(515 531)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v17m0-10l-12 7m12-7l12 7m-12 3l-7 13m7-13l8 13"/></g>
+    <g transform="translate(880 525)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v18m0-11l-12 7m12-7l13 7m-13 4l-7 13m7-13l8 13"/></g>
+    <g transform="translate(940 514)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v18m0-12l-12 8m12-8l13 6m-13 6l-7 13m7-13l8 13"/></g>
+    <g transform="translate(1005 530)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v17m0-10l-13 7m13-7l12 7m-12 3l-7 13m7-13l7 13"/></g>
+    <g transform="translate(1070 514)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v18m0-11l-13 7m13-7l13 7m-13 4l-7 13m7-13l8 13"/></g>
+    <g transform="translate(1130 530)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v17m0-10l-13 7m13-7l12 7m-12 3l-7 13m7-13l7 13"/></g>
+    <g transform="translate(1195 515)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v18m0-11l-12 7m12-7l13 7m-13 4l-7 13m7-13l8 13"/></g>
+    <g transform="translate(1260 529)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v17m0-10l-13 7m13-7l12 7m-12 3l-7 13m7-13l7 13"/></g>
+    <g transform="translate(1320 515)"><circle class="skin" cx="0" cy="0" r="5"/><path class="thin" d="M0 6v18m0-11l-12 7m12-7l13 7m-13 4l-7 13m7-13l8 13"/></g>
+  </g>
+
+  <!-- trung cảnh: đào, gom, gánh, gỗ và búa tạo các cụm đọc rõ -->
+  <g transform="translate(230 620)"><circle class="skin" cx="0" cy="0" r="10"/><path class="cloth" d="M-10 12l19 0 7 45-34 0z"/><path class="line" d="M-5 22l-25 20m34-20l18 31m-30 4l-14 27m31-27l14 27"/><path class="line" d="M-30 42l-19 33"/></g>
+  <g transform="translate(365 650)"><circle class="skin" cx="0" cy="0" r="11"/><path class="accent" d="M-11 13h22l8 46h-38z"/><path class="line" d="M-7 25l-29 20m41-20l30 18m-45 16l-18 29m37-29l18 28"/><path d="M-48 43q17 18 35 0v24h-35z" fill="#a98948" stroke="#49382f" stroke-width="2"/></g>
+  <g transform="translate(540 600)"><circle class="skin" cx="0" cy="0" r="10"/><path class="cloth" d="M-11 13h22l8 45h-38z"/><path class="line" d="M-7 25l-20 12m32-12l20 12m-30 21l-12 27m28-27l14 27"/><path class="line" d="M-37 36h74"/><path class="thin" d="M-31 36l-8 28m70-28l8 28"/><path d="M-50 63h22l-5 16h-12zM28 63h22l-5 16h-12z" fill="#a98948"/></g>
+  <g transform="translate(690 570)"><circle class="skin" cx="0" cy="0" r="9"/><path class="accent" d="M-9 11h18l7 39h-32z"/><path class="line" d="M-5 20l-18-15m28 15l21-16m-30 46l-12 24m25-24l13 24"/><path class="line" d="M-23 5h55"/></g>
+  <g transform="translate(765 575)"><circle class="skin" cx="0" cy="0" r="9"/><path class="cloth" d="M-9 11h18l7 39h-32z"/><path class="line" d="M-5 20l-18-15m28 15l20-16m-29 46l-12 24m25-24l13 24"/><path class="line" d="M-23 5h55"/></g>
+  <path d="M663 561l135-14" stroke="#775039" stroke-width="13" stroke-linecap="round"/>
+  <g transform="translate(910 630)"><circle class="skin" cx="0" cy="0" r="10"/><path class="accent" d="M-10 12h20l7 44h-34z"/><path class="line" d="M-5 23l-13-27m22 27l16-24m-25 57l-14 27m29-27l15 27"/><path class="line" d="M-18-4l-5-35"/><path d="M-34-48h24v18h-24z" fill="#79543d" stroke="#49382f" stroke-width="2"/></g>
+  <g transform="translate(980 641)"><circle class="skin" cx="0" cy="0" r="10"/><path class="cloth" d="M-10 12h20l7 44h-34z"/><path class="line" d="M-5 23l-20 17m29-17l22 16m-31 17l-14 27m29-27l15 27"/></g>
+  <path d="M950 670h102" stroke="#775039" stroke-width="13"/><path d="M965 684v31m73-31v31" stroke="#5c4536" stroke-width="9"/>
+  <g transform="translate(1165 650)"><circle class="skin" cx="0" cy="0" r="11"/><path class="cloth" d="M-11 13h22l8 46h-38z"/><path class="line" d="M-7 25l-27 18m39-18l28 18m-43 16l-16 28m35-28l18 28"/><path class="line" d="M-38 42h76"/><path class="thin" d="M-31 42l-8 31m70-31l8 31"/><path d="M-50 72h22l-5 16h-12zM28 72h22l-5 16h-12z" fill="#a98948"/></g>
+  <g transform="translate(1300 650)"><circle class="skin" cx="0" cy="0" r="11"/><path class="accent" d="M-11 13h22l8 46h-38z"/><path class="line" d="M-7 25l-25 22m37-22l28 13m-43 21l-16 28m35-28l18 28"/><path d="M28 32l38 25-44 36-17-18z" fill="#a98948" stroke="#49382f" stroke-width="3"/></g>
+
+  <!-- lớp gần: nhịp làm việc lớn nhưng không chặn trường nhìn -->
+  <g transform="translate(490 805)"><circle class="skin" cx="0" cy="0" r="16"/><path class="accent" d="M-17 20h34l12 67h-58z"/><path class="line" stroke-width="7" d="M-10 36l-47 39m67-39l47 35m-69 16l-28 55m58-55l30 55"/><path d="M-78 69q28 29 56 0v38h-56z" fill="#a98948" stroke="#49382f" stroke-width="4"/></g>
+  <g transform="translate(720 770)"><circle class="skin" cx="0" cy="0" r="15"/><path class="cloth" d="M-16 18h32l11 64h-54z"/><path class="line" stroke-width="7" d="M-10 34l-34-25m54 25l34-25m-38 73l-24 52m46-52l26 52"/><path class="line" stroke-width="8" d="M-45 9h100"/><path class="thin" stroke-width="4" d="M-37 9l-11 52m91-52l12 52"/><path d="M-68 60h34l-8 25h-18zM42 60h34l-8 25h-18z" fill="#a98948" stroke="#49382f" stroke-width="3"/></g>
+  <g transform="translate(1020 820)"><circle class="skin" cx="0" cy="0" r="16"/><path class="accent" d="M-17 20h34l12 67h-58z"/><path class="line" stroke-width="7" d="M-10 36l-44 33m64-33l47 26m-69 25l-28 54m58-54l30 54"/><path d="M49 51l59 32-56 54-35-31z" fill="#a98948" stroke="#49382f" stroke-width="4"/><path d="M101 100q40 23 81 0v78h-81z" fill="#9f815d" opacity=".8"/></g>
+
+  <!-- dấu vết POV của Nalini, không biến bác thành subject -->
+  <g transform="translate(72 910) rotate(-13)">
+    <path d="M-25 62Q14 4 72 10l138 25-11 70-152-6Q8 97-25 62Z" fill="#c5845e" stroke="#4b372d" stroke-width="5"/>
+    <rect x="68" y="23" width="205" height="58" rx="28" fill="#d9b56e" stroke="#6d5133" stroke-width="6"/>
+    <ellipse cx="270" cy="52" rx="25" ry="29" fill="#ead09b" stroke="#6d5133" stroke-width="6"/>
+    <path d="M87 36h135M87 50h108M87 64h126" stroke="#987745" stroke-width="3" opacity=".8"/>
+  </g>
+
+  <!-- gutter/safe guides -->
+  <rect x="15" y="451" width="1370" height="534" fill="none" stroke="#c65c57" stroke-width="1"/>
+  <rect x="40" y="464" width="1320" height="508" fill="none" stroke="#318d7c" stroke-width="2"/>
+  <rect x="679" y="442" width="42" height="552" fill="#c65c57" opacity=".10" stroke="#c65c57" stroke-width="1"/>
+
+  <rect x="718" y="73" width="640" height="145" rx="8" fill="#fff" opacity=".88"/>
+  <text class="label" x="742" y="110">Focus: nhịp nhiều nhóm lan tới chân trời</text>
+  <text class="label" x="742" y="156">Camera: POV bác Nalini, cao hơn tầm mắt một chút</text>
+  <text class="label" x="742" y="202">Dư âm: lòng người làm công trường sống dậy</text>
+</svg>

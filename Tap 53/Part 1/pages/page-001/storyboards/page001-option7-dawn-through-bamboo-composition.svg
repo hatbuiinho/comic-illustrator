@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="#9fc8d0"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+  <path d="M425 0 L492 0 L474 575 L425 575Z" fill="#465047"/><path d="M445 0 L451 575 M474 0 L480 575" stroke="#937d61" stroke-width="8"/>
+  <path d="M700 575 Q700 230 748 25 M650 575 Q665 275 702 60" fill="none" stroke="#527c5b" stroke-width="20"/>
+  <path d="M505 575 L510 435 Q555 400 597 432 L608 575Z" fill="#685542" stroke="#e1c28c" stroke-width="4"/>
+  <ellipse cx="554" cy="411" rx="22" ry="23" fill="#d68820" stroke="#f7ce7b" stroke-width="3"/>
+  <path d="M620 125 q8 -8 16 0 M654 95 q8 -8 16 0 M687 148 q8 -8 16 0" fill="none" stroke="#49636c" stroke-width="3"/>
+  <path d="M445 540 L468 540 L465 500 Q458 486 451 500Z" fill="#dfb447" stroke="#ffe19c" stroke-width="3"/>
+  <text x="425" y="35" fill="#fff" font-family="sans-serif" font-size="18" font-weight="700">Focus: tờ mờ sáng qua liếp</text><text x="425" y="58" fill="#f4ffff" font-family="sans-serif" font-size="15">Camera: nhìn từ lều ra trời sớm</text><text x="425" y="80" fill="#f4ffff" font-family="sans-serif" font-size="15">Dư âm: ngày chưa bắt đầu</text>
+</svg>

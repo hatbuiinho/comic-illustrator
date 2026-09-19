@@ -1,0 +1,17 @@
+{
+  "partId": "part-2",
+  "episode": "Tap 53",
+  "sharedSources": {
+    "notes": "../notes.md",
+    "shotNotes": "../shot_notes.md",
+    "workflow": "../workflow.md",
+    "scripts": "scripts",
+    "characters": "../characters",
+    "outputs": "pages"
+  },
+  "contextPolicy": {
+    "defaultLoad": ["workflow", "notes", "shotNotes", "page", "selectedOption", "referencedProfiles"],
+    "crossPageContext": "deny-by-default",
+    "continuity": "allow only as explicit short continuityInput in page manifest"
+  }
+}

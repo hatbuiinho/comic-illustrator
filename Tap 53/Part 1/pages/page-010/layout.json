@@ -1,0 +1,36 @@
+{
+  "defaults": { "ratioTolerance": 0.015, "printTrim": { "trimPercent": { "x": 0.0104895, "y": 0.0147783 }, "criticalSafePercent": { "x": 0.0279720, "y": 0.0394089 } } },
+  "pageId": "page-010",
+  "sourcePageImage": "../../../../tmp/pdf_pages/page_10_hi.png",
+  "spreads": [
+    {
+      "id": "part1-page010",
+      "canvas": { "width": 2433, "height": 1727 },
+      "pageImage": "../../../../tmp/pdf_pages/page_10_hi.png",
+      "frames": [
+        {
+          "id": "h1-visakha-stone-gesture",
+          "shape": "ellipse",
+          "box": { "x": 0.3346, "y": 0.5774, "width": 0.3305, "height": 0.4221 },
+          "textReserve": [],
+          "spine": { "x": 0.47, "y": 0.5774, "width": 0.06, "height": 0.4221 },
+          "narrativeFunction": "reaction",
+          "optionAlignment": {
+            "optionId": "page10-restart-optionA",
+            "userConfirmed": true
+          },
+          "delivery": { "required": true, "output": "outputs/part1-page10-restart-optionA-h1-v3-bgfix.png", "status": "generated" },
+          "critical": [
+            { "id": "nalini-face", "box": { "x": 0.375, "y": 0.66, "width": 0.075, "height": 0.095 } },
+            { "id": "nalini-blueprint", "box": { "x": 0.405, "y": 0.8, "width": 0.045, "height": 0.055 } },
+            { "id": "visakha-face", "box": { "x": 0.55, "y": 0.66, "width": 0.075, "height": 0.095 } },
+            { "id": "visakha-open-palm-to-stone", "box": { "x": 0.535, "y": 0.8, "width": 0.045, "height": 0.05 } },
+            { "id": "stone-focus", "box": { "x": 0.38, "y": 0.86, "width": 0.06, "height": 0.04 } }
+          ],
+          "optionManifest": "options/page10-restart-optionA/manifest.json",
+          "output": "outputs/part1-page10-restart-optionA-h1-v3-bgfix.png"
+        }
+      ]
+    }
+  ]
+}

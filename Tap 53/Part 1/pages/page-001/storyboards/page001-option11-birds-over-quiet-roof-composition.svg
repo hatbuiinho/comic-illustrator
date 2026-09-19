@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+ <rect x="405.354" y="0" width="405.355" height="575.433" fill="#b6d7d8"/><rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+ <path d="M425 0 Q470 110 485 290" fill="none" stroke="#507b5b" stroke-width="19"/><path d="M452 110 L495 70 M462 166 L515 125" stroke="#507b5b" stroke-width="13"/>
+ <path d="M440 575 L520 430 L720 430 L810 575Z" fill="#7b674b" stroke="#e8d2a5" stroke-width="5"/><path d="M520 430 L605 350 L720 430Z" fill="#a88962" stroke="#e8d2a5" stroke-width="4"/>
+ <path d="M550 190 q10 -10 20 0 M620 135 q10 -10 20 0 M690 225 q10 -10 20 0 M745 165 q10 -10 20 0" fill="none" stroke="#4d686d" stroke-width="4"/>
+ <path d="M425 400 Q600 370 810 405" fill="none" stroke="#edf4e9" stroke-width="14" opacity=".7"/>
+ <text x="425" y="35" fill="#fff" font-family="sans-serif" font-size="18" font-weight="700">Focus: chim gọi ngày trên mái lều</text><text x="425" y="58" fill="#f7ffff" font-family="sans-serif" font-size="15">Camera: frame dọc hướng lên trời</text><text x="425" y="80" fill="#f7ffff" font-family="sans-serif" font-size="15">Dư âm: người trong lều vẫn đang ngủ</text>
+</svg>

@@ -1,0 +1,30 @@
+{
+  "manifest": "/workspace/Tap 53/Part 1/pages/page-010/layout.json",
+  "failures": [],
+  "warnings": [],
+  "passes": [
+    {
+      "scope": "part1-page010/h1-visakha-stone-gesture/optionAlignment",
+      "message": "Option page10-restart-optionA đã được người dùng xác nhận."
+    },
+    {
+      "scope": "part1-page010/h1-visakha-stone-gesture",
+      "message": "Tỷ lệ khớp frame (0.32% lệch)."
+    }
+  ],
+  "optionAlignment": [
+    {
+      "scope": "part1-page010/h1-visakha-stone-gesture/optionAlignment",
+      "optionId": "page10-restart-optionA",
+      "userConfirmed": true,
+      "missing": []
+    }
+  ],
+  "spreads": [
+    {
+      "id": "part1-page010",
+      "overlay": "/workspace/Tap 53/Part 1/pages/page-010/qa/part1-page010-overlay.svg",
+      "frames": 1
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="#192d35"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+  <path d="M423 0 L500 0 L480 575 L423 575Z M770 0 L810 0 L810 575 L765 575Z" fill="#352b25"/>
+  <path d="M446 0 L452 575 M475 0 L480 575 M786 0 L780 575" stroke="#937657" stroke-width="8"/>
+  <path d="M496 82 L766 45 L766 550 L496 520Z" fill="#a9d0d5" stroke="#e2f3f1" stroke-width="5"/>
+  <path d="M690 545 Q703 240 735 56 M625 535 Q650 260 680 75" fill="none" stroke="#537d5c" stroke-width="18"/>
+  <path d="M558 535 L565 373 Q597 338 630 374 L642 535Z" fill="#4f4135" stroke="#d9bd88" stroke-width="4"/>
+  <ellipse cx="600" cy="357" rx="21" ry="23" fill="#d78921" stroke="#f6cd7b" stroke-width="3"/>
+  <path d="M584 358 Q600 337 618 356" fill="none" stroke="#f6cd7b" stroke-width="3"/>
+  <path d="M448 526 L472 526 L468 476 Q460 458 453 476Z" fill="#dcb246" stroke="#ffe29a" stroke-width="3"/>
+  <path d="M455 475 Q461 443 468 475" fill="#f8d777" stroke="#fff0b1" stroke-width="3"/>
+  <text x="425" y="35" fill="#fff" font-family="sans-serif" font-size="18" font-weight="700">Focus: khe sáng và silhouette</text>
+  <text x="425" y="58" fill="#d7ecf8" font-family="sans-serif" font-size="15">Camera: từ sâu trong bóng lều</text>
+  <text x="425" y="80" fill="#d7ecf8" font-family="sans-serif" font-size="15">Dư âm: một điều đang đến gần</text>
+</svg>

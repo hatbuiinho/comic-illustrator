@@ -1,0 +1,3069 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.015,
+    "printTrim": {
+      "trimPercent": {
+        "x": 0.0104895,
+        "y": 0.0147783
+      },
+      "criticalSafePercent": {
+        "x": 0.027972,
+        "y": 0.0394089
+      }
+    }
+  },
+  "spreads": [
+    {
+      "id": "part1-spread01-chapter1-opening",
+      "canvas": {
+        "width": 810.709,
+        "height": 575.433
+      },
+      "pageImage": "../pages/page-001/storyboards/page001-layout-source.png",
+      "frames": [
+        {
+          "id": "page001-chapter1-opening-dawn",
+          "shape": "rect",
+          "box": {
+            "x": 0.5,
+            "y": 0,
+            "width": 0.5,
+            "height": 1
+          },
+          "contentFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0,
+            "width": 0.06,
+            "height": 1
+          },
+          "narrativeFunction": "chapter-opening atmosphere",
+          "frameReadabilityLock": {
+            "displayContext": "trang 5, frame dọc trọn trang bên phải spread; không có chữ trong frame",
+            "shotSizeAllowed": [
+              "medium-wide",
+              "medium",
+              "over-the-shoulder medium"
+            ],
+            "subjectScale": "không có nhân vật trong frame; tờ mờ sáng, thiên nhiên và không gian nghỉ tạm phải đọc được ở kích thước trang",
+            "minimumReadableElements": [
+              "mái/lều tre đơn sơ",
+              "liếp tre hoặc hiên",
+              "sương và mảng sáng sớm",
+              "chim nhỏ hoặc dấu hiệu thiên nhiên thức dậy"
+            ],
+            "forbiddenScale": [
+              "Nalini hoặc bất kỳ nhân vật nào hiện trong frame",
+              "công trường/đám đông xuất hiện sớm",
+              "phong cảnh quá hoành tráng không gắn lều tre"
+            ],
+            "status": "g1-source-locked"
+          },
+          "visibilityPriority": [
+            {
+              "id": "bamboo-hut-or-eave",
+              "level": "requiredReadable"
+            },
+            {
+              "id": "dawn-sky-and-mist",
+              "level": "requiredReadable"
+            },
+            {
+              "id": "birds",
+              "level": "optionalSupport"
+            },
+            {
+              "id": "dew-ground-or-leaves",
+              "level": "optionalSupport"
+            }
+          ],
+          "recognitionCores": [
+            "mái/lều tre đơn sơ",
+            "liếp hoặc hiên",
+            "mảng sớm có sương"
+          ],
+          "cropBuffers": [
+            "tán lá",
+            "trời sớm",
+            "đất ẩm/sương",
+            "tre hoặc cỏ phụ"
+          ],
+          "optionAlignment": {
+            "optionId": "page001-option13-dew-path-and-last-star",
+            "selectedBrief": "Ngôi sao cuối cùng còn sáng trên bầu trời sớm, phía trên một lối đất nhỏ uốn qua cỏ sương ở một nơi xa công trường.",
+            "mustMatch": [
+              "ngôi sao cuối nhỏ",
+              "lối đất giản lược",
+              "cỏ sương",
+              "chân trời thấp trung tính",
+              "thuần 2D animation"
+            ],
+            "forbidden": [
+              "mọi nhân vật",
+              "lều Nalini",
+              "đám đông",
+              "công trường",
+              "núi, sông, rừng dày",
+              "ánh sáng render, blur hoặc hiệu ứng 3D"
+            ],
+            "layoutMapping": [
+              "toàn bộ tranh nằm ở trang phải x=0.5–1",
+              "gáy x=0.47–0.53 chỉ chứa nền trời/sương/cỏ",
+              "không có vùng chữ trong frame"
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/scripts/chapter1.md",
+              "Tap 53/Part 1/pages/page-001/storyboards/page001-layout-source.png",
+              "yêu cầu người dùng: cảnh xa công trường"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Mở chương thơ mộng ở một nơi xa công trường, không lộ tình tiết sắp tới.",
+                "manifestEvidence": "Yêu cầu trực tiếp mới nhất cho phép đổi địa điểm; frame dọc trang phải không có chữ.",
+                "whyMatch": "Ngôi sao cuối, cỏ sương và lối đất tạo nhịp mở đầu yên lặng mà không neo vào bối cảnh action tiếp theo."
+              }
+            ],
+            "userAction": "Chọn option: page001-option13-dew-path-and-last-star",
+            "userConfirmed": false
+          },
+          "storyboardQa": {
+            "status": "g3-review",
+            "selectedOption": "page001-option13-dew-path-and-last-star",
+            "userAction": "Chọn option: page001-option13-dew-path-and-last-star",
+            "preliminaryCompositionCard": "../pages/page-001/storyboards/page001-option13-dew-path-and-last-star-composition.png",
+            "confirmedCompositionCard": "../pages/page-001/storyboards/page001-option13-dew-path-and-last-star-confirmed-composition.png"
+          },
+          "delivery": {
+            "required": true,
+            "status": "storyboard-pending"
+          }
+        }
+      ]
+    },
+    {
+      "id": "part1-spread15-chapter1-ending",
+      "canvas": {
+        "width": 810.709,
+        "height": 575.433
+      },
+      "pageImage": "../tmp/pdf_all/p15.png",
+      "frames": [
+        {
+          "id": "page15-chapter1-ending-hero",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.523,
+            "width": 1,
+            "height": 0.477
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.523,
+            "width": 0.06,
+            "height": 0.477
+          },
+          "narrativeFunction": "chapter-ending reflective hero",
+          "frameReadabilityLock": {
+            "displayContext": "full-width lower half of spread; no text inside frame",
+            "shotSizeAllowed": [
+              "medium",
+              "medium-wide",
+              "over-the-shoulder medium"
+            ],
+            "subjectScale": "Nalini's changed gaze and coherent body orientation must read while the site still feels much larger than him",
+            "minimumReadableElements": [
+              "Nalini identity and emotion",
+              "coherent body orientation into the site",
+              "lightweight torch-lit leaf canopy",
+              "large-scale unfinished foundation field",
+              "low plain horizon"
+            ],
+            "forbiddenScale": [
+              "tiny unreadable figure",
+              "tight portrait detached from the worksite",
+              "extreme panorama that loses emotion"
+            ],
+            "status": "fresh-options-proposed"
+          },
+          "visibilityPriority": [],
+          "intentionalCropLock": [],
+          "recognitionCores": [
+            "thin lashed-pole dry-leaf canopy",
+            "long receding foundation rows and repeated stakes",
+            "flat open-field horizon"
+          ],
+          "cropBuffers": [
+            "blue-hour sky",
+            "broad worked earth",
+            "low sparse tree line",
+            "secondary poles and loose thatch"
+          ],
+          "storyboardQa": {
+            "status": "approved",
+            "selectedOption": "page15-option2-torchline-ots",
+            "compositionCards": [
+              "../pages/page-015/storyboards/page15-option1-composition-in-layout.png",
+              "../pages/page-015/storyboards/page15-option2-composition-in-layout.png",
+              "../pages/page-015/storyboards/page15-option3-composition-in-layout.png"
+            ]
+          },
+          "output": "../pages/page-015/outputs/part1-page15-option2-torchline-ots-v2.png"
+        }
+      ]
+    },
+    {
+      "id": "part1-spread06-option1-shared-meal",
+      "canvas": {
+        "width": 2252,
+        "height": 1599
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_06_hi.png",
+      "frames": [
+        {
+          "id": "rest-meal",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.399,
+            "width": 1,
+            "height": 0.6004
+          },
+          "output": "../pages/page-006/outputs/part1-spread06-option1-shared-meal-v1.png",
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.399,
+            "width": 0.06,
+            "height": 0.6004
+          },
+          "critical": [
+            {
+              "id": "worker-face",
+              "box": {
+                "x": 0.17,
+                "y": 0.56,
+                "width": 0.09,
+                "height": 0.12
+              }
+            },
+            {
+              "id": "farmer-face",
+              "box": {
+                "x": 0.33,
+                "y": 0.56,
+                "width": 0.09,
+                "height": 0.12
+              }
+            },
+            {
+              "id": "shared-food-hands",
+              "box": {
+                "x": 0.22,
+                "y": 0.73,
+                "width": 0.16,
+                "height": 0.1
+              }
+            },
+            {
+              "id": "food-basket",
+              "box": {
+                "x": 0.2,
+                "y": 0.81,
+                "width": 0.17,
+                "height": 0.12
+              }
+            },
+            {
+              "id": "water-vessel",
+              "box": {
+                "x": 0.03,
+                "y": 0.78,
+                "width": 0.1,
+                "height": 0.15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part1-spread06-option2-water-cup",
+      "canvas": {
+        "width": 2252,
+        "height": 1599
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_06_hi.png",
+      "frames": [
+        {
+          "id": "rest-meal",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.399,
+            "width": 1,
+            "height": 0.6004
+          },
+          "output": "../pages/page-006/outputs/part1-spread06-option2-water-cup-v1.png",
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.399,
+            "width": 0.06,
+            "height": 0.6004
+          },
+          "critical": [
+            {
+              "id": "worker-face",
+              "box": {
+                "x": 0.18,
+                "y": 0.56,
+                "width": 0.09,
+                "height": 0.12
+              }
+            },
+            {
+              "id": "farmer-face",
+              "box": {
+                "x": 0.35,
+                "y": 0.57,
+                "width": 0.09,
+                "height": 0.12
+              }
+            },
+            {
+              "id": "water-cup-and-hands",
+              "box": {
+                "x": 0.25,
+                "y": 0.71,
+                "width": 0.16,
+                "height": 0.11
+              }
+            },
+            {
+              "id": "water-jar",
+              "box": {
+                "x": 0.03,
+                "y": 0.76,
+                "width": 0.09,
+                "height": 0.16
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "canvas": {
+        "width": 2433,
+        "height": 1727
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_10_hi.png",
+      "contextSnapshot": {
+        "time": "buổi chiều, trong lúc khảo sát công trường",
+        "present": [
+          "Bác Nalini",
+          "Phu nhân Visakha",
+          "Trưởng giả Punna (ngoài khung)",
+          "thợ chuyển đá (background)"
+        ],
+        "spaceState": "bãi tập kết vật liệu; hai xe bò chở gạch chưa bốc xuống; đá đang được chuyển vào một góc",
+        "alreadyHappened": [
+          "người thợ báo giao nhầm gạch thường và dư đá",
+          "Nalini đang cân nhắc giữ hay trả vật liệu"
+        ],
+        "happening": "Visakha đề nghị dùng số đá cho hương thất của Thế Tôn; Nalini đáp sẽ tính toán lại",
+        "forbiddenFuture": [
+          "khu cột chính",
+          "các tỳ kheo ni đến thăm",
+          "ni chúng",
+          "nhà cư sĩ",
+          "công trình hoàn thiện"
+        ]
+      },
+      "backgroundContinuityLock": {
+        "physicalStage": "công trường đang tập kết vật liệu, chưa dựng kiến trúc cố định",
+        "mustShow": [
+          "đá nguyên khối đang được chuyển",
+          "xe bò chở gạch chưa bốc xuống hoặc chỉ gợi bằng bánh xe/thùng xe",
+          "đất công trường và vật liệu rời"
+        ],
+        "mayShow": [
+          "một hoặc hai thợ phụ đang chuyển đá",
+          "vũng vôi vữa",
+          "hàng gạch nung"
+        ],
+        "forbiddenBackground": [
+          "tường gạch/đá đã xây",
+          "cột chính dựng xong",
+          "mái, nền hoàn thiện, hương thất đã tồn tại",
+          "các tỳ kheo ni hoặc công trình của scene sau"
+        ],
+        "backgroundProof": "Script câu 50–52 xác nhận xe gạch chưa bốc và thợ đang chuyển đá; câu 57 mới chuyển sang khu cột chính."
+      },
+      "id": "part1-spread10-option2-nalini-realization",
+      "frames": [
+        {
+          "shape": "rect",
+          "box": {
+            "x": 0.3346,
+            "y": 0.5774,
+            "width": 0.3305,
+            "height": 0.4221
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.5774,
+            "width": 0.06,
+            "height": 0.4221
+          },
+          "id": "nalini-realization",
+          "output": "../pages/page-010/outputs/part1-spread10-option2-nalini-realization-v1.png",
+          "narrativeFunction": "reaction",
+          "critical": [
+            {
+              "id": "nalini-face",
+              "box": {
+                "x": 0.365,
+                "y": 0.69,
+                "width": 0.075,
+                "height": 0.09
+              }
+            },
+            {
+              "id": "visakha-shoulder-and-face-edge",
+              "box": {
+                "x": 0.56,
+                "y": 0.69,
+                "width": 0.075,
+                "height": 0.09
+              }
+            },
+            {
+              "id": "nalini-blueprint-hand",
+              "box": {
+                "x": 0.365,
+                "y": 0.78,
+                "width": 0.09,
+                "height": 0.09
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "canvas": {
+        "width": 2433,
+        "height": 1727
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_10_hi.png",
+      "contextSnapshot": {
+        "time": "buổi chiều, trong lúc khảo sát công trường",
+        "present": [
+          "Bác Nalini",
+          "Phu nhân Visakha",
+          "Trưởng giả Punna (ngoài khung)",
+          "thợ chuyển đá (background)"
+        ],
+        "spaceState": "bãi tập kết vật liệu; hai xe bò chở gạch chưa bốc xuống; đá đang được chuyển vào một góc",
+        "alreadyHappened": [
+          "người thợ báo giao nhầm gạch thường và dư đá",
+          "Nalini đang cân nhắc giữ hay trả vật liệu"
+        ],
+        "happening": "Visakha đề nghị dùng số đá cho hương thất của Thế Tôn; Nalini đáp sẽ tính toán lại",
+        "forbiddenFuture": [
+          "khu cột chính",
+          "các tỳ kheo ni đến thăm",
+          "ni chúng",
+          "nhà cư sĩ",
+          "công trình hoàn thiện"
+        ]
+      },
+      "backgroundContinuityLock": {
+        "physicalStage": "công trường đang tập kết vật liệu, chưa dựng kiến trúc cố định",
+        "mustShow": [
+          "đá nguyên khối đang được chuyển",
+          "xe bò chở gạch chưa bốc xuống hoặc chỉ gợi bằng bánh xe/thùng xe",
+          "đất công trường và vật liệu rời"
+        ],
+        "mayShow": [
+          "một hoặc hai thợ phụ đang chuyển đá",
+          "vũng vôi vữa",
+          "hàng gạch nung"
+        ],
+        "forbiddenBackground": [
+          "tường gạch/đá đã xây",
+          "cột chính dựng xong",
+          "mái, nền hoàn thiện, hương thất đã tồn tại",
+          "các tỳ kheo ni hoặc công trình của scene sau"
+        ],
+        "backgroundProof": "Script câu 50–52 xác nhận xe gạch chưa bốc và thợ đang chuyển đá; câu 57 mới chuyển sang khu cột chính."
+      },
+      "id": "part1-spread10-option3-stone-vow",
+      "frames": [
+        {
+          "shape": "rect",
+          "box": {
+            "x": 0.3346,
+            "y": 0.5774,
+            "width": 0.3305,
+            "height": 0.4221
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.5774,
+            "width": 0.06,
+            "height": 0.4221
+          },
+          "id": "stone-vow",
+          "output": "../pages/page-010/outputs/part1-spread10-option3-stone-vow-v1.png",
+          "narrativeFunction": "detail",
+          "critical": [
+            {
+              "id": "nalini-face",
+              "box": {
+                "x": 0.365,
+                "y": 0.66,
+                "width": 0.075,
+                "height": 0.105
+              }
+            },
+            {
+              "id": "visakha-face",
+              "box": {
+                "x": 0.56,
+                "y": 0.655,
+                "width": 0.075,
+                "height": 0.105
+              }
+            },
+            {
+              "id": "visakha-open-hand",
+              "box": {
+                "x": 0.565,
+                "y": 0.77,
+                "width": 0.09,
+                "height": 0.09
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part1-spread23-restart-option1-club-and-empty-hand",
+      "activeProductionSelection": {
+        "optionId": "page23-ambush-optionA",
+        "status": "approved",
+        "userSelected": true,
+        "compositionCard": "../pages/page-023/storyboards/page23-ambush-optionA-composition.svg",
+        "storyboardSource": "../pages/page-023/storyboards/page23-ambush-storyboard-options.md",
+        "frames": [
+          "h1-suspended-strike",
+          "h2-ravine-wake"
+        ],
+        "promptFile": "../pages/page-023/storyboards/page23-ambush-optionA-prompts.md",
+        "compositionContract": {
+          "h1": "low over-the-shoulder behind the ascetic's left shoulder; attacker foreground left, club descending diagonally but stopping before the monk's back; monk walking away on the right and unaware",
+          "h2": "very low three-quarter front-left at ravine floor; ascetic alone lower-left, one hand bracing rock and the other clutching left side; tall walls and tiny sky opening upper-right",
+          "frameRatio": "0.4453 / 0.6273, near-square usable frame",
+          "spineSafeZone": "x=0.47–0.53 remains background only",
+          "style": "pure 2D animation, crisp line art, flat fills, 1–2 hard cel shadows",
+          "forbidden": "impact, injury, monk reaction, ravine in H1; monk, club, forest path, ravine mouth and magic in H2"
+        },
+        "promptStatus": "approved",
+        "deliveries": [
+          {
+            "frame": "h1-suspended-strike",
+            "output": "../pages/page-023/outputs/part1-page23-ambush-optionA-h1-v1.png",
+            "status": "qa-passed",
+            "technicalQa": "pass",
+            "visualDeltaQa": "pass"
+          },
+          {
+            "frame": "h2-ravine-wake",
+            "output": "../pages/page-023/outputs/part1-page23-ambush-optionA-h2-v1.png",
+            "status": "qa-passed",
+            "technicalQa": "pass",
+            "visualDeltaQa": "pass"
+          }
+        ],
+        "qaSummary": {
+          "status": "passed-for-page23",
+          "layoutRatio": "pass, 0.01% lệch cho cả H1 và H2",
+          "h1": "focus gậy/tay → đạo sĩ → Ngài; gậy chưa chạm; Ngài quay lưng và không phản ứng; không có vực/đền/phép",
+          "h2": "chỉ đạo sĩ; tay ôm mạn sườn rõ; vách đá chiếm khung; khe trời ở cao bên phải; không có Ngài/gậy/lối rừng",
+          "style": "pass về ngôn ngữ 2D và line art; không dùng blur/bloom/CGI",
+          "globalQaNote": "Manifest tổng còn 2 lỗi output cũ ở page 10, không thuộc page 23."
+        },
+        "note": "Option A được chọn và Composition QA đã được người dùng xác nhận. Các frame contract cũ bên dưới không phải production contract của ambush A và không được dùng để generate."
+      },
+      "canvas": {
+        "width": 1217,
+        "height": 864
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_23.png",
+      "optionDrafts": [
+        {
+          "id": "page23-restart-option2-calm-and-disorientation",
+          "status": "storyboard-pending",
+          "sourceRead": [
+            "Tap 53/notes.md",
+            "Tap 53/shot_notes.md",
+            "Tap 53/workflow.md",
+            "Tap 53/Part 1/scripts/chapter3.md",
+            "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+            "Tap 53/characters/Ga dao si xoa man suon.png",
+            "Tap 53/characters/Ngài Mục Kiền Liên.png"
+          ],
+          "frames": [
+            {
+              "id": "h1-calm-moggallana",
+              "box": {
+                "x": 0,
+                "y": 0.3715,
+                "width": 0.4453,
+                "height": 0.6273
+              },
+              "optionAlignment": {
+                "optionId": "page23-restart-option2-calm-and-disorientation-h1",
+                "userConfirmed": false,
+                "selectedBrief": "Medium close-up eye-level 3/4 tại hông Ngài; gương mặt bình thản của Ngài là focus, đạo sĩ cùng gậy ở nền trái.",
+                "forbidden": [
+                  "va chạm",
+                  "thương tích",
+                  "kết quả",
+                  "thần thông",
+                  "đền đá",
+                  "vực sâu"
+                ],
+                "alignmentRationale": "Frame gần vuông đủ cho gương mặt Ngài ở nửa phải và đạo sĩ/gậy ở nền trái; gáy chỉ là nền rừng. Script không xác định hướng đạo sĩ tiếp cận, nên option không khẳng định hướng đó."
+              },
+              "critical": [
+                "mặt Ngài",
+                "mặt, hai tay và gậy đạo sĩ"
+              ]
+            },
+            {
+              "id": "h2-disoriented-ascetic",
+              "box": {
+                "x": 0.5547,
+                "y": 0.3715,
+                "width": 0.4453,
+                "height": 0.6273
+              },
+              "optionAlignment": {
+                "optionId": "page23-restart-option2-calm-and-disorientation-h2",
+                "userConfirmed": false,
+                "selectedBrief": "Low-angle close-medium sát nền đá trước-trái đạo sĩ; mặt choáng váng và bàn tay ôm mạn sườn là focus, khe trời nhỏ ở trên phải.",
+                "forbidden": [
+                  "Ngài Mục Kiền Liên",
+                  "cây gậy",
+                  "lối rừng",
+                  "miệng vực",
+                  "đền đá",
+                  "thần thông"
+                ],
+                "alignmentRationale": "Frame gần vuông giữ mặt/tay đạo sĩ an toàn ở dưới trái và khe trời ở góc đối diện; causal lock xác nhận đạo sĩ một mình ở đáy vực."
+              },
+              "critical": [
+                "mặt đạo sĩ",
+                "bàn tay ôm mạn sườn",
+                "khe trời xa"
+              ]
+            }
+          ]
+        }
+      ],
+      "frames": [
+        {
+          "id": "h1-suspended-strike",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.3715,
+            "width": 0.4453,
+            "height": 0.6273
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.3715,
+            "width": 0.06,
+            "height": 0.6273
+          },
+          "narrativeFunction": "suspended-action",
+          "output": "../pages/page-023/outputs/part1-page23-ambush-optionA-h1-v1.png",
+          "compositionContract": {
+            "camera": "máy ngang 3/4 từ hông, không suy diễn hướng tiếp cận trước đó",
+            "shotSize": "medium-wide",
+            "focus": "cây gậy nâng chéo và bàn tay đạo sĩ",
+            "silhouettes": "đạo sĩ trái; Ngài Mục Kiền Liên phải",
+            "eyePath": "gậy/tay → mặt đạo sĩ → Ngài",
+            "negativeSpace": "đường rừng giữa hai người",
+            "outOfFrame": "va chạm, kết quả, thần thông"
+          },
+          "shotThesis": {
+            "dramaticMeaning": "Sự bình thản của Ngài Mục Kiền Liên làm nổi bật ý định bạo lực đơn độc và đang mất kiểm soát của đạo sĩ.",
+            "moment": "Trong khoảnh khắc ngay trước cú đánh: gậy đã nâng, nhưng chưa chạm.",
+            "pointOfView": "Người đọc đứng thấp sau vai phải Ngài Mục Kiền Liên, thấy đạo sĩ lao tới qua không gian bình tĩnh của Ngài.",
+            "focusAndEyePath": "Mắt vào từ gậy nâng chéo và bàn tay siết chặt ở trái, dừng ở mặt đạo sĩ, rồi đi theo đường gậy tới vai và gương mặt nghiêng của Ngài ở phải.",
+            "outOfFrame": "Cú đánh, phản ứng của Ngài, kết quả và mọi biểu hiện thần thông do H2 cùng phần chữ gánh thay."
+          },
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-023/outputs/part1-page23-ambush-optionA-h1-v1.png",
+            "status": "generated"
+          },
+          "optionAlignment": {
+            "optionId": "page23-ambush-optionA-h1",
+            "selectedBrief": "Máy ngang 3/4 từ hông; gậy nâng chéo từ bàn tay đạo sĩ ở trái và dừng trước Ngài, không gán hướng tiếp cận trước khoảnh khắc này.",
+            "mustMatch": [
+              "hai nhân vật duy nhất: đạo sĩ và Ngài Mục Kiền Liên",
+              "khoảnh khắc trước cú đánh, gậy chưa chạm",
+              "gậy nâng chéo là đường dẫn mắt từ đạo sĩ tới Ngài Mục Kiền Liên",
+              "lối rừng là bối cảnh trước sự kiện"
+            ],
+            "forbidden": [
+              "vực sâu hoặc đáy vực",
+              "tác động của cú đánh, đạo sĩ ngã hoặc bị thương",
+              "hiệu ứng thần thông hay điện thờ"
+            ],
+            "layoutMapping": [
+              "frame trái, tỷ lệ gần vuông 1:1",
+              "gậy, mặt và bàn tay đạo sĩ nằm trong nửa trái frame",
+              "vai/mặt Ngài nằm trong nửa phải frame, không chạm gáy",
+              "dải gáy toàn spread x=0.47–0.53 chỉ là nền rừng"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Máy ngang 3/4 từ hông, không khẳng định hướng tiếp cận của đạo sĩ.",
+                "manifestEvidence": "selectedBrief và critical moggallana-shoulder-and-face ở nửa phải frame H1.",
+                "whyMatch": "Critical giữ hai người ở hai nửa frame để máy ngang đọc rõ cả hai mà không suy diễn đạo sĩ đã đi tới từ trước, sau hay bên cạnh Ngài."
+              },
+              {
+                "optionRequirement": "Đạo sĩ lao tới, gậy dừng trước cú đánh.",
+                "manifestEvidence": "contextSnapshot.happening và critical ascetic-face-and-raised-club.",
+                "whyMatch": "Happening khóa thời điểm gậy chưa chạm; box critical giữ cả mặt lẫn gậy bên trái frame."
+              },
+              {
+                "optionRequirement": "Không hiển thị kết quả hay thần thông.",
+                "manifestEvidence": "forbidden và backgroundContinuityLock.forbiddenBackground.",
+                "whyMatch": "Danh sách cấm vực sâu, thương tích, điện thờ và mọi hiệu ứng thần thông."
+              }
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/Ga dao si xoa man suon.png",
+              "Tap 53/characters/Ngài Mục Kiền Liên.png"
+            ],
+            "userConfirmed": true
+          },
+          "contextSnapshot": {
+            "time": "hồi tưởng trước cuộc tấn công",
+            "present": [
+              "đạo sĩ đối địch",
+              "Ngài Mục Kiền Liên"
+            ],
+            "happening": "đạo sĩ vừa lao tới, gậy chưa chạm Ngài",
+            "forbiddenFuture": [
+              "bị quăng tới vực sâu",
+              "đạo sĩ bị thương",
+              "điện thờ"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "lối rừng hoang tại nơi đạo sĩ theo dõi Ngài",
+            "mustShow": [
+              "đường đất",
+              "cây rừng và đá tự nhiên"
+            ],
+            "forbiddenBackground": [
+              "vực sâu",
+              "đáy vực",
+              "đền đá"
+            ],
+            "backgroundProof": "Câu 9 chỉ xác nhận đạo sĩ theo dõi và lao tới; vực sâu chỉ là kết quả sau đó."
+          },
+          "critical": [
+            {
+              "id": "ascetic-face-and-raised-club",
+              "box": {
+                "x": 0.05,
+                "y": 0.47,
+                "width": 0.22,
+                "height": 0.29
+              }
+            },
+            {
+              "id": "moggallana-shoulder-and-face",
+              "box": {
+                "x": 0.3,
+                "y": 0.54,
+                "width": 0.11,
+                "height": 0.22
+              }
+            }
+          ]
+        },
+        {
+          "id": "h2-ravine-wake",
+          "shape": "rect",
+          "box": {
+            "x": 0.5547,
+            "y": 0.3715,
+            "width": 0.4453,
+            "height": 0.6273
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.3715,
+            "width": 0.06,
+            "height": 0.6273
+          },
+          "narrativeFunction": "aftermath",
+          "output": "../pages/page-023/outputs/part1-page23-ambush-optionA-h2-v1.png",
+          "compositionContract": {
+            "camera": "máy sát nền đá 3/4 trước-trái đạo sĩ",
+            "shotSize": "medium",
+            "focus": "bàn tay trống ôm mạn sườn trái",
+            "silhouettes": "đạo sĩ một mình ở dưới trái; vách đá và khe trời",
+            "eyePath": "bàn tay/mặt → vách đá → khe trời",
+            "negativeSpace": "vách vực tối và khoảng cao tới khe trời",
+            "outOfFrame": "Ngài, gậy, lối rừng, nguyên nhân cú chuyển"
+          },
+          "shotThesis": {
+            "dramaticMeaning": "Cây gậy đã biến mất; bàn tay trống ôm sườn cho thấy đạo sĩ phải đối diện hậu quả mà hắn không hiểu.",
+            "moment": "Ngay khi đạo sĩ tỉnh lại ở đáy vực, trước khi lê lết về nhà.",
+            "pointOfView": "Người đọc ở sát nền đá, phía trước-trái đạo sĩ, cùng hắn nhìn ngước vào khe trời xa.",
+            "focusAndEyePath": "Mắt vào từ bàn tay trống ôm mạn sườn và gương mặt đau đớn ở dưới trái, chạy dọc vách đá dựng lên khe trời nhỏ ở trên phải.",
+            "outOfFrame": "Ngài Mục Kiền Liên, cây gậy, lối rừng, miệng vực và nguyên nhân cú chuyển đều để ngoài khung."
+          },
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-023/outputs/part1-page23-ambush-optionA-h2-v1.png",
+            "status": "generated"
+          },
+          "optionAlignment": {
+            "optionId": "page23-ambush-optionA-h2",
+            "selectedBrief": "Góc sát nền đá ở đáy vực; bàn tay trống của đạo sĩ ôm mạn sườn trái, đối chiếu với bàn tay từng siết cây gậy ở H1.",
+            "mustMatch": [
+              "chỉ có đạo sĩ",
+              "ngay sau khi tỉnh lại, trước khi lê lết về nhà",
+              "góc thấp sát nền đá, cảm giác mất phương hướng",
+              "đáy vực sâu có khe trời xa"
+            ],
+            "forbidden": [
+              "Ngài Mục Kiền Liên",
+              "cây gậy",
+              "lối rừng",
+              "miệng vực",
+              "điện thờ",
+              "hiệu ứng thần thông"
+            ],
+            "layoutMapping": [
+              "frame phải, tỷ lệ gần vuông 1:1",
+              "mặt và tay ôm sườn đạo sĩ nằm nửa trái frame phải",
+              "khe trời nhỏ nằm góc trên phải frame",
+              "dải gáy toàn spread x=0.47–0.53 chỉ là vách đá/nền tối giản"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Đạo sĩ vừa tỉnh một mình ở đáy vực.",
+                "manifestEvidence": "contextSnapshot.happening, causalStateLock.result và causalStateLock.mustVisualize.",
+                "whyMatch": "Ba trường cùng khóa đúng khoảnh khắc tỉnh lại, chỉ có đạo sĩ, vách đá cao và khe trời xa."
+              },
+              {
+                "optionRequirement": "Góc nền thấp, bàn tay ôm sườn; cảm giác mất phương hướng.",
+                "manifestEvidence": "selectedBrief, critical ascetic-face, ascetic-clutching-hand và distant-sky-opening.",
+                "whyMatch": "Mặt và tay nằm thấp bên trái frame phải, còn khe trời nằm cao xa ở góc đối diện."
+              },
+              {
+                "optionRequirement": "Không có Ngài, gậy, lối rừng hay miệng vực.",
+                "manifestEvidence": "forbidden, causalStateLock.forbiddenContradiction và backgroundContinuityLock.forbiddenBackground.",
+                "whyMatch": "Cả ba lớp ràng buộc đều cấm các chi tiết thuộc nơi tấn công hoặc mâu thuẫn với việc đạo sĩ bị chuyển đi rất xa."
+              }
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/Ga dao si xoa man suon.png"
+            ],
+            "userConfirmed": true
+          },
+          "contextSnapshot": {
+            "time": "hồi tưởng, ngay sau khi đạo sĩ tỉnh lại",
+            "present": [
+              "đạo sĩ đối địch"
+            ],
+            "happening": "đạo sĩ choáng váng ôm mạn sườn trái tại đáy vực",
+            "forbiddenFuture": [
+              "đạo sĩ đã về nhà",
+              "điện thờ",
+              "các mưu kế kế tiếp"
+            ]
+          },
+          "causalStateLock": {
+            "trigger": "đạo sĩ lao tới định đánh Ngài Mục Kiền Liên",
+            "result": "tỉnh lại ở đáy vực cách nơi tấn công cả trăm do tuần",
+            "mustVisualize": [
+              "đạo sĩ một mình",
+              "vách đá cao",
+              "khe trời xa"
+            ],
+            "forbiddenContradiction": [
+              "Ngài Mục Kiền Liên",
+              "cây gậy",
+              "miệng vực cùng cao độ",
+              "lối rừng"
+            ],
+            "scriptProof": "Chương 3, câu 9."
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "đáy vực hoang vắng, tách xa nơi xảy ra cuộc tấn công",
+            "mustShow": [
+              "nền đá gồ ghề",
+              "vách đá dựng",
+              "mảng trời nhỏ ở cao"
+            ],
+            "forbiddenBackground": [
+              "lối rừng",
+              "đền đá",
+              "tôn giả",
+              "cây gậy"
+            ],
+            "backgroundProof": "Câu 9 xác nhận đạo sĩ chỉ tỉnh lại khi đã ở vực sâu xa cách."
+          },
+          "critical": [
+            {
+              "id": "ascetic-face",
+              "box": {
+                "x": 0.6,
+                "y": 0.58,
+                "width": 0.13,
+                "height": 0.15
+              }
+            },
+            {
+              "id": "distant-sky-opening",
+              "box": {
+                "x": 0.84,
+                "y": 0.43,
+                "width": 0.09,
+                "height": 0.1
+              }
+            },
+            {
+              "id": "ascetic-clutching-hand",
+              "box": {
+                "x": 0.62,
+                "y": 0.73,
+                "width": 0.13,
+                "height": 0.12
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part1-spread23-restart-option2-calm-and-disorientation",
+      "canvas": {
+        "width": 1217,
+        "height": 864
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_23.png",
+      "frames": [
+        {
+          "id": "h1-calm-moggallana",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.3715,
+            "width": 0.4453,
+            "height": 0.6273
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.3715,
+            "width": 0.06,
+            "height": 0.6273
+          },
+          "narrativeFunction": "suspended-action",
+          "output": "../pages/page-023/outputs/part1-page23-restart-option2-h1-calm-moggallana-v1.png",
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-023/outputs/part1-page23-restart-option2-h1-calm-moggallana-v1.png",
+            "status": "generated"
+          },
+          "optionAlignment": {
+            "optionId": "page23-restart-option2-calm-and-disorientation-h1",
+            "userConfirmed": true,
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/Ga dao si xoa man suon.png",
+              "Tap 53/characters/Ngài Mục Kiền Liên.png"
+            ],
+            "selectedBrief": "Medium close-up eye-level 3/4 tại hông Ngài; gương mặt bình thản của Ngài là focus, đạo sĩ và gậy ở nền trái.",
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Ngài là focus eye-level 3/4.",
+                "manifestEvidence": "compositionContract.focus và critical moggallana-face.",
+                "whyMatch": "Mặt Ngài được đặt lớn ở nửa phải, đạo sĩ/gậy lùi về nửa trái."
+              },
+              {
+                "optionRequirement": "Không suy diễn hướng tiếp cận.",
+                "manifestEvidence": "selectedBrief và contextSnapshot.",
+                "whyMatch": "Script chỉ khóa thời điểm gậy chưa chạm; camera không quy định đường đạo sĩ đi tới."
+              }
+            ],
+            "mustMatch": [
+              "Ngài là focus lớn ở phải",
+              "đạo sĩ và gậy chỉ ở nền trái",
+              "gậy chưa chạm",
+              "lối rừng trước sự kiện"
+            ],
+            "forbidden": [
+              "va chạm",
+              "kết quả",
+              "thương tích",
+              "thần thông",
+              "vực sâu",
+              "đền đá"
+            ],
+            "layoutMapping": [
+              "frame trái gần vuông",
+              "mặt Ngài an toàn nửa phải",
+              "mặt/tay/gậy đạo sĩ an toàn nửa trái",
+              "gáy là nền rừng"
+            ]
+          },
+          "compositionContract": {
+            "camera": "eye-level 3/4 tại hông Ngài",
+            "shotSize": "medium close-up",
+            "focus": "gương mặt bình thản của Ngài",
+            "silhouettes": "Ngài lớn ở phải; đạo sĩ và gậy nhỏ ở nền trái",
+            "eyePath": "mặt Ngài → khoảng rừng → đạo sĩ/gậy",
+            "negativeSpace": "đường rừng giữa hai người",
+            "outOfFrame": "va chạm, kết quả, thần thông"
+          },
+          "contextSnapshot": {
+            "time": "hồi tưởng, ngay trước cú đánh",
+            "present": [
+              "đạo sĩ đối địch",
+              "Ngài Mục Kiền Liên"
+            ],
+            "happening": "gậy chưa chạm Ngài",
+            "forbiddenFuture": [
+              "vực sâu",
+              "thương tích",
+              "đền đá"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "lối rừng hoang",
+            "mustShow": [
+              "đường đất",
+              "cây rừng",
+              "đá tự nhiên"
+            ],
+            "forbiddenBackground": [
+              "vực sâu",
+              "đền đá"
+            ]
+          },
+          "critical": [
+            {
+              "id": "moggallana-face",
+              "box": {
+                "x": 0.29,
+                "y": 0.48,
+                "width": 0.13,
+                "height": 0.18
+              }
+            },
+            {
+              "id": "ascetic-face-hands-club",
+              "box": {
+                "x": 0.04,
+                "y": 0.47,
+                "width": 0.2,
+                "height": 0.26
+              }
+            }
+          ]
+        },
+        {
+          "id": "h2-disoriented-ascetic",
+          "shape": "rect",
+          "box": {
+            "x": 0.5547,
+            "y": 0.3715,
+            "width": 0.4453,
+            "height": 0.6273
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.3715,
+            "width": 0.06,
+            "height": 0.6273
+          },
+          "narrativeFunction": "aftermath",
+          "output": "../pages/page-023/outputs/part1-page23-restart-option2-h2-disoriented-ascetic-v1.png",
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-023/outputs/part1-page23-restart-option2-h2-disoriented-ascetic-v1.png",
+            "status": "generated"
+          },
+          "optionAlignment": {
+            "optionId": "page23-restart-option2-calm-and-disorientation-h2",
+            "userConfirmed": true,
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/Ga dao si xoa man suon.png"
+            ],
+            "selectedBrief": "Low-angle close-medium sát nền đá trước-trái đạo sĩ; mặt choáng váng và bàn tay ôm mạn sườn là focus, khe trời nhỏ ở trên phải.",
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Đạo sĩ một mình vừa tỉnh ở đáy vực.",
+                "manifestEvidence": "causalStateLock và contextSnapshot.",
+                "whyMatch": "Cả hai khóa cấm Ngài, gậy và lối rừng."
+              },
+              {
+                "optionRequirement": "Máy low-angle tới khe trời.",
+                "manifestEvidence": "compositionContract và critical.",
+                "whyMatch": "Focus thấp trái và khe trời góc trên phải tạo đường mắt đã duyệt."
+              }
+            ],
+            "mustMatch": [
+              "chỉ đạo sĩ",
+              "mặt và tay ôm sườn là focus",
+              "đáy vực và khe trời xa"
+            ],
+            "forbidden": [
+              "Ngài",
+              "gậy",
+              "lối rừng",
+              "miệng vực",
+              "đền đá",
+              "thần thông"
+            ],
+            "layoutMapping": [
+              "frame phải gần vuông",
+              "mặt/tay dưới trái",
+              "khe trời góc trên phải",
+              "gáy là vách đá"
+            ]
+          },
+          "compositionContract": {
+            "camera": "low-angle 3/4 sát nền đá, trước-trái đạo sĩ",
+            "shotSize": "close-medium",
+            "focus": "mặt choáng váng và bàn tay ôm mạn sườn",
+            "silhouettes": "đạo sĩ lớn dưới trái; vách đá và khe trời nhỏ",
+            "eyePath": "mặt/tay → vách đá → khe trời",
+            "negativeSpace": "vách vực tối",
+            "outOfFrame": "Ngài, gậy, lối rừng, miệng vực"
+          },
+          "contextSnapshot": {
+            "time": "ngay sau khi tỉnh lại",
+            "present": [
+              "đạo sĩ đối địch"
+            ],
+            "happening": "ôm mạn sườn trái tại đáy vực",
+            "forbiddenFuture": [
+              "đã về nhà",
+              "đền đá",
+              "mưu kế kế tiếp"
+            ]
+          },
+          "causalStateLock": {
+            "trigger": "lao tới định đánh Ngài",
+            "result": "tỉnh lại ở đáy vực xa cách",
+            "mustVisualize": [
+              "đạo sĩ một mình",
+              "vách cao",
+              "khe trời xa"
+            ],
+            "forbiddenContradiction": [
+              "Ngài",
+              "gậy",
+              "lối rừng"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "đáy vực hoang vắng",
+            "mustShow": [
+              "nền đá",
+              "vách dựng",
+              "khe trời"
+            ],
+            "forbiddenBackground": [
+              "lối rừng",
+              "đền đá",
+              "tôn giả",
+              "cây gậy"
+            ]
+          },
+          "critical": [
+            {
+              "id": "ascetic-face",
+              "box": {
+                "x": 0.6,
+                "y": 0.55,
+                "width": 0.14,
+                "height": 0.18
+              }
+            },
+            {
+              "id": "ascetic-clutching-hand",
+              "box": {
+                "x": 0.62,
+                "y": 0.72,
+                "width": 0.14,
+                "height": 0.12
+              }
+            },
+            {
+              "id": "distant-sky-opening",
+              "box": {
+                "x": 0.85,
+                "y": 0.42,
+                "width": 0.1,
+                "height": 0.11
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part1-spread24-option1-circle-and-extinguished-lamp",
+      "canvas": {
+        "width": 1217,
+        "height": 864
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_24.png",
+      "frames": [
+        {
+          "id": "h1-silent-ascetic-circle",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.7639,
+            "width": 0.43,
+            "height": 0.2349
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.7639,
+            "width": 0.06,
+            "height": 0.2349
+          },
+          "narrativeFunction": "atmosphere",
+          "optionAlignment": {
+            "optionId": "page24-option1-circle-and-extinguished-lamp-h1",
+            "selectedBrief": "Góc cao nhẹ nhìn năm đạo sĩ ngồi co cụm thành vòng trong điện thờ; lão đạo trưởng ở giữa chỉ thấy bàn tay siết nắm đấm, cả nhóm im lặng sau các mưu kế.",
+            "mustMatch": [
+              "năm đạo sĩ, chỉ một nhóm họp bí mật",
+              "góc cao nhẹ nhìn vòng tròn",
+              "lão đạo trưởng là trọng tâm qua bàn tay nắm chặt",
+              "im lặng sau khi các mưu kế đã được nêu"
+            ],
+            "forbidden": [
+              "hoàng cung, tinh xá, người phụ nữ trong mưu kế, nhân vật Phật giáo",
+              "lặp lại hành động diễn thuyết hoặc tranh cãi",
+              "ánh sáng siêu nhiên hay nền hiện đại"
+            ],
+            "layoutMapping": [
+              "frame trái tỷ lệ 2.57:1 trong vùng xanh dưới",
+              "vòng người và bàn tay lão đạo trưởng nằm trọn x=0.06–0.35",
+              "mép phải frame để vách đá/nền tối giản, tránh dải gáy x=0.47–0.53"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Tả cảnh cả nhóm đạo sĩ trong im lặng.",
+                "manifestEvidence": "selectedBrief, mustMatch và narrativeFunction atmosphere.",
+                "whyMatch": "Manifest chốt năm đạo sĩ ngồi thành vòng, không có cử chỉ diễn thuyết hay tranh cãi."
+              },
+              {
+                "optionRequirement": "Lão đạo trưởng là tâm điểm bằng bàn tay nắm chặt.",
+                "manifestEvidence": "mustMatch và critical elder-clenched-fist.",
+                "whyMatch": "Chỉ nắm tay là critical, nên focus vẫn thuộc lão đạo trưởng mà không biến H1 thành cận chân dung."
+              },
+              {
+                "optionRequirement": "Không kể lại các mưu kế bằng hình.",
+                "manifestEvidence": "forbidden cấm hoàng cung, tinh xá, người phụ nữ và hành động diễn thuyết.",
+                "whyMatch": "Hình chỉ giữ bầu không khí sau tranh luận, bổ sung cho chữ thay vì minh họa từng mưu kế."
+              }
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/Dao si doi dich.png"
+            ],
+            "userConfirmed": true
+          },
+          "contextSnapshot": {
+            "time": "cuối cuộc họp trong điện thờ, ngay sau các đề nghị mưu kế",
+            "present": [
+              "lão đạo trưởng",
+              "bốn đạo sĩ đối địch"
+            ],
+            "happening": "lão đạo trưởng nắm chặt tay, cả nhóm im bặt",
+            "forbiddenFuture": [
+              "gió thổi tắt đèn dầu của H2",
+              "bất kỳ việc thực hiện mưu kế nào"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "nội thất điện thờ đá cũ trong rừng",
+            "mustShow": [
+              "mặt nền đá",
+              "vài mảng tường đá cũ",
+              "một đèn dầu còn cháy nhỏ"
+            ],
+            "forbiddenBackground": [
+              "tinh xá, hoàng cung, làng mạc, vực sâu"
+            ],
+            "backgroundProof": "Chương 3 mở cảnh trong điện thờ, còn câu cuối mới chuyển sang đèn tắt."
+          },
+          "critical": [
+            {
+              "id": "elder-clenched-fist",
+              "box": {
+                "x": 0.18,
+                "y": 0.82,
+                "width": 0.07,
+                "height": 0.08
+              }
+            },
+            {
+              "id": "ascetic-circle",
+              "box": {
+                "x": 0.06,
+                "y": 0.79,
+                "width": 0.29,
+                "height": 0.15
+              }
+            }
+          ],
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-024/outputs/part1-page24-option1-h1-silent-ascetic-circle-v2.png",
+            "status": "qa-passed"
+          },
+          "output": "../pages/page-024/outputs/part1-page24-option1-h1-silent-ascetic-circle-v2.png"
+        },
+        {
+          "id": "h2-extinguished-oil-lamp",
+          "shape": "rect",
+          "box": {
+            "x": 0.57,
+            "y": 0.7639,
+            "width": 0.43,
+            "height": 0.2349
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.7639,
+            "width": 0.06,
+            "height": 0.2349
+          },
+          "narrativeFunction": "transition",
+          "optionAlignment": {
+            "optionId": "page24-option1-circle-and-extinguished-lamp-h2",
+            "selectedBrief": "Cận cảnh ngọn đèn dầu vừa bị gió thổi tắt bên tường đá nứt; chỉ còn tim đèn, làn khói mảnh và bóng côn trùng.",
+            "mustMatch": [
+              "chỉ đèn dầu vừa tắt, không có nhân vật",
+              "tường đá nứt và bóng tối của điện thờ",
+              "một làn khói mảnh, diễn đạt bằng nét 2D"
+            ],
+            "forbidden": [
+              "ngọn lửa còn cháy",
+              "người hoặc đạo cụ mưu kế",
+              "ánh sáng huyền ảo",
+              "bối cảnh ngoài điện thờ"
+            ],
+            "layoutMapping": [
+              "frame phải tỷ lệ 2.57:1 trong vùng xanh dưới",
+              "đèn dầu và tim đèn nằm x=0.66–0.78, tránh gáy",
+              "vùng quanh gáy chỉ là mảng tường đá tối giản"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Khép cảnh bằng đèn dầu vừa tắt.",
+                "manifestEvidence": "selectedBrief, mustMatch và narrativeFunction transition.",
+                "whyMatch": "Frame chỉ dành cho đèn tắt, nên hoạt động như một cutaway chuyển cảnh thay vì thêm một tình tiết mới."
+              },
+              {
+                "optionRequirement": "Giữ điện thờ đá cũ và không khí tối.",
+                "manifestEvidence": "mustMatch và forbidden.",
+                "whyMatch": "Tường đá nứt được bắt buộc, còn mọi nhân vật/bối cảnh ngoài điện thờ đều bị cấm."
+              }
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf"
+            ],
+            "userConfirmed": true
+          },
+          "contextSnapshot": {
+            "time": "ngay sau khi lão đạo trưởng nắm tay và không ai nói nữa",
+            "present": [],
+            "happening": "gió thốc qua tường đá, đèn dầu vụt tắt",
+            "forbiddenFuture": [
+              "một cuộc họp mới",
+              "việc thực hiện các mưu kế"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "nội thất điện thờ đá cũ tối dần",
+            "mustShow": [
+              "đèn dầu tắt",
+              "tường đá nứt",
+              "bóng côn trùng gợi nhẹ"
+            ],
+            "forbiddenBackground": [
+              "ngọn lửa đang cháy",
+              "nhân vật",
+              "tinh xá, hoàng cung hoặc ngoại cảnh ban ngày"
+            ],
+            "backgroundProof": "Câu kết chương 3 nêu trực tiếp gió thốc qua tường đá và ngọn đèn dầu vụt tắt."
+          },
+          "critical": [
+            {
+              "id": "extinguished-wick",
+              "box": {
+                "x": 0.68,
+                "y": 0.83,
+                "width": 0.09,
+                "height": 0.08
+              }
+            },
+            {
+              "id": "smoke-wisp",
+              "box": {
+                "x": 0.7,
+                "y": 0.78,
+                "width": 0.05,
+                "height": 0.08
+              }
+            }
+          ],
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-024/outputs/part1-page24-option1-h2-extinguished-oil-lamp-v1.png",
+            "status": "qa-passed"
+          },
+          "output": "../pages/page-024/outputs/part1-page24-option1-h2-extinguished-oil-lamp-v1.png"
+        }
+      ]
+    },
+    {
+      "id": "part1-spread24-option1-fist-and-extinguished-lamp",
+      "canvas": {
+        "width": 1217,
+        "height": 864
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_24.png",
+      "beatMap": {
+        "h1": "Quyết tâm của lão đạo trưởng làm cả vòng họp nín lặng.",
+        "h2": "Ý định ấy lan thành luồng gió dập tắt nguồn sáng duy nhất.",
+        "transition": "Cận cảnh nắm đấm ở foreground cắt sang cận cảnh tim đèn; cả hai beat dùng một lực ép hướng ngang nhưng đổi từ con người sang không gian.",
+        "contrast": "H1 medium close-up từ trong vòng họp; H2 extreme close-up, không có nhân vật."
+      },
+      "frames": [
+        {
+          "id": "h1-fist-silences-circle",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.7639,
+            "width": 0.43,
+            "height": 0.2349
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.7639,
+            "width": 0.06,
+            "height": 0.2349
+          },
+          "narrativeFunction": "reaction",
+          "shotThesis": {
+            "dramaticMeaning": "Quyết tâm trả thù không còn là lời nói: nắm tay lão đạo trưởng khiến không khí trong vòng họp đông cứng.",
+            "moment": "Ngay sau câu cuối và trước khi gió làm đèn tắt.",
+            "pointOfView": "Người đọc ngồi sát trong vòng họp, đối diện cử chỉ của lão đạo trưởng.",
+            "focusAndEyePath": "Mắt vào nắm tay sáng lớn ở foreground trái, đi theo cẳng tay tới khoảng mặt tối của lão, rồi nhận ra ba đạo sĩ bị nén trong bóng.",
+            "offscreenInformation": "Kế hoạch cụ thể, hai thành viên còn lại và mọi hành động tranh luận nằm ngoài khung vì phần chữ đã kể."
+          },
+          "optionAlignment": {
+            "optionId": "page24-option1-fist-silences-circle-h1",
+            "selectedBrief": "Medium close-up từ trong vòng họp: nắm tay lão đạo trưởng lớn ở foreground, ba mảng đạo sĩ im lặng ở nền; scene có năm người nhưng không cần lộ đủ năm gương mặt.",
+            "mustMatch": [
+              "nắm tay lão đạo trưởng là focus đầu tiên và cử chỉ duy nhất",
+              "đúng năm đạo sĩ có mặt trong scene; chỉ ba đạo sĩ phụ cần hiện thành mảng/silhouette",
+              "medium close-up từ trong vòng họp, không phải toàn cảnh",
+              "đèn dầu vẫn cháy nhỏ ở xa, trước H2"
+            ],
+            "forbidden": [
+              "mọi người xếp hàng hay nhìn thẳng người đọc",
+              "diễn thuyết, tranh cãi hoặc minh họa kế hoạch",
+              "hoàng cung, tinh xá, người phụ nữ, nhân vật Phật giáo, ánh sáng huyền ảo"
+            ],
+            "layoutMapping": [
+              "frame trái 2.57:1: nắm tay và cẳng tay ở x=0.08–0.23, y=0.80–0.95",
+              "mặt lão và ba mảng người chỉ ở x=0.20–0.37, y=0.78–0.94; mép phải để nền tối giản trước gáy",
+              "đèn dầu nhỏ ở nền x=0.27–0.31, y=0.91–0.96, không cạnh tranh focus"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Chuyển H1 từ tả nhóm sang một cú nén kịch tính.",
+                "manifestEvidence": "shotThesis.dramaticMeaning, pointOfView và focusAndEyePath.",
+                "whyMatch": "Manifest khóa góc nhìn ở trong vòng họp và cho nắm tay chiếm foreground; nhóm chỉ làm áp lực nền."
+              },
+              {
+                "optionRequirement": "Nhóm đạo sĩ vẫn đúng kịch bản nhưng không cùng trọng lượng.",
+                "manifestEvidence": "mustMatch, contextSnapshot.present và shotThesis.offscreenInformation.",
+                "whyMatch": "Năm người có mặt được khóa ở context; chỉ ba người phụ nhìn thấy để giữ focus cho lão đạo trưởng."
+              },
+              {
+                "optionRequirement": "H1 phải dẫn hợp lý đến đèn tắt ở H2.",
+                "manifestEvidence": "beatMap và backgroundContinuityLock.mustShow.",
+                "whyMatch": "Đèn còn cháy nhỏ ở đáy H1 là điểm nối thị giác, sau đó H2 cắt đến tim đèn vừa tắt."
+              }
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/Dao si doi dich.png"
+            ],
+            "userConfirmed": true
+          },
+          "contextSnapshot": {
+            "time": "Cuối cuộc họp, ngay sau lời đề nghị cuối và trước luồng gió.",
+            "present": [
+              "lão đạo trưởng",
+              "bốn đạo sĩ đối địch"
+            ],
+            "happening": "lão đạo trưởng nắm tay; cả nhóm im bặt",
+            "forbiddenFuture": [
+              "đèn dầu đã tắt",
+              "bất kỳ kế hoạch nào được thực hiện"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "nội thất điện thờ đá cũ trong rừng",
+            "mustShow": [
+              "nền đá cũ tối",
+              "một vệt tường đá nứt",
+              "đèn dầu còn cháy nhỏ"
+            ],
+            "mayShow": [
+              "bóng vai/lưng của những đạo sĩ phụ"
+            ],
+            "forbiddenBackground": [
+              "tinh xá, hoàng cung, làng mạc, vực sâu"
+            ],
+            "backgroundProof": "Chương 3 khép cảnh họp bằng nắm tay, rồi mới nêu gió thổi tắt đèn."
+          },
+          "critical": [
+            {
+              "id": "elder-clenched-fist",
+              "box": {
+                "x": 0.08,
+                "y": 0.81,
+                "width": 0.15,
+                "height": 0.13
+              }
+            },
+            {
+              "id": "elder-forearm",
+              "box": {
+                "x": 0.18,
+                "y": 0.79,
+                "width": 0.12,
+                "height": 0.15
+              }
+            },
+            {
+              "id": "small-burning-lamp",
+              "box": {
+                "x": 0.27,
+                "y": 0.9,
+                "width": 0.05,
+                "height": 0.06
+              }
+            }
+          ],
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-024/outputs/part1-page24-option1-h1-fist-silences-circle-v1.png",
+            "status": "qa-passed"
+          },
+          "output": "../pages/page-024/outputs/part1-page24-option1-h1-fist-silences-circle-v1.png",
+          "storyboardQa": {
+            "status": "passed",
+            "focusProof": "Nắm tay chiếm foreground trái và tương phản sáng mạnh nhất; gương mặt cùng ba đạo sĩ lùi vào vùng tối hơn.",
+            "stagingProof": "Ba nhân vật phụ chỉ phản ứng im lặng, không ai có cử chỉ diễn thuyết; phần còn lại của nhóm được chủ ý để ngoài khung.",
+            "textRelationship": "Chữ kể các mưu kế, hình chỉ cho thấy khoảnh khắc quyết tâm chấm dứt lời bàn.",
+            "beatProof": "Đèn cháy rất nhỏ ở sâu trong H1 tạo mối nối trực tiếp với tim đèn tắt của H2.",
+            "styleAndContinuity": "Nội thất điện thờ đá cũ, trang phục Ấn Độ cổ đại và line art/cel shading 2D đều khớp khóa cảnh."
+          }
+        },
+        {
+          "id": "h2-wind-extinguishes-lamp",
+          "shape": "rect",
+          "box": {
+            "x": 0.57,
+            "y": 0.7639,
+            "width": 0.43,
+            "height": 0.2349
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.7639,
+            "width": 0.06,
+            "height": 0.2349
+          },
+          "narrativeFunction": "transition",
+          "shotThesis": {
+            "dramaticMeaning": "Sự im lặng của con người lan sang căn phòng: nguồn sáng cuối cùng bị dập tắt.",
+            "moment": "Khoảnh khắc ngay sau khi luồng gió dập lửa.",
+            "pointOfView": "Mắt người đọc bị kéo xuống sát mặt đất, cùng hướng gió vừa đi qua vết tường nứt.",
+            "focusAndEyePath": "Mắt vào tim đèn đen ở phải-trung tâm, lần theo vệt khói bị kéo ngang về vết nứt ở mép phải, rồi rơi vào khoảng tối.",
+            "offscreenInformation": "Không thấy người, ngọn lửa lúc còn cháy, hay nguyên nhân của gió; H1 và chữ đã gánh thông tin đó."
+          },
+          "optionAlignment": {
+            "optionId": "page24-option1-fist-silences-circle-h2",
+            "selectedBrief": "Extreme close-up đèn dầu vừa tắt: tim đèn đen ở foreground, khói mảnh bị gió kéo ngang về vết tường đá nứt; không nhân vật.",
+            "mustMatch": [
+              "đèn dầu đã tắt, không còn lửa",
+              "tim đèn là focus đầu tiên",
+              "một làn khói mảnh có hướng gió ngang rõ ràng",
+              "tường đá nứt và bóng tối của điện thờ; không nhân vật"
+            ],
+            "forbidden": [
+              "ngọn lửa còn cháy, ánh sáng huyền ảo hoặc khói volumetric",
+              "người, vũ khí, đạo cụ mưu kế hoặc bối cảnh ngoài điện thờ"
+            ],
+            "layoutMapping": [
+              "frame phải 2.57:1: tim đèn x=0.70–0.82, y=0.85–0.95",
+              "khói chạy ngang từ tim đèn về vết nứt x=0.86–0.96, y=0.79–0.89",
+              "vùng sát gáy x=0.57–0.63 chỉ có nền đá tối giản"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Cú cutaway phải đổi beat từ ý định sang không gian bị dập tắt.",
+                "manifestEvidence": "shotThesis.dramaticMeaning, moment và spread.beatMap.transition.",
+                "whyMatch": "Frame bỏ hết nhân vật, giữ đúng hệ quả vật lý trực tiếp là tim đèn tắt và gió đi qua."
+              },
+              {
+                "optionRequirement": "Đèn tắt phải là focus, không thành một bức tả nền.",
+                "manifestEvidence": "shotThesis.focusAndEyePath và critical extinguished-wick.",
+                "whyMatch": "Tim đèn được khóa ở foreground, khói trở thành đường dẫn mắt tới vết nứt thay vì hiệu ứng trang trí."
+              }
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf"
+            ],
+            "userConfirmed": true
+          },
+          "contextSnapshot": {
+            "time": "Ngay sau khi lão đạo trưởng nắm tay và không ai nói nữa.",
+            "present": [],
+            "happening": "gió thốc qua tường đá, đèn dầu vụt tắt",
+            "forbiddenFuture": [
+              "một cuộc họp mới",
+              "việc thực hiện các mưu kế"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "nội thất điện thờ đá cũ tối dần",
+            "mustShow": [
+              "đèn dầu tắt",
+              "tường đá nứt",
+              "khói mảnh hướng ngang"
+            ],
+            "mayShow": [
+              "một bóng côn trùng rất nhỏ ở nền"
+            ],
+            "forbiddenBackground": [
+              "ngọn lửa đang cháy",
+              "nhân vật",
+              "tinh xá, hoàng cung, ngoại cảnh ban ngày"
+            ],
+            "backgroundProof": "Câu cuối chương 3 nêu trực tiếp gió qua tường đá và đèn dầu vụt tắt."
+          },
+          "critical": [
+            {
+              "id": "extinguished-wick",
+              "box": {
+                "x": 0.7,
+                "y": 0.85,
+                "width": 0.12,
+                "height": 0.1
+              }
+            },
+            {
+              "id": "wind-pulled-smoke",
+              "box": {
+                "x": 0.79,
+                "y": 0.79,
+                "width": 0.15,
+                "height": 0.1
+              }
+            },
+            {
+              "id": "cracked-wall-opening",
+              "box": {
+                "x": 0.88,
+                "y": 0.77,
+                "width": 0.08,
+                "height": 0.16
+              }
+            }
+          ],
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-024/outputs/part1-page24-option1-h2-wind-extinguishes-lamp-v1.png",
+            "status": "qa-passed"
+          },
+          "output": "../pages/page-024/outputs/part1-page24-option1-h2-wind-extinguishes-lamp-v1.png",
+          "storyboardQa": {
+            "status": "passed",
+            "focusProof": "Tim đèn đen ở foreground phải-trung tâm là điểm đọc đầu tiên; vệt khói kéo ngang dẫn mắt sang khe nứt.",
+            "stagingProof": "Không có nhân vật hay đạo cụ mưu kế, nên cutaway chỉ mang một hành động: gió vừa dập đèn.",
+            "textRelationship": "Hình biến câu kết về gió và tiếng côn trùng thành một dư âm không lời thay vì lặp lại cuộc họp.",
+            "beatProof": "Cận cảnh cực gần và không gian trống thay đổi rõ cự ly lẫn nhịp so với H1.",
+            "styleAndContinuity": "Tường đá nứt, nền điện thờ tối và nét/cel shading 2D giữ đúng bối cảnh cùng style."
+          }
+        }
+      ]
+    },
+    {
+      "id": "part1-spread24-reprocess-optionA",
+      "canvas": {
+        "width": 1217,
+        "height": 864
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_24.png",
+      "beatMap": {
+        "h1": "Nắm tay lão đạo trưởng làm năm đạo sĩ im bặt.",
+        "h2": "Gió qua tường đá dập tắt ngọn đèn dầu.",
+        "transition": "Lực ép của nắm tay cắt sang lực kéo ngang của khói; H1 medium-wide đổi sang H2 extreme close-up."
+      },
+      "frames": [
+        {
+          "id": "h1-optionA-fist-silences-circle",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.7639,
+            "width": 0.43,
+            "height": 0.2349
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.7639,
+            "width": 0.06,
+            "height": 0.2349
+          },
+          "narrativeFunction": "reaction",
+          "shotThesis": {
+            "dramaticMeaning": "Nắm tay lão đạo trưởng làm ý định trả thù đông cứng cả vòng họp.",
+            "moment": "Ngay sau lời đề nghị cuối, trước luồng gió.",
+            "pointOfView": "Người đọc ngồi thấp ở trong vòng họp.",
+            "focusAndEyePath": "Nắm tay → cẳng tay → lão đạo trưởng → bốn đạo sĩ im lặng.",
+            "offscreenInformation": "Mọi kế hoạch cụ thể và hành động tiếp theo."
+          },
+          "contextSnapshot": {
+            "time": "cuối cuộc họp",
+            "present": [
+              "lão đạo trưởng",
+              "đạo sĩ trẻ gầy",
+              "gã xoa mạn sườn",
+              "gã to cao",
+              "đạo sĩ gần cửa"
+            ],
+            "happening": "lão siết nắm tay, cả nhóm im bặt",
+            "forbiddenFuture": [
+              "đèn tắt",
+              "thực hiện mưu kế"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "nội thất điện thờ đá cũ trong rừng",
+            "mustShow": [
+              "sàn đá",
+              "vài mảng tường đá nứt",
+              "đèn dầu cháy nhỏ"
+            ],
+            "forbiddenBackground": [
+              "hoàng cung",
+              "tinh xá",
+              "vũ khí",
+              "người Phật giáo"
+            ],
+            "backgroundProof": "Câu cuối chương 3 đặt nắm tay trước cú gió tắt đèn."
+          },
+          "critical": [
+            {
+              "id": "elder-clenched-fist",
+              "box": {
+                "x": 0.08,
+                "y": 0.81,
+                "width": 0.15,
+                "height": 0.13
+              }
+            },
+            {
+              "id": "elder-face",
+              "box": {
+                "x": 0.21,
+                "y": 0.78,
+                "width": 0.09,
+                "height": 0.13
+              }
+            },
+            {
+              "id": "ascetic-group",
+              "box": {
+                "x": 0.2,
+                "y": 0.77,
+                "width": 0.18,
+                "height": 0.18
+              }
+            },
+            {
+              "id": "small-burning-lamp",
+              "box": {
+                "x": 0.27,
+                "y": 0.9,
+                "width": 0.05,
+                "height": 0.06
+              }
+            }
+          ],
+          "optionAlignment": {
+            "optionId": "page24-reprocess-optionA-h1",
+            "userConfirmed": true,
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/Lao dao truong.png",
+              "Tap 53/characters/Dao si tre gay go.png",
+              "Tap 53/characters/Ga dao si xoa man suon.png",
+              "Tap 53/characters/Dao si cao to tho kech.png",
+              "Tap 53/characters/Dao si ngoi gan cua.png"
+            ],
+            "compositionCard": "../storyboards/page24-reprocess-optionA-composition.svg",
+            "selectedBrief": "Medium-wide từ trong vòng họp: nắm tay lão đạo trưởng ở foreground; năm profile đạo sĩ im lặng; đèn dầu còn cháy nhỏ ở nền.",
+            "mustMatch": [
+              "đúng năm đạo sĩ theo năm profile đã đọc",
+              "nắm tay lão đạo trưởng là focus đầu tiên",
+              "bốn đạo sĩ phụ im lặng, không diễn thuyết",
+              "đèn dầu còn cháy nhỏ trước H2"
+            ],
+            "forbidden": [
+              "hoàng cung, tinh xá, phụ nữ, nhân vật Phật giáo",
+              "vũ khí hoặc hành động thực hiện kế hoạch",
+              "render 3D/2.5D, texture painterly, ánh sáng huyền ảo"
+            ],
+            "layoutMapping": [
+              "fist x=0.08–0.23, y=0.81–0.94",
+              "mặt lão x=0.21–0.30; nhóm phụ x=0.20–0.38",
+              "phần x=0.38–0.43 là đá tối giản, xa gáy",
+              "đèn cháy nhỏ x=0.27–0.32, y=0.90–0.96"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Nắm tay là focus, năm profile vẫn đúng nhân vật.",
+                "manifestEvidence": "shotThesis, critical và sourceRead năm profile.",
+                "whyMatch": "Cỡ foreground của nắm tay tạo lực ép, còn bốn người phụ được phân biệt bằng silhouette/profile."
+              },
+              {
+                "optionRequirement": "H1 dẫn tới H2 nhưng chưa đi trước timeline.",
+                "manifestEvidence": "contextSnapshot và backgroundContinuityLock.",
+                "whyMatch": "Đèn chỉ cháy rất nhỏ ở nền, chưa tắt."
+              }
+            ]
+          },
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-024/outputs/part1-page24-reprocess-optionA-h1-fist-silences-circle-v1.png",
+            "status": "qa-passed"
+          },
+          "output": "../pages/page-024/outputs/part1-page24-reprocess-optionA-h1-fist-silences-circle-v1.png",
+          "storyboardQa": {
+            "status": "passed",
+            "focusProof": "Nắm tay lớn ở foreground trái là điểm đọc đầu; cẳng tay dẫn lên mặt lão, sau đó bốn profile phụ lùi vào nhịp im lặng.",
+            "stagingProof": "Đúng năm đạo sĩ có mặt; đạo sĩ trẻ gầy, gã xoa sườn, gã to cao và đạo sĩ gần cửa giữ silhouette/trang phục tách biệt theo profile; không ai diễn thuyết.",
+            "textRelationship": "Chữ kể các mưu kế; hình chỉ giữ dư âm im lặng sau quyết tâm.",
+            "styleAndContinuity": "Nét viền rõ, mảng màu phẳng và cel-shading cạnh cứng; điện thờ đá cũ, đèn còn cháy nhỏ, không có timeline tương lai."
+          },
+          "visualDeltaQa": {
+            "status": "passed",
+            "comparisonCard": "../storyboards/page24-reprocess-optionA-comparison.svg",
+            "evidence": [
+              "Fist nằm foreground trái theo composition contract.",
+              "Lão đạo trưởng tóc/râu trắng, khăn cam; bốn profile phụ phân biệt được.",
+              "Đèn dầu nhỏ vẫn cháy ở nền."
+            ],
+            "acceptedChanges": [
+              "Cỡ nhóm phụ được mở rộng nhẹ để giữ đủ năm profile ở strip hẹp."
+            ]
+          },
+          "compositionContract": {
+            "camera": "low medium-wide inside the circle",
+            "shotSize": "foreground fist with elder face and four profile-separated supporting ascetics",
+            "focus": "fist → forearm → elder → silent group",
+            "negativeSpace": "plain dark stone at right edge, outside spine",
+            "profileLock": "all five ascetic profiles from characters/",
+            "style": "pure 2D line art, flat fills, 1–2 hard cel shadows",
+            "promptFile": "../storyboards/page24-reprocess-optionA-prompts.md"
+          }
+        },
+        {
+          "id": "h2-optionA-wind-extinguishes-lamp",
+          "shape": "rect",
+          "box": {
+            "x": 0.57,
+            "y": 0.7639,
+            "width": 0.43,
+            "height": 0.2349
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.7639,
+            "width": 0.06,
+            "height": 0.2349
+          },
+          "narrativeFunction": "transition",
+          "shotThesis": {
+            "dramaticMeaning": "Nguồn sáng cuối cùng bị dập tắt.",
+            "moment": "ngay sau luồng gió",
+            "pointOfView": "sát mặt đất, cùng hướng gió",
+            "focusAndEyePath": "tim đèn → khói ngang → khe nứt → tối",
+            "offscreenInformation": "mọi nhân vật và nguyên nhân gió."
+          },
+          "contextSnapshot": {
+            "time": "ngay sau H1",
+            "present": [],
+            "happening": "gió qua tường đá làm đèn tắt",
+            "forbiddenFuture": [
+              "cuộc họp mới",
+              "thực hiện mưu kế"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "nội thất điện thờ đá cũ tối dần",
+            "mustShow": [
+              "đèn tắt",
+              "tường đá nứt",
+              "khói mảnh hướng ngang"
+            ],
+            "forbiddenBackground": [
+              "lửa",
+              "nhân vật",
+              "ngoại cảnh"
+            ],
+            "backgroundProof": "Câu cuối chương 3."
+          },
+          "critical": [
+            {
+              "id": "extinguished-wick",
+              "box": {
+                "x": 0.7,
+                "y": 0.85,
+                "width": 0.12,
+                "height": 0.1
+              }
+            },
+            {
+              "id": "wind-pulled-smoke",
+              "box": {
+                "x": 0.79,
+                "y": 0.79,
+                "width": 0.15,
+                "height": 0.1
+              }
+            },
+            {
+              "id": "cracked-wall-opening",
+              "box": {
+                "x": 0.88,
+                "y": 0.77,
+                "width": 0.08,
+                "height": 0.16
+              }
+            }
+          ],
+          "optionAlignment": {
+            "optionId": "page24-reprocess-optionA-h2",
+            "userConfirmed": true,
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/scripts/chapter3.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf"
+            ],
+            "compositionCard": "../storyboards/page24-reprocess-optionA-composition.svg",
+            "selectedBrief": "Extreme close-up: đèn đất nung vừa tắt, tim đèn đen và khói ngang hướng sang khe tường đá nứt; không nhân vật.",
+            "mustMatch": [
+              "không còn lửa",
+              "tim đèn là focus đầu tiên",
+              "khói mảnh kéo ngang về khe đá nứt",
+              "không có nhân vật"
+            ],
+            "forbidden": [
+              "ngọn lửa, người, vũ khí hoặc đạo cụ mưu kế",
+              "bối cảnh ngoài điện thờ",
+              "render 3D/2.5D, khói volumetric, glow"
+            ],
+            "layoutMapping": [
+              "tim đèn x=0.70–0.82, y=0.85–0.95",
+              "khói x=0.79–0.94, y=0.79–0.89",
+              "khe tường x=0.88–0.96",
+              "trái khung là nền đá giản lược cạnh gáy"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Cutaway chuyển từ ý định sang không gian tối.",
+                "manifestEvidence": "beatMap và shotThesis.",
+                "whyMatch": "Loại hết nhân vật, chỉ giữ hệ quả vật lý trực tiếp."
+              },
+              {
+                "optionRequirement": "Bố cục tránh gáy.",
+                "manifestEvidence": "layoutMapping, spine và critical.",
+                "whyMatch": "Toàn bộ tim đèn, khói và khe đá ở nửa phải frame."
+              }
+            ]
+          },
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-024/outputs/part1-page24-reprocess-optionA-h2-wind-extinguishes-lamp-v1.png",
+            "status": "qa-passed"
+          },
+          "output": "../pages/page-024/outputs/part1-page24-reprocess-optionA-h2-wind-extinguishes-lamp-v1.png",
+          "storyboardQa": {
+            "status": "passed",
+            "focusProof": "Tim đèn đen ở phải-trung tâm đọc trước, vệt khói ngang dẫn sang khe đá.",
+            "stagingProof": "Không người và không lửa; chỉ một hệ quả vật lý trực tiếp của luồng gió.",
+            "textRelationship": "Cutaway khép scene thay vì lặp lại lời thoại.",
+            "styleAndContinuity": "Line art rõ, mảng màu/cel shade phẳng; chỉ là nội thất điện thờ đá tối dần."
+          },
+          "visualDeltaQa": {
+            "status": "passed",
+            "comparisonCard": "../storyboards/page24-reprocess-optionA-comparison.svg",
+            "evidence": [
+              "Tim đèn đen ở nửa phải; không có lửa.",
+              "Khói chạy ngang về khe tường đá nứt.",
+              "Nửa trái giữ nền đá tối giản."
+            ],
+            "acceptedChanges": []
+          },
+          "compositionContract": {
+            "camera": "ground-level extreme close-up",
+            "shotSize": "single lamp cutaway",
+            "focus": "black wick → horizontal smoke → cracked opening",
+            "negativeSpace": "plain dark stone in left third next to spine",
+            "style": "pure 2D line art, flat fills, 1–2 hard cel shadows",
+            "promptFile": "../storyboards/page24-reprocess-optionA-prompts.md"
+          }
+        }
+      ]
+    },
+    {
+      "id": "part1-spread10-restart-option1-visakha-stone-gesture",
+      "canvas": {
+        "width": 2433,
+        "height": 1727
+      },
+      "pageImage": "../../../tmp/pdf_pages/page_10_hi.png",
+      "frames": [
+        {
+          "id": "h1-visakha-stone-gesture",
+          "shape": "ellipse",
+          "box": {
+            "x": 0.3346,
+            "y": 0.5774,
+            "width": 0.3305,
+            "height": 0.4221
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.5774,
+            "width": 0.06,
+            "height": 0.4221
+          },
+          "narrativeFunction": "reaction",
+          "delivery": {
+            "required": true,
+            "output": "../pages/page-010/outputs/part1-page10-option1-visakha-stone-gesture-v5.png",
+            "status": "qa-passed"
+          },
+          "optionAlignment": {
+            "optionId": "page10-option1-visakha-stone-gesture",
+            "selectedBrief": "Medium two-shot qua mask tròn: Visakha vừa chỉ về đá, Nalini quay sang lắng nghe; lòng thành của Visakha bắt đầu lay động nhận thức của Nalini.",
+            "mustMatch": [
+              "mask tròn, output chữ nhật để layout tự mask",
+              "chỉ hai nhân vật nhìn thấy: Nalini và Visakha",
+              "Visakha ở phải chỉ về đá, Nalini ở trái giữ bản vẽ và lắng nghe",
+              "công trường tập kết vật liệu, đá rời và xe bò chưa bốc"
+            ],
+            "forbidden": [
+              "Punna làm chủ thể hoặc nhìn thẳng người đọc",
+              "hương thất đã xây, cột chính, tường, mái hoặc công trình hoàn thiện",
+              "tỳ kheo ni, nhà cư sĩ, cảnh ngoài công trường"
+            ],
+            "layoutMapping": [
+              "ellipse box x=0.3346 y=0.5774 width=0.3305 height=0.4221",
+              "Nalini và critical face/blueprint ở nửa trái mask; Visakha và critical pointing hand ở nửa phải",
+              "đá nằm thấp trong mask; mặt và tay tránh spine x=0.47–0.53"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Người đọc cảm nhận lòng thành của Visakha trước.",
+                "manifestEvidence": "selectedBrief, mustMatch và compositionContract.focus.",
+                "whyMatch": "Eye path bắt đầu ở bàn tay/chỉ hướng và ánh mắt Visakha trước khi chuyển sang đá."
+              },
+              {
+                "optionRequirement": "Nalini bắt đầu thay đổi nhận thức.",
+                "manifestEvidence": "selectedBrief và critical nalini-face/blueprint.",
+                "whyMatch": "Nalini quay sang lắng nghe, nét mặt là điểm dừng thứ hai thay vì hành động xây dựng tương lai."
+              },
+              {
+                "optionRequirement": "Giữ đúng giai đoạn công trường.",
+                "manifestEvidence": "contextSnapshot và backgroundContinuityLock.",
+                "whyMatch": "Chỉ dùng vật liệu rời, xe chưa bốc và đất công trường; cấm mọi kiến trúc hoàn thiện."
+              }
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/scripts/chapter1.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/Bác Nalini.png",
+              "Tap 53/characters/Visakha.png"
+            ],
+            "userConfirmed": true
+          },
+          "contextSnapshot": {
+            "time": "buổi chiều, ngay sau khi xe vật liệu đến công trường",
+            "present": [
+              "Bác Nalini",
+              "Phu nhân Visakha",
+              "Trưởng giả Punna (không dẫn điểm nhìn)",
+              "thợ chuyển đá ở nền"
+            ],
+            "alreadyHappened": [
+              "xe chở nhầm gạch thường",
+              "đá được chở dư",
+              "Nalini đang cân nhắc giữ hay trả"
+            ],
+            "happening": "Visakha chỉ về đá và đề nghị dành đá cho hương thất; Nalini đang quay sang tiếp nhận đề nghị",
+            "forbiddenFuture": [
+              "khu cột chính",
+              "tỳ kheo ni",
+              "nhà cư sĩ",
+              "hương thất hoàn thiện"
+            ]
+          },
+          "backgroundContinuityLock": {
+            "physicalStage": "công trường đang tập kết vật liệu, chưa dựng kiến trúc cố định",
+            "mustShow": [
+              "đá nguyên khối đang được chuyển",
+              "xe bò chở gạch chưa bốc hoặc chỉ gợi bằng bánh xe/thùng xe",
+              "đất công trường và vật liệu rời"
+            ],
+            "mayShow": [
+              "một hoặc hai thợ phụ",
+              "hàng gạch nung",
+              "vũng vôi vữa"
+            ],
+            "forbiddenBackground": [
+              "tường/cột/mái đã xây",
+              "hương thất hoàn thiện",
+              "tỳ kheo ni",
+              "nhà cư sĩ"
+            ],
+            "backgroundProof": "Script câu 50–52 xác nhận xe gạch chưa bốc và thợ chuyển đá; câu 57 mới chuyển sang khu cột chính."
+          },
+          "shotThesis": {
+            "dramaticMeaning": "Lòng thành không phô trương của Visakha bắt đầu làm Nalini nhìn công trình bằng giá trị lớn hơn chi phí.",
+            "moment": "trong hành động",
+            "pointOfView": "qua Nalini",
+            "focusEyePath": "ánh mắt/bàn tay Visakha → tảng đá → nét mặt Nalini",
+            "outsideFrame": "toàn bộ lời giải thích về giá đá, hương thất tương lai và các scene sau",
+            "readerFeeling": "Người đọc cảm nhận sự chân thành của Visakha rồi nhận ra Nalini đang bị lay động.",
+            "narrativeAsymmetry": "Visakha đã thấy ý nghĩa tinh thần của đá; Nalini mới nhận ra; người đọc thấy sự chuyển biến trước lời đồng thuận.",
+            "stagingConsequence": "Visakha phải hướng tay về đá và Nalini phải nhìn theo; không đối thoại thẳng vào người đọc."
+          },
+          "emotionLock": {
+            "intendedEmotion": "Nalini kính trọng và bắt đầu thấu hiểu, không còn chỉ tính toán chi phí",
+            "readerFeeling": "Người đọc cảm nhận lòng thành không phô trương của Visakha rồi nhận ra Nalini đang bị lay động",
+            "facialCues": [
+              "ánh mắt mềm, tập trung vào Visakha hoặc đá",
+              "lông mày thả",
+              "miệng khép nhẹ, nét mặt lắng lại"
+            ],
+            "bodyCues": [
+              "hơi nghiêng người về phía Visakha",
+              "hai tay giữ bản vẽ tự nhiên bên trái",
+              "không chống cằm hoặc khoanh tay"
+            ],
+            "wrongReadings": [
+              "bối rối",
+              "nghi ngờ",
+              "đang tính toán chi phí",
+              "phản đối",
+              "chống cằm suy nghĩ"
+            ]
+          },
+          "frameReadabilityLock": {
+            "displayContext": "mask tròn nhỏ ở nửa dưới spread page 10, đọc ở kích thước thật trên spread",
+            "shotSizeAllowed": [
+              "medium close-up",
+              "close-up hai người bán thân"
+            ],
+            "subjectScale": "mỗi gương mặt chiếm khoảng 22–28% chiều rộng mask; thân trên chiếm phần lớn chiều cao mask",
+            "minimumReadableElements": [
+              "ánh mắt và biểu cảm Nalini",
+              "bàn tay chỉ hướng của Visakha",
+              "một phần đá làm neo"
+            ],
+            "forbiddenScale": [
+              "full-body",
+              "establishing shot rộng",
+              "background nhiều người lấn át"
+            ],
+            "scaleProof": "Frame tròn nhỏ nên hai nhân vật bán thân giúp cảm xúc và cử chỉ đọc rõ; dải gáy vẫn được chừa ở giữa."
+          },
+          "beatMap": {
+            "beats": [
+              "Visakha đưa ra cử chỉ đề nghị",
+              "Nalini tiếp nhận và bắt đầu thấu hiểu"
+            ],
+            "transition": "một frame giữ cả nguyên nhân và phản ứng trong nhịp lặng của mask tròn"
+          },
+          "critical": [
+            {
+              "id": "nalini-face",
+              "box": {
+                "x": 0.365,
+                "y": 0.69,
+                "width": 0.075,
+                "height": 0.09
+              }
+            },
+            {
+              "id": "nalini-blueprint-hand",
+              "box": {
+                "x": 0.365,
+                "y": 0.78,
+                "width": 0.09,
+                "height": 0.09
+              }
+            },
+            {
+              "id": "visakha-face",
+              "box": {
+                "x": 0.56,
+                "y": 0.69,
+                "width": 0.075,
+                "height": 0.09
+              }
+            },
+            {
+              "id": "visakha-pointing-hand",
+              "box": {
+                "x": 0.565,
+                "y": 0.77,
+                "width": 0.09,
+                "height": 0.09
+              }
+            }
+          ],
+          "storyboardQa": {
+            "status": "approved",
+            "compositionCard": "../storyboards/page10-option1-visakha-stone-gesture-v2.svg",
+            "notes": "Storyboard QA đã được người dùng xác nhận."
+          },
+          "visualDeltaQa": {
+            "status": "passed",
+            "emotion": {
+              "intended": "Nalini kính trọng và bắt đầu thấu hiểu",
+              "evidence": "Ánh mắt mềm, lông mày thả, tay giữ bản vẽ tự nhiên, thân hướng về Visakha",
+              "wrongReadingAvoided": "Không chống cằm, không khoanh tay, không bối rối hoặc tính toán",
+              "status": "pass"
+            },
+            "readability": {
+              "intendedScale": "medium close-up hai người bán thân trong mask tròn nhỏ",
+              "observedScale": "Hai gương mặt lớn, thân trên chiếm phần lớn frame; tay chỉ và cuộn bản vẽ đọc được ở kích thước frame.",
+              "minimumElementsReadable": [
+                "ánh mắt và biểu cảm Nalini",
+                "bàn tay chỉ hướng của Visakha",
+                "một phần đá làm neo"
+              ],
+              "status": "pass"
+            },
+            "evidence": "V5 chuyển sang medium close-up: hai gương mặt và cử chỉ chiếm ưu tiên trong mask nhỏ, khoảng trống dọc giữa hai nhân vật giữ vùng gáy, đá neo thấp bên phải; visual review không còn full-body/establishing.",
+            "acceptedChanges": [
+              "đổi staging để chừa spine",
+              "đổi acting của Nalini theo Emotion Lock",
+              "đổi shot size sang medium close-up để khóa khả năng đọc ở frame nhỏ"
+            ]
+          },
+          "compositionContract": {
+            "camera": "medium two-shot, slight high angle, viewed through Nalini",
+            "shotSize": "medium close-up two-shot, upper bodies only, compressed inside circular mask",
+            "focus": "Visakha's stone gesture and sincerity → Nalini's listening reaction",
+            "subjectPlacement": "Nalini upper body entirely left of spine with blueprint, Visakha upper body entirely right of spine with pointing hand, one stone edge low right; reserve a continuous empty vertical gutter through center",
+            "eyePath": "Visakha gesture/eyes → stone → Nalini face",
+            "negativeSpace": "simple low-contrast construction ground and uncluttered upper circle",
+            "style": "pure 2D animation, crisp line art, flat colors, 1–2 hard cel shadows",
+            "emotion": "Nalini: softened eyes, relaxed brow, quiet dawning respect; forbid puzzled/calculating/chin-on-hand acting",
+            "promptFile": "../storyboards/page10-option1-visakha-stone-gesture-prompts.md"
+          },
+          "output": "../pages/page-010/outputs/part1-page10-option1-visakha-stone-gesture-v5.png"
+        }
+      ]
+    },
+    {
+      "id": "part1-spread05-community-worksite-restart-v9",
+      "canvas": {
+        "width": 2027,
+        "height": 1439
+      },
+      "pageImage": "../tmp/page-005-source/layout.png",
+      "frames": [
+        {
+          "id": "page05-community-worksite-strip",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.6644,
+            "width": 1,
+            "height": 0.3356
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.6644,
+            "width": 0.06,
+            "height": 0.3356
+          },
+          "contentFrame": {
+            "sourceCanvas": {
+              "width": 1536,
+              "height": 1024
+            },
+            "x": 0,
+            "y": 0.390625,
+            "width": 1,
+            "height": 0.357421875
+          },
+          "blendExtensionLock": {
+            "applicable": true,
+            "top": 0.390625,
+            "bottom": 0.251953125,
+            "left": 0,
+            "right": 0,
+            "allowedBackground": [
+              "trời thoáng",
+              "đất nện",
+              "nền phụ liên tục"
+            ],
+            "forbiddenContent": [
+              "gương mặt",
+              "bàn tay",
+              "cử chỉ",
+              "hành động",
+              "đạo cụ kể chuyện",
+              "neo bối cảnh thiết yếu"
+            ],
+            "layoutTreatment": "mask hoặc hòa gradient trong InDesign"
+          },
+          "critical": [
+            {
+              "id": "visakha-face-and-clasped-hands",
+              "box": {
+                "x": 0.68,
+                "y": 0.69,
+                "width": 0.14,
+                "height": 0.24
+              }
+            },
+            {
+              "id": "nalini-face-and-blueprint",
+              "box": {
+                "x": 0.82,
+                "y": 0.67,
+                "width": 0.15,
+                "height": 0.26
+              }
+            }
+          ],
+          "narrativeFunction": "community-worksite hero strip",
+          "frameReadabilityLock": {
+            "displayContext": "full-width lower strip under dialogue text",
+            "shotSizeAllowed": [
+              "wide strip",
+              "medium-wide group relation"
+            ],
+            "subjectScale": "Visakha chắp tay và Nalini là hai khối tiền cảnh lớn; nhóm đông thi công thu nhỏ dần ở trung–hậu cảnh.",
+            "minimumReadableElements": [
+              "Visakha chắp tay ở tiền cảnh",
+              "Nalini đứng cạnh với cuộn bản vẽ",
+              "9–12 người trung cảnh chia thành các cụm công việc",
+              "lớp xa chỉ có vai, lưng, thúng và cán cuốc"
+            ],
+            "forbiddenScale": [
+              "nhân vật có mặt hoặc tay quá nhỏ",
+              "chân dung tách khỏi công trường"
+            ],
+            "status": "option4-foreground-depth-composition-approved"
+          },
+          "visibilityPriority": [
+            {
+              "id": "visakha-prayer-silhouette",
+              "priority": "requiredComplete"
+            },
+            {
+              "id": "nalini-face-and-blueprint",
+              "priority": "requiredReadable"
+            },
+            {
+              "id": "midground-community-workforce",
+              "priority": "requiredReadable"
+            },
+            {
+              "id": "faceless-background-work-rhythm",
+              "priority": "optionalSupport"
+            },
+            {
+              "id": "trenches-stakes-baskets-timber",
+              "priority": "optionalSupport"
+            },
+            {
+              "id": "carriage",
+              "priority": "outOfFrame"
+            }
+          ],
+          "recognitionCores": [
+            "shallow unfinished foundation trenches",
+            "repeated survey stakes",
+            "rough timber and earth baskets passing between volunteers"
+          ],
+          "cropBuffers": [
+            "low neutral sky",
+            "packed-earth foreground",
+            "secondary stakes and distant sparse trees"
+          ],
+          "intentionalCropLock": [],
+          "storyboardQa": {
+            "status": "approved-generating",
+            "selectedOption": "page05-restart-option4-visakha-chap-tay-cam-ta-expanded",
+            "preliminaryCompositionCard": "../pages/page-005/storyboards/page05-restart-option4-foreground-depth-in-layout.png",
+            "expandedCanvasCard": "../pages/page-005/storyboards/page05-restart-option4-foreground-depth-canvas.png",
+            "confirmedCompositionCard": "../pages/page-005/storyboards/page05-restart-option4-foreground-depth-canvas.png",
+            "confirmedOverlay": "../pages/page-005/storyboards/page05-restart-option4-foreground-depth-in-layout.png"
+          },
+          "optionManifest": "../pages/page-005/options/page05-restart-option4-visakha-chap-tay-cam-ta-expanded/manifest.json",
+          "output": "../pages/page-005/outputs/part1-page05-option4-foreground-depth-v9-facing-community-flat-horizon.png",
+          "delivery": {
+            "required": true,
+            "status": "generated",
+            "output": "../pages/page-005/outputs/part1-page05-option4-foreground-depth-v9-facing-community-flat-horizon.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "part1-page003-nalini-volunteers",
+      "canvas": {
+        "width": 1622,
+        "height": 1151
+      },
+      "pageImage": "../pages/page-003/storyboards/page003-layout-source.png",
+      "frames": [
+        {
+          "id": "h1-nalini-holds-elder-hand",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.5613,
+            "width": 0.47,
+            "height": 0.4387
+          },
+          "contentFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          },
+          "textReserve": [],
+          "spine": null,
+          "narrativeFunction": "dấu chạm của lòng tự nguyện",
+          "frameReadabilityLock": {
+            "displayContext": "hình ngang ở nửa dưới trang trái, không có chữ trong frame",
+            "shotSizeAllowed": [
+              "insert cận"
+            ],
+            "subjectScale": "hai bàn tay phải đọc là focus duy nhất; miếng vá vai đọc được ngay sau đó",
+            "minimumReadableElements": [
+              "hai bàn tay Nalini và bà lão",
+              "miếng vá khâu ở vai áo bà lão"
+            ],
+            "forbiddenScale": [
+              "mặt người",
+              "cảnh công trường hoặc đạo cụ"
+            ],
+            "status": "storyboard-approved"
+          },
+          "visibilityPriority": [
+            {
+              "id": "hai-ban-tay",
+              "priority": "requiredComplete"
+            },
+            {
+              "id": "mieng-va-vai-ao",
+              "priority": "requiredReadable"
+            },
+            {
+              "id": "dat-suong-va-goc-cay-thua",
+              "priority": "optionalSupport"
+            }
+          ],
+          "critical": [
+            {
+              "id": "hai-ban-tay",
+              "box": {
+                "x": 0.12,
+                "y": 0.7,
+                "width": 0.27,
+                "height": 0.16
+              }
+            }
+          ],
+          "recognitionCores": [
+            "miếng vá vai áo nâu xám sờn",
+            "đất ướt sương giản lược"
+          ],
+          "cropBuffers": [
+            "đất nâu ướt sương",
+            "mảng áo phụ",
+            "gốc cây thưa"
+          ],
+          "optionAlignment": {
+            "optionId": "page003-reprocess-option3-nguoi-cho-ngoai-khung",
+            "selectedBrief": "Insert cận hai bàn tay Nalini giữ bàn tay bà lão; mặt hai người ngoài khung, miếng vá vai là chi tiết thứ hai.",
+            "mustMatch": [
+              "hai bàn tay là focus",
+              "miếng vá vai áo đọc được",
+              "mặt ngoài khung",
+              "đất sương trước công trường",
+              "thuần 2D animation"
+            ],
+            "forbidden": [
+              "công trường",
+              "dụng cụ",
+              "cọc",
+              "hố đào",
+              "Visakha",
+              "Punna",
+              "xe ngựa",
+              "núi",
+              "sông",
+              "rừng dày",
+              "3D hoặc texture thật"
+            ],
+            "layoutMapping": [
+              "nằm trọn frame trái x=0–0.47",
+              "không có chi tiết kể chuyện ở dải gap x=0.47–0.53",
+              "không có vùng chữ trong frame"
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/pages/page-003/layout.json",
+              "Tap 53/Part 1/pages/page-003/storyboards/page003-reprocess-g1-source-lock.md"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Khoảnh khắc chạm tay và miếng vá phải là focus, không lộ mặt.",
+                "manifestEvidence": "Frame trái ngang 3:2, không có text reserve; critical được đặt giữa frame và ngoài trim-safe.",
+                "whyMatch": "Cận cảnh giữ quan hệ chăm sóc rõ mà không kể lại toàn bộ cảnh."
+              }
+            ],
+            "userAction": "Xác nhận Storyboard QA: page-003 — page003-reprocess-option3-nguoi-cho-ngoai-khung",
+            "userConfirmed": true
+          },
+          "storyboardQa": {
+            "status": "approved",
+            "selectedOption": "page003-reprocess-option3-nguoi-cho-ngoai-khung",
+            "confirmedCompositionCard": "../pages/page-003/storyboards/page003-reprocess-option3-confirmed-composition.png"
+          },
+          "output": "../pages/page-003/outputs/page003-option3-h1-nalini-holds-elder-hand-v1.png",
+          "delivery": {
+            "required": true,
+            "status": "generated",
+            "output": "../pages/page-003/outputs/page003-option3-h1-nalini-holds-elder-hand-v1.png"
+          }
+        },
+        {
+          "id": "h2-nalini-warmed-by-volunteers",
+          "shape": "rect",
+          "box": {
+            "x": 0.53,
+            "y": 0.5613,
+            "width": 0.47,
+            "height": 0.4387
+          },
+          "contentFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          },
+          "textReserve": [],
+          "spine": null,
+          "narrativeFunction": "Nalini nhận ra lòng người",
+          "frameReadabilityLock": {
+            "displayContext": "hình ngang ở nửa dưới trang phải, không có chữ trong frame",
+            "shotSizeAllowed": [
+              "medium-wide tiết chế"
+            ],
+            "subjectScale": "Nalini ở một phần ba phải phải đọc rõ gương mặt, hướng nhìn và cuộn bản vẽ; ba người chờ chỉ là dư âm xa",
+            "minimumReadableElements": [
+              "gương mặt và turban Nalini",
+              "cuộn bản vẽ trong tay",
+              "ba silhouette chờ ở xa bên trái"
+            ],
+            "forbiddenScale": [
+              "đám đông",
+              "bà lão trong khung",
+              "silhouette mang nhận diện Nalini hoặc bà lão"
+            ],
+            "status": "storyboard-approved"
+          },
+          "visibilityPriority": [
+            {
+              "id": "mat-va-turban-nalini",
+              "priority": "requiredComplete"
+            },
+            {
+              "id": "cuon-ban-ve-va-ban-tay",
+              "priority": "requiredComplete"
+            },
+            {
+              "id": "ba-silhouette-nguoi-cho",
+              "priority": "optionalSupport"
+            }
+          ],
+          "critical": [
+            {
+              "id": "mat-va-turban-nalini",
+              "box": {
+                "x": 0.72,
+                "y": 0.62,
+                "width": 0.13,
+                "height": 0.18
+              }
+            },
+            {
+              "id": "cuon-ban-ve-va-ban-tay",
+              "box": {
+                "x": 0.72,
+                "y": 0.75,
+                "width": 0.18,
+                "height": 0.16
+              }
+            }
+          ],
+          "recognitionCores": [
+            "đất trống ướt sương",
+            "ba silhouette đang chờ, không hoạt động",
+            "chân trời thấp thưa"
+          ],
+          "cropBuffers": [
+            "trời sớm giản lược",
+            "đất trống",
+            "cỏ hoặc gốc cây thưa"
+          ],
+          "optionAlignment": {
+            "optionId": "page003-reprocess-option3-nguoi-cho-ngoai-khung",
+            "selectedBrief": "Nalini ở một phần ba phải, giữ cuộn bản vẽ và nhìn về đúng ba silhouette người chờ nhỏ ở trái xa; bà lão ngoài khung.",
+            "mustMatch": [
+              "Nalini đúng profile",
+              "ba silhouette nhỏ không nhận diện",
+              "khoảng đất trống giữa hai phía",
+              "tờ mờ sáng",
+              "thuần 2D animation"
+            ],
+            "forbidden": [
+              "bà lão",
+              "công trường",
+              "dụng cụ",
+              "hố đào",
+              "cọc",
+              "Visakha",
+              "Punna",
+              "xe ngựa",
+              "núi",
+              "sông",
+              "rừng dày",
+              "3D hoặc texture thật"
+            ],
+            "layoutMapping": [
+              "nằm trọn frame phải x=0.53–1",
+              "focus Nalini cách dải gap x=0.47–0.53",
+              "không có vùng chữ trong frame"
+            ],
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/Part 1/pages/page-003/layout.json",
+              "Tap 53/Part 1/pages/page-003/storyboards/page003-reprocess-g1-source-lock.md"
+            ],
+            "alignmentRationale": [
+              {
+                "optionRequirement": "Gương mặt/gaze Nalini và cuộn bản vẽ là focus; người chờ chỉ là dư âm.",
+                "manifestEvidence": "Frame phải ngang 3:2, critical đặt ở phần phải và cách dải gap; silhouette chỉ optionalSupport.",
+                "whyMatch": "Khoảng trống giữ nhịp suy ngẫm và ngăn cảnh thành một nhóm đông."
+              }
+            ],
+            "userAction": "Xác nhận Storyboard QA: page-003 — page003-reprocess-option3-nguoi-cho-ngoai-khung",
+            "userConfirmed": true
+          },
+          "storyboardQa": {
+            "status": "approved",
+            "selectedOption": "page003-reprocess-option3-nguoi-cho-ngoai-khung",
+            "confirmedCompositionCard": "../pages/page-003/storyboards/page003-reprocess-option3-confirmed-composition.png"
+          },
+          "output": "../pages/page-003/outputs/page003-option3-h2-nalini-warmed-by-volunteers-v1.png",
+          "delivery": {
+            "required": true,
+            "status": "generated",
+            "output": "../pages/page-003/outputs/page003-option3-h2-nalini-warmed-by-volunteers-v1.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "part1-page006-process-20260918",
+      "canvas": {
+        "width": 810.709,
+        "height": 575.433
+      },
+      "pageImage": "../pages/page-006/storyboards/page006-layout-source-v1.png",
+      "textReserve": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 0.39901430748671
+        }
+      ],
+      "frames": [
+        {
+          "id": "rest-meal",
+          "shape": "rect",
+          "box": {
+            "x": 0,
+            "y": 0.39901430748671,
+            "width": 0.9999987665117817,
+            "height": 0.60098569251329
+          },
+          "contentFrame": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          },
+          "aspectRatio": 2.344258834619622,
+          "textReserve": [],
+          "spine": {
+            "x": 0.47,
+            "y": 0.39901430748671,
+            "width": 0.06,
+            "height": 0.60098569251329
+          },
+          "narrativeFunction": "Hệ quả của sự chăm lo: người lao động gần gũi trong bữa nghỉ",
+          "safeZone": {
+            "x": 0.027972,
+            "y": 0.0394089,
+            "width": 0.944056,
+            "height": 0.9211822
+          },
+          "visibilityPriority": [],
+          "recognitionCores": [
+            "cột buộc dây dưới mái lá nhẹ",
+            "đất liên tục ra công trường",
+            "hố móng và cọc ở ngoài lán"
+          ],
+          "cropBuffers": [
+            "đất",
+            "mái lá phụ",
+            "phần kéo dài của cột"
+          ],
+          "delivery": {
+            "required": true,
+            "status": "storyboard-pending"
+          },
+          "optionAlignment": {
+            "userAction": "process page 6 ạ",
+            "userConfirmed": false,
+            "selectedOption": null,
+            "sourceRead": [
+              "Tap 53/notes.md",
+              "Tap 53/shot_notes.md",
+              "Tap 53/workflow.md",
+              "Tap 53/workflow_schema.md",
+              "Tap 53/workflow_templates.md",
+              "Tap 53/storyboard_composition_reference.md",
+              "Tap 53/Part 1/scripts/chapter1.md",
+              "Tap 53/Part 1/layouts/TẬP 53 _ PART 1 _ DEMO DÀN TRANG_PTg full 12.08.26.pdf",
+              "Tap 53/characters/thợ phụ.png",
+              "Tap 53/characters/Gia nhân.png"
+            ],
+            "sourceContext": "storyboards/page006-g1-source-context-v1.md"
+          },
+          "storyboardQa": {
+            "status": "g2-options-ready",
+            "options": [
+              {
+                "id": "page006-option1-bua-nghi-chung",
+                "preliminaryCompositionCard": "../pages/page-006/storyboards/page006-option1-bua-nghi-chung-composition-v2.png",
+                "details": "storyboards/page006-g2-options-v1.md",
+                "userConfirmed": false
+              },
+              {
+                "id": "page006-option2-cau-chuyen-ben-chen-nuoc",
+                "preliminaryCompositionCard": "../pages/page-006/storyboards/page006-option2-cau-chuyen-ben-chen-nuoc-composition-v2.png",
+                "details": "storyboards/page006-g2-options-v1.md",
+                "userConfirmed": false
+              }
+            ]
+          }
+        }
+      ],
+      "pageLayout": "../pages/page-006/layout.json"
+    },
+    {
+      "id": "part1-spread04-community-work",
+      "canvas": {
+        "width": 810.709,
+        "height": 575.433
+      },
+      "pageImage": "../pages/page-004/storyboards/page004-layout-source.png",
+      "frames": [
+        {
+          "id": "page004-community-work",
+          "shape": "rect",
+          "box": {
+            "x": 0.0006167441091686413,
+            "y": 0.444581732365019,
+            "width": 0.9987652782934444,
+            "height": 0.5554182676349809
+          },
+          "textReserve": [],
+          "spine": {
+            "x": 0.485,
+            "y": 0,
+            "width": 0.03,
+            "height": 1
+          },
+          "narrativeFunction": "Toàn cảnh cộng đồng chung tay lao động",
+          "sourceMeasurement": {
+            "pdfPage": 4,
+            "bookPages": [
+              10,
+              11
+            ],
+            "boxPoints": [
+              0.5,
+              255.827,
+              810.208,
+              575.433
+            ],
+            "aspectRatio": 2.5334568187080344
+          },
+          "safeZone": {
+            "x": 0.027972,
+            "y": 0.0394089,
+            "width": 0.944056,
+            "height": 0.9211822
+          },
+          "visibilityPriority": [],
+          "options": [
+            {
+              "id": "page004-option1",
+              "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option1-composition-v1.png",
+              "userConfirmed": false
+            },
+            {
+              "id": "page004-option2",
+              "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option2-composition-v1.png",
+              "userConfirmed": false
+            },
+            {
+              "id": "page004-option3",
+              "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option3-composition-v1.png",
+              "userConfirmed": false,
+              "status": "storyboard-pending"
+            },
+            {
+              "id": "page004-option4",
+              "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option4-composition-v1.png",
+              "userConfirmed": true,
+              "status": "qa-passed",
+              "confirmedCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option4-confirmed-composition-v2.png",
+              "compositionUserConfirmed": true,
+              "revisionRequired": null,
+              "delivery": {
+                "required": true,
+                "version": "v3",
+                "output": "Tap 53/Part 1/pages/page-004/outputs/part1-page004-option4-community-work-v3-flat-horizon.png",
+                "status": "qa-passed"
+              },
+              "profileReferenceRefreshGate": {
+                "attempt": "page004-option4-v3-flat-horizon",
+                "profileSource": "Tap 53/characters/thợ phụ.png",
+                "profileReadImmediatelyBeforeAttempt": true,
+                "referenceMapping": "profile gốc = identity; v2 = edit target/composition; không dùng output v2 làm nguồn identity",
+                "status": "PASS"
+              }
+            },
+            {
+              "id": "page004-option5-nalini-pov-elevated",
+              "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option5-nalini-pov-elevated-composition-v1.png",
+              "details": "Tap 53/Part 1/pages/page-004/storyboards/page004-g2-option5-nalini-pov-v1.md",
+              "userConfirmed": false,
+              "status": "storyboard-pending"
+            },
+            {
+              "id": "page004-option6-nalini-ots",
+              "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option6-nalini-ots-composition-in-layout-v2.png",
+              "details": "Tap 53/Part 1/pages/page-004/storyboards/page004-g2-option6-nalini-ots-v1.md",
+              "userConfirmed": false,
+              "status": "storyboard-pending",
+              "profileReferenceRefreshGate": {
+                "attempt": "card-option6-v2",
+                "profileSources": [
+                  "Tap 53/characters/Bác Nalini.png",
+                  "Tap 53/characters/thợ phụ.png"
+                ],
+                "profileReadImmediatelyBeforeAttempt": true,
+                "referenceMapping": "v1 = bố cục cần chỉnh; profile Nalini và thợ phụ = identity gốc được truyền trực tiếp trong lượt sửa",
+                "status": "PASS"
+              }
+            },
+            {
+              "id": "page004-option8-subtle-blur",
+              "preliminaryCompositionCard": "Tap 53/Part 1/pages/page-004/storyboards/page004-option8-subtle-blur-in-layout-v1.png",
+              "details": "Tap 53/Part 1/pages/page-004/storyboards/page004-g2-option8-subtle-blur-v1.md",
+              "userConfirmed": false,
+              "status": "storyboard-pending",
+              "userAction": "Thêm option qua vai bác Nalini — blur rất nhẹ ở hậu cảnh xa nhất, giữ thuần 2D.",
+              "styleException": "Người dùng cho phép blur rất nhẹ chỉ lớp xa nhất của option này; không sửa quy tắc chung.",
+              "profileReferenceRefreshGate": {
+                "attempt": "option8-g2-v1",
+                "profileSources": [
+                  "Tap 53/characters/Bác Nalini.png",
+                  "Tap 53/characters/thợ phụ.png"
+                ],
+                "profileReadImmediatelyBeforeAttempt": true,
+                "referenceMapping": "option6 v1 = bố cục; profile gốc = identity và style; cả ba truyền trong lượt tạo",
+                "status": "PASS"
+              }
+            }
+          ],
+          "status": "qa-passed",
+          "optionAlignment": {
+            "selectedOption": "page004-option4",
+            "userAction": "Sửa bố cục trang 4 — phương án 4: tăng lớp người và mật độ theo nhóm, cho công trường tiếp diễn ngoài khung; giữ rõ nhịp đào–gom–gánh–san.",
+            "userConfirmed": true,
+            "confirmationScope": "Đã xác nhận Composition QA: trang 4 — page004-option4 — bản v2."
+          },
+          "meaningPreservationCheck": {
+            "status": "PASS",
+            "artifact": "Tap 53/Part 1/pages/page-004/storyboards/page004-option4-confirmed-composition-v2.png",
+            "reason": "Nhiều tổ ở các lớp gần–giữa–xa; hố móng, vùng nhận đất và tổ phụ tiếp diễn qua mép; giữ đường đọc chính.",
+            "scope": "Bản phác bố cục v2, không thay QA thành phẩm",
+            "reviewArtifact": "Tap 53/Part 1/pages/page-004/storyboards/page004-option4-g3-v2.md"
+          },
+          "populationPlan": {
+            "inScene": "Đám đông quy mô lớn, không biết tổng số chính xác; đoạn liền sau xác nhận hàng trăm người.",
+            "inFrame": "Khoảng 60–70 trong card v2; linh hoạt khi dựng ảnh.",
+            "countPolicy": "Không phải số khóa cứng; ưu tiên mật độ, quan hệ nhóm và đọc ở kích thước layout.",
+            "readableSubjects": "Nhóm đào–gom–gánh–san gần; nhóm gỗ và trẻ; lớp xa đủ đọc hoạt động chung."
+          },
+          "qa": {
+            "layoutQa": "PASS — qa/page004-option4-v3-layout-overlay.png",
+            "styleQa": "PASS",
+            "locationQa": "PASS — nền phẳng, không núi/đồi",
+            "storyboardQa": "PASS — bao gồm bằng chứng cười nói, tiếng búa đục và nhịp đào–gom–gánh–san",
+            "visualDeltaQa": "PASS — v3 chỉ sửa nền xa so với v2; profile gốc được làm mới",
+            "artifact": "Tap 53/Part 1/pages/page-004/qa/page004-option4-v3-qa.md",
+            "userSelectedOutput": false
+          }
+        }
+      ]
+    }
+  ]
+}

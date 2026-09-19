@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2027" height="1439" viewBox="0 0 2027 1439">
+  <image href="../../../../tmp/page-005-source/layout.png" width="2027" height="1439"/>
+  <rect x="0" y="956" width="2027" height="483" fill="#e7bd79"/>
+  <path d="M0 1150H2027M0 1280H2027M930 956V1439M1074 956V1439" stroke="#9c713e" stroke-width="7" opacity=".6"/>
+  <g opacity=".58" stroke="#4b3829" stroke-width="10"><path d="M80 1215Q110 1110 145 1215V1300H80ZM335 1205Q370 1100 405 1205V1300H335ZM590 1215Q625 1110 660 1215V1300H590ZM820 1200Q855 1095 890 1200V1300H820Z" fill="#90603f"/><path d="M110 1110L80 1015M370 1100L415 1005M625 1110L580 1015M855 1095L905 1000"/></g>
+  <g stroke="#24211d" stroke-width="12" stroke-linejoin="round">
+   <circle cx="220" cy="1070" r="50" fill="#9b5c36"/><path d="M165 1120Q220 1090 275 1120L300 1330H140Z" fill="#a65f40"/><path d="M165 1160L90 1270M275 1160L360 1205M170 1330L145 1405M270 1330L295 1405" fill="none"/>
+   <circle cx="530" cy="1070" r="50" fill="#8f5133"/><path d="M475 1120Q530 1090 585 1120L610 1330H450Z" fill="#6e8f64"/><path d="M475 1160L390 1210M585 1160L670 1210M480 1330L455 1405M580 1330L605 1405" fill="none"/>
+   <circle cx="790" cy="1090" r="48" fill="#a4643c"/><path d="M740 1140Q790 1110 840 1140L865 1320H715Z" fill="#d49c45"/><path d="M740 1175L660 1230M840 1175L920 1230M745 1320L720 1405M835 1320L860 1405" fill="none"/>
+   <circle cx="1450" cy="1060" r="53" fill="#b46e46"/><path d="M1395 1110Q1450 1080 1505 1110L1530 1335H1370Z" fill="#0d6d54"/><path d="M1395 1150L1330 1200M1505 1150L1570 1200M1400 1335L1380 1405M1500 1335L1520 1405" fill="none"/>
+   <circle cx="1725" cy="1060" r="53" fill="#a5633b"/><path d="M1670 1110Q1725 1080 1780 1110L1805 1335H1645Z" fill="#edc877"/><path d="M1670 1150L1605 1200M1780 1150L1845 1200M1675 1335L1655 1405M1775 1335L1795 1405" fill="none"/>
+  </g>
+  <path d="M885 1110Q1080 1020 1330 1110" fill="none" stroke="#5b4734" stroke-width="8" stroke-dasharray="20 20"/>
+  <g font-family="sans-serif" font-size="31" fill="#1f2933" font-weight="700"><text x="65" y="1005">PHƯƠNG ÁN 3 — TỪ CÔNG VIỆC ĐẾN ÁNH NHÌN</text><text x="1250" y="1020">VISAKHA QUAN SÁT</text><text x="120" y="1395">NHỊP NGƯỜI GẦN + DÁNG LƯNG/HÀNG CUỐC PHÍA SAU DẪN TỚI VISAKHA</text></g>
+  <rect x="953" y="958" width="122" height="479" fill="#ed7777" opacity=".45"/><text x="962" y="1000" font-family="sans-serif" font-size="25" fill="#7a1d1d" transform="rotate(90 962 1000)">GÁY — CHỈ ĐẤT NỀN</text>
+</svg>

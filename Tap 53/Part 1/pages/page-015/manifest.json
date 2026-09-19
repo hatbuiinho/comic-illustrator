@@ -1,0 +1,325 @@
+{
+  "page": 15,
+  "part": 1,
+  "status": "qa-passed",
+  "reset": {
+    "reason": "User requested removal of every old page-15 reference and a restart under the updated workflow.",
+    "inheritComposition": false,
+    "inheritPrompt": false,
+    "inheritOutput": false,
+    "inheritQa": false,
+    "allowedVisualReferences": [
+      "Tap 53/Part 1/tmp/pdf_all/p15.png",
+      "Tap 53/characters/Bác Nalini.png"
+    ],
+    "forbiddenReferences": ["all prior page-15 compositions, prompts, outputs and QA artifacts"]
+  },
+  "optionAlignment": {
+    "optionId": "page15-option2-torchline-ots",
+    "selectedBrief": "Medium over-the-shoulder view: Nalini's readable three-quarter profile and coherent body direction lead across a vast flat foundation field toward staggered lightweight torch-lit leaf canopies.",
+    "mustMatch": ["Nalini left foreground OTS", "readable three-quarter profile", "body and gaze into site", "vast flat worksite", "lightweight torch-lit leaf canopies", "blue hour"],
+    "forbidden": ["mountains or hills", "finished pavilion", "small enclosed yard", "back view without readable face", "active redrawing"],
+    "layoutMapping": ["2.954:1 lower hero frame", "center spine remains quiet background", "Nalini left and canopies right", "original layout text remains above frame"],
+    "alignmentRationale": [
+      { "optionRequirement": "Subjective OTS view with readable emotion.", "manifestEvidence": "Selected composition and shot thesis place Nalini left foreground with visible three-quarter profile.", "whyMatch": "The output preserves his scale, profile and continuous shoulder-to-gaze direction into the site." },
+      { "optionRequirement": "Very large flat worksite with no mountains.", "manifestEvidence": "Geography lock requires long low horizon, receding foundations and off-frame continuation.", "whyMatch": "The output shows broad plain terrain and repeated foundation rows without scenic relief." },
+      { "optionRequirement": "Temporary shelters remain light and humble.", "manifestEvidence": "Material lock requires thin lashed poles, open sides and loose dry-leaf roofs.", "whyMatch": "The output uses three open canopies with thin supports and no pavilion permanence cues." }
+    ],
+    "selectedOption": "page15-option2-torchline-ots",
+    "userConfirmed": true,
+    "userAction": "Chọn option 2",
+    "selectionRationale": "User selected the subjective over-the-shoulder composition with the vast worksite and staggered torch-lit temporary canopies.",
+    "storyboardQaAction": "Xác nhận Storyboard QA: page15/page15-chapter1-ending-hero — page15-option2-torchline-ots",
+    "sourceRead": [
+      "Tap 53/notes.md",
+      "Tap 53/shot_notes.md",
+      "Tap 53/workflow.md",
+      "Tap 53/workflow_schema.md",
+      "Tap 53/workflow_templates.md",
+      "Tap 53/storyboard_composition_reference.md",
+      "Tap 53/Part 1/scripts/chapter1.md",
+      "Tap 53/Part 1/scripts/chapter2.md",
+      "Tap 53/Part 1/scripts/chapter3.md",
+      "Tap 53/Part 1/tmp/pdf_all/p15.png",
+      "Tap 53/characters/Bác Nalini.png"
+    ],
+    "optionsFile": "storyboards/page15-fresh-options-v1.md",
+    "compositionPreviews": [
+      "storyboards/page15-option1-composition-in-layout.png",
+      "storyboards/page15-option2-composition-in-layout.png",
+      "storyboards/page15-option3-composition-in-layout.png"
+    ]
+  },
+  "frame": {
+    "id": "page15-chapter1-ending-hero",
+    "shape": "rect",
+    "box": { "x": 0, "y": 0.523, "width": 1, "height": 0.477 },
+    "ratio": 2.954,
+    "spine": { "x": 0.47, "width": 0.06 },
+    "textReserve": [],
+    "narrativeFunction": "reflective Chapter 1 ending"
+  },
+  "contextSnapshot": {
+    "time": "blue hour after the carriage leaves for Savatthi and before Nalini redraws",
+    "presentCharacters": ["Bác Nalini"],
+    "visibleCharacters": ["Bác Nalini"],
+    "currentState": "very large unfinished Pubbarama worksite at foundation stage; existing temporary leaf shelters show torchlight",
+    "alreadyHappened": ["the clients requested human-centered program changes", "old plans became unusable", "the carriage departed"],
+    "forbiddenFuture": ["Nalini drawing new plans", "Chapter 2 monks", "completed buildings", "Chapter 3 temple scene"],
+    "proof": "Chapter 1 lines 15-16, 57, 61, 66-67 and 83-89; Chapter 2 lines 3-19 confirms continuity"
+  },
+  "narrativeInferenceLock": {
+    "explicit": ["torchlight flickers inside existing shelters", "Nalini holds two obsolete rolls", "he must redraw later", "he begins seeing the project through future inhabitants"],
+    "stronglyImplied": ["he pauses and looks into the site", "activity has quieted after departure"],
+    "unknown": ["exact number of shelters visible", "whether anyone remains visibly inside", "exact distance between Nalini and each shelter"]
+  },
+  "backgroundContinuityLock": {
+    "physicalStage": "extremely broad monastery construction site at foundation stage",
+    "mustShow": ["long receding foundation rows or trenches", "repeated marker stakes", "at least one lightweight torch-lit dry-leaf canopy", "open low horizon"],
+    "mayShow": ["broad worked earth", "earth piles", "loose raw timber", "additional small canopy silhouettes", "sparse low tree line"],
+    "forbidden": ["finished wall, column or monastery building", "permanent pavilion", "masonry shelter", "small enclosed yard", "mountain or hill silhouette", "dense enclosing forest", "Chapter 3 stone ruin"],
+    "proof": "storyboards/page15-source-lock-v1.md"
+  },
+  "geographyLock": {
+    "applicable": true,
+    "terrainClass": "open low-relief plain adjoining windswept fields",
+    "horizonCharacter": "long and low, optionally interrupted by sparse low trees",
+    "spatialScale": "worksite extends beyond the frame with multiple zones and dozens of large foundations",
+    "mustShow": ["off-frame continuation", "receding repeated site geometry", "broad open ground"],
+    "mayShow": ["flat distant fields", "sparse low tree line"],
+    "forbiddenLandforms": ["mountain", "hill", "ridge", "cliff", "valley wall", "river", "lake", "dense enclosing forest"],
+    "geographyProof": "Chapter 1 lines 15-16, 57, 61 and 66-67; Chapter 2 lines 19 and 31",
+    "unknownHandling": "keep unevidenced distant terrain low and neutral"
+  },
+  "locationIdentityLock": {
+    "locationClass": "very large unfinished ancient-Indian monastery worksite on an open plain",
+    "identityAnchors": [
+      "long ordered foundation trenches and repeated stakes extending beyond frame",
+      "low temporary canopy made from thin irregular lashed poles and loose dry leaves",
+      "broad worked-earth planes meeting a long low field horizon"
+    ],
+    "sharedArchitecturalAnchor": ["lightweight fully open dry-leaf canopy silhouette"],
+    "genericMisreadings": ["small village yard", "finished pavilion", "house", "temple courtyard", "mountain worksite", "Chapter 3 forest ruin"],
+    "forbiddenDetails": ["thick dressed posts", "column bases or capitals", "deep ornamental roof", "walls", "raised floor", "built furniture", "mountains"],
+    "removalRiskCheck": ["do not remove both the lightweight canopy and large-scale foundation evidence"],
+    "anchorRequirementByShotSize": { "wide": "minimum three anchors", "medium": "two strong anchors or three light anchors", "closeUp": "one strong shared anchor plus one large-site signal" },
+    "locationProof": "storyboards/page15-source-lock-v1.md"
+  },
+  "visualComponentLock": [
+    {
+      "id": "temporary-leaf-canopy",
+      "type": "temporary architecture",
+      "scriptTerm": "lán / chòi / chòi lá",
+      "intendedClass": "long lightweight worksite rest canopy",
+      "scaleAnchor": "capacity comes from length and repeated thin supports, not structural mass",
+      "silhouetteSurface": "thin irregular roundwood, simple lashings, shallow rafters, loose dry leaves, uneven eave, open sides, bare earth",
+      "styleTreatment": "pure 2D line art, flat fills and hard cel shade",
+      "storyRole": "evidence of the people Nalini has begun designing for",
+      "wrongReadings": ["pavilion", "house", "stone hut", "permanent hall"]
+    },
+    {
+      "id": "obsolete-rolls",
+      "type": "prop",
+      "scriptTerm": "hai cuộn bản vẽ",
+      "intendedClass": "two used construction plan rolls",
+      "scaleAnchor": "held low and naturally or left outside frame",
+      "silhouetteSurface": "two restrained roll ends",
+      "styleTreatment": "simple flat shapes",
+      "storyRole": "secondary evidence only",
+      "wrongReadings": ["presentation scroll", "new plan", "weapon"]
+    }
+  ],
+  "printTrimLock": {
+    "trimPercent": { "x": 0.0104895, "y": 0.0147783 },
+    "criticalSafePercent": { "x": 0.0279720, "y": 0.0394089 },
+    "artworkCoverage": "full bleed",
+    "narrativeCritical": ["Nalini's readable changed gaze", "coherent body orientation into the site"],
+    "perceptualBreathingRoom": "Nalini and gaze destination must not feel pinned to trim or spine",
+    "recognitionCores": ["lightweight canopy class", "large-site foundation geometry", "low plain horizon"],
+    "cropBuffers": ["sky", "broad earth", "low tree line", "repeated stakes", "secondary poles and thatch"]
+  },
+  "frameReadabilityLock": {
+    "displayContext": "full-width lower strip of the original page-15 layout with text above",
+    "allowedShotSize": ["medium", "medium-wide", "over-the-shoulder medium"],
+    "subjectScale": "emotion readable while the site remains visibly larger than Nalini",
+    "minimumReadableElements": ["Nalini identity/emotion", "body direction", "large worksite", "temporary canopy", "blue hour"],
+    "forbiddenScale": ["tiny unreadable Nalini", "tight detached portrait", "emotionless panorama"],
+    "proof": "2.954:1 frame supports a human/environment relationship"
+  },
+  "shotThesis": {
+    "dramaticMeaning": "Nalini's professional gaze becomes humane responsibility for future inhabitants.",
+    "moment": "still pause before redrawing",
+    "viewpoint": "physically oriented into the worksite",
+    "visualFocus": "Nalini's changed gaze in relationship with the vast unfinished site",
+    "outOfFrame": ["Visakha", "Punna", "carriage", "active redrawing", "monks"]
+  },
+  "emotionLock": {
+    "intendedEmotion": "quiet dawning understanding with weight and warmth",
+    "readerFeeling": "a contemplative chapter-ending expansion rather than a technical construction illustration",
+    "facialBodyCues": ["soft attentive eye", "released jaw", "settled shoulders", "still grounded stance", "head and torso share one intention"],
+    "wrongReadings": ["hero pose", "worry", "defeat", "presentation pose", "back turned away from the site"]
+  },
+  "profileFidelityLock": [{
+    "characterId": "bac-nalini",
+    "profileSource": "Tap 53/characters/Bác Nalini.png",
+    "mustPreserve": ["orange turban with pearl band", "black curled hair with grey temples", "black moustache and short grey-edged beard", "lean middle-aged proportions", "cream and ochre draped clothing"],
+    "forbiddenDrift": ["monk", "king", "elderly sage", "young laborer", "East Asian costume"],
+    "visibility": "face and body direction readable at layout size",
+    "confidence": "high",
+    "referenceMapping": "identity only"
+  }],
+  "characterProportionLock": [{
+    "characterId": "bac-nalini",
+    "profileSource": "Tap 53/characters/Bác Nalini.png",
+    "uniformScaleOnly": true,
+    "cropBoundary": "option-specific; never solved by compressing torso beneath a fixed head",
+    "forbiddenDistortions": ["oversized head", "narrowed shoulders", "short torso", "shortened arms", "undersized hands"],
+    "visualProof": "head, neck, shoulders, torso and arms remain one natural anatomical unit"
+  }],
+  "conditionalLocks": {
+    "causalStateLock": {
+      "applicable": true,
+      "reason": "The ending is an aftermath beat.",
+      "cause": "new human-centered requirements invalidated the old plans",
+      "confirmedFinalState": "Nalini remains with two obsolete rolls and has not begun redrawing",
+      "drawnMoment": "after departure, before redrawing",
+      "forbiddenContradictions": ["carriage present", "new plan open", "morning or noon activity"]
+    },
+    "materialSemanticsLock": {
+      "applicable": true,
+      "reason": "Leaf shelter class determines location truth.",
+      "scriptTerm": "chòi lá",
+      "class": "lightweight open worksite canopy",
+      "scale": "long but structurally light",
+      "surfaceSilhouette": "thin lashed poles and loose dry leaves",
+      "state": "temporary and in active use",
+      "wrongReadings": ["finished pavilion", "house", "temple hall"]
+    },
+    "relationalFocusLock": {
+      "applicable": true,
+      "reason": "Meaning comes from Nalini's relationship to future lived space.",
+      "sharedFocus": "Nalini and the vast site with humble shelters",
+      "gaze": "terminates within the site",
+      "bodyOrientation": "pelvis/torso, shoulders, head and gaze form one plausible continuous direction",
+      "relationship": "builder beginning to see through inhabitants' needs",
+      "forbiddenReadings": ["portrait pasted beside background", "eyes contradict torso", "back turned away from site and shelters"]
+    },
+    "gestureSemanticsLock": {
+      "applicable": true,
+      "reason": "Old plan rolls may appear but cannot become the focus.",
+      "meaning": "spent tools held low",
+      "supportingPose": "relaxed arms subordinate to gaze",
+      "forbiddenGestures": ["displaying", "pointing", "dramatic clutching"]
+    }
+  },
+  "beatMap": {
+    "precedingBeat": "carriage leaves and shelter torches begin to glow",
+    "currentBeat": "Nalini begins to understand",
+    "followingBeat": "next morning, monks leave Jetavana"
+  },
+  "options": [
+    "page15-option1-vast-site-profile",
+    "page15-option2-torchline-ots",
+    "page15-option3-foundation-threshold"
+  ],
+  "compositionDrafts": [
+    {
+      "optionId": "page15-option1-vast-site-profile",
+      "compositionCard": "storyboards/page15-option1-vast-site-profile-composition.png",
+      "layoutCard": "storyboards/page15-option1-composition-in-layout.png",
+      "backgroundOnlyGate": {
+        "status": "pass-on-composition",
+        "artifact": "storyboards/page15-option1-background-only-gate.png",
+        "evidence": ["two lightweight open canopies", "long repeated foundation rows", "low plain horizon", "off-frame site continuation"]
+      },
+      "semanticThumbnailGate": { "status": "pass-on-composition", "evidence": "Face and torso share a leftward site orientation; Nalini remains readable against the broad site." }
+    },
+    {
+      "optionId": "page15-option2-torchline-ots",
+      "compositionCard": "storyboards/page15-option2-torchline-ots-composition.png",
+      "layoutCard": "storyboards/page15-option2-composition-in-layout.png",
+      "backgroundOnlyGate": {
+        "status": "pass-on-composition",
+        "artifact": "storyboards/page15-option2-background-only-gate.png",
+        "evidence": ["staggered lightweight canopy line", "receding foundation geometry", "low plain horizon", "large empty worksite field"]
+      },
+      "semanticThumbnailGate": { "status": "pass-on-composition", "evidence": "OTS silhouette and visible profile direct the reader into the torch line without becoming a back view." }
+    },
+    {
+      "optionId": "page15-option3-foundation-threshold",
+      "compositionCard": "storyboards/page15-option3-foundation-threshold-composition.png",
+      "layoutCard": "storyboards/page15-option3-composition-in-layout.png",
+      "backgroundOnlyGate": {
+        "status": "pass-on-composition",
+        "artifact": "storyboards/page15-option3-background-only-gate.png",
+        "evidence": ["cropped lightweight canopy", "dominant foundation threshold", "repeated stakes", "low plain horizon"]
+      },
+      "semanticThumbnailGate": { "status": "pass-on-composition", "evidence": "Nalini remains human-scale beside the large foundation field; low framing does not turn heroic." }
+    }
+  ],
+  "selectedComposition": {
+    "optionId": "page15-option2-torchline-ots",
+    "status": "approved",
+    "compositionCard": "storyboards/page15-option2-torchline-ots-composition.png",
+    "layoutCard": "storyboards/page15-option2-composition-in-layout.png",
+    "backgroundOnlyArtifact": "storyboards/page15-option2-background-only-gate.png",
+    "camera": "medium over-the-shoulder from slightly behind and right, with readable three-quarter profile",
+    "focusEyePath": "Nalini's visible eye and shoulder direction → receding foundation rows → staggered torch-lit temporary canopies",
+    "outOfFrame": ["plans may remain out of frame", "carriage", "Visakha", "Punna", "monks", "mountains"]
+  },
+  "priorityConflictGate": {
+    "status": "pass-on-options",
+    "evidence": "All options prioritize emotion and site relationship; hands, plans and shelter detail remain subordinate."
+  },
+  "delivery": [{
+    "required": true,
+    "frameId": "page15-chapter1-ending-hero",
+    "optionId": "page15-option2-torchline-ots",
+    "version": 2,
+    "status": "qa-passed",
+    "promptFile": "storyboards/page15-option2-generation-prompt-v1.md",
+    "plannedOutput": "outputs/part1-page15-option2-torchline-ots-v2.png",
+    "output": "outputs/part1-page15-option2-torchline-ots-v2.png",
+    "history": [{
+      "version": 1,
+      "output": "outputs/part1-page15-option2-torchline-ots-v1.png",
+      "status": "style-failed-superseded",
+      "reason": "Continuous soft sky gradient violates the strict pure-2D lock; composition, location and acting are retained as invariants for V2."
+    }]
+  }],
+  "layoutQa": {
+    "status": "pass",
+    "sourceLayout": "Tap 53/Part 1/tmp/pdf_all/p15.png",
+    "sourceLayoutReadable": true,
+    "ratioDeviation": "0.15%",
+    "scriptResult": "0 fail, 0 warning",
+    "overlay": "qa/v2/part1-page15-option2-v2-overlay.png",
+    "evidence": "Output fills the original lower frame; face and nearest canopy recognition core remain inside critical-safe; spine contains only sky, earth and foundation geometry; Nalini's left/bottom torso crop is deliberate and avoids visible joints."
+  },
+  "styleQa": {
+    "status": "pass",
+    "evidence": "Clean line art, flat graphic fills and hard cel shadows remain consistent across character and background. User explicitly allows a slight soft color transition; V2 keeps it restrained in the sky without bloom, volumetric light, DOF or 3D rendering."
+  },
+  "locationQa": {
+    "status": "pass",
+    "artifact": "qa/v2/page15-option2-v2-background-only.png",
+    "shotSize": "medium OTS",
+    "anchorEvidence": ["long repeated foundation grid and stakes", "three low open canopies with thin lashed poles and dry-leaf roofs", "broad worked earth meeting a long low plain horizon"],
+    "geographyEvidence": "No mountains, hills, cliffs, water or enclosing forest; the worksite continues beyond both edges.",
+    "genericMisreadingCheck": "Reads as a vast unfinished monastery worksite, not a yard, pavilion complex, house or Chapter 3 ruin."
+  },
+  "storyboardQa": { "status": "approved", "optionId": "page15-option2-torchline-ots", "userAction": "Xác nhận Storyboard QA: page15/page15-chapter1-ending-hero — page15-option2-torchline-ots" },
+  "visualDeltaQa": {
+    "status": "pass",
+    "comparison": "qa/v2/page15-option2-v2-comparison.png",
+    "evidence": [
+      "Nalini remains the same left-foreground OTS mass with readable three-quarter profile.",
+      "Eye path still travels across receding foundations to the torch-lit canopy line.",
+      "The generated site expands the approved schematic without introducing mountains or permanent architecture.",
+      "Center spine remains non-critical background and the emotional focus reads at layout size."
+    ],
+    "acceptedChanges": ["more detailed foundation rows", "three rather than schematic canopy blocks", "restrained soft transition in blue-hour sky per user guidance"],
+    "userSelectedOutput": false,
+    "selectionRequired": false
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+  <image x="0" y="0" width="810.709" height="575.433" xlink:href="page001-layout-source.png"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="#22313d" opacity=".77"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+  <path d="M430 545 L430 115 L500 80 L500 545Z" fill="#3d3027" stroke="#e8d0a6" stroke-width="4"/>
+  <path d="M510 545 L510 285 Q560 235 628 260 L650 545Z" fill="#72523b" stroke="#f0d7ae" stroke-width="4"/>
+  <ellipse cx="581" cy="250" rx="38" ry="42" fill="#cf8f57" stroke="#f0d7ae" stroke-width="4"/>
+  <path d="M545 245 Q580 190 620 228 L622 255 Q578 270 544 250Z" fill="#df8b23" stroke="#f7d189" stroke-width="4"/>
+  <path d="M472 490 Q525 430 560 460 L568 542 L462 542Z" fill="#9a7049" stroke="#f0d7ae" stroke-width="4"/>
+  <path d="M690 105 L785 80 L785 360 L690 330Z" fill="#91bfd0" stroke="#d5eff4" stroke-width="4"/>
+  <path d="M700 320 Q730 210 755 90 M735 340 Q755 235 778 110" fill="none" stroke="#4f815d" stroke-width="9"/>
+  <path d="M458 525 L485 525 L480 477 Q472 462 465 477Z" fill="#e6b54f" stroke="#f8df9f" stroke-width="3"/>
+  <path d="M472 474 Q478 450 484 474" fill="#f4db82" stroke="#fff0b5" stroke-width="3"/>
+  <path d="M473 543 C485 520 493 511 510 500" fill="none" stroke="#f5c55d" stroke-width="3"/>
+  <text x="425" y="35" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="700">Focus: Nalini vừa tỉnh</text>
+  <text x="425" y="58" fill="#d7ecf8" font-family="sans-serif" font-size="15">Camera: medium-wide trong lều</text>
+  <text x="425" y="80" fill="#d7ecf8" font-family="sans-serif" font-size="15">Dư âm: tiếng người chưa lộ diện</text>
+</svg>

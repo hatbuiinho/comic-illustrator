@@ -1,0 +1,40 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.015,
+    "printTrim": {
+      "trimPercent": { "x": 0.0104895, "y": 0.0147783 },
+      "criticalSafePercent": { "x": 0.0279720, "y": 0.0394089 }
+    }
+  },
+  "pageId": "page-003",
+  "sourcePageImage": "storyboards/page003-layout-source.png",
+  "spreads": [
+    {
+      "id": "part1-page003-nalini-volunteers",
+      "canvas": { "width": 1622, "height": 1151 },
+      "pageImage": "storyboards/page003-layout-source.png",
+      "frames": [
+        {
+          "id": "h1-nalini-holds-elder-hand",
+          "shape": "rect",
+          "box": { "x": 0, "y": 0.5613, "width": 0.47, "height": 0.4387 },
+          "contentFrame": { "x": 0, "y": 0.5613, "width": 0.47, "height": 0.4387 },
+          "textReserve": [],
+          "spine": null,
+          "narrativeFunction": "dấu chạm của lòng tự nguyện",
+          "delivery": { "required": true, "status": "storyboard-pending" }
+        },
+        {
+          "id": "h2-nalini-warmed-by-volunteers",
+          "shape": "rect",
+          "box": { "x": 0.53, "y": 0.5613, "width": 0.47, "height": 0.4387 },
+          "contentFrame": { "x": 0.53, "y": 0.5613, "width": 0.47, "height": 0.4387 },
+          "textReserve": [],
+          "spine": null,
+          "narrativeFunction": "Nalini nhận ra lòng người",
+          "delivery": { "required": true, "status": "storyboard-pending" }
+        }
+      ]
+    }
+  ]
+}

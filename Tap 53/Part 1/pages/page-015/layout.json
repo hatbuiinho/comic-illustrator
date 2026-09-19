@@ -1,0 +1,22 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.03,
+    "printTrim": { "trimPercent": { "x": 0.0104895, "y": 0.0147783 }, "criticalSafePercent": { "x": 0.0279720, "y": 0.0394089 } }
+  },
+  "spreads": [{
+    "id": "part1-spread15-chapter1-ending",
+    "canvas": { "width": 810.709, "height": 575.433 },
+    "pageImage": "../../tmp/pdf_all/p15.png",
+    "frames": [{
+      "id": "page15-chapter1-ending-hero",
+      "shape": "rect",
+      "box": { "x": 0, "y": 0.523, "width": 1, "height": 0.477 },
+      "optionManifest": "manifest.json",
+      "output": "outputs/part1-page15-option2-torchline-ots-v2.png",
+      "delivery": { "required": true, "status": "qa-passed", "output": "outputs/part1-page15-option2-torchline-ots-v2.png" },
+      "textReserve": [],
+      "spine": { "x": 0.47, "y": 0.523, "width": 0.06, "height": 0.477 },
+      "visibilityPriority": []
+    }]
+  }]
+}

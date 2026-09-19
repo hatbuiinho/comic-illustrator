@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640">
+  <rect width="900" height="640" fill="#fffdf7"/>
+  <text x="36" y="42" font-family="sans-serif" font-size="22" fill="#263238">Page 10 — option 1 — composition card</text>
+  <circle cx="450" cy="392" r="214" fill="#d9edf2" stroke="#149dcc" stroke-width="5"/>
+  <!-- Nalini: left, holding the blueprint and listening -->
+  <path d="M260 520 C255 445 275 380 330 350 C365 330 405 334 430 365 L432 530 Z" fill="#d7a66b" stroke="#20252b" stroke-width="5"/>
+  <circle cx="350" cy="319" r="42" fill="#e4a56f" stroke="#20252b" stroke-width="5"/>
+  <path d="M304 315 Q350 252 397 311 L389 285 Q350 250 312 284 Z" fill="#d88a22" stroke="#20252b" stroke-width="5"/>
+  <path d="M383 370 L425 420 L385 455 L340 405 Z" fill="#f3e6c7" stroke="#20252b" stroke-width="5"/>
+  <!-- Visakha: right, pointing gently toward stones -->
+  <path d="M470 525 C470 435 500 360 555 345 C605 332 647 370 662 525 Z" fill="#167f67" stroke="#20252b" stroke-width="5"/>
+  <circle cx="566" cy="304" r="40" fill="#f0b486" stroke="#20252b" stroke-width="5"/>
+  <path d="M526 305 Q565 245 607 300 L598 256 Q565 230 531 260 Z" fill="#126954" stroke="#20252b" stroke-width="5"/>
+  <path d="M610 390 Q665 410 694 451" fill="none" stroke="#20252b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M694 451 l28 -8 M694 451 l14 22" stroke="#20252b" stroke-width="6" stroke-linecap="round"/>
+  <!-- stones and worker trace in lower foreground -->
+  <path d="M360 495 l45 -25 58 17 20 32 -82 20 z" fill="#6f8790" stroke="#20252b" stroke-width="5"/>
+  <path d="M700 430 q45 20 64 58" fill="none" stroke="#8a6b4b" stroke-width="7"/>
+  <rect x="56" y="565" width="788" height="42" rx="8" fill="#edf4f5" stroke="#b8cdd1"/>
+  <text x="72" y="588" font-family="sans-serif" font-size="16" fill="#263238">Focus: lòng thành của Visakha → Nalini bắt đầu thấu hiểu</text>
+  <text x="36" y="625" font-family="sans-serif" font-size="15" fill="#52646b">Camera: medium two-shot, slight high angle | Outside frame: full truck, future shrine, later construction</text>
+</svg>

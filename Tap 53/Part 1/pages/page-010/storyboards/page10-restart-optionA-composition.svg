@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2433" height="1727" viewBox="0 0 2433 1727">
+  <image href="../../../../../tmp/pdf_pages/page_10_hi.png" x="0" y="0" width="2433" height="1727" preserveAspectRatio="none" opacity="0.34"/>
+  <rect width="2433" height="1727" fill="#fff" fill-opacity="0.10"/>
+  <ellipse cx="1217" cy="1362" rx="402.25" ry="364.5" fill="#e9d5ad" fill-opacity="0.70" stroke="#00a9df" stroke-width="8" stroke-dasharray="22 14"/>
+  <!-- spine-safe background strip -->
+  <rect x="1143.5" y="997" width="146" height="730" fill="#ef3340" fill-opacity="0.14" stroke="#b5121b" stroke-width="4" stroke-dasharray="12 10"/>
+  <!-- Nalini: left half, listening and turning toward the shared stone focus -->
+  <path d="M850 1700 Q865 1435 965 1310 Q1030 1230 1115 1210 L1138 1700Z" fill="#d89b55" stroke="#3c2924" stroke-width="8"/>
+  <circle cx="1030" cy="1195" r="78" fill="#c87943" stroke="#3c2924" stroke-width="8"/>
+  <path d="M957 1170 Q1025 1085 1100 1160 L1090 1200 Q1025 1160 958 1205Z" fill="#d98b20" stroke="#3c2924" stroke-width="8"/>
+  <path d="M1090 1350 Q1060 1410 1040 1470" fill="none" stroke="#f0d3a0" stroke-width="32" stroke-linecap="round"/>
+  <path d="M1070 1470 L1125 1500 L1095 1530 L1038 1495Z" fill="#72818a" stroke="#3c2924" stroke-width="7"/>
+  <!-- Visakha: right half, open palm toward stones, not a commanding finger -->
+  <path d="M1350 1700 Q1360 1440 1450 1320 Q1530 1240 1635 1225 L1670 1700Z" fill="#16836d" stroke="#173d38" stroke-width="8"/>
+  <circle cx="1515" cy="1200" r="78" fill="#e4a878" stroke="#3c2924" stroke-width="8"/>
+  <path d="M1440 1190 Q1515 1095 1592 1180 L1580 1210 Q1510 1170 1445 1215Z" fill="#08715d" stroke="#173d38" stroke-width="8"/>
+  <path d="M1450 1360 Q1375 1410 1305 1485" fill="none" stroke="#e4a878" stroke-width="30" stroke-linecap="round"/>
+  <path d="M1300 1485 Q1260 1470 1235 1490 M1300 1485 Q1260 1495 1235 1515 M1300 1485 Q1265 1520 1245 1535" fill="none" stroke="#e4a878" stroke-width="13" stroke-linecap="round"/>
+  <!-- shared focus: blue-green stone blocks, kept out of the spine -->
+  <path d="M875 1575 L1010 1515 L1120 1550 L1035 1645 L900 1640Z" fill="#5d8990" stroke="#214c55" stroke-width="9"/>
+  <path d="M1590 1565 L1690 1510 L1780 1555 L1715 1640 L1600 1635Z" fill="#5d8990" stroke="#214c55" stroke-width="9"/>
+  <path d="M1280 1500 Q1215 1450 1135 1415" fill="none" stroke="#126d1b" stroke-width="5" stroke-dasharray="12 9"/>
+  <rect x="850" y="1090" width="680" height="58" rx="18" fill="#fff" fill-opacity="0.88"/>
+  <text x="875" y="1130" font-family="sans-serif" font-size="27" fill="#143d54">FOCUS: open-palm offering → stone → Nalini receives</text>
+  <rect x="1660" y="1090" width="590" height="58" rx="18" fill="#fff" fill-opacity="0.88"/>
+  <text x="1685" y="1130" font-family="sans-serif" font-size="27" fill="#143d54">CAMERA: medium close-up, 3/4 ngang</text>
+  <rect x="850" y="1660" width="1400" height="48" rx="16" fill="#fff" fill-opacity="0.88"/>
+  <text x="875" y="1693" font-family="sans-serif" font-size="24" fill="#143d54">ĐỂ NGOÀI KHUNG: Punna chủ trì, công trình hoàn thiện, tỳ kheo ni, gáy = nền trống</text>
+</svg>

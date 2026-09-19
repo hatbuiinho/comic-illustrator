@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440">
+  <rect width="1280" height="440" fill="#f4efe4"/>
+  <text x="40" y="36" font-family="sans-serif" font-size="20" fill="#312b24">PAGE 24 — STORYBOARD PHÁC / OPTION 1</text>
+  <g transform="translate(40 72)">
+    <rect width="540" height="210" rx="3" fill="#272629" stroke="#191817" stroke-width="4"/>
+    <text x="16" y="27" font-family="sans-serif" font-size="16" fill="#e6dfcf">H1 · NẮM ĐẤM LÀM VÒNG HỌP IM LẶNG</text>
+    <path d="M18 170 C70 122 112 122 152 178 C112 214 62 215 18 190Z" fill="#191817"/>
+    <path d="M385 207 C410 122 487 110 532 160 L532 210Z" fill="#1b1919"/>
+    <ellipse cx="310" cy="108" rx="45" ry="52" fill="#524235"/>
+    <path d="M283 106 L312 82 L337 111 L333 155 L296 157Z" fill="#786451"/>
+    <circle cx="306" cy="109" r="4" fill="#151312"/>
+    <circle cx="322" cy="109" r="4" fill="#151312"/>
+    <path d="M299 133 Q313 142 328 133" fill="none" stroke="#151312" stroke-width="4"/>
+    <path d="M140 173 C178 130 242 139 267 178 L232 208 L161 207Z" fill="#7e5a3e"/>
+    <path d="M155 174 C166 147 200 147 208 172 L201 191 L177 194 L163 186Z" fill="#b7835b" stroke="#161311" stroke-width="4"/>
+    <path d="M180 158 L180 187 M194 160 L192 188" stroke="#553e2b" stroke-width="3"/>
+    <ellipse cx="360" cy="174" rx="38" ry="27" fill="#3a3430"/>
+    <ellipse cx="425" cy="159" rx="31" ry="23" fill="#3a3430"/>
+    <path d="M264 202 C319 180 362 181 410 201" fill="none" stroke="#c68a47" stroke-width="3"/>
+    <path d="M292 202 L300 188 L308 202Z" fill="#e5a846"/>
+    <path d="M240 177 C206 168 184 166 151 172" fill="none" stroke="#f0d66a" stroke-width="3"/>
+    <polygon points="151,172 161,166 159,177" fill="#f0d66a"/>
+    <text x="18" y="238" font-family="sans-serif" font-size="14" fill="#514b43">Mắt: nắm đấm → cẳng tay → lão đạo trưởng → ba mảng người im lặng.</text>
+    <text x="18" y="260" font-family="sans-serif" font-size="14" fill="#514b43">Đèn cháy rất nhỏ ở nền: mối nối duy nhất sang H2.</text>
+  </g>
+  <path d="M602 178 L663 178" stroke="#746a5e" stroke-width="4"/>
+  <polygon points="663,178 650,169 650,187" fill="#746a5e"/>
+  <text x="605" y="161" font-family="sans-serif" font-size="14" fill="#514b43">lực ép</text>
+  <g transform="translate(700 72)">
+    <rect width="540" height="210" rx="3" fill="#202021" stroke="#191817" stroke-width="4"/>
+    <text x="16" y="27" font-family="sans-serif" font-size="16" fill="#e6dfcf">H2 · GIÓ DẬP TẮT NGUỒN SÁNG</text>
+    <path d="M420 37 L520 37 L520 206 L455 206 L462 108 L442 83Z" fill="#3f3932"/>
+    <path d="M484 48 L476 84 L496 107 L480 148" fill="none" stroke="#0d0c0c" stroke-width="6"/>
+    <ellipse cx="280" cy="165" rx="110" ry="30" fill="#70492e" stroke="#151211" stroke-width="5"/>
+    <ellipse cx="280" cy="160" rx="76" ry="17" fill="#1b1817"/>
+    <path d="M280 158 C281 139 286 128 293 117" fill="none" stroke="#151211" stroke-width="9"/>
+    <path d="M296 119 C350 113 402 93 458 73" fill="none" stroke="#d7d1c4" stroke-width="4"/>
+    <path d="M311 134 C359 133 391 119 437 100" fill="none" stroke="#9d978c" stroke-width="3"/>
+    <path d="M298 118 L311 110 L306 124Z" fill="#d7d1c4"/>
+    <text x="18" y="238" font-family="sans-serif" font-size="14" fill="#514b43">Mắt: tim đèn đen → khói bị kéo ngang → khe nứt → khoảng tối.</text>
+    <text x="18" y="260" font-family="sans-serif" font-size="14" fill="#514b43">Không nhân vật, không lửa: cutaway khép beat của H1.</text>
+  </g>
+  <text x="40" y="370" font-family="sans-serif" font-size="17" fill="#312b24">Vùng xanh trong layout: hai strip ngang 2.57:1 ở đáy spread; gáy là khoảng trống giữa hai frame.</text>
+  <text x="40" y="404" font-family="sans-serif" font-size="15" fill="#5f554a">Phác này chỉ chốt staging, eye path và nhịp; không phải style hoặc thiết kế nhân vật cuối.</text>
+</svg>
+

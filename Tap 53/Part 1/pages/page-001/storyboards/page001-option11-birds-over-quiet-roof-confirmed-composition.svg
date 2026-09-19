@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1621" height="1151" viewBox="0 0 810.709 575.433">
+  <rect width="810.709" height="575.433" fill="#f8f1e5"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="#b6d7d8"/>
+  <rect x="405.354" y="0" width="405.355" height="575.433" fill="none" stroke="#27a9e1" stroke-width="4" stroke-dasharray="12 8"/>
+  <rect x="381.03" y="0" width="48.642" height="575.433" fill="#d95d54" opacity=".18"/>
+  <path d="M450 0 Q495 110 510 290" fill="none" stroke="#507b5b" stroke-width="19"/>
+  <path d="M477 110 L520 70 M487 166 L540 125" stroke="#507b5b" stroke-width="13"/>
+  <path d="M465 575 L545 430 L720 430 L810 575Z" fill="#7b674b" stroke="#e8d2a5" stroke-width="5"/>
+  <path d="M545 430 L620 350 L720 430Z" fill="#a88962" stroke="#e8d2a5" stroke-width="4"/>
+  <path d="M550 190 q10 -10 20 0 M620 135 q10 -10 20 0 M690 225 q10 -10 20 0 M745 165 q10 -10 20 0" fill="none" stroke="#4d686d" stroke-width="4"/>
+  <path d="M425 400 Q600 370 810 405" fill="none" stroke="#edf4e9" stroke-width="14" opacity=".7"/>
+  <rect x="450" y="14" width="300" height="78" rx="7" fill="#28545a" opacity=".88"/>
+  <text x="464" y="40" fill="#fff" font-family="sans-serif" font-size="18" font-weight="700">Focus: chim gọi ngày trên mái lều</text>
+  <text x="464" y="63" fill="#f7ffff" font-family="sans-serif" font-size="15">Camera: khung dọc hướng lên trời</text>
+  <text x="464" y="84" fill="#f7ffff" font-family="sans-serif" font-size="15">Dư âm: người trong lều vẫn đang ngủ</text>
+  <text x="464" y="552" fill="#fff7dc" font-family="sans-serif" font-size="14">G3 · card xác nhận · không nhân vật, không công trường</text>
+</svg>

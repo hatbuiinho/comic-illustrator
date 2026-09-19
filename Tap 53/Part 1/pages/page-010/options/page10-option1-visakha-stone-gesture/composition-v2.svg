@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640">
+<rect width="900" height="640" fill="#fffdf7"/><text x="30" y="38" font-family="sans-serif" font-size="22">Page 10 — readability revision</text>
+<circle cx="450" cy="390" r="220" fill="#d9edf2" stroke="#149dcc" stroke-width="5"/>
+<!-- empty spine gutter --> <rect x="425" y="180" width="50" height="390" fill="#edf4f5"/>
+<!-- Nalini bust, left --> <path d="M105 550 Q115 390 285 360 Q390 350 410 550Z" fill="#d7a66b" stroke="#20252b" stroke-width="6"/><circle cx="270" cy="275" r="72" fill="#e4a56f" stroke="#20252b" stroke-width="6"/><path d="M198 270 Q270 180 342 270 L330 220 Q270 170 210 220Z" fill="#d88a22" stroke="#20252b" stroke-width="6"/><path d="M175 440 L330 420 L385 475 L220 505Z" fill="#f3e6c7" stroke="#20252b" stroke-width="6"/><path d="M350 365 Q390 390 405 420" fill="none" stroke="#20252b" stroke-width="8"/>
+<!-- Visakha bust, right --> <path d="M490 550 Q520 370 650 355 Q790 365 825 550Z" fill="#167f67" stroke="#20252b" stroke-width="6"/><circle cx="640" cy="275" r="68" fill="#f0b486" stroke="#20252b" stroke-width="6"/><path d="M570 275 Q640 180 710 270 L700 220 Q640 170 580 220Z" fill="#126954" stroke="#20252b" stroke-width="6"/><path d="M735 390 Q800 410 835 465" fill="none" stroke="#20252b" stroke-width="10" stroke-linecap="round"/><path d="M835 465 l28 -8 M835 465 l14 22" stroke="#20252b" stroke-width="6"/>
+<path d="M700 510 l65 -25 55 22 -50 35z" fill="#6f8790" stroke="#20252b" stroke-width="5"/>
+<text x="52" y="600" font-family="sans-serif" font-size="17">Focus: Nalini’s readable dawning respect → Visakha’s stone gesture</text><text x="52" y="625" font-family="sans-serif" font-size="15">Camera: medium close-up, upper bodies only | Empty vertical spine gutter</text>
+</svg>

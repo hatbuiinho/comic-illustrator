@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1217" height="864" viewBox="0 0 1217 864">
+  <rect width="1217" height="864" fill="#eee5d4"/>
+  <rect x="0" y="0" width="1217" height="321" fill="#f7f1e7"/>
+  <text x="64" y="110" font-family="sans-serif" font-size="36" font-weight="700" fill="#49392b">PAGE 23 — OPTION 5: CÂY GẬY / BÀN TAY TRỐNG</text>
+  <text x="64" y="160" font-family="sans-serif" font-size="22" fill="#5f5040">Beat: ý định bạo lực → dấu vết đau đớn sau cú chuyển không thấy được</text>
+  <text x="64" y="205" font-family="sans-serif" font-size="20" fill="#6d5d4e">Hai frame gần vuông; dải gáy là nền rừng hoặc vách đá, không chứa subject.</text>
+  <rect x="0" y="321" width="542" height="543" fill="#698261"/>
+  <path d="M0 415 C150 350 270 370 390 335 L542 321 L542 864 L0 864Z" fill="#4c674b"/>
+  <path d="M20 760 C150 655 270 650 510 560" fill="none" stroke="#c3a66d" stroke-width="62"/>
+  <path d="M65 455 L330 370" stroke="#402d1d" stroke-width="36" stroke-linecap="round"/>
+  <path d="M76 495 L238 442" stroke="#60432a" stroke-width="64" stroke-linecap="round"/>
+  <circle cx="182" cy="536" r="51" fill="#3a2b20"/>
+  <path d="M99 740 C95 615 130 560 210 555 C283 575 316 652 318 787 L95 820Z" fill="#704d2e"/>
+  <path d="M359 864 C350 672 382 561 476 522 C540 570 548 680 542 864Z" fill="#4b2e22"/>
+  <circle cx="466" cy="527" r="43" fill="#c28b62"/>
+  <path d="M420 596 C448 562 495 558 531 608" fill="none" stroke="#5b3828" stroke-width="43"/>
+  <rect x="15" y="342" width="103" height="31" rx="8" fill="#f7f1e7"/><text x="25" y="364" font-family="sans-serif" font-size="17" font-weight="700" fill="#30261e">Focus: gậy</text>
+  <rect x="15" y="380" width="190" height="31" rx="8" fill="#f7f1e7"/><text x="25" y="402" font-family="sans-serif" font-size="17" font-weight="700" fill="#30261e">Camera: thấp, OTS 3/4</text>
+  <rect x="15" y="818" width="190" height="31" rx="8" fill="#f7f1e7"/><text x="25" y="840" font-family="sans-serif" font-size="17" font-weight="700" fill="#30261e">Để ngoài khung: kết quả</text>
+  <rect x="572" y="321" width="73" height="543" fill="#6d6157"/>
+  <text x="579" y="850" font-family="sans-serif" font-size="14" fill="#f7f1e7">GÁY</text>
+  <rect x="675" y="321" width="542" height="543" fill="#54504c"/>
+  <path d="M675 321 L825 321 L928 864 L675 864Z" fill="#353536"/>
+  <path d="M1217 321 L1080 321 L973 864 L1217 864Z" fill="#302f31"/>
+  <path d="M835 321 L1045 321 L976 531 L900 531Z" fill="#bdd7e1"/>
+  <path d="M706 850 C730 676 800 566 899 597 C935 643 934 735 919 846Z" fill="#845b36"/>
+  <circle cx="794" cy="619" r="47" fill="#3b2b20"/>
+  <path d="M729 713 C779 679 835 694 871 741" fill="none" stroke="#b77e52" stroke-width="27" stroke-linecap="round"/>
+  <path d="M716 797 L857 776" stroke="#c18b5f" stroke-width="20" stroke-linecap="round"/>
+  <rect x="690" y="342" width="147" height="31" rx="8" fill="#f7f1e7"/><text x="700" y="364" font-family="sans-serif" font-size="17" font-weight="700" fill="#30261e">Focus: bàn tay trống</text>
+  <rect x="690" y="380" width="185" height="31" rx="8" fill="#f7f1e7"/><text x="700" y="402" font-family="sans-serif" font-size="17" font-weight="700" fill="#30261e">Camera: sát nền, 3/4</text>
+  <rect x="690" y="818" width="210" height="31" rx="8" fill="#f7f1e7"/><text x="700" y="840" font-family="sans-serif" font-size="17" font-weight="700" fill="#30261e">Để ngoài khung: Ngài, gậy</text>
+</svg>

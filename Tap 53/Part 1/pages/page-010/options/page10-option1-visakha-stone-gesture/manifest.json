@@ -1,0 +1,57 @@
+{
+  "pageId": "page-010",
+  "optionId": "page10-option1-visakha-stone-gesture",
+  "layout": "../../layout.json",
+  "sourceRead": [
+    "../../../../../notes.md",
+    "../../../../../shot_notes.md",
+    "../../../../../workflow.md",
+    "../../../../scripts/chapter1.md",
+    "../../../../../characters/Bác Nalini.png",
+    "../../../../../characters/Visakha.png"
+  ],
+  "optionAlignment": {
+    "optionId": "page10-option1-visakha-stone-gesture",
+    "selectedBrief": "Medium close-up qua mask tròn: Visakha hướng sự trân trọng về tảng đá; Nalini nhìn theo và bắt đầu đồng thuận.",
+    "mustMatch": ["mask tròn", "chỉ Nalini và Visakha", "focus chung là tảng đá", "cử chỉ bàn tay mở trân trọng"],
+    "forbidden": ["Punna làm chủ thể", "công trình hoàn thiện", "ngón trỏ đơn độc/ra lệnh"],
+    "layoutMapping": ["ellipse x=0.3346 y=0.5774 w=0.3305 h=0.4221", "hai nhân vật tách spine x=0.47–0.53"],
+    "alignmentRationale": [{ "optionRequirement": "Hai nhân vật cùng nhận ra giá trị của đá.", "manifestEvidence": "relationalFocusLock và composition card.", "whyMatch": "Vector mắt cùng hội tụ về tảng đá trước phản ứng Nalini." }],
+    "sourceRead": ["../../../../../notes.md", "../../../../../shot_notes.md", "../../../../../workflow.md", "../../../../scripts/chapter1.md"],
+    "userConfirmed": true
+  },
+  "storyboardQa": { "status": "approved", "compositionCard": "composition.svg", "comparisonCard": "comparison.md", "userConfirmed": true },
+  "shotThesis": {
+    "dramaticMeaning": "Lòng thành của Visakha bắt đầu làm Nalini nhìn công trình bằng giá trị lớn hơn chi phí.",
+    "moment": "trong hành động",
+    "pointOfView": "qua Nalini",
+    "focusEyePath": "Visakha và cử chỉ → tảng đá → phản ứng Nalini",
+    "readerFeeling": "Người đọc nhận ra hai người đang cùng hướng tới một ý nghĩa tinh thần."
+  },
+  "emotionLock": {
+    "intendedEmotion": "Nalini kính trọng và bắt đầu thấu hiểu",
+    "facialCues": ["ánh mắt mềm", "lông mày thả", "miệng khép nhẹ"],
+    "bodyCues": ["hơi nghiêng về focus chung", "hạ bản vẽ tự nhiên"],
+    "wrongReadings": ["nghi ngờ", "tính toán chi phí", "phản đối"]
+  },
+  "relationalFocusLock": {
+    "sharedFocusAnchor": "tảng đá dành cho hương thất",
+    "gazeChoreography": {
+      "visakha": "nhìn về tảng đá khi trình bày",
+      "nalini": "nhìn theo về cùng tảng đá rồi lắng lại"
+    },
+    "relationshipState": "Visakha dẫn nhận thức; Nalini tiếp nhận và bắt đầu đồng thuận",
+    "forbiddenReadings": ["hai người nhìn lệch focus", "hai hoạt động rời rạc", "đối đầu"]
+  },
+  "gestureSemanticsLock": {
+    "intendedMeaning": "trân trọng giới thiệu và dâng ý nghĩa của tảng đá",
+    "handShape": "bàn tay mở, các ngón khép mềm, không duỗi ngón trỏ đơn độc",
+    "palmDirection": "lòng bàn tay ngửa/chếch về tảng đá",
+    "target": "tảng đá ở thấp bên phải frame",
+    "supportingPose": "vai thả, khuỷu mềm, thân hơi hướng về Nalini và focus chung",
+    "forbiddenGestures": ["chỉ một ngón", "ra lệnh", "vẫy gọi", "nắm tay căng"]
+  },
+  "contextSnapshot": "Buổi chiều, vật liệu vừa đến; đá đang tập kết, công trình chưa dựng.",
+  "frameReadabilityLock": { "shotSizeAllowed": ["medium close-up", "close-up hai người bán thân"], "forbiddenScale": ["full-body", "establishing rộng"] },
+  "delivery": { "output": "../../outputs/part1-page10-option1-visakha-stone-gesture-v5.png", "status": "qa-passed" }
+}

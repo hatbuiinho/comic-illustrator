@@ -1,0 +1,45 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.015,
+    "printTrim": { "trimPercent": { "x": 0.0104895, "y": 0.0147783 }, "criticalSafePercent": { "x": 0.0279720, "y": 0.0394089 } }
+  },
+  "spreads": [{
+    "id": "part1-page15-option2-v2",
+    "canvas": { "width": 810.709, "height": 575.433 },
+    "pageImage": "../../tmp/pdf_all/p15.png",
+    "frames": [{
+      "id": "page15-chapter1-ending-hero",
+      "shape": "rect",
+      "box": { "x": 0, "y": 0.523, "width": 1, "height": 0.477 },
+      "optionManifest": "manifest.json",
+      "output": "outputs/part1-page15-option2-torchline-ots-v2.png",
+      "delivery": {
+        "required": true,
+        "status": "generated",
+        "output": "outputs/part1-page15-option2-torchline-ots-v2.png"
+      },
+      "textReserve": [],
+      "spine": { "x": 0.47, "y": 0.523, "width": 0.06, "height": 0.477 },
+      "critical": [
+        { "id": "nalini-readable-profile", "box": { "x": 0.075, "y": 0.585, "width": 0.19, "height": 0.19 } },
+        { "id": "nearest-lightweight-canopy-core", "box": { "x": 0.555, "y": 0.735, "width": 0.16, "height": 0.13 } }
+      ],
+      "visibilityPriority": [
+        { "id": "nalini-readable-profile", "priority": "requiredComplete" },
+        { "id": "nalini-shoulder-torso-direction", "priority": "requiredReadable" },
+        { "id": "nearest-lightweight-canopy-core", "priority": "requiredComplete" },
+        { "id": "foundation-rows", "priority": "requiredReadable" },
+        { "id": "hands-and-plan-rolls", "priority": "outOfFrame" }
+      ],
+      "intentionalCropLock": [{
+        "id": "nalini-left-bottom-torso",
+        "visibilityPriority": "requiredReadable",
+        "cropBoundary": "left and bottom frame edges through broad torso areas",
+        "retainedPortion": "head, neck, both shoulders and upper torso direction",
+        "deliberatelyOutOfFrame": "lower torso, hands and plan rolls",
+        "storyReason": "maintain emotional scale and subjective OTS viewpoint",
+        "forbiddenJoints": ["neck", "visible shoulder joint", "elbow"]
+      }]
+    }]
+  }]
+}

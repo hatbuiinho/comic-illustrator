@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1477" height="500" viewBox="0 0 1477 500">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#ffd35a"/></marker></defs>
+  <rect width="1477" height="500" fill="#173455"/>
+  <path d="M0 229H1477" stroke="#477093" stroke-width="8"/>
+  <path d="M0 244C240 230 420 250 640 240S1080 250 1477 236V500H0Z" fill="#66513d"/>
+  <path d="M0 270C240 258 460 276 760 259S1190 272 1477 257" fill="none" stroke="#263d39" stroke-width="18"/>
+  <g id="foundations" fill="none" stroke="#b99766" stroke-width="6">
+    <path d="M70 472L410 287L735 319L420 500M275 500L565 306L825 338L618 500"/>
+    <path d="M490 500L760 330L979 351L824 500M720 500L960 350L1134 369L1050 500"/>
+    <path d="M178 412L558 418M374 370L791 392M610 351L1005 378"/>
+  </g>
+  <g id="stakes" stroke="#d0ad74" stroke-width="6">
+    <path d="M158 346V430M342 326V408M542 315V392M704 323V405M882 337V422M1025 351V430"/>
+  </g>
+  <g id="canopies" stroke="#3a271d" stroke-linecap="round">
+    <path d="M120 277L350 270L330 302L105 307Z" fill="#9c6534" stroke-width="5"/>
+    <path d="M120 296V374M215 291V361M330 292V360" stroke="#765033" stroke-width="8"/>
+    <path d="M116 301L214 293L332 298" fill="none" stroke="#d0a05f" stroke-width="3" stroke-dasharray="9 7"/>
+    <path d="M397 285L551 280L537 302L386 307Z" fill="#8c5b31" stroke-width="4"/>
+    <path d="M398 300V354M470 296V349M538 297V345" stroke="#6f4b30" stroke-width="7"/>
+  </g>
+  <g id="torches"><path d="M225 343V374" stroke="#4c3022" stroke-width="7"/><path d="M225 343C205 326 217 309 225 298C235 312 245 328 225 343Z" fill="#ffb536"/><path d="M470 324V351" stroke="#4c3022" stroke-width="6"/><path d="M470 324C457 312 463 299 470 291C478 302 484 314 470 324Z" fill="#ffb536"/></g>
+  
+  
+  <rect x="694" width="89" height="500" fill="#e44747" opacity=".10"/><path d="M694 0V500M783 0V500" stroke="#ff6c6c" stroke-width="3" stroke-dasharray="10 9"/>
+  <rect x="14" y="14" width="1449" height="472" fill="none" stroke="#ef4d4d" stroke-width="3"/><rect x="39" y="39" width="1399" height="422" fill="none" stroke="#4cd37b" stroke-width="3"/>
+  
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1477" height="500" viewBox="0 0 1477 500">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#ffd35a"/></marker></defs>
+  <rect width="1477" height="500" fill="#183554"/><path d="M0 230H1477" stroke="#477093" stroke-width="8"/>
+  <path d="M0 246C280 235 560 251 850 239S1240 247 1477 240V500H0Z" fill="#66513d"/>
+  <path d="M0 272C280 258 600 276 930 257S1260 267 1477 258" fill="none" stroke="#263d39" stroke-width="18"/>
+  <g fill="none" stroke="#b99766" stroke-width="6"><path d="M430 500L690 313L980 338L805 500M655 500L900 334L1140 355L1037 500M875 500L1094 355L1290 372L1250 500"/><path d="M500 427L949 433M650 380L1110 408M820 348L1230 382"/></g>
+  <g stroke="#d0ad74" stroke-width="6"><path d="M512 340V424M666 323V399M828 324V402M987 338V419M1135 349V431M1270 366V445"/></g>
+  <g id="canopies" stroke="#3a271d" stroke-linecap="round">
+    <path d="M895 278L1080 275L1061 300L882 304Z" fill="#9c6534" stroke-width="5"/><path d="M894 297V363M972 294V354M1063 294V356" stroke="#765033" stroke-width="8"/>
+    <path d="M1120 292L1260 289L1247 309L1110 312Z" fill="#8c5b31" stroke-width="4"/><path d="M1119 306V357M1180 303V350M1248 304V352" stroke="#6f4b30" stroke-width="7"/>
+    <path d="M1300 303L1407 302L1397 319L1291 320Z" fill="#81542e" stroke-width="4"/><path d="M1301 316V354M1350 314V350M1398 315V352" stroke="#69472e" stroke-width="6"/>
+  </g>
+  <g><path d="M971 333V363" stroke="#4c3022" stroke-width="7"/><path d="M971 333C955 319 962 303 971 294C981 307 987 321 971 333Z" fill="#ffb536"/><path d="M1180 330V353" stroke="#4c3022" stroke-width="6"/><path d="M1180 330C1168 319 1173 307 1180 299C1188 310 1192 321 1180 330Z" fill="#ffb536"/></g>
+  <g id="nalini" stroke="#241a18" stroke-linejoin="round">
+    <path d="M0 500V357Q120 286 286 302Q430 327 548 500Z" fill="#d7a24f" stroke-width="7"/>
+    <path d="M72 500Q116 350 267 328Q390 357 470 500Z" fill="#ead7a2" stroke-width="7"/>
+    <path d="M188 166Q248 128 308 158Q350 184 341 232Q330 279 278 299Q223 295 194 258Q171 215 188 166Z" fill="#b9784a" stroke-width="7"/>
+    <path d="M304 193L348 215L307 229Z" fill="#b9784a" stroke-width="7"/>
+    <path d="M186 175Q250 93 345 166L333 204Q255 174 181 213Z" fill="#df861f" stroke-width="7"/>
+    <path d="M194 171Q254 132 335 178M190 192Q259 153 334 198" fill="none" stroke="#6e391f" stroke-width="5"/>
+    <path d="M303 213Q321 210 332 217" fill="none" stroke-width="6"/><path d="M305 255Q284 269 262 258" fill="none" stroke-width="5"/>
+  </g>
+  <path d="M330 218C560 220 735 267 975 322" fill="none" stroke="#ffd35a" stroke-width="5" stroke-dasharray="14 10" marker-end="url(#a)"/>
+  <rect x="694" width="89" height="500" fill="#e44747" opacity=".10"/><path d="M694 0V500M783 0V500" stroke="#ff6c6c" stroke-width="3" stroke-dasharray="10 9"/>
+  <rect x="14" y="14" width="1449" height="472" fill="none" stroke="#ef4d4d" stroke-width="3"/><rect x="39" y="39" width="1399" height="422" fill="none" stroke="#4cd37b" stroke-width="3"/>
+  <g font-family="Arial" font-weight="700"><text x="34" y="70" fill="#fff" font-size="27">OPTION 2 · TORCHLINE OTS</text><text x="420" y="186" fill="#ffd35a" font-size="20">FOCUS: nhìn công trường bằng mắt mới</text><text x="62" y="464" fill="#7ee0ff" font-size="20">CAMERA: sau vai 3/4</text></g>
+</svg>

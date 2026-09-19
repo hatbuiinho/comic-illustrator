@@ -1,0 +1,38 @@
+{
+  "manifest": "/workspace/Tap 53/Part 1/pages/page-012/manifest.json",
+  "failures": [
+    {
+      "scope": "part1-spread12-punna-sanitation-request/H1/nalini-face-and-gaze",
+      "message": "Chi tiết quan trọng nằm ngoài frame/mask."
+    }
+  ],
+  "warnings": [
+    {
+      "scope": "part1-spread12-punna-sanitation-request/H1",
+      "message": "Chưa có optionAlignment; không được coi frame mới là brief đã được người dùng chốt."
+    }
+  ],
+  "passes": [
+    {
+      "scope": "part1-spread12-punna-sanitation-request/printTrimLock",
+      "message": "Trim x 1.049% · y 1.478%; critical-safe x 2.797% · y 3.941%."
+    },
+    {
+      "scope": "part1-spread12-punna-sanitation-request/layoutQa",
+      "message": "Đã dùng layout gốc có text làm nền overlay: storyboards/page12-layout-source.png."
+    },
+    {
+      "scope": "part1-spread12-punna-sanitation-request/H1",
+      "message": "Tỷ lệ contentFrame khớp frame (0.03% lệch)."
+    }
+  ],
+  "optionAlignment": [],
+  "spreads": [
+    {
+      "id": "part1-spread12-punna-sanitation-request",
+      "overlay": "/workspace/Tap 53/Part 1/pages/page-012/qa/v1/part1-spread12-punna-sanitation-request-overlay.svg",
+      "frames": 1,
+      "sourceLayout": "storyboards/page12-layout-source.png"
+    }
+  ]
+}

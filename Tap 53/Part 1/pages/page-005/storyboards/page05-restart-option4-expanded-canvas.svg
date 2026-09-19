@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
+  <rect width="1536" height="1024" fill="#b9d9dc"/>
+  <rect y="560" width="1536" height="464" fill="#d9ad70"/>
+  <path d="M0 735H1536M0 850H1536" stroke="#9a6f3f" stroke-width="5" opacity=".5"/>
+
+  <!-- Lớp xa: chỉ vai, lưng, thúng và cán cuốc; không có chi tiết mặt/tay -->
+  <g opacity=".48" stroke="#4c392b" stroke-width="8" stroke-linejoin="round">
+    <path d="M85 770Q115 685 145 770V875H85Z" fill="#8b6042"/><path d="M115 685L82 605"/>
+    <path d="M290 760Q325 665 360 760V875H290Z" fill="#75634c"/><path d="M325 665L370 585"/>
+    <path d="M500 775Q535 680 570 775V875H500Z" fill="#9a6a44"/><path d="M535 680L495 595"/>
+    <path d="M630 765Q665 675 700 765V875H630Z" fill="#7c6044"/><path d="M665 675L710 590"/>
+  </g>
+
+  <!-- Lớp gần: ba người làm việc, đủ lớn để đọc rõ -->
+  <g stroke="#24211d" stroke-width="9" stroke-linejoin="round">
+    <circle cx="180" cy="690" r="38" fill="#9b5c36"/><path d="M140 730Q180 705 220 730L245 875H115Z" fill="#a65f40"/><path d="M142 765L75 850M218 765L290 805M145 875L125 950M215 875L235 950" fill="none"/>
+    <circle cx="390" cy="700" r="38" fill="#8f5133"/><path d="M350 740Q390 715 430 740L455 880H325Z" fill="#6e8f64"/><path d="M350 775L285 830M430 775L505 820M355 880L335 950M425 880L445 950" fill="none"/>
+    <circle cx="610" cy="695" r="38" fill="#a4643c"/><path d="M570 735Q610 710 650 735L675 875H545Z" fill="#d49c45"/><path d="M570 770L505 820M650 770L720 815M575 875L555 950M645 875L665 950" fill="none"/>
+
+    <!-- Visakha chắp tay hướng về người lao động -->
+    <circle cx="1100" cy="680" r="46" fill="#b46e46"/><path d="M1050 725Q1100 695 1150 725L1175 885H1025Z" fill="#0d6d54"/><path d="M1055 755Q1080 790 1100 815Q1120 790 1145 755" fill="none"/><path d="M1100 765V830" stroke="#e9c27a" stroke-width="15"/><path d="M1092 780L1100 762L1108 780" fill="none" stroke="#e9c27a" stroke-width="10"/><path d="M1055 885L1040 950M1145 885L1160 950" fill="none"/>
+
+    <!-- Nalini và cuộn bản vẽ -->
+    <circle cx="1340" cy="685" r="45" fill="#a5633b"/><path d="M1292 730Q1340 700 1388 730L1415 885H1265Z" fill="#edc877"/><path d="M1295 765L1240 820M1385 765L1440 805" fill="none"/><rect x="1205" y="810" width="65" height="22" rx="11" fill="#8b5a34"/><path d="M1295 885L1280 950M1385 885L1400 950" fill="none"/>
+  </g>
+
+  <!-- Vùng gáy trong contentFrame chỉ có nền đất -->
+  <rect x="725" y="620" width="86" height="341" fill="#d67e7e" opacity=".25"/>
+  <text x="738" y="650" font-family="sans-serif" font-size="18" fill="#792424" transform="rotate(90 738 650)">GÁY — CHỈ NỀN ĐẤT</text>
+
+  <!-- Hướng nhìn và lớp QA -->
+  <path d="M1015 710Q875 660 720 735" fill="none" stroke="#5b4734" stroke-width="6" stroke-dasharray="15 15"/>
+  <rect x="53" y="620" width="1430" height="341" fill="none" stroke="#1f9d55" stroke-width="8"/>
+  <rect x="0" y="0" width="1536" height="620" fill="#4a90e2" opacity=".08"/>
+  <rect x="0" y="961" width="1536" height="63" fill="#4a90e2" opacity=".08"/>
+  <text x="55" y="55" font-family="sans-serif" font-size="29" font-weight="700" fill="#163b4a">CANVAS MỞ RỘNG — PHƯƠNG ÁN VISAKHA CHẮP TAY CẢM TẠ</text>
+  <text x="55" y="95" font-family="sans-serif" font-size="22" fill="#315b68">Vùng trời và nền ngoài khung xanh dành cho mask/hòa gradient trong InDesign</text>
+  <text x="70" y="655" font-family="sans-serif" font-size="20" font-weight="700" fill="#176c3a">VÙNG NỘI DUNG CHÍNH</text>
+</svg>
