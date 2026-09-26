@@ -39,6 +39,17 @@ thực. Kết quả đọc được phải ghi vào `sourceRead` hoặc artifact
 - PASS dựa trên nguồn hoặc bằng chứng nhìn thấy, không dựa vào prompt/manifest
   ghi đúng tên.
 
+### Khóa nguồn và suy luận
+
+- Mỗi nhận định phải là `sourceFact`, `userConfirmed` hoặc `assistantInference`.
+- Layout chỉ cung cấp hình học, frame, text, gáy và safe zone; không tự suy
+  focus, cảm xúc, số người hay `narrativeFunction` từ hình học layout.
+- `assistantInference` chỉ là đề xuất; chưa được xác nhận thì không được tạo
+  hard lock, giảm quy mô nguồn hoặc làm căn cứ cho suy luận tiếp theo.
+- “Nhẹ/chuyển cảnh/không khí” được xử lý bằng cỡ cảnh, scale, khoảng trống và
+  hierarchy, không mặc định giảm số người. Gáy chỉ buộc từng recognition core
+  tránh vùng nguy hiểm, không buộc toàn bộ chủ thể về một phía.
+
 ## Action bắt buộc sau mỗi gate
 
 Sau báo cáo của **mọi G1–G6**, phải luôn đưa một hoặc nhiều action hoàn chỉnh để
@@ -159,7 +170,7 @@ bữa nghỉ chung của nhiều người xa lạ phải còn đọc được t�
 trò chuyện chỉ đủ khi cách dựng cảnh vẫn cung cấp bằng chứng về bữa nghỉ chung.
 
 Ghi frame vào `layout_frames.json`: box/shape/tỷ lệ, text reserve, spine, safe
-zone, vùng xén theo `trimPercent`, critical-safe theo `criticalSafePercent`, narrative function, visibility priority,
+zone, vùng xén theo `trimPercent`, critical-safe theo `criticalSafePercent`, visibility priority,
 recognition cores và crop buffers. Artwork vẫn phủ kín frame/page gốc; không
 thu nhỏ ảnh để né xén. Safe geometry là mức tối thiểu kỹ thuật, không phải mục
 tiêu đặt chủ thể: nhân vật/focus phải có khoảng thở cảm nhận phù hợp với shot,
@@ -169,6 +180,8 @@ khớp; `optionalSupport` có thể ra khỏi khung. Background
 phụ được phép và nên kéo rộng qua vùng xén khi điều đó tạo crop tự nhiên. Lập `frameReadabilityLock`,
 `shotThesis`, `emotionLock`, `profileFidelityLock`; thêm `beatMap`,
 `identityConflictCheck`, `relationalFocusLock`, `gestureSemanticsLock` khi áp dụng.
+`narrativeFunction` chỉ được ghi kèm nguồn; nếu là `assistantInference` thì
+không được coi là dữ kiện hoặc dùng để giới hạn bố cục.
 
 Frame xanh được coi là `contentFrame` — vùng nội dung chính — thay vì biên cứng
 của toàn canvas. Khi cần, lập `blendExtensionLock` để cho phép canvas rộng/cao

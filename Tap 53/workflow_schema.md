@@ -9,6 +9,10 @@ Conditional lock phải ghi `applicable: true/false` và lý do.
   `sourceEvidence`, `forbiddenReadings`; tách dữ kiện xác nhận, hàm ý mạnh,
   phần chưa rõ và lựa chọn tạo hình. Không tự gán tổng số người khi nguồn
   không xác nhận con số.
+- `provenance` cho mọi nhận định ảnh hưởng bố cục: `sourceFact`,
+  `userConfirmed` hoặc `assistantInference`. Loại cuối không được tạo hard lock,
+  giảm quy mô nguồn hoặc làm bằng chứng cho suy luận khác khi chưa được xác nhận;
+  `narrativeFunction` bắt buộc có `provenance`.
 - `optionAlignment`: `sourceRead`, selected option, rationale, `userAction`,
   `userConfirmed` (chỉ sau duyệt đúng option).
 - `contextSnapshot`: time, present/visible characters, current state,
