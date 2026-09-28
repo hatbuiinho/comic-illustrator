@@ -1,0 +1,12 @@
+{
+  "output": "../../../../tmp/pdf_pages/page_01.png",
+  "userSelectedOutput": true,
+  "checks": {
+    "visualQa": "PASS",
+    "layoutQa": "PASS",
+    "spine": {
+      "status": "SKIPPED_BY_USER",
+      "reason": "Fixture kiểm tra override"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "episodeId": "tap-53",
+  "title": "Tập 53",
+  "sources": {
+    "notes": "notes.md",
+    "shotNotes": "shot_notes.md",
+    "characters": "characters"
+  },
+  "skillsRoot": "../.agents/skills",
+  "style": "pure-2d-animation",
+  "historicalContext": "Ấn Độ cổ đại, xấp xỉ thế kỷ 5 TCN",
+  "parts": ["Part 1", "Part 2"]
+}

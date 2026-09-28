@@ -1,0 +1,46 @@
+{
+  "defaults": {
+    "ratioTolerance": 0.001,
+    "printTrim": {
+      "trimPercent": { "x": 0.0104895, "y": 0.0147783 },
+      "criticalSafePercent": { "x": 0.027972, "y": 0.0394089 }
+    },
+    "checks": {
+      "frame": "REQUIRED",
+      "ratio": "REQUIRED",
+      "textReserve": "REQUIRED",
+      "printSafe": "REQUIRED",
+      "spine": "REQUIRED"
+    }
+  },
+  "overrides": {
+    "spine": {
+      "status": "SKIPPED_BY_USER",
+      "reason": "Fixture xác nhận override không tạo FAIL",
+      "scope": "fixture"
+    }
+  },
+  "spreads": [
+    {
+      "id": "spine-skip-fixture",
+      "canvas": { "width": 1217, "height": 864 },
+      "pageImage": "../../../../tmp/pdf_pages/page_01.png",
+      "frames": [
+        {
+          "id": "full-spread",
+          "shape": "rect",
+          "box": { "x": 0, "y": 0, "width": 1, "height": 1 },
+          "output": "../../../../tmp/pdf_pages/page_01.png",
+          "textReserve": [],
+          "spine": { "x": 0.48, "y": 0, "width": 0.04, "height": 1 },
+          "critical": [
+            {
+              "id": "focus-on-spine",
+              "box": { "x": 0.49, "y": 0.45, "width": 0.02, "height": 0.1 }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

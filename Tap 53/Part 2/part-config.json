@@ -4,13 +4,14 @@
   "sharedSources": {
     "notes": "../notes.md",
     "shotNotes": "../shot_notes.md",
-    "workflow": "../workflow.md",
+    "episode": "../episode.json",
+    "skills": "../../.agents/skills",
     "scripts": "scripts",
     "characters": "../characters",
-    "outputs": "pages"
+    "pages": "pages"
   },
   "contextPolicy": {
-    "defaultLoad": ["workflow", "notes", "shotNotes", "page", "selectedOption", "referencedProfiles"],
+    "defaultLoad": ["notes", "shotNotes", "page", "selectedOption", "referencedProfiles"],
     "crossPageContext": "deny-by-default",
     "continuity": "allow only as explicit short continuityInput in page manifest"
   }

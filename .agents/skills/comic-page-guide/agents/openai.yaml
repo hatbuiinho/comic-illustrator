@@ -1,0 +1,4 @@
+interface:
+  display_name: "Comic Page Guide"
+  short_description: "Hướng dẫn từng bước để hoàn thiện một page"
+  default_prompt: "Dùng $comic-page-guide để hướng dẫn tôi từng bước làm minh họa cho một page."
