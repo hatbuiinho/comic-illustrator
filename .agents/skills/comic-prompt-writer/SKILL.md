@@ -8,6 +8,10 @@ description: Viết prompt tạo hoặc chỉnh ảnh từ storyboard/compositio
 Nhận composition contract đã chọn và chuyển thành prompt hoàn chỉnh. Không tự
 đổi focus, moment, camera, population plan hoặc profile.
 
+Bảo toàn thứ bậc kể chuyện của composition: `emotionalPriority` →
+`explicitRequired` → `implicitReadable` → `optionalSupport`. Không chuyển mọi
+dữ kiện thành checklist chi tiết có độ nhấn như nhau.
+
 Luôn đọc [pure-2d-style.md](references/pure-2d-style.md). Đọc
 [prompt-contract.md](references/prompt-contract.md) để cấu trúc prompt và
 [negative-constraints.md](references/negative-constraints.md) để chọn điều cấm.
@@ -17,3 +21,9 @@ Chỉ đưa vào prompt các kiểm tra `REQUIRED`. Không thêm constraint thu�
 gáy”, prompt không được lén dịch focus khỏi gáy.
 
 Đưa prompt hoàn chỉnh trong một code block, không dùng dấu ba chấm thay nội dung.
+
+Với thông tin `implicitReadable`, mô tả ấn tượng tổng thể và các tín hiệu tối
+thiểu thay vì liệt kê dày đặc dấu hiệu cơ học. Không tự yêu cầu toàn thân, hành
+động cường điệu, biểu cảm lớn hoặc thêm vật thể chỉ để tăng độ rõ. Nếu prompt
+khiến thông tin phụ cạnh tranh với cảm xúc hoặc focus, phải giản lược trước khi
+tạo ảnh.

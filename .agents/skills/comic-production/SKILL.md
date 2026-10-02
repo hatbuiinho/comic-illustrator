@@ -1,9 +1,14 @@
 ---
 name: comic-production
-description: Điều phối quy trình minh họa truyện tranh nhiều giai đoạn từ đọc nguồn đến bàn giao. Dùng khi người dùng yêu cầu làm hoàn chỉnh một page, frame hoặc chuỗi shot; không dùng cho một tác vụ độc lập đã nêu rõ.
+description: Điều phối trực tiếp quy trình minh họa truyện tranh nhiều giai đoạn từ đọc nguồn đến bàn giao. Chỉ dùng khi người dùng gọi đích danh $comic-production hoặc yêu cầu rõ dùng skill này; mọi yêu cầu tạo hình minh họa thông thường phải route qua comic-page-guide.
 ---
 
 # Điều phối sản xuất truyện tranh
+
+Skill này là explicit-only. Không tự động chọn, đọc hoặc gọi skill này chỉ vì
+người dùng yêu cầu làm hoàn chỉnh một page, frame hoặc chuỗi shot. Trong trường
+hợp đó, dùng `comic-page-guide`. Chỉ tiếp tục ở đây khi người dùng gọi đích danh
+`$comic-production` hoặc yêu cầu rõ dùng skill này.
 
 Xác định deliverable và chỉ thực hiện các giai đoạn cần thiết. Yêu cầu trực tiếp
 mới nhất của người dùng luôn được ưu tiên hơn mặc định của workflow.

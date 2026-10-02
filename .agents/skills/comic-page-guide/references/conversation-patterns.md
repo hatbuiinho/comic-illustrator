@@ -8,8 +8,9 @@ page dang dở.
 1. Một câu xác nhận điều vừa biết hoặc vừa hoàn thành.
 2. Một câu giải thích quyết định đang cần và tác động của nó.
 3. Tối đa ba lựa chọn đánh số; đánh dấu **(Đề xuất)** cho lựa chọn phù hợp nhất.
-4. Một khối code cuối câu trả lời chứa các câu trả lời/bước tiếp theo có thể
-   copy nguyên dòng. Mỗi dòng phải tự đủ nghĩa; đặt lựa chọn đề xuất trước.
+4. Cuối câu trả lời, trình bày mỗi câu trả lời/bước tiếp theo trong một code
+   block riêng để người dùng có thể copy nguyên khối. Không gom nhiều phương án
+   vào cùng một block; mỗi block phải tự đủ nghĩa và đặt lựa chọn đề xuất trước.
 
 Ví dụ chọn composition (dùng hàng rào ngoài khác loại để thể hiện khối copy
 bên trong):
@@ -24,12 +25,21 @@ Mình cần bạn chọn và xác nhận cách kể hình trước khi tạo ả
 
 Sau khi bạn xác nhận, mình sẽ tự tạo prompt kỹ thuật, tạo ảnh và chạy QA.
 
-Bạn có thể copy một dòng để trả lời:
+Bạn có thể copy một trong các block sau để trả lời:
 
 ```text
 Chọn 2 — trung cảnh theo nhóm; hãy tạo ảnh và chạy QA.
+```
+
+```text
 Chọn 1 — toàn cảnh; hãy tạo ảnh và chạy QA.
+```
+
+```text
 Chọn 3 — cận cảnh nhân vật chính; hãy tạo ảnh và chạy QA.
+```
+
+```text
 Tôi muốn chỉnh hướng kể hình; tôi sẽ mô tả thay đổi ở câu tiếp theo.
 ```
 ~~~

@@ -33,8 +33,12 @@ Một override rõ của người dùng phải được ghi là `SKIPPED_BY_USER
 
 ## Routing skill
 
-- Hướng dẫn người dùng ít kinh nghiệm làm một page từng bước: `comic-page-guide`.
-- Làm page/frame hoàn chỉnh qua nhiều giai đoạn: `comic-production`.
+- Mọi yêu cầu tạo, tiếp tục, chỉnh sửa, tạo variant hoặc hoàn thiện hình minh
+  họa truyện tranh mặc định đi qua `comic-page-guide`, kể cả khi người dùng đã
+  nêu rõ page, frame hoặc deliverable.
+- Chỉ dùng `comic-production` khi người dùng gọi đích danh skill đó hoặc yêu
+  cầu rõ dùng `comic-production`; không tự động đọc hoặc gọi nó từ
+  `comic-page-guide`.
 - Đọc và kiểm chứng nguồn: `comic-source-reader`.
 - Thiết kế storyboard/composition: `comic-shot-design`.
 - Viết prompt: `comic-prompt-writer`.

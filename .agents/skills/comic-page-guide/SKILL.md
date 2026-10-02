@@ -1,14 +1,26 @@
 ---
 name: comic-page-guide
-description: Hướng dẫn người dùng ít kinh nghiệm đi từng bước để làm minh họa một page truyện tranh, đưa ra lựa chọn dễ hiểu và chờ xác nhận ở mỗi cổng quyết định. Dùng khi người dùng muốn bắt đầu, tiếp tục hoặc chưa biết cần cung cấp gì; không dùng khi họ đã yêu cầu rõ một tác vụ chuyên môn độc lập.
+description: Entry point mặc định cho mọi yêu cầu tạo, tiếp tục, chỉnh sửa hoặc hoàn thiện hình minh họa truyện tranh; hướng dẫn theo từng cổng quyết định và gọi các skill chuyên môn cần thiết. Không dùng comic-production thay thế trừ khi người dùng gọi đích danh skill đó.
 ---
 
 # Hướng dẫn làm một page
 
-Đóng vai trò lớp hội thoại đứng trước `comic-production`. Tự khám phá dữ liệu có
-sẵn, giải thích bằng kết quả nhìn thấy và chỉ yêu cầu người dùng quyết định phần
-không thể suy ra an toàn. Không bắt họ biết manifest, schema, safe zone, tên
-skill hoặc cấu trúc thư mục.
+Đóng vai trò entry point và lớp điều phối hội thoại mặc định cho mọi yêu cầu tạo
+hình minh họa truyện tranh. Tự khám phá dữ liệu có sẵn, giải thích bằng kết quả
+nhìn thấy và chỉ yêu cầu người dùng quyết định phần không thể suy ra an toàn.
+Không bắt họ biết manifest, schema, safe zone, tên skill hoặc cấu trúc thư mục.
+
+## Routing bắt buộc
+
+- Tự động chọn skill này cho yêu cầu làm mới, tiếp tục, chỉnh sửa, tạo variant
+  hoặc hoàn thiện hình minh họa truyện tranh, dù người dùng đã nêu rõ page,
+  frame hay deliverable.
+- Skill này trực tiếp gọi các skill chuyên môn phù hợp ở từng giai đoạn; không
+  cần đọc, gọi hoặc đi qua `comic-production`.
+- Chỉ dùng `comic-production` khi người dùng gọi đích danh
+  `$comic-production` hoặc yêu cầu rõ dùng skill đó.
+- Khi người dùng yêu cầu một tác vụ chuyên môn độc lập, vẫn vào skill này trước
+  rồi route thẳng sang skill chuyên môn tương ứng; không ép chạy toàn bộ wizard.
 
 ## Nguyên tắc hội thoại
 
@@ -19,9 +31,11 @@ skill hoặc cấu trúc thư mục.
 - Không hỏi lại dữ kiện có thể đọc từ project. Nếu chỉ có một ứng viên hợp lý,
   đề xuất ứng viên đó để người dùng xác nhận thay vì bắt họ tự tìm tên file.
 - Trước câu hỏi, tóm tắt điều vừa hoàn thành và điều sẽ xảy ra sau lựa chọn.
-- Mỗi khi dừng để chờ người dùng, luôn kết thúc bằng một khối code ngắn chứa
-  các câu trả lời/bước tiếp theo có thể copy nguyên dòng. Nội dung trong khối
-  phải tự đủ nghĩa; không buộc người dùng sửa placeholder kỹ thuật.
+- Mỗi khi dừng để chờ người dùng, luôn kết thúc bằng các phương án trả lời/bước
+  tiếp theo có thể copy; mỗi phương án phải nằm trong một code block riêng,
+  không gom nhiều phương án vào cùng một block. Nội dung trong từng block phải
+  tự đủ nghĩa, có thể copy nguyên khối và không buộc người dùng sửa placeholder
+  kỹ thuật.
 - Không tiếp tục qua một cổng khi chưa có xác nhận rõ. Không coi im lặng, câu
   trả lời mơ hồ hoặc việc duyệt bước trước là phê duyệt bước sau.
 - Giữ nguyên lựa chọn đã chốt; chỉ mở lại khi đầu vào thay đổi hoặc người dùng
@@ -52,6 +66,15 @@ tiết; hoặc cần xem thêm ngữ cảnh. Chỉ sang thiết kế shot sau x�
 Gọi `comic-shot-design`. Nếu chỉ có một hướng có căn cứ, vẫn trình bày hướng đó
 và xin xác nhận. Nếu có nhiều hướng hợp lệ, đưa 2–3 composition khác nhau đáng
 kể, không tạo các biến thể giả chỉ để đủ số lượng.
+
+Trước khi yêu cầu người dùng chọn, phải tạo một PNG composition preview riêng
+cho từng phương án và hiển thị tất cả preview ngay tại cổng này. Preview phải
+dùng đúng tỷ lệ/vùng khung của layout khi có, thể hiện được vị trí tương đối,
+kích thước, hướng nhìn hoặc chuyển động, lớp sâu và vùng chữ/mask quan trọng;
+có thể là sơ đồ hoặc thumbnail thô, không được trình bày như ảnh thành phẩm.
+Không coi mô tả chữ, composition card hoặc ảnh thành phẩm của một option là
+thay thế cho bộ preview. Nếu chưa tạo hoặc chưa hiển thị đủ preview, cổng chọn
+composition chưa hợp lệ và không được chạy bước 4.
 
 Ngay tại cổng chọn composition, nói rõ rằng việc chọn một phương án là xác nhận
 hướng kể hình và cho phép workflow chạy liền mạch qua viết prompt kỹ thuật, tạo

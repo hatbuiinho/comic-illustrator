@@ -5,9 +5,9 @@ description: Kiểm tra output truyện tranh về focus, profile, thuần 2D, c
 
 # Visual QA
 
-Kiểm tra theo thứ tự: focus → profile → thuần 2D → context → location → anatomy
-→ storytelling. Không lấy prompt làm bằng chứng; chỉ dùng output nhìn thấy và
-nguồn gốc.
+Kiểm tra theo thứ tự: focus và ưu tiên cảm xúc → profile → thuần 2D → context →
+location → anatomy → storytelling và mức độ tiết chế. Không lấy prompt làm
+bằng chứng; chỉ dùng output nhìn thấy và nguồn gốc.
 
 Đọc reference đúng mục tiêu:
 
@@ -18,3 +18,10 @@ nguồn gốc.
 
 Mỗi check trả `PASS`, `FAIL`, `NOT_APPLICABLE` hoặc `SKIPPED_BY_USER`. “Không
 chắc” với check `REQUIRED` được coi là FAIL. Không chạy layout QA ở đây.
+
+Không đánh FAIL một yếu tố `implicitReadable` chỉ vì nó không được thể hiện
+trọn vẹn. Đánh giá khả năng suy ra từ toàn bộ hình và chỉ FAIL khi tổng thể dẫn
+đến cách hiểu sai, không đủ tín hiệu hoặc mâu thuẫn nguồn. Đồng thời kiểm tra
+việc diễn giải quá mức: hành động, biểu cảm hay chi tiết phụ không được phóng
+đại đến mức tranh focus, làm mất tự nhiên hoặc thu hẹp khoảng trống cho người
+đọc.

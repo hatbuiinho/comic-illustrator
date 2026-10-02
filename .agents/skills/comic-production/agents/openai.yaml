@@ -1,0 +1,7 @@
+interface:
+  display_name: "Comic Production"
+  short_description: "Điều phối pipeline khi được gọi trực tiếp"
+  default_prompt: "Dùng $comic-production để điều phối trực tiếp quy trình minh họa truyện tranh này."
+
+policy:
+  allow_implicit_invocation: false
