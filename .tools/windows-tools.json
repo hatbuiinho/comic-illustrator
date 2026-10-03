@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "winget": [
+    {
+      "name": "Git",
+      "id": "Git.Git",
+      "commands": ["git"]
+    },
+    {
+      "name": "Node.js LTS",
+      "id": "OpenJS.NodeJS.LTS",
+      "commands": ["node"]
+    },
+    {
+      "name": "Python 3.12",
+      "id": "Python.Python.3.12",
+      "commands": ["py", "python"]
+    },
+    {
+      "name": "ripgrep",
+      "id": "BurntSushi.ripgrep.MSVC",
+      "commands": ["rg"]
+    },
+    {
+      "name": "Poppler",
+      "id": "oschwartz10612.Poppler",
+      "commands": ["pdfinfo", "pdftotext", "pdftoppm"]
+    },
+    {
+      "name": "MSYS2",
+      "id": "MSYS2.MSYS2",
+      "commands": []
+    }
+  ],
+  "msys2": [
+    {
+      "name": "librsvg",
+      "package": "mingw-w64-ucrt-x86_64-librsvg",
+      "commands": ["rsvg-convert"]
+    }
+  ],
+  "pythonRequirements": "requirements-tools.txt"
+}

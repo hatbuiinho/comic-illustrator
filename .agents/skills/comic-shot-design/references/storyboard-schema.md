@@ -11,6 +11,10 @@ Mỗi option gồm:
 - `compositionStrategy`;
 - `spatialDepthPlan`;
 - `emotionLock`;
+- `criticalAnatomy`: các bộ phận cơ thể mang focus, cảm xúc, cử chỉ, tương tác
+  hoặc chiếm diện tích lớn; mỗi mục ghi `subject`, `bodyPart`, `intendedPose` và
+  `mustRead`. Bộ phận thuộc `explicitRequired` và giữ ý nghĩa kể chuyện phải
+  được khai báo tại đây;
 - `profileReferences`;
 - `continuityDependencies`:
   - `reads`: các fact/lock mà option dựa vào;
@@ -44,6 +48,37 @@ Mỗi option gồm:
   - `legend`: các nhãn hoặc ký hiệu cần để đọc sơ đồ;
   - `previewStatus`: `READY`, `BLOCKED` hoặc `NOT_APPLICABLE`;
 - đánh đổi layout đang áp dụng.
+
+## Phân tách artifact
+
+Lưu hai artifact có vai trò khác nhau:
+
+- `<option>-storyboard.json`: nguồn đầy đủ cho shot, prompt và phần trình bày;
+- `<option>-preview-contract.json`: contract tối thiểu để kiểm SVG và render.
+
+Preview contract là consumer của storyboard artifact, không phải nguồn thay thế.
+
+## Composition card dành cho người dùng
+
+Mỗi option phải có `userFacingCard` để bảo đảm dữ liệu quan trọng được trình
+bày ngay trong hội thoại, không chỉ tồn tại trong artifact nội bộ:
+
+- `summary`: kết quả và đánh đổi trong một dòng;
+- `sceneMeaning`;
+- `selectedMoment`;
+- `focusAndEyePath`;
+- `staging`;
+- `emotionRead`;
+- `requiredEvidence`;
+- `forbiddenReadings`;
+- `continuityForbidden`;
+- `layoutImpact`;
+- `tradeoff`.
+
+`userFacingCard` không tạo dữ kiện mới. Rút từng mục từ các field đầy đủ của
+option và viết bằng ngôn ngữ tự nhiên, tránh bắt người dùng đọc key kỹ thuật.
+Không đặt `compositionPreview.previewStatus: READY` nếu option mới chỉ có
+preview contract mà chưa có storyboard artifact và `userFacingCard`.
 
 `meaningPreservationCheck` phải kiểm tra cả hai chiều: phần giản lược không làm
 mất quy mô, quan hệ, tính tập thể hoặc cảm xúc; phần biểu hiện trực tiếp không

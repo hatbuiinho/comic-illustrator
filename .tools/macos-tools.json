@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "homebrew": [
+    {
+      "name": "Git",
+      "formula": "git",
+      "commands": ["git"]
+    },
+    {
+      "name": "Node.js",
+      "formula": "node",
+      "commands": ["node"]
+    },
+    {
+      "name": "Python 3.12",
+      "formula": "python@3.12",
+      "commands": ["python3.12"]
+    },
+    {
+      "name": "ripgrep",
+      "formula": "ripgrep",
+      "commands": ["rg"]
+    },
+    {
+      "name": "Poppler",
+      "formula": "poppler",
+      "commands": ["pdfinfo", "pdftotext", "pdftoppm"]
+    },
+    {
+      "name": "librsvg",
+      "formula": "librsvg",
+      "commands": ["rsvg-convert"]
+    }
+  ],
+  "pythonRequirements": "requirements-tools.txt"
+}

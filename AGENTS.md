@@ -82,3 +82,37 @@ thay thế và không cho nhân vật phụ mượn dấu hiệu đặc trưng c
 - Chỉ sau khi người dùng chọn rõ output đã QA, chuyển file đó vào `approved/`,
   cập nhật mọi đường dẫn liên quan và không giữ hai nguồn chuẩn.
 - Không đưa file tạm, cache hoặc asset của tập khác vào deliverable cuối.
+
+## Toolchain trên Windows
+
+- Người dùng không cần chạy lệnh chuẩn bị. Trước tác vụ đầu tiên trong phiên có
+  dùng script, PDF, composition preview, QA hoặc delivery, agent phải tự chạy
+  `powershell -ExecutionPolicy Bypass -File .\scripts\bootstrap-windows.ps1`.
+- Nếu người dùng chỉ hỏi nội dung hoặc trao đổi không cần tool local thì không
+  chạy bootstrap.
+- Với lệnh workflow thủ công, ưu tiên chạy qua
+  `powershell -ExecutionPolicy Bypass -File .\scripts\run-with-tools.ps1 -- <lệnh> <tham-số>`
+  để luôn kiểm tra/cài tool trước khi thực thi.
+- Bootstrap phải idempotent: chỉ cài tool còn thiếu, đồng bộ `.venv` khi
+  `requirements-tools.txt` đổi và lưu snapshot version vào
+  `.tools/state.windows.json`.
+- Không coi state là bằng chứng duy nhất; phải kiểm tra command thực tế vì tool
+  có thể đã bị gỡ hoặc PATH đã đổi. Không commit `.venv/` hay state theo máy.
+
+## Toolchain trên macOS
+
+- Người dùng không cần chạy lệnh chuẩn bị. Trước tác vụ đầu tiên trong phiên có
+  dùng script, PDF, composition preview, QA hoặc delivery, agent phải tự chạy
+  `./scripts/bootstrap-macos.sh`.
+- Nếu người dùng chỉ hỏi nội dung hoặc trao đổi không cần tool local thì không
+  chạy bootstrap.
+- Với lệnh workflow thủ công, ưu tiên chạy qua
+  `./scripts/run-with-tools.sh <lệnh> <tham-số>` để luôn kiểm tra/cài tool
+  trước khi thực thi.
+- Bootstrap dùng Homebrew, chỉ cài formula còn thiếu, đồng bộ `.venv` khi
+  `requirements-tools.txt` đổi và lưu snapshot version vào
+  `.tools/state.macos.json`.
+- Nếu thiếu Homebrew, bootstrap tự chạy installer chính thức; macOS có thể yêu
+  cầu người dùng nhập mật khẩu quản trị. Không ghi state READY nếu cài thất bại.
+- Không coi state là bằng chứng duy nhất; phải kiểm tra command thực tế. Không
+  commit `.venv/` hay state theo máy.

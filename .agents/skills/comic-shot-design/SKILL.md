@@ -35,6 +35,10 @@ Khi có nhiều hướng kể hợp lệ, đưa 2–3 phương án đánh số; 
 quả và đánh đổi trong một dòng. Không khóa số người tùy ý trước khi xác định ý
 nghĩa và bằng chứng cần thấy.
 
+Dòng kết quả và đánh đổi chỉ là phần tóm tắt mở đầu. Trước khi yêu cầu người
+dùng chọn, phải hiển thị một composition card dành cho người dùng ngay bên cạnh
+preview của từng option để họ kiểm tra cách AI hiểu cảnh.
+
 Mỗi option phải có một composition preview PNG riêng để người dùng so sánh
 trước khi chọn. Preview là sơ đồ/thumbnail bố cục, không phải ảnh minh họa cuối:
 
@@ -58,6 +62,32 @@ người dùng chọn. Nếu semantic quality gate không đạt, bổ sung/cust
 không hạ xuống preview hình chữ nhật.
 Không dùng preview làm identity reference, style reference hoặc output sản xuất.
 Nếu không thể tạo PNG, nêu blocker thay vì cho người dùng chọn chỉ từ mô tả chữ.
+
+## Cổng trình bày composition cho người dùng
+
+Mỗi option phải có hai lớp artifact riêng:
+
+1. storyboard artifact đầy đủ theo `storyboard-schema.md`;
+2. preview contract tối thiểu chỉ phục vụ kiểm tra SVG và rasterize.
+
+Không dùng preview contract thay cho storyboard artifact. Các field kỹ thuật
+như actor, palette, location anchor và interaction không đủ để mở cổng lựa chọn.
+
+Ngay dưới preview của từng option, hiển thị composition card gồm:
+
+- **Ý nghĩa cảnh:** option đang kể điều gì;
+- **Khoảnh khắc:** trước, trong hoặc sau hành động nào;
+- **Trọng tâm và eye path:** người đọc nhìn đâu trước và sau đó nhìn đâu;
+- **Dàn cảnh:** vị trí, tỷ lệ, hướng mặt, cử chỉ và crop của chủ thể;
+- **Cảm xúc:** cảm xúc cần đọc được và các cách hiểu sai phải tránh;
+- **Bối cảnh bắt buộc:** chi tiết cần thấy hoặc có thể gợi;
+- **Không được xuất hiện:** chi tiết sai continuity hoặc xảy ra sau scene;
+- **Ràng buộc layout:** mask, vùng chữ, gáy, safe zone và chi tiết dễ bị cắt;
+- **Đánh đổi:** điểm mạnh và phần giảm nhẹ so với option khác.
+
+Không yêu cầu người dùng mở JSON, manifest hoặc báo cáo để kiểm chứng. Cổng lựa
+chọn chỉ hợp lệ khi storyboard artifact đủ schema, preview PNG đã được kiểm tra
+trực quan, composition card đã hiển thị và ba lớp này khớp nhau.
 
 Đầu ra phải đủ để `comic-prompt-writer` viết prompt mà không cần phát minh lại
 shot. Mỗi option khai báo continuity fact đã đọc, trạng thái không được đổi,

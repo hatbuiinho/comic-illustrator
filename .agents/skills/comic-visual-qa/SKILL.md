@@ -5,8 +5,8 @@ description: Kiểm tra output truyện tranh về focus, profile, thuần 2D, c
 
 # Visual QA
 
-Kiểm tra theo thứ tự: focus và ưu tiên cảm xúc → profile → thuần 2D → context →
-location → anatomy → storytelling và mức độ tiết chế. Không lấy prompt làm
+Kiểm tra theo thứ tự: focus và ưu tiên cảm xúc → critical anatomy → profile →
+thuần 2D → context → location → anatomy chung → storytelling và mức độ tiết chế. Không lấy prompt làm
 bằng chứng; chỉ dùng output nhìn thấy và nguồn gốc.
 
 Đọc reference đúng mục tiêu:
@@ -18,6 +18,18 @@ bằng chứng; chỉ dùng output nhìn thấy và nguồn gốc.
 
 Mỗi check trả `PASS`, `FAIL`, `NOT_APPLICABLE` hoặc `SKIPPED_BY_USER`. “Không
 chắc” với check `REQUIRED` được coi là FAIL. Không chạy layout QA ở đây.
+
+Mỗi check FAIL phải ghi `retryable`, `observedDefect`, `preserve` và
+`remediationDelta`. Lỗi style mặc định là `retryable: true` nếu có thể sửa mà
+không đổi composition. Delta phải mô tả dấu hiệu nhìn thấy cần loại bỏ và cách
+thay thế cụ thể; không dùng chỉ dẫn chung chung như “làm thuần 2D hơn”.
+
+Với mỗi `criticalAnatomy`, phải kiểm raw output và crop phóng lớn; không cho
+`PASS` từ quan sát toàn ảnh. Chỉ PASS khi đúng số lượng bộ phận, khớp và hướng
+vận động hợp lý, silhouette/kết nối cơ thể rõ và phần che khuất giải thích được
+từ pose. Dính, thừa, thiếu, phân nhánh, lặp đường bao hoặc không chắc cấu trúc
+đều là FAIL. Chỉ một vùng critical anatomy lỗi cũng làm toàn visual QA FAIL và
+không được chạy layout QA hoặc delivery.
 
 Khi composition có `continuityDependencies`, chạy thêm:
 

@@ -26,8 +26,12 @@ Không bắt họ biết manifest, schema, safe zone, tên skill hoặc cấu tr
 
 - Mỗi lượt chỉ hỏi một quyết định chính; đưa tối đa 2–3 lựa chọn thực tế.
 - Đánh dấu một lựa chọn là **(Đề xuất)** và nêu lý do ngắn dựa trên nguồn.
-- Mỗi lựa chọn nêu kết quả và đánh đổi trong một dòng. Cho phép trả lời bằng số
-  hoặc ngôn ngữ tự nhiên.
+- Với câu hỏi đơn giản, mỗi lựa chọn nêu kết quả và đánh đổi trong một dòng.
+  Riêng cổng chọn composition, dòng này chỉ là tóm tắt; ngay dưới preview của
+  từng option phải hiển thị composition card từ `comic-shot-design`, đủ để
+  người dùng kiểm tra cách AI hiểu cảnh, cảm xúc, staging, continuity và layout.
+  Không bắt người dùng mở artifact kỹ thuật để xem phần còn thiếu. Cho phép trả
+  lời bằng số hoặc ngôn ngữ tự nhiên.
 - Không hỏi lại dữ kiện có thể đọc từ project. Nếu chỉ có một ứng viên hợp lý,
   đề xuất ứng viên đó để người dùng xác nhận thay vì bắt họ tự tìm tên file.
 - Trước câu hỏi, tóm tắt điều vừa hoàn thành và điều sẽ xảy ra sau lựa chọn.
@@ -78,6 +82,16 @@ Không coi mô tả chữ, composition card hoặc ảnh thành phẩm của m�
 thay thế cho bộ preview. Nếu chưa tạo hoặc chưa hiển thị đủ preview, cổng chọn
 composition chưa hợp lệ và không được chạy bước 4.
 
+Thứ tự hiển thị bắt buộc cho mỗi option:
+
+1. tên option và dòng tóm tắt;
+2. preview PNG;
+3. composition card dành cho người dùng;
+4. đánh đổi so với các option còn lại.
+
+Chỉ đưa các code block để người dùng chọn sau khi đã trình bày đủ mọi option.
+Không rút composition card xuống một dòng.
+
 Ngay tại cổng chọn composition, nói rõ rằng việc chọn một phương án là xác nhận
 hướng kể hình và cho phép workflow chạy liền mạch qua viết prompt kỹ thuật, tạo
 ảnh và QA. Khi người dùng đã chọn rõ, nhắc lại lựa chọn active bằng một câu rồi
@@ -98,13 +112,17 @@ composition đã chọn:
 
 Không tạo thêm cổng xác nhận prompt và không hiển thị prompt tiếng Anh trong
 luồng mặc định. Lưu prompt vào artifact phù hợp để truy vết; chỉ hiện đầy đủ
-khi người dùng chủ động yêu cầu xem hoặc sửa prompt. Nếu visual QA không đạt,
-dừng trước layout QA và đưa ra bước sửa có thể copy. Ngoài trường hợp lỗi hoặc
-blocker thật sự cần quyết định của người dùng, không dừng giữa chuỗi.
+khi người dùng chủ động yêu cầu xem hoặc sửa prompt. Nếu visual QA không đạt
+nhưng chưa cần đổi composition đã duyệt, tự lặp `prompt delta → version mới →
+visual QA` đến khi mọi check `REQUIRED` đều PASS; không dừng để hỏi người dùng.
+Chỉ dừng khi phải đổi focus/khoảnh khắc/camera/composition, nguồn hoặc profile
+xung đột, công cụ lỗi, hoặc cùng một lỗi không cải thiện qua 3 lượt liên tiếp.
+Ở trường hợp cuối, tự đổi một lần sang prompt viết lại và tạo ảnh mới; nếu vẫn
+không cải thiện thì báo blocker, giữ toàn bộ version và không chạy layout QA.
 
 ### 5. Xử lý kết quả QA
 
-Sau chuỗi tạo ảnh và QA, cho người dùng xem output, tóm tắt visual QA bằng tác
+Chỉ chạy layout QA sau khi visual QA PASS. Sau chuỗi tạo ảnh và QA, cho người dùng xem output, tóm tắt visual QA bằng tác
 động nhìn thấy và đưa lựa chọn phù hợp: giữ bản hiện tại, sửa có mục tiêu, hoặc
 tạo variant. Không yêu cầu người dùng tự đọc báo cáo QA để biết nên làm gì.
 

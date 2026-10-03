@@ -17,6 +17,10 @@ Chạy `scripts/layout-frame-qa.js <manifest> [output-dir]` khi manifest và ras
 layout đã sẵn sàng. Overlay phải dùng chính raster layout gốc có text; không tạo
 nền trắng thay thế.
 
+Nếu frame không phải chữ nhật, thực hiện hard gate raw-output trong
+[inset-frame.md](references/inset-frame.md) trước khi đọc kết quả overlay; script
+hình học không thay thế check alpha/canvas này.
+
 Nếu chưa biết manifest active, chạy `scripts/discover-layout.js <page-dir>`;
 chỉ tiếp tục tự động khi kết quả là `RESOLVED`. Script QA tạo cả SVG truy vết và
 PNG overlay để hiển thị. Các critical box vẫn phải được xác định từ composition

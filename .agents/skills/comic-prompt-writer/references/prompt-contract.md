@@ -2,7 +2,10 @@
 
 Prompt nên mô tả theo thứ tự:
 
-1. Loại ảnh và tỷ lệ/canvas mục tiêu.
+1. Loại ảnh và tỷ lệ/canvas mục tiêu. Nếu layout dùng mask tròn, oval hoặc hình
+   bất quy tắc, phải ghi rõ output vẫn là canvas chữ nhật đầy đủ, background
+   phủ kín bốn góc; không alpha, cutout, viền/vignette hay crop sẵn theo mask.
+   Mask chỉ là guide bố cục và được áp ở bước dàn trang.
 2. Khoảnh khắc, cảm xúc hoặc quan hệ ưu tiên, focus, camera và điểm nhìn.
 3. Nhân vật, hành động, quan hệ, population plan và điều người đọc được phép tự
    suy ra.

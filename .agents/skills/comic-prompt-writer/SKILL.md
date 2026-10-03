@@ -31,3 +31,12 @@ thiểu thay vì liệt kê dày đặc dấu hiệu cơ học. Không tự yêu
 động cường điệu, biểu cảm lớn hoặc thêm vật thể chỉ để tăng độ rõ. Nếu prompt
 khiến thông tin phụ cạnh tranh với cảm xúc hoặc focus, phải giản lược trước khi
 tạo ảnh.
+
+Với mỗi `criticalAnatomy`, mô tả pose và cấu trúc nhìn thấy; không chỉ ghi
+“correct anatomy”. Yêu cầu đúng số bộ phận, đúng khớp, kết nối tự nhiên và
+silhouette phân biệt được. Tránh từ ngữ dễ làm nhập hình như “fingers together”;
+dùng “các ngón ở gần nhau nhưng từng ngón vẫn phân biệt rõ”.
+
+Khi nhận remediation từ QA, viết prompt delta chỉ sửa các check FAIL, nhắc lại
+những gì phải giữ và không đổi composition đã duyệt. Với lỗi style, nêu đúng
+dấu hiệu sai đang thấy và ngôn ngữ đồ họa thay thế; không chỉ ghi “thuần 2D”.

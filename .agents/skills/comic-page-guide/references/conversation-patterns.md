@@ -19,9 +19,25 @@ bên trong):
 Nguồn đã xác nhận đây là khoảnh khắc cộng đồng nhận ra hậu quả của sự việc.
 Mình cần bạn chọn và xác nhận cách kể hình trước khi tạo ảnh:
 
-1. Toàn cảnh — thấy rõ quy mô, nhưng cảm xúc cá nhân nhẹ hơn.
-2. Trung cảnh theo nhóm — cân bằng phản ứng và bối cảnh. (Đề xuất)
-3. Cận cảnh nhân vật chính — cảm xúc mạnh, nhưng giảm bằng chứng cộng đồng.
+### Option 2 — Trung cảnh theo nhóm (Đề xuất)
+
+![Composition preview](path/to/preview.png)
+
+- **Ý nghĩa cảnh:** cộng đồng cùng nhận ra hậu quả, không quy toàn bộ ý nghĩa
+  cho một nhân vật.
+- **Khoảnh khắc:** ngay sau sự việc, khi phản ứng bắt đầu lan qua nhóm.
+- **Trọng tâm và eye path:** nhóm gần → dấu vết sự việc → phản ứng lớp sau.
+- **Dàn cảnh:** nhóm gần đủ lớn để đọc biểu cảm; đám đông tiếp tục theo chiều
+  sâu và không biến thành nền trang trí.
+- **Cảm xúc:** sững lại rồi chia sẻ nhận thức; tránh đọc thành hoảng loạn.
+- **Bối cảnh bắt buộc:** dấu vết nguyên nhân và bằng chứng về quy mô cộng đồng.
+- **Không được xuất hiện:** hệ quả hoặc nhân vật chỉ tới ở scene sau.
+- **Layout:** chủ thể chính tránh vùng chữ/gáy; silhouette nhóm còn đọc rõ khi
+  đặt ở kích thước thật.
+- **Đánh đổi:** cân bằng phản ứng và bối cảnh, nhưng cảm xúc cá nhân nhẹ hơn cận
+  cảnh và quy mô kém áp đảo hơn toàn cảnh.
+
+Trình bày Option 1 và Option 3 theo cùng cấu trúc trước khi hỏi người dùng chọn.
 
 Sau khi bạn xác nhận, mình sẽ tự tạo prompt kỹ thuật, tạo ảnh và chạy QA.
 

@@ -33,6 +33,88 @@ Tap 53/               Dữ liệu riêng của Tập 53
 Codex có thể tự chọn skill theo mô tả. Có thể gọi trực tiếp bằng `$ten-skill`
 khi muốn khóa workflow cụ thể.
 
+## Chuẩn bị máy Windows
+
+Người dùng Codex không cần mở PowerShell hoặc tự chạy lệnh. Khi một tác vụ cần
+tool local, agent tự chạy bootstrap trước rồi mới xử lý. Windows 10/11 cần có
+`winget` (Microsoft App Installer) và kết nối Internet trong lần cài đầu tiên.
+
+Lệnh dưới đây chỉ dành cho kiểm tra thủ công hoặc hỗ trợ kỹ thuật:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\bootstrap-windows.ps1
+```
+
+Script kiểm tra rồi chỉ cài phần còn thiếu: Git, Node.js LTS, Python 3.12,
+ripgrep, Poppler và MSYS2/librsvg. Nó tạo `.venv`, cài các gói trong
+`requirements-tools.txt`, tạo shim `python3` cho các script dùng chung giữa
+macOS/Linux/Windows và lưu version đã kiểm tra tại
+`.tools/state.windows.json`.
+
+State là cache theo máy và không được commit. Mỗi lần chạy, bootstrap vẫn kiểm
+tra executable thật; nếu manifest hoặc requirements đổi, chỉ phần liên quan
+được đồng bộ lại. Kiểm tra mà không cài:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\bootstrap-windows.ps1 -CheckOnly
+```
+
+Để bắt buộc bootstrap trước một lệnh workflow:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\run-with-tools.ps1 -- node .agents\skills\comic-layout-qa\scripts\run-page-qa.js "Tap 53\Part 2\pages\page-005"
+```
+
+Các tool bắt buộc và vai trò:
+
+| Tool | Vai trò |
+| --- | --- |
+| Git | Quản lý source và lịch sử thay đổi |
+| Node.js LTS | Chạy script composition, QA và delivery |
+| Python 3.12 + `.venv` | Continuity, PDF và xử lý ảnh hỗ trợ |
+| PyYAML | Đọc/ghi page state, ledger và scene packet YAML |
+| Poppler | Đọc metadata/text và render PDF layout thành PNG |
+| librsvg (`rsvg-convert`) | Render composition preview và QA overlay SVG thành PNG |
+| ripgrep (`rg`) | Tìm nhanh source/artifact trong project |
+
+ImageMagick và FFmpeg hiện không phải phụ thuộc của workflow. Công cụ tạo ảnh
+AI cũng không được cài bởi bootstrap vì được cung cấp qua dịch vụ riêng.
+
+## Chuẩn bị máy macOS
+
+Người dùng Codex không cần mở Terminal hoặc tự chạy lệnh. Khi một tác vụ cần
+tool local, agent tự chạy bootstrap trước rồi mới xử lý. Nếu máy chưa có
+Homebrew, bootstrap tự chạy installer chính thức; macOS có thể hiện yêu cầu
+nhập mật khẩu quản trị. Máy cần kết nối Internet trong lần cài đầu tiên.
+
+Lệnh dưới đây chỉ dành cho kiểm tra thủ công hoặc hỗ trợ kỹ thuật:
+
+```bash
+./scripts/bootstrap-macos.sh
+```
+
+Script chỉ cài formula còn thiếu: Git, Node.js, Python 3.12, ripgrep, Poppler
+và librsvg. Nó dùng chung `requirements-tools.txt`, tạo `.venv` và lưu version
+đã kiểm tra tại `.tools/state.macos.json`. State theo máy không được commit.
+
+Kiểm tra mà không cài hoặc cập nhật:
+
+```bash
+./scripts/bootstrap-macos.sh --check-only
+```
+
+Ép đồng bộ lại Python packages:
+
+```bash
+./scripts/bootstrap-macos.sh --force-refresh
+```
+
+Để bắt buộc bootstrap trước một lệnh workflow:
+
+```bash
+./scripts/run-with-tools.sh node .agents/skills/comic-layout-qa/scripts/run-page-qa.js "Tap 53/Part 2/pages/page-005"
+```
+
 ## Ví dụ yêu cầu
 
 ```text
