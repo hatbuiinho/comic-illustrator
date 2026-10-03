@@ -50,8 +50,9 @@ câu kết.
 ## Phiếu tiến độ nội bộ
 
 Giữ trạng thái trong artifact hiện có của page nếu workflow của page đã có nơi
-lưu quyết định; nếu chưa có, chỉ duy trì trong hội thoại. Không tạo thêm file
-chỉ để lưu trạng thái trừ khi việc tiếp tục qua nhiều phiên thực sự cần nó.
+lưu quyết định. Nếu workflow kéo dài qua nhiều phiên, dùng `page-state` theo mô
+hình của `comic-continuity-manager`; nếu chưa cần tái sử dụng thì chỉ duy trì
+trong hội thoại. Không tạo hai nguồn trạng thái song song.
 
 ```yaml
 target:
@@ -69,6 +70,8 @@ confirmed:
   final_output: false
 active_choice: null
 pending_question: confirm_target
+context_revision: {}
+stale_reasons: []
 ```
 
 `stage` chỉ nhận một trong: `scope`, `source`, `composition`, `production`,

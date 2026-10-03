@@ -1,12 +1,14 @@
 {
   "output": "../../../../tmp/pdf_pages/page_01.png",
+  "approvedDir": "approved-fixture",
   "userSelectedOutput": true,
   "checks": {
     "visualQa": "PASS",
     "layoutQa": "PASS",
     "spine": {
       "status": "SKIPPED_BY_USER",
-      "reason": "Fixture kiểm tra override"
+      "reason": "Fixture kiểm tra override",
+      "scope": "fixture"
     }
   }
 }

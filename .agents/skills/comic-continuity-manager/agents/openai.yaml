@@ -1,0 +1,4 @@
+interface:
+  display_name: "Comic Continuity Manager"
+  short_description: "Quản lý context và continuity theo scene/page"
+  default_prompt: "Dùng $comic-continuity-manager để truy vấn hoặc cập nhật continuity context cho scene/page này."

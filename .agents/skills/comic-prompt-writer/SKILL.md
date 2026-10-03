@@ -8,6 +8,10 @@ description: Viết prompt tạo hoặc chỉnh ảnh từ storyboard/compositio
 Nhận composition contract đã chọn và chuyển thành prompt hoàn chỉnh. Không tự
 đổi focus, moment, camera, population plan hoặc profile.
 
+Trước khi viết, kiểm tra composition không bị `STALE` so với dependency revision
+đã ghi. Bảo toàn `mustNotChange` và `forbidden`; không biến
+`writesIfApproved` thành sự kiện đã xảy ra ngoài đúng moment của shot.
+
 Bảo toàn thứ bậc kể chuyện của composition: `emotionalPriority` →
 `explicitRequired` → `implicitReadable` → `optionalSupport`. Không chuyển mọi
 dữ kiện thành checklist chi tiết có độ nhấn như nhau.

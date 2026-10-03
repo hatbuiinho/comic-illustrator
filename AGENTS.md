@@ -13,8 +13,12 @@
 - Mỗi thư mục tập là một đơn vị nội dung độc lập.
 - Không lấy profile, layout, bối cảnh, script hoặc asset từ tập khác để thay thế.
 - Trước công việc phụ thuộc nội dung, xác định đúng tập, part, page và frame;
-  đọc `notes.md`, `shot_notes.md` nếu có, kịch bản liên quan, layout và profile
-  thuộc đúng tập.
+  ưu tiên context đã biên dịch của đúng tập theo thứ tự `page-state` → scene
+  packet → episode canon/continuity ledger → nguồn gốc được tham chiếu. Chỉ mở
+  rộng sang `notes.md`, `shot_notes.md`, kịch bản liên quan, layout và profile
+  khi context thiếu, xung đột, stale hoặc deliverable cần bằng chứng trực tiếp.
+- Context đã biên dịch phải giữ provenance; không được tóm tắt nối tiếp từ bản
+  tóm tắt cũ rồi coi kết quả là nguồn gốc.
 - Nếu nguồn cấp tập bị thiếu, chỉ coi đó là blocker khi deliverable thật sự phụ
   thuộc vào nguồn đó.
 
@@ -40,6 +44,7 @@ Một override rõ của người dùng phải được ghi là `SKIPPED_BY_USER
   cầu rõ dùng `comic-production`; không tự động đọc hoặc gọi nó từ
   `comic-page-guide`.
 - Đọc và kiểm chứng nguồn: `comic-source-reader`.
+- Biên dịch, truy vấn và cập nhật continuity context: `comic-continuity-manager`.
 - Thiết kế storyboard/composition: `comic-shot-design`.
 - Viết prompt: `comic-prompt-writer`.
 - Tạo, chỉnh hoặc tạo variant ảnh: `comic-image-production`.
@@ -57,6 +62,13 @@ hard cel-shading, background cùng ngôn ngữ đồ họa. Cấm 2.5D/3D, CGI, 
 thực, soft airbrush, texture thật, gradient nặng, bloom, volumetric light, DOF
 và bokeh. Background chỉ được có chuyển màu rất nhẹ, tiết chế và đồ họa để gợi
 thời điểm hoặc không khí.
+
+Ngoại lệ toàn project do người dùng xác nhận ngày 2026-10-02:
+`SKIPPED_BY_USER` đối với việc cấm tuyệt đối nền trời mềm. Nền trời được phép
+có chuyển màu mềm nhẹ và tiết chế để gợi thời điểm hoặc không khí. Ngoại lệ
+không áp dụng cho nhân vật hay vật thể, và không cho phép soft airbrush tạo
+khối, gradient nặng, bloom, volumetric light, DOF, bokeh, CGI hoặc bán hiện
+thực.
 
 Profile gốc trong đúng tập là chuẩn identity. Không dùng output trước làm chuẩn
 thay thế và không cho nhân vật phụ mượn dấu hiệu đặc trưng của nhân vật chính.

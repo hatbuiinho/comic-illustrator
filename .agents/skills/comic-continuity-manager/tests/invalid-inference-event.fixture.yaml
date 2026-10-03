@@ -1,0 +1,6 @@
+eventId: EVT-002
+effectiveAfter: page-001/frame-02
+changes:
+  character.knowledge: revealed
+provenance: assistantInference
+evidence: assistant-guess

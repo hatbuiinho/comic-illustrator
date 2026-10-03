@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");
+const { spawnSync } = require("child_process");
 
 const [manifestArg, outputArg] = process.argv.slice(2);
 if (!manifestArg || ["-h", "--help"].includes(manifestArg)) {
@@ -102,6 +103,7 @@ for (const spread of manifest.spreads || []) {
     if (!fs.existsSync(file)) fail(`${scope}/layout`, `Không tìm thấy layout: ${spread.pageImage}`);
     else try {
       const meta = imageSize(file);
+      if (meta.width !== canvas.width || meta.height !== canvas.height) warn(`${scope}/layout`, `Kích thước raster ${meta.width}×${meta.height} khác canvas ${canvas.width}×${canvas.height}; overlay sẽ scale.`);
       background = `<image href="${dataUri(file, meta.mime)}" width="${canvas.width}" height="${canvas.height}" preserveAspectRatio="none"/>`;
       pass(`${scope}/layout`, "Đã đọc layout gốc có text.");
     } catch (error) { fail(`${scope}/layout`, error.message); }
@@ -118,6 +120,8 @@ for (const spread of manifest.spreads || []) {
   for (const frame of spread.frames || []) {
     const frameScope = `${scope}/${frame.id || "frame-khong-ten"}`;
     evaluate("frame", frame, spread, frameScope, boxValid(frame.box), "Frame box không hợp lệ.", "Frame box hợp lệ.");
+    for (const [index, area] of (frame.textReserve || []).entries()) if (!boxValid(area)) fail(`${frameScope}/textReserve/${index}`, "Text reserve box không hợp lệ.");
+    if (frame.spine && !boxValid(frame.spine)) fail(`${frameScope}/spine`, "Spine box không hợp lệ.");
     let output = null;
     if (frame.output) {
       const file = resolve(frame.output);
@@ -171,10 +175,16 @@ for (const spread of manifest.spreads || []) {
       for (const item of frame.critical || []) guides.push(rect(item.box, canvas, 'fill="#75ff62" fill-opacity="0.15" stroke="#178c23"'));
     }
     if (safe) guides.push(rect(safe, canvas, 'fill="none" stroke="#20a840" stroke-width="4"'));
-    overlay = path.join(outputDir, `${scope.replace(/[^a-zA-Z0-9_-]/g, "_")}-overlay.svg`);
-    fs.writeFileSync(overlay, `<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}">${background}${art.join("")}${guides.join("")}</svg>\n`);
+    const base = path.join(outputDir, `${scope.replace(/[^a-zA-Z0-9_-]/g, "_")}-overlay`);
+    const overlaySvg = `${base}.svg`;
+    const overlayPng = `${base}.png`;
+    fs.writeFileSync(overlaySvg, `<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}">${background}${art.join("")}${guides.join("")}</svg>\n`);
+    const raster = spawnSync("rsvg-convert", ["-o", overlayPng, overlaySvg], { encoding: "utf8" });
+    if (raster.status !== 0) fail(`${scope}/overlay`, `Không rasterize được PNG overlay: ${(raster.stderr || "lỗi không rõ").trim()}`);
+    else overlay = overlayPng;
+    report.spreads.push({ id: scope, sourceLayout: spread.pageImage || null, overlay: overlay ? path.relative(outputDir, overlay) : null, overlaySource: path.relative(outputDir, overlaySvg) });
   }
-  report.spreads.push({ id: scope, sourceLayout: spread.pageImage || null, overlay });
+  if (!background) report.spreads.push({ id: scope, sourceLayout: spread.pageImage || null, overlay: null, overlaySource: null });
 }
 
 report.status = report.failures.length ? "FAIL" : "PASS";

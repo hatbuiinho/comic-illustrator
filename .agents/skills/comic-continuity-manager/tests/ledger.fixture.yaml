@@ -1,0 +1,6 @@
+artifactType: continuity-ledger
+schemaVersion: 1
+scope:
+  episode: fixture
+status: CURRENT
+events: []

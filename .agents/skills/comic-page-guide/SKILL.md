@@ -54,7 +54,9 @@ Chờ người dùng xác nhận target trước khi đọc nguồn chuyên sâu
 
 ### 2. Xác nhận cách hiểu nguồn
 
-Gọi `comic-source-reader`. Trình bày source snapshot bằng ngôn ngữ ngắn gọn:
+Gọi `comic-source-reader`; skill này resolve context qua
+`comic-continuity-manager` trước khi mở rộng nguồn. Trình bày source snapshot
+bằng ngôn ngữ ngắn gọn:
 cảnh đang diễn ra, nhân vật/profile, cảm xúc hoặc ý chính, layout/frame liên
 quan và phần chưa rõ. Không đẩy toàn bộ phân tích kỹ thuật sang người dùng.
 
@@ -119,11 +121,19 @@ Cho người dùng xem rõ các version còn là ứng viên và khuyến nghị
 trên QA. Chỉ gọi `comic-delivery` khi họ chọn đích danh output/version. Không
 suy ra phê duyệt cuối từ câu như “ổn”, “tiếp tục” nếu còn nhiều ứng viên.
 
+Sau delivery thành công, cho phép `comic-delivery` gọi
+`comic-continuity-manager` để ghi event đã được xác nhận và invalidate đúng
+consumer downstream. Không dùng ảnh approved làm profile hoặc tự phát minh
+thay đổi continuity không có trong nguồn/selection.
+
 ## Tiếp tục phiên dang dở
 
-Trước khi hỏi lại, đọc artifact của đúng page và hội thoại hiện có để xác định
-cổng gần nhất đã được xác nhận. Tóm tắt ngắn target, lựa chọn active và bước
-đang chờ; không chạy lại giai đoạn đã chốt khi đầu vào không đổi.
+Trước khi hỏi lại, đọc `page-state` của đúng page trước, rồi scene packet và các
+artifact được nó tham chiếu để xác định cổng gần nhất đã được xác nhận. Chỉ dùng
+hội thoại để bổ sung quyết định chưa được ghi. Tóm tắt ngắn target, lựa chọn
+active, freshness và bước đang chờ; không chạy lại giai đoạn đã chốt khi đầu
+vào không đổi. Nếu dependency đã đổi, nêu artifact stale và chỉ chạy lại phần
+downstream chịu ảnh hưởng.
 
 Nếu người dùng yêu cầu một tác vụ độc lập rõ ràng như “chỉ viết prompt” hoặc
 “chỉ QA ảnh này”, route thẳng sang skill tương ứng, không ép họ đi toàn wizard.

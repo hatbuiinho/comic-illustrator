@@ -19,6 +19,24 @@ bằng chứng; chỉ dùng output nhìn thấy và nguồn gốc.
 Mỗi check trả `PASS`, `FAIL`, `NOT_APPLICABLE` hoặc `SKIPPED_BY_USER`. “Không
 chắc” với check `REQUIRED` được coi là FAIL. Không chạy layout QA ở đây.
 
+Khi composition có `continuityDependencies`, chạy thêm:
+
+- `continuityReadCheck`: output có đúng các physical, knowledge, relationship,
+  location và temporal state đã đọc hay không;
+- `continuityWriteCheck`: output có vô tình tạo thay đổi hoặc tiết lộ chi tiết
+  không thuộc moment hiện tại hay không;
+- `forbiddenCheck`: chi tiết bị cấm xuất hiện sớm hoặc trạng thái sai có hiện
+  diện hay không.
+
+Không lấy việc prompt bỏ sót một vật làm lý do bỏ qua check nếu vật đó nằm trong
+`mustNotChange` hoặc `forbidden`. Kết quả QA chỉ báo cáo bằng chứng nhìn thấy;
+không tự ghi continuity ledger.
+
+Sau khi hoàn tất đánh giá bằng mắt, có thể lưu report JSON và chạy
+`scripts/validate-visual-qa.js <visual-qa.json>` để kiểm completeness, trạng
+thái input và coverage của continuity dependency. Script không thay thế đánh
+giá focus, anatomy, identity hay cảm xúc.
+
 Không đánh FAIL một yếu tố `implicitReadable` chỉ vì nó không được thể hiện
 trọn vẹn. Đánh giá khả năng suy ra từ toàn bộ hình và chỉ FAIL khi tổng thể dẫn
 đến cách hiểu sai, không đủ tín hiệu hoặc mâu thuẫn nguồn. Đồng thời kiểm tra

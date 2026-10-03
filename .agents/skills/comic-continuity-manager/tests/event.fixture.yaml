@@ -1,0 +1,6 @@
+eventId: EVT-001
+effectiveAfter: page-001/frame-01
+changes:
+  prop.bag: torn
+provenance: userConfirmed
+evidence: fixture-user-confirmation

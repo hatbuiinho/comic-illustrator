@@ -1,0 +1,25 @@
+{
+  "optionId": "semantic-option-fixture",
+  "actors": [
+    {
+      "id": "actor-a",
+      "profileReference": "profile-a.fixture.svg",
+      "palette": {
+        "skin": "#C99268",
+        "hair": "#332C28",
+        "upperGarment": "#B77942"
+      }
+    },
+    {
+      "id": "actor-b",
+      "profileReference": "profile-b.fixture.svg",
+      "palette": {
+        "skin": "#B98261",
+        "hair": "#4A4038",
+        "upperGarment": "#657E8B"
+      }
+    }
+  ],
+  "requiredLocationAnchors": ["shelter-post", "ground-plane"],
+  "requiredInteractions": ["quiet-conversation"]
+}

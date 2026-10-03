@@ -19,6 +19,7 @@ một thông tin phụ khiến focus hoặc cảm xúc suy yếu, phải giản 
 - [cinematic-language.md](references/cinematic-language.md) cho shot và nhịp.
 - [emotional-flow.md](references/emotional-flow.md) cho chuỗi nhiều frame.
 - [composition-strategy.md](references/composition-strategy.md) khi lên bố cục.
+- [semantic-preview.md](references/semantic-preview.md) trước khi dựng preview.
 - [storyboard-schema.md](references/storyboard-schema.md) khi cần artifact có cấu
   trúc hoặc bàn giao sang prompt.
 
@@ -45,9 +46,21 @@ trước khi chọn. Preview là sơ đồ/thumbnail bố cục, không phải �
 - lưu từng option thành file PNG ổn định, có `optionId` trong tên, không ghi đè;
 - hiển thị đủ các PNG cùng mô tả và đánh đổi tại cổng lựa chọn.
 
-Có thể dựng preview bằng shape/vector rồi rasterize để kết quả dễ kiểm soát.
+Preview chính phải là SVG semantic do Codex dựng riêng theo shot: silhouette đọc
+được đầu, thân, pose, hướng mặt/ánh nhìn, interaction và location anchor; dùng
+bảng màu lấy từ profile gốc đúng tập để phân biệt nhân vật. Sau đó chạy
+`scripts/render-composition-preview.js <semantic.svg> <composition.json>
+[output.png]` để kiểm contract và rasterize.
+
+Rectangle/bounding-box chỉ được dùng trong ảnh debug tạo bởi
+`scripts/render-composition-debug.js`; không trình bày debug-box như option cho
+người dùng chọn. Nếu semantic quality gate không đạt, bổ sung/customize SVG,
+không hạ xuống preview hình chữ nhật.
 Không dùng preview làm identity reference, style reference hoặc output sản xuất.
 Nếu không thể tạo PNG, nêu blocker thay vì cho người dùng chọn chỉ từ mô tả chữ.
 
 Đầu ra phải đủ để `comic-prompt-writer` viết prompt mà không cần phát minh lại
-shot. Không coi composition card sơ bộ là phê duyệt cuối.
+shot. Mỗi option khai báo continuity fact đã đọc, trạng thái không được đổi,
+chi tiết bị cấm và thay đổi dự kiến chỉ khi approved theo
+[storyboard-schema.md](references/storyboard-schema.md). Không coi composition
+card sơ bộ là phê duyệt cuối và không tự ghi ledger.

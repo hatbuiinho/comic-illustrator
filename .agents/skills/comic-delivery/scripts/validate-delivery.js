@@ -16,6 +16,12 @@ if (data.userSelectedOutput !== true) errors.push("Chưa có userSelectedOutput:
 for (const [name, check] of Object.entries(data.checks || {})) {
   const status = typeof check === "string" ? check : check.status;
   if (!["PASS", "NOT_APPLICABLE", "SKIPPED_BY_USER"].includes(status)) errors.push(`${name}: trạng thái ${status || "thiếu"} chưa cho phép bàn giao.`);
+  if (status === "SKIPPED_BY_USER" && (typeof check === "string" || !check.reason || !check.scope)) errors.push(`${name}: SKIPPED_BY_USER cần reason và scope.`);
+}
+if (!data.approvedDir) errors.push("Thiếu approvedDir.");
+else if (data.output) {
+  const destination = path.resolve(root, data.approvedDir, path.basename(data.output));
+  if (fs.existsSync(destination)) errors.push(`Đích approved đã tồn tại: ${destination}`);
 }
 if (errors.length) {
   errors.forEach(message => console.error(`FAIL: ${message}`));

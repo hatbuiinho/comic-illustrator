@@ -1,0 +1,14 @@
+{
+  "optionId": "option-fixture",
+  "title": "Hai nhân vật đối diện",
+  "canvas": { "width": 900, "height": 600 },
+  "frame": { "x": 0.05, "y": 0.1, "width": 0.9, "height": 0.8 },
+  "safeZone": { "x": 0.08, "y": 0.14, "width": 0.84, "height": 0.7 },
+  "textReserve": [{ "x": 0.1, "y": 0.15, "width": 0.3, "height": 0.12 }],
+  "spine": { "x": 0.49, "y": 0.1, "width": 0.02, "height": 0.8 },
+  "subjects": [
+    { "id": "a", "label": "Nhân vật A", "depth": "foreground", "box": { "x": 0.15, "y": 0.38, "width": 0.25, "height": 0.42 }, "direction": { "x": 1, "y": 0 } },
+    { "id": "b", "label": "Nhân vật B", "depth": "midground", "box": { "x": 0.62, "y": 0.42, "width": 0.2, "height": 0.34 }, "direction": { "x": -1, "y": 0 } }
+  ],
+  "eyePath": [{ "x": 0.27, "y": 0.58 }, { "x": 0.5, "y": 0.5 }, { "x": 0.72, "y": 0.59 }]
+}

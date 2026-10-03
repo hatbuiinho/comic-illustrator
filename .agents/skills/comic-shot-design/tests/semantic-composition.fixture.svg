@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-preview-type="semantic-composition" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#eee3cb"/>
+  <g data-role="background">
+    <path data-location-anchor="ground-plane" d="M0 350 Q260 310 470 360 T900 345 V600 H0Z" fill="#cbb792"/>
+    <path data-location-anchor="shelter-post" d="M96 80 H124 V540 H96Z M760 110 H784 V540 H760Z" fill="#967553"/>
+    <path d="M55 110 Q430 35 825 125 L790 170 Q430 95 80 168Z" fill="#aa956d"/>
+  </g>
+  <g data-role="actor" data-actor-id="actor-a" data-profile-ref="profile-a.fixture.svg" data-interaction="quiet-conversation" stroke="#332C28" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <circle data-owner="actor-a" data-part="head" cx="285" cy="255" r="52" fill="#C99268"/>
+    <path d="M238 245 Q246 184 292 194 Q334 194 340 247 Q302 219 261 232Z" fill="#332C28"/>
+    <path data-owner="actor-a" data-part="torso" d="M245 310 Q284 287 326 313 L350 475 Q287 510 220 474Z" fill="#B77942"/>
+    <path data-owner="actor-a" data-part="gesture" d="M322 340 Q375 358 417 330" fill="none"/>
+    <path d="M246 473 Q210 525 194 576 M321 474 Q346 531 363 576" fill="none" stroke-width="18"/>
+    <path d="M300 257 L319 253"/><circle cx="318" cy="253" r="4" fill="#332C28"/>
+  </g>
+  <g data-role="actor" data-actor-id="actor-b" data-profile-ref="profile-b.fixture.svg" data-interaction="quiet-conversation" stroke="#4A4038" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <circle data-owner="actor-b" data-part="head" cx="565" cy="270" r="48" fill="#B98261"/>
+    <path d="M522 258 Q532 207 568 211 Q607 215 611 257 Q573 232 540 244Z" fill="#4A4038"/>
+    <path data-owner="actor-b" data-part="torso" d="M526 320 Q567 299 607 323 L634 484 Q568 511 505 478Z" fill="#657E8B"/>
+    <path data-owner="actor-b" data-part="gesture" d="M531 350 Q484 372 444 344" fill="none"/>
+    <path d="M532 480 Q515 531 503 576 M607 480 Q626 530 640 576" fill="none" stroke-width="18"/>
+    <path d="M544 267 L528 264"/><circle cx="529" cy="264" r="4" fill="#4A4038"/>
+  </g>
+  <path d="M355 270 Q445 232 520 279" fill="none" stroke="#76529a" stroke-width="5" stroke-dasharray="10 8"/>
+  <rect x="24" y="22" width="852" height="556" fill="none" stroke="#31884b" stroke-width="3" stroke-dasharray="12 8"/>
+  <text x="30" y="55" font-family="sans-serif" font-size="24" fill="#3d342c">Hai người trò chuyện lặng lẽ — trung cảnh ngang tầm</text>
+</svg>

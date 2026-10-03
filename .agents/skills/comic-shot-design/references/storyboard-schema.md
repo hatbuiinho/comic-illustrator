@@ -12,6 +12,11 @@ Mỗi option gồm:
 - `spatialDepthPlan`;
 - `emotionLock`;
 - `profileReferences`;
+- `continuityDependencies`:
+  - `reads`: các fact/lock mà option dựa vào;
+  - `writesIfApproved`: thay đổi chỉ có thể ghi sau delivery/xác nhận phù hợp;
+  - `mustNotChange`: trạng thái hình không được vô tình thay đổi;
+  - `forbidden`: chi tiết tương lai hoặc trạng thái sai không được xuất hiện;
 - `locationAnchors` khi áp dụng;
 - `visibilityPriority`:
   - `emotionalPriority`: cảm xúc hoặc quan hệ phải chi phối trải nghiệm hình;
@@ -28,6 +33,13 @@ Mỗi option gồm:
 - `meaningPreservationCheck`;
 - `compositionPreview`:
   - `pngPath`: đường dẫn tới PNG riêng của option;
+  - `semanticSvgPath`: SVG semantic nguồn do Codex dựng theo shot;
+  - `debugPngPath`: overlay geometry riêng, không phải preview lựa chọn;
+  - `renderMode`: `semantic-svg` cho preview chính; `custom-vector` khi cảnh cần
+    SVG đặc thù; `debug-box` không hợp lệ ở cổng lựa chọn;
+  - `actors`: actor ID, profile reference, palette lấy từ profile và semantic
+    parts bắt buộc (`head`, `torso`, `gesture` mặc định);
+  - `requiredLocationAnchors` và `requiredInteractions`;
   - `layoutBasis`: frame/mask/aspect ratio dùng để dựng preview;
   - `legend`: các nhãn hoặc ký hiệu cần để đọc sơ đồ;
   - `previewStatus`: `READY`, `BLOCKED` hoặc `NOT_APPLICABLE`;
@@ -38,6 +50,11 @@ mất quy mô, quan hệ, tính tập thể hoặc cảm xúc; phần biểu hi�
 làm mất sự tinh tế, tính tự nhiên hay khoảng trống cho người đọc. Focus rõ chưa
 đủ để PASS.
 
+Mỗi dependency nên dùng key ổn định từ context resolution thay vì chép lại văn
+bản dài. `writesIfApproved` là khai báo tác động dự kiến, không phải quyền cập
+nhật continuity ledger.
+
 Với option được đưa ra cho người dùng chọn, `compositionPreview.previewStatus`
 phải là `READY`, `pngPath` phải tồn tại và preview phải được hiển thị. Mô tả chữ
-không thay thế cho PNG preview.
+không thay thế cho PNG preview. `debug-box` không thể có trạng thái `READY` cho
+cổng lựa chọn, dù file PNG tồn tại.

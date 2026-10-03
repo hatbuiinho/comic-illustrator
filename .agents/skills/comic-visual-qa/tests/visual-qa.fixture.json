@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "output": "../../comic-shot-design/tests/semantic-composition.fixture.svg",
+  "inputStatus": "CURRENT",
+  "requiredChecks": ["focus", "profile"],
+  "continuityDependencies": {
+    "mustNotChange": ["prop.bag"],
+    "forbidden": ["character.future-entry"]
+  },
+  "checks": {
+    "focus": { "status": "PASS" },
+    "profile": { "status": "NOT_APPLICABLE" },
+    "mustNotChange:prop.bag": { "status": "PASS" },
+    "forbidden:character.future-entry": { "status": "PASS" }
+  }
+}

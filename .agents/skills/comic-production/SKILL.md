@@ -15,17 +15,24 @@ mới nhất của người dùng luôn được ưu tiên hơn mặc định c�
 
 ## Routing
 
-1. Đọc và kiểm chứng nguồn: dùng `comic-source-reader`.
-2. Thiết kế shot/storyboard: dùng `comic-shot-design`.
-3. Viết prompt: dùng `comic-prompt-writer`.
-4. Tạo, chỉnh hoặc tạo variant ảnh: dùng `comic-image-production`.
-5. Kiểm tra nội dung nhìn thấy: dùng `comic-visual-qa`.
-6. Kiểm tra ảnh trong layout: chỉ dùng `comic-layout-qa` khi deliverable gắn
+1. Resolve context tối thiểu: dùng `comic-continuity-manager`; nếu chưa có
+   artifact biên dịch thì để `comic-source-reader` mở cửa sổ nguồn cần thiết.
+2. Đọc và kiểm chứng nguồn: dùng `comic-source-reader`.
+3. Thiết kế shot/storyboard: dùng `comic-shot-design`.
+4. Viết prompt: dùng `comic-prompt-writer`.
+5. Tạo, chỉnh hoặc tạo variant ảnh: dùng `comic-image-production`.
+6. Kiểm tra nội dung nhìn thấy: dùng `comic-visual-qa`.
+7. Kiểm tra ảnh trong layout: chỉ dùng `comic-layout-qa` khi deliverable gắn
    với layout hoặc người dùng yêu cầu.
-7. Chuyển bản đã duyệt vào `approved/`: dùng `comic-delivery`.
+8. Chuyển bản đã duyệt vào `approved/`: dùng `comic-delivery`; sau đó commit
+   continuity event đã được xác nhận và invalidate đúng dependency downstream.
 
-Không chạy lại giai đoạn đã được người dùng chốt nếu đầu vào của giai đoạn đó
-không thay đổi. Không tự biến một tác vụ độc lập thành toàn bộ pipeline.
+Không chạy lại giai đoạn đã được người dùng chốt nếu dependency của giai đoạn
+đó không thay đổi. Nếu input stale, chỉ chạy lại consumer chịu ảnh hưởng; không
+chạy lại cả tập. Không tự biến một tác vụ độc lập thành toàn bộ pipeline.
+
+Sau khi sửa script dùng chung, chạy
+`scripts/test-comic-skills.js` cùng validator skill trước khi bàn giao.
 
 ## Trạng thái kiểm tra
 

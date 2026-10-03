@@ -30,3 +30,17 @@ trống diễn giải.
 Không FAIL `implicitReadable` chỉ vì không thấy trọn vẹn. Chỉ FAIL khi người đọc
 không thể suy ra đúng từ tổng thể, khi tín hiệu dẫn sang cách hiểu khác hoặc khi
 output mâu thuẫn với nguồn.
+
+## Continuity dependency
+
+Nếu composition khai báo dependency:
+
+- đối chiếu `reads` với trạng thái nhìn thấy cần thiết cho shot;
+- kiểm tra mọi `mustNotChange` không bị ảnh tự ý biến đổi;
+- kiểm tra `forbidden` không xuất hiện;
+- với `writesIfApproved`, chỉ xác nhận output có thể hiện đúng event dự kiến,
+  không kết luận event đã trở thành canon.
+
+Nếu dependency revision đã stale, trả kết luận `STALE_INPUT` trước khi dùng QA
+đó làm điều kiện delivery. Chỉ những check thực sự phụ thuộc dữ kiện đã đổi mới
+cần chạy lại.

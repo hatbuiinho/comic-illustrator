@@ -67,3 +67,8 @@ Không áp trực tiếp số mm hoặc pixel này lên canvas có kích thướ
 Không có ngoại lệ cấp tập đối với khóa thuần 2D. Yêu cầu trực tiếp của người
 dùng đối với một deliverable, ví dụ “không cần tránh gáy”, được ghi
 `SKIPPED_BY_USER` trong đúng phạm vi và ưu tiên hơn mặc định của skill.
+
+- Áp dụng ngoại lệ toàn project trong `../AGENTS.md`: `SKIPPED_BY_USER` đối với
+  việc cấm tuyệt đối nền trời mềm. Nền trời được phép chuyển màu mềm nhẹ, tiết
+  chế; nhân vật và vật thể vẫn giữ line art rõ, flat fills và 1–2 cấp hard
+  cel-shading. Xác nhận trực tiếp của người dùng ngày 2026-10-02.
