@@ -1,10 +1,17 @@
+# Artifact sinh trong quá trình xử lý từng page
 outputs/
+**/qa/**
+!**/qa/README.md
+**/tmp/
+**/Part */pages/
+
+# Hàng đợi/trạng thái runtime của workflow
+sentry/queue/
+
+# Metadata cục bộ của hệ điều hành
+.DS_Store
 
 # Toolchain cục bộ theo máy
 .venv/
 .tools/state.windows.json
 .tools/state.macos.json
-
-# Dữ liệu page do người dùng cung cấp trong từng part
-**/Part */pages/
-**/tmp/
