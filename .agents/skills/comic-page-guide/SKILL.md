@@ -5,153 +5,63 @@ description: Entry point mặc định cho mọi yêu cầu tạo, tiếp tục,
 
 # Hướng dẫn làm một page
 
-Đóng vai trò entry point và lớp điều phối hội thoại mặc định cho mọi yêu cầu tạo
-hình minh họa truyện tranh. Tự khám phá dữ liệu có sẵn, giải thích bằng kết quả
-nhìn thấy và chỉ yêu cầu người dùng quyết định phần không thể suy ra an toàn.
-Không bắt họ biết manifest, schema, safe zone, tên skill hoặc cấu trúc thư mục.
+Entry point cho tạo, tiếp tục, sửa, variant và hoàn thiện minh họa. Đọc [quy tắc nghệ thuật](../comic-shot-design/references/art-first-policy.md). Route tác vụ độc lập thẳng tới skill chuyên môn; không tự gọi `comic-production`.
 
-## Routing bắt buộc
+## Hội thoại và trạng thái
 
-- Tự động chọn skill này cho yêu cầu làm mới, tiếp tục, chỉnh sửa, tạo variant
-  hoặc hoàn thiện hình minh họa truyện tranh, dù người dùng đã nêu rõ page,
-  frame hay deliverable.
-- Skill này trực tiếp gọi các skill chuyên môn phù hợp ở từng giai đoạn; không
-  cần đọc, gọi hoặc đi qua `comic-production`.
-- Chỉ dùng `comic-production` khi người dùng gọi đích danh
-  `$comic-production` hoặc yêu cầu rõ dùng skill đó.
-- Khi người dùng yêu cầu một tác vụ chuyên môn độc lập, vẫn vào skill này trước
-  rồi route thẳng sang skill chuyên môn tương ứng; không ép chạy toàn bộ wizard.
+- Tự đọc dữ kiện có sẵn; mỗi lượt chỉ hỏi một quyết định chính, tối đa 2–3 phương án thật.
+- Không hỏi lại bước đã chốt khi nguồn còn hiệu lực; đọc page-state và artifact được tham chiếu trước khi tiếp tục.
+- Không vượt gate khi chưa xác nhận rõ; không suy im lặng hoặc duyệt direction thành duyệt composition.
+- Khi chờ quyết định, đưa câu trả lời đầy đủ trong từng code block riêng.
+- Ghi override rõ là `SKIPPED_BY_USER` đúng phạm vi; không âm thầm áp lại mặc định.
 
-## Nguyên tắc hội thoại
+## 1. Phạm vi và nguồn
 
-- Mỗi lượt chỉ hỏi một quyết định chính; đưa tối đa 2–3 lựa chọn thực tế.
-- Đánh dấu một lựa chọn là **(Đề xuất)** và nêu lý do ngắn dựa trên nguồn.
-- Với câu hỏi đơn giản, mỗi lựa chọn nêu kết quả và đánh đổi trong một dòng.
-  Riêng cổng chọn composition, dòng này chỉ là tóm tắt; ngay dưới preview của
-  từng option phải hiển thị composition card từ `comic-shot-design`, đủ để
-  người dùng kiểm tra cách AI hiểu cảnh, cảm xúc, staging, continuity và layout.
-  Không bắt người dùng mở artifact kỹ thuật để xem phần còn thiếu. Cho phép trả
-  lời bằng số hoặc ngôn ngữ tự nhiên.
-- Không hỏi lại dữ kiện có thể đọc từ project. Nếu chỉ có một ứng viên hợp lý,
-  đề xuất ứng viên đó để người dùng xác nhận thay vì bắt họ tự tìm tên file.
-- Trước câu hỏi, tóm tắt điều vừa hoàn thành và điều sẽ xảy ra sau lựa chọn.
-- Mỗi khi dừng để chờ người dùng, luôn kết thúc bằng các phương án trả lời/bước
-  tiếp theo có thể copy; mỗi phương án phải nằm trong một code block riêng,
-  không gom nhiều phương án vào cùng một block. Nội dung trong từng block phải
-  tự đủ nghĩa, có thể copy nguyên khối và không buộc người dùng sửa placeholder
-  kỹ thuật.
-- Không tiếp tục qua một cổng khi chưa có xác nhận rõ. Không coi im lặng, câu
-  trả lời mơ hồ hoặc việc duyệt bước trước là phê duyệt bước sau.
-- Giữ nguyên lựa chọn đã chốt; chỉ mở lại khi đầu vào thay đổi hoặc người dùng
-  yêu cầu quay lại.
+Khóa tập/part/page/scope; chỉ hỏi phần chưa rõ. Gọi `comic-source-reader` và resolve continuity. Trình snapshot ngắn: cảnh, người/profile, cảm xúc/ý chính, layout và điều chưa rõ. Chờ xác nhận nguồn trước thiết kế shot.
 
-Khi cần mẫu câu hỏi hoặc cách ghi nhớ tiến độ, đọc
-[conversation-patterns.md](references/conversation-patterns.md).
+Layout mẫu cung cấp nội dung, typography, canvas và mask/fixed element thật; không khóa tọa độ chữ hoặc vùng tranh. Không có hard frame thì dùng `GENERATION_LAYOUT_INTEGRATION`.
 
-## Luồng và cổng xác nhận
+## 2. Hướng kể và composition
 
-### 1. Khóa phạm vi
+Gọi `comic-shot-design`: thực hiện mục **Đánh giá không gian trước khi đề xuất
+shot**, rồi xác định ưu tiên cảm xúc và đề xuất direction bằng bảy mục. Trình
+kết luận không gian ngắn trước các option; cỡ cảnh và khả năng bố trí phải dựa
+trên đánh giá đó. Không thêm cổng xác nhận cho bước đánh giá; chưa tạo preview
+hoặc khóa camera/crop/staging. Sau chọn, dựng một composition cho direction đó.
 
-Kiểm tra project ở chế độ chỉ đọc rồi xác định dần `episode`, `part`, `page` và
-`scope` (toàn page hay frame cụ thể). Chỉ hỏi trường còn thiếu và có ảnh hưởng.
-Chờ người dùng xác nhận target trước khi đọc nguồn chuyên sâu.
+Thiết kế ý tưởng thị giác và diễn xuất trước, art-direct chữ–hình cùng nhau, rồi kiểm kỹ thuật. Resolve [text-artwork-integration.md](../comic-layout-qa/references/text-artwork-integration.md); đọc reference proxy/reflow chỉ theo mode áp dụng. Không làm yếu hình để giống phép đo layout mẫu.
 
-### 2. Xác nhận cách hiểu nguồn
+Review ý đồ kể chuyện trước proof cuối. Mặc định dùng phác thảo SVG có source chỉnh sửa được và PNG toàn trang cùng card chín mục theo shot-design; không gọi công cụ tạo ảnh cho preview trừ yêu cầu rõ của người dùng. Kiểm camera, staging, cử chỉ chính, nhịp và khả năng đọc ở mức phác; chất lượng hoàn thiện kiểm ở production. Proxy cần burden, layout và artifact binding đủ bằng chứng; chữ chính xác hoãn InDesign khi contract cho phép. Cấm dùng debug-box hoặc pose chung làm bằng chứng diễn xuất.
 
-Gọi `comic-source-reader`; skill này resolve context qua
-`comic-continuity-manager` trước khi mở rộng nguồn. Trình bày source snapshot
-bằng ngôn ngữ ngắn gọn:
-cảnh đang diễn ra, nhân vật/profile, cảm xúc hoặc ý chính, layout/frame liên
-quan và phần chưa rõ. Không đẩy toàn bộ phân tích kỹ thuật sang người dùng.
+Khi người dùng phản hồi, phân loại chi tiết / diễn xuất / cấu trúc bố cục. Nếu ý nghĩa hành động hoặc nghệ thuật yếu, xét lại camera/staging trước khi vá chi tiết. Giữ direction đã chọn trừ khi focus/cảm nhận/moment đổi.
 
-Hỏi họ xác nhận một trong các hướng: hiểu đúng và tiếp tục; cần sửa một chi
-tiết; hoặc cần xem thêm ngữ cảnh. Chỉ sang thiết kế shot sau xác nhận.
+`selectedPageComposition: PROPOSED` tới khi preview được duyệt; sau đó `CONFIRMED`. Nói rõ duyệt composition cho phép tự chạy prompt → ảnh → QA, chưa phải chọn master hoặc duyệt delivery.
 
-### 3. Chọn hướng kể hình
+## 3. Prompt, ảnh và QA
 
-Gọi `comic-shot-design`. Nếu chỉ có một hướng có căn cứ, vẫn trình bày hướng đó
-và xin xác nhận. Nếu có nhiều hướng hợp lệ, đưa 2–3 composition khác nhau đáng
-kể, không tạo các biến thể giả chỉ để đủ số lượng.
+- Gọi `comic-layout-qa` preflight theo contract active, không tự đổi shot đã duyệt.
+- Gọi `comic-prompt-writer`; lưu prompt để truy vết, không thêm gate prompt hoặc hiển thị tiếng Anh trừ khi được yêu cầu.
+- Gọi `comic-image-production`; mỗi candidate/edit là version mới, đọc lại profile gốc, giữ qaLocks và ý đồ đã duyệt. Cho phép hoàn thiện nét/pose/mảng trong ý đồ, không sao chép contour preview.
+- Gọi `comic-visual-qa`: kiểm fast gates và nghệ thuật riêng. Fast FAIL vẫn giữ mốc thẩm mỹ tốt nhất để retry không làm xấu phần đã đạt.
+- Gọi `comic-layout-qa` khi visual đạt; clean preview phải dùng chữ/proxy đúng mode, không dùng debug thay review nghệ thuật. Không tuyên bố final layout QA khi chưa có bộ layer.
 
-Trước khi yêu cầu người dùng chọn, phải tạo một PNG composition preview riêng
-cho từng phương án và hiển thị tất cả preview ngay tại cổng này. Preview phải
-dùng đúng tỷ lệ/vùng khung của layout khi có, thể hiện được vị trí tương đối,
-kích thước, hướng nhìn hoặc chuyển động, lớp sâu và vùng chữ/mask quan trọng;
-có thể là sơ đồ hoặc thumbnail thô, không được trình bày như ảnh thành phẩm.
-Không coi mô tả chữ, composition card hoặc ảnh thành phẩm của một option là
-thay thế cho bộ preview. Nếu chưa tạo hoặc chưa hiển thị đủ preview, cổng chọn
-composition chưa hợp lệ và không được chạy bước 4.
+Áp [retry-quality-contract.md](../comic-image-production/references/retry-quality-contract.md). Phân loại lỗi ảnh / flow / text capacity / composition trước sửa. Flow sai thì sửa layout, không regenerate ảnh đúng; không xếp placement FAIL chỉ vì nhân vật vào text frame cũ.
 
-Thứ tự hiển thị bắt buộc cho mỗi option:
+Tự sửa lỗi trong composition đã duyệt. Dừng khi phải đổi focus/moment/camera/composition, nguồn/profile xung đột, công cụ lỗi hoặc cùng lỗi không cải thiện qua ba lượt; thử một lần viết lại prompt/fresh generation trước báo blocker khi phù hợp. Không lấy kỹ thuật PASS để bỏ qua hình vô cảm.
 
-1. tên option và dòng tóm tắt;
-2. preview PNG;
-3. composition card dành cho người dùng;
-4. đánh đổi so với các option còn lại.
+## 4. Chọn master và bàn giao
 
-Chỉ đưa các code block để người dùng chọn sau khi đã trình bày đủ mọi option.
-Không rút composition card xuống một dòng.
+Hiển thị candidate và tác động QA nhìn thấy. Chờ người dùng chọn rõ version; ghi `SELECTED_FOR_LAYOUT`, không suy từ lời “ổn” khi còn nhiều ứng viên.
 
-Ngay tại cổng chọn composition, nói rõ rằng việc chọn một phương án là xác nhận
-hướng kể hình và cho phép workflow chạy liền mạch qua viết prompt kỹ thuật, tạo
-ảnh và QA. Khi người dùng đã chọn rõ, nhắc lại lựa chọn active bằng một câu rồi
-chạy bước 4; không tạo thêm một lượt xác nhận lặp lại.
+Chỉ sau chọn, gọi production hậu kỳ và layout QA cho bộ đồng phiên bản `master + bg + mgfg + wrap + layout-preview`. Khóa pixel phần artwork đã chọn; chỉ phục hồi vùng bị chữ che, không đổi nội dung để sửa lỗi layer.
 
-### 4. Tự động tạo prompt, ảnh và QA
+Bộ layer PASS mới gọi `comic-delivery` để đưa vào approved và cập nhật đường dẫn. Continuity event chỉ ghi từ nguồn hoặc selection/delivery được xác nhận, không tự phát minh canon.
 
-Xác nhận rõ hướng kể hình ở bước 3 đồng thời là quyền chạy chuỗi sau cho đúng
-composition đã chọn:
+## Mode đặc biệt và reference
 
-1. Gọi `comic-prompt-writer`.
-2. Gọi `comic-image-production`; mỗi ảnh mới hoặc variant là một version mới
-   trong `outputs/`.
-3. Gọi `comic-visual-qa`.
-4. Nếu deliverable gắn với layout và visual QA đạt, gọi `comic-layout-qa`, tạo
-   QA overlay trên chính raster layout gốc có text, rồi hiển thị overlay cho
-   người dùng cùng kết luận QA.
-
-Không tạo thêm cổng xác nhận prompt và không hiển thị prompt tiếng Anh trong
-luồng mặc định. Lưu prompt vào artifact phù hợp để truy vết; chỉ hiện đầy đủ
-khi người dùng chủ động yêu cầu xem hoặc sửa prompt. Nếu visual QA không đạt
-nhưng chưa cần đổi composition đã duyệt, tự lặp `prompt delta → version mới →
-visual QA` đến khi mọi check `REQUIRED` đều PASS; không dừng để hỏi người dùng.
-Chỉ dừng khi phải đổi focus/khoảnh khắc/camera/composition, nguồn hoặc profile
-xung đột, công cụ lỗi, hoặc cùng một lỗi không cải thiện qua 3 lượt liên tiếp.
-Ở trường hợp cuối, tự đổi một lần sang prompt viết lại và tạo ảnh mới; nếu vẫn
-không cải thiện thì báo blocker, giữ toàn bộ version và không chạy layout QA.
-
-### 5. Xử lý kết quả QA
-
-Chỉ chạy layout QA sau khi visual QA PASS. Sau chuỗi tạo ảnh và QA, cho người dùng xem output, tóm tắt visual QA bằng tác
-động nhìn thấy và đưa lựa chọn phù hợp: giữ bản hiện tại, sửa có mục tiêu, hoặc
-tạo variant. Không yêu cầu người dùng tự đọc báo cáo QA để biết nên làm gì.
-
-Nếu output gắn vào layout, layout QA chưa hoàn tất cho tới khi đã tạo QA overlay
-bằng chính raster layout gốc có text. Hiển thị hoặc dẫn link rõ tới overlay cùng
-kết luận QA; không chỉ trả báo cáo chữ. Nếu chưa có dữ liệu để tạo overlay, nêu
-đúng dữ liệu còn thiếu và đưa bước tiếp theo có thể copy, không tuyên bố layout
-QA đã hoàn tất. Các check bị người dùng bỏ qua phải ghi `SKIPPED_BY_USER` đúng
-phạm vi.
-
-### 6. Chọn và bàn giao bản cuối
-
-Cho người dùng xem rõ các version còn là ứng viên và khuyến nghị một bản dựa
-trên QA. Chỉ gọi `comic-delivery` khi họ chọn đích danh output/version. Không
-suy ra phê duyệt cuối từ câu như “ổn”, “tiếp tục” nếu còn nhiều ứng viên.
-
-Sau delivery thành công, cho phép `comic-delivery` gọi
-`comic-continuity-manager` để ghi event đã được xác nhận và invalidate đúng
-consumer downstream. Không dùng ảnh approved làm profile hoặc tự phát minh
-thay đổi continuity không có trong nguồn/selection.
-
-## Tiếp tục phiên dang dở
-
-Trước khi hỏi lại, đọc `page-state` của đúng page trước, rồi scene packet và các
-artifact được nó tham chiếu để xác định cổng gần nhất đã được xác nhận. Chỉ dùng
-hội thoại để bổ sung quyết định chưa được ghi. Tóm tắt ngắn target, lựa chọn
-active, freshness và bước đang chờ; không chạy lại giai đoạn đã chốt khi đầu
-vào không đổi. Nếu dependency đã đổi, nêu artifact stale và chỉ chạy lại phần
-downstream chịu ảnh hưởng.
-
-Nếu người dùng yêu cầu một tác vụ độc lập rõ ràng như “chỉ viết prompt” hoặc
-“chỉ QA ảnh này”, route thẳng sang skill tương ứng, không ép họ đi toàn wizard.
+- `TEXT_PROXY_INTEGRATION`: proxy là overlay tách artwork; giữ burden/cỡ đọc, không tạo panel trắng hoặc báo exact capacity PASS.
+- `BAKED_TEXT_PROXY_CONCEPT`: composition gate vẫn bắt buộc; tạo integrated concept, sau selection tháo proxy bằng edit/inpaint pixel lock; cần CLEAN_PLATE_PASS, không fresh-generate clean master.
+- `FINAL_TEXT_REFLOW`: proof chữ thật theo [text-reflow-contract.md](../comic-layout-qa/references/text-reflow-contract.md).
+- Crop theo [crop-read-contract.md](../comic-shot-design/references/crop-read-contract.md).
+- Mẫu hội thoại: [conversation-patterns.md](references/conversation-patterns.md).
+- Workflow flattened: [page-aware-flattened-workflow.md](references/page-aware-flattened-workflow.md).

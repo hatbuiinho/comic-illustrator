@@ -19,11 +19,13 @@ const confined = raw => {
   if (target !== projectRoot && !target.startsWith(`${projectRoot}${path.sep}`)) throw new Error(`Đường dẫn vượt projectRoot: ${raw}`);
   return target;
 };
-const source = confined(data.output || "");
+const outputItems = Array.isArray(data.outputs) && data.outputs.length ? data.outputs : (data.output ? [data.output] : []);
+const sources = outputItems.map(confined);
 const approvedDir = confined(data.approvedDir || "approved");
-const destination = path.join(approvedDir, path.basename(source));
+const destinations = sources.map(source => path.join(approvedDir, path.basename(source)));
 const receiptDir = path.join(approvedDir, ".delivery-receipts");
-const receiptPath = path.join(receiptDir, `${path.basename(source)}.json`);
+const receiptBase = sources[0] ? path.basename(sources[0]) : "delivery";
+const receiptPath = path.join(receiptDir, `${receiptBase}.json`);
 function atomicJson(file, value) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   const temporary = path.join(path.dirname(file), `.${path.basename(file)}.${process.pid}.tmp`);
@@ -32,10 +34,13 @@ function atomicJson(file, value) {
 }
 function preflight() {
   const errors = [];
-  if (!fs.existsSync(source)) errors.push("Output không tồn tại.");
+  if (!sources.length) errors.push("Thiếu output hoặc outputs.");
+  for (const source of sources) if (!fs.existsSync(source)) errors.push(`Output không tồn tại: ${source}.`);
   if (!data.approvedDir) errors.push("Thiếu approvedDir.");
   if (data.userSelectedOutput !== true) errors.push("Chưa có userSelectedOutput: true.");
-  if (fs.existsSync(destination)) errors.push("Đích approved đã tồn tại.");
+  if (sources.length > 1 && data.status !== "layer-package-ready") errors.push("Bộ nhiều layer cần status: layer-package-ready.");
+  if (sources.length > 1 && !data.checks?.layerPackage) errors.push("Bộ nhiều layer thiếu check layerPackage.");
+  for (const destination of destinations) if (fs.existsSync(destination)) errors.push(`Đích approved đã tồn tại: ${destination}.`);
   for (const [name, raw] of Object.entries(data.checks || {})) {
     const check = typeof raw === "string" ? { status: raw } : raw;
     if (!["PASS", "NOT_APPLICABLE", "SKIPPED_BY_USER"].includes(check.status)) errors.push(`${name}: chưa cho phép delivery.`);
@@ -49,8 +54,8 @@ try {
   const plan = {
     projectRootFromReceipt: path.relative(receiptDir, projectRoot) || ".",
     manifest: path.relative(projectRoot, manifestPath),
-    source: path.relative(projectRoot, source),
-    destination: path.relative(projectRoot, destination),
+    sources: sources.map(source => path.relative(projectRoot, source)),
+    destinations: destinations.map(destination => path.relative(projectRoot, destination)),
     receipt: path.relative(projectRoot, receiptPath),
     pathUpdates: data.pathUpdates || [],
     continuity: data.continuity || null
@@ -62,7 +67,7 @@ try {
   const receipt = { schemaVersion: 1, status: "PREPARED", ...plan, completedUpdates: [], errors: [] };
   atomicJson(receiptPath, receipt);
   fs.mkdirSync(approvedDir, { recursive: true });
-  fs.renameSync(source, destination);
+  for (let index = 0; index < sources.length; index += 1) fs.renameSync(sources[index], destinations[index]);
   receipt.status = "FILED";
   atomicJson(receiptPath, receipt);
   for (const update of data.pathUpdates || []) {
@@ -85,11 +90,11 @@ try {
   }
   receipt.status = "COMPLETED";
   atomicJson(receiptPath, receipt);
-  console.log(JSON.stringify({ status: "COMPLETED", destination: plan.destination, receipt: plan.receipt }, null, 2));
+  console.log(JSON.stringify({ status: "COMPLETED", destinations: plan.destinations, receipt: plan.receipt }, null, 2));
 } catch (error) {
   if (fs.existsSync(receiptPath)) {
     const receipt = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
-    receipt.status = fs.existsSync(destination) ? "CONTEXT_PENDING" : "FAILED";
+    receipt.status = destinations.some(destination => fs.existsSync(destination)) ? "CONTEXT_PENDING" : "FAILED";
     receipt.errors = [...(receipt.errors || []), error.message];
     atomicJson(receiptPath, receipt);
     console.error(`ERROR: ${error.message}\nReceipt: ${receiptPath}`);

@@ -15,12 +15,12 @@ const output = path.resolve(outputArg || path.join(path.dirname(contractPath), `
 const svgPath = output.replace(/\.png$/i, ".svg");
 const validBox = box => box && [box.x, box.y, box.width, box.height].every(Number.isFinite) && box.x >= 0 && box.y >= 0 && box.width > 0 && box.height > 0 && box.x + box.width <= 1 && box.y + box.height <= 1;
 const rect = (box, attrs) => `<rect x="${box.x * canvas.width}" y="${box.y * canvas.height}" width="${box.width * canvas.width}" height="${box.height * canvas.height}" ${attrs}/>`;
-if (!validBox(data.frame)) {
-  console.error("FAIL: frame không hợp lệ.");
-  process.exit(1);
-}
-const elements = [`<rect width="100%" height="100%" fill="#f5f1e8"/>`, rect(data.frame, 'fill="#dce6ec" stroke="#19252d" stroke-width="5"')];
-for (const box of data.textReserve || []) if (validBox(box)) elements.push(rect(box, 'fill="#ffd84a" fill-opacity="0.3" stroke="#a87900"'));
+const elements = [`<rect width="100%" height="100%" fill="#f5f1e8"/>`];
+const hardFrame = data.hardFrame || data.frame;
+if (validBox(hardFrame)) elements.push(rect(hardFrame, 'fill="none" stroke="#19252d" stroke-width="5"'));
+if (validBox(data.briefRegion)) elements.push(rect(data.briefRegion, 'fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-dasharray="8 6"'));
+for (const box of data.proposedTextFrames || data.textZones || data.textReserve || []) if (validBox(box)) elements.push(rect(box, 'fill="#ffd84a" fill-opacity="0.2" stroke="#a87900"'));
+for (const box of data.subjectExclusionZones || []) if (validBox(box)) elements.push(rect(box, 'fill="#ff8c42" fill-opacity="0.1" stroke="#d65a00" stroke-dasharray="8 5"'));
 if (validBox(data.safeZone)) elements.push(rect(data.safeZone, 'fill="none" stroke="#249644" stroke-width="4" stroke-dasharray="14 9"'));
 if (validBox(data.spine)) elements.push(rect(data.spine, 'fill="#d92d3a" fill-opacity="0.24" stroke="#a21320"'));
 for (const subject of data.subjects || []) {

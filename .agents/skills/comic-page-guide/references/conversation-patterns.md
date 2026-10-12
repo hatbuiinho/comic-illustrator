@@ -12,53 +12,54 @@ page dang dở.
    block riêng để người dùng có thể copy nguyên khối. Không gom nhiều phương án
    vào cùng một block; mỗi block phải tự đủ nghĩa và đặt lựa chọn đề xuất trước.
 
-Ví dụ chọn composition (dùng hàng rào ngoài khác loại để thể hiện khối copy
-bên trong):
+Ví dụ chọn narrative direction nhanh, chưa tạo ảnh (dùng hàng rào ngoài khác
+loại để thể hiện khối copy bên trong):
 
 ~~~text
 Nguồn đã xác nhận đây là khoảnh khắc cộng đồng nhận ra hậu quả của sự việc.
-Mình cần bạn chọn và xác nhận cách kể hình trước khi tạo ảnh:
+Mình cần bạn chọn cảm nhận và hướng kể trước khi dựng composition:
 
-### Option 2 — Trung cảnh theo nhóm (Đề xuất)
+### Direction 1 — Nhận ra cùng nhau (Đề xuất)
 
-![Composition preview](path/to/preview.png)
+1. **Cảm nhận muốn để lại:** sững lại, rồi cảm giác cùng chia sẻ một nhận thức.
+2. **Ý nghĩa hình ảnh:** biến chuyển thuộc về cả cộng đồng, không phải một cá nhân.
+3. **Khoảnh khắc:** ngay sau sự việc, khi phản ứng bắt đầu lan qua nhóm.
+4. **Trọng tâm cảm xúc:** ánh mắt và khoảng cách giữa nhóm gần với lớp người sau.
+5. **Cách kể dự kiến:** observational, diễn xuất nhóm tự nhiên.
+6. **Cỡ cảnh dự kiến và khả năng bố trí trong layout:** toàn cảnh vừa để đọc phản ứng nhóm và quy mô cộng đồng; nhóm gần đủ lớn để thấy hướng nhìn, lớp người sau gợi quy mô. Hình có thể mở từ vùng trống dưới lên giữa trang, chữ reflow quanh nhóm gần nếu contract cho phép; đây là đánh giá định tính từ layout đã đọc, chưa khóa tọa độ hay camera.
+7. **Đánh đổi:** cảm xúc cộng đồng mạnh; biểu cảm cá nhân sẽ nhẹ hơn cận cảnh.
 
-- **Ý nghĩa cảnh:** cộng đồng cùng nhận ra hậu quả, không quy toàn bộ ý nghĩa
-  cho một nhân vật.
-- **Khoảnh khắc:** ngay sau sự việc, khi phản ứng bắt đầu lan qua nhóm.
-- **Trọng tâm và eye path:** nhóm gần → dấu vết sự việc → phản ứng lớp sau.
-- **Dàn cảnh:** nhóm gần đủ lớn để đọc biểu cảm; đám đông tiếp tục theo chiều
-  sâu và không biến thành nền trang trí.
-- **Cảm xúc:** sững lại rồi chia sẻ nhận thức; tránh đọc thành hoảng loạn.
-- **Bối cảnh bắt buộc:** dấu vết nguyên nhân và bằng chứng về quy mô cộng đồng.
-- **Không được xuất hiện:** hệ quả hoặc nhân vật chỉ tới ở scene sau.
-- **Layout:** chủ thể chính tránh vùng chữ/gáy; silhouette nhóm còn đọc rõ khi
-  đặt ở kích thước thật.
-- **Đánh đổi:** cân bằng phản ứng và bối cảnh, nhưng cảm xúc cá nhân nhẹ hơn cận
-  cảnh và quy mô kém áp đảo hơn toàn cảnh.
-
-Trình bày Option 1 và Option 3 theo cùng cấu trúc trước khi hỏi người dùng chọn.
-
-Sau khi bạn xác nhận, mình sẽ tự tạo prompt kỹ thuật, tạo ảnh và chạy QA.
+Trình bày Direction 2–3 theo cùng cấu trúc. Chưa tạo preview hay storyboard đầy đủ.
 
 Bạn có thể copy một trong các block sau để trả lời:
 
 ```text
-Chọn 2 — trung cảnh theo nhóm; hãy tạo ảnh và chạy QA.
+Chọn Direction 1 — Nhận ra cùng nhau; hãy dựng composition.
 ```
 
 ```text
-Chọn 1 — toàn cảnh; hãy tạo ảnh và chạy QA.
-```
-
-```text
-Chọn 3 — cận cảnh nhân vật chính; hãy tạo ảnh và chạy QA.
+Chọn Direction 2 — Khoảnh khắc cá nhân; hãy dựng composition.
 ```
 
 ```text
 Tôi muốn chỉnh hướng kể hình; tôi sẽ mô tả thay đổi ở câu tiếp theo.
 ```
 ~~~
+
+Sau khi direction được chọn, chỉ dựng một composition và trình preview cùng
+card chín mục. Kết thúc cổng bằng các câu trả lời:
+
+```text
+Duyệt composition này; hãy tạo ảnh và chạy QA.
+```
+
+```text
+Giữ direction đã chọn nhưng chỉnh composition như sau: …
+```
+
+```text
+Quay lại bước chọn narrative direction.
+```
 
 Không dùng lựa chọn “Khác” chung chung nếu có thể mời người dùng mô tả tự do ở
 câu kết.
@@ -80,19 +81,22 @@ stage: scope
 confirmed:
   target: false
   source_snapshot: false
+  narrative_direction: false
   composition: false
   production_run: false
   qa_resolution: false
   final_output: false
+active_direction: null
 active_choice: null
 pending_question: confirm_target
 context_revision: {}
 stale_reasons: []
 ```
 
-`stage` chỉ nhận một trong: `scope`, `source`, `composition`, `production`,
-`visual_qa`, `layout_qa`, `delivery`, `complete`. `production` bao gồm viết
-prompt kỹ thuật và tạo ảnh; không phải một cổng xác nhận riêng.
+`stage` chỉ nhận một trong: `scope`, `source`, `direction`, `composition`, `production`,
+`visual_qa`, `selected_for_layout`, `layer_package`, `layout_qa`, `delivery`,
+`complete`. `production` bao gồm viết prompt kỹ thuật và tạo master; tách layer
+chỉ chạy ở `layer_package` sau khi người dùng chọn master.
 
 ## Diễn giải thuật ngữ
 
@@ -100,15 +104,20 @@ prompt kỹ thuật và tạo ảnh; không phải một cổng xác nhận riê
 - `composition`: cách đặt nhân vật, bối cảnh và điểm nhìn trong khung.
 - `visual QA`: kiểm tra ảnh có đúng nhân vật, bối cảnh, phong cách và câu chuyện.
 - `layout QA`: kiểm tra ảnh khi đặt vào khung trang, vùng chữ, mép cắt và gáy.
-- `approved`: bản cuối đã được người dùng chọn làm nguồn chuẩn.
+- `selected-for-layout`: master đã được người dùng chọn; cho phép tách layer
+  InDesign nhưng chưa phải bộ nguồn chuẩn cuối.
+- `layer-package-ready`: bộ `master + bg + mgfg + wrap + layout-preview` đã qua
+  QA kỹ thuật.
+- `approved`: cả bộ cuối đã được bàn giao làm nguồn chuẩn.
 
 Chỉ giải thích thuật ngữ khi nó xuất hiện trong câu trả lời dành cho người dùng.
 
 ## Câu trả lời đặc biệt
 
 - “Tiếp tục”: chỉ thực hiện hành động đã mô tả ngay trước đó; không vượt thêm
-  cổng kế tiếp. Nếu hành động ngay trước đó là xác nhận composition, thực hiện
-  trọn chuỗi prompt → tạo ảnh → visual QA → layout QA/overlay khi áp dụng.
+  cổng kế tiếp. Nếu ngay trước đó là chọn direction, chỉ dựng composition. Nếu
+  ngay trước đó là xác nhận composition, thực hiện trọn chuỗi prompt → tạo ảnh
+  → visual QA → layout QA/overlay khi áp dụng.
 - “Tự chọn giúp tôi”: chọn phương án được đề xuất, xác nhận lại lựa chọn bằng
   một câu và chỉ tiếp tục trong phạm vi cổng hiện tại.
 - “Làm luôn”: nếu phạm vi chưa rõ, vẫn phải khóa target; nếu đã rõ, có thể tiến

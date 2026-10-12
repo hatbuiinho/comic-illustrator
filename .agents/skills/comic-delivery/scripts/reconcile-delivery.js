@@ -12,9 +12,10 @@ const receiptPath = path.resolve(receiptArg);
 const receipt = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
 const projectRoot = path.resolve(path.dirname(receiptPath), receipt.projectRootFromReceipt || ".");
 const manifestPath = path.resolve(projectRoot, receipt.manifest);
-const destination = path.resolve(projectRoot, receipt.destination);
-if (!fs.existsSync(destination)) {
-  console.error("ERROR: File approved trong receipt không tồn tại; cần xử lý thủ công.");
+const destinationItems = receipt.destinations || (receipt.destination ? [receipt.destination] : []);
+const destinations = destinationItems.map(item => path.resolve(projectRoot, item));
+if (!destinations.length || destinations.some(destination => !fs.existsSync(destination))) {
+  console.error("ERROR: Một hoặc nhiều file approved trong receipt không tồn tại; cần xử lý thủ công.");
   process.exit(1);
 }
 const errors = [];

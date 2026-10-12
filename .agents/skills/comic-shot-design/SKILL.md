@@ -5,92 +5,88 @@ description: Thiết kế storyboard, shot và phương án composition cho truy
 
 # Thiết kế shot
 
-Đi theo thứ tự: ý nghĩa kịch bản → trải nghiệm và cảm xúc người đọc → trọng tâm
-thị giác → thông tin cần hiểu → cách kể và bố cục → chi tiết hỗ trợ → số người
-trong khung.
+Đọc [quy tắc nghệ thuật](references/art-first-policy.md). Nguồn và identity xác định điều đúng; direction xác định cảm nhận; composition quyết định cách thể hiện.
 
-Không mặc định mọi dữ kiện trong nguồn đều phải được thể hiện trực diện. Phân
-biệt điều bắt buộc nhìn rõ, điều có thể suy ra từ tổng thể và điều chỉ hỗ trợ.
-Ưu tiên diễn xuất, quan hệ, nhịp điệu và khoảng trống diễn giải; nếu việc làm rõ
-một thông tin phụ khiến focus hoặc cảm xúc suy yếu, phải giản lược thông tin phụ.
+## Đánh giá không gian trước khi đề xuất shot
 
-Đọc các reference theo nhu cầu:
+Thứ tự: nguồn đã xác nhận → đánh giá không gian chữ–hình → xác định ưu tiên
+cảm xúc → đề xuất cỡ cảnh và hướng kể → dựng composition.
 
-- [cinematic-language.md](references/cinematic-language.md) cho shot và nhịp.
-- [emotional-flow.md](references/emotional-flow.md) cho chuỗi nhiều frame.
-- [composition-strategy.md](references/composition-strategy.md) khi lên bố cục.
-- [semantic-preview.md](references/semantic-preview.md) trước khi dựng preview.
-- [storyboard-schema.md](references/storyboard-schema.md) khi cần artifact có cấu
-  trúc hoặc bàn giao sang prompt.
+Trước khi đưa option:
 
-Mỗi ảnh là một shot, một khoảnh khắc và một focus thị giác chính. Focus có thể
-là cá nhân, quan hệ, tập thể, hoạt động, không gian hoặc dấu vết.
+- Kiểm tra canvas, lượng chữ, cỡ đọc, gáy, trim, fixed element và mask thật.
+- Xác định vùng có thể vẽ: kích thước, hình dạng, độ liên tục và khả năng dàn
+  lại chữ theo contract. Xét cả khoảng trống hiện có và không gian có thể tạo
+  bằng dàn lại chữ.
+- Chọn tín hiệu cần đọc rõ để truyền cảm xúc: ánh mắt, biểu cảm, cử chỉ, tư thế
+  hoặc quan hệ nhân vật; đánh giá khả năng đọc ở kích thước trang.
+- Tách nội dung thành: trọng tâm cần thấy rõ; context cần thấy đủ; chi tiết có
+  thể hàm ý hoặc ngoài khung.
+- Từ không gian và ưu tiên trên, chọn cỡ cảnh khả thi. Nêu đánh đổi giữa diễn
+  xuất, quy mô và bối cảnh.
+- Trình kết luận không gian ngắn trước các option. Mỗi option phải giải thích
+  vì sao cỡ cảnh phù hợp với trang. Thiếu bằng chứng thì ghi phần chưa kiểm.
 
-Chuyển động, bối cảnh và hành động phụ có thể được gợi bằng hướng, nhịp, chồng
-lớp, crop, phản ứng hoặc quan hệ không gian. Không phóng đại hành động, mở rộng
-khuôn hình hay thêm chi tiết chỉ để chứng minh một dữ kiện mà người đọc đã có
-thể suy ra đúng.
+Cấm:
 
-Khi có nhiều hướng kể hợp lệ, đưa 2–3 phương án đánh số; mỗi phương án nêu kết
-quả và đánh đổi trong một dòng. Không khóa số người tùy ý trước khi xác định ý
-nghĩa và bằng chứng cần thấy.
+- Đề xuất cỡ cảnh trước khi đánh giá không gian.
+- Coi khoảng trống dưới chữ hoặc `briefRegion` là khung bắt buộc khi không có
+  hard frame/mask thật.
+- Thu nhỏ chữ, bỏ nội dung hoặc thu nhỏ nhân vật đến mức mất tín hiệu cảm xúc
+  để nhét hình.
+- Đưa mọi dữ kiện nguồn vào hình với cùng mức ưu tiên.
+- Khẳng định bố cục khả thi chỉ bằng câu “chữ ôm hình”.
+- Khóa camera, crop, staging hoặc tọa độ trước khi người dùng chọn hướng kể.
+- Báo chữ đã vừa khi chưa có bằng chứng theo contract.
 
-Dòng kết quả và đánh đổi chỉ là phần tóm tắt mở đầu. Trước khi yêu cầu người
-dùng chọn, phải hiển thị một composition card dành cho người dùng ngay bên cạnh
-preview của từng option để họ kiểm tra cách AI hiểu cảnh.
+Agent tự thực hiện bước đánh giá; không thêm cổng xác nhận. Kiểm proxy chi
+tiết ở bước composition.
 
-Mỗi option phải có một composition preview PNG riêng để người dùng so sánh
-trước khi chọn. Preview là sơ đồ/thumbnail bố cục, không phải ảnh minh họa cuối:
+## Chọn hướng kể
 
-- dùng đúng aspect ratio và hình học frame/mask của layout khi có;
-- biểu diễn vị trí, tỷ lệ và crop của chủ thể chính; foreground/midground/
-  background; hướng nhìn, hướng chuyển động và eye path;
-- đánh dấu vùng chữ, safe zone hoặc phần dễ bị mask che khi chúng ảnh hưởng;
-- dùng nhãn ngắn hoặc legend nếu silhouette chưa đủ rõ, tránh chữ dài;
-- lưu từng option thành file PNG ổn định, có `optionId` trong tên, không ghi đè;
-- hiển thị đủ các PNG cùng mô tả và đánh đổi tại cổng lựa chọn.
+- Ưu tiên cảm nhận → ý nghĩa → ý tưởng thị giác → diễn xuất/quan hệ → khoảnh khắc → nhịp hình → context vừa đủ.
+- Highlight trong layout là ưu tiên kể chuyện, không phải yêu cầu thêm hiệu ứng hoặc sao chép vị trí hình.
+- Đề xuất 1–3 hướng khác nhau thật sự; mỗi hướng gồm bảy mục: Cảm nhận muốn để lại, Ý nghĩa hình ảnh, Khoảnh khắc, Trọng tâm cảm xúc, Cách kể dự kiến, Cỡ cảnh dự kiến và khả năng bố trí trong layout, Đánh đổi.
+- Mỗi option dùng kết quả đánh giá không gian ở trên để đề xuất cỡ cảnh, mức
+  chiếm trang/tỷ lệ nhân vật và cách bố trí chữ–hình dự kiến. Nêu tín hiệu cảm
+  xúc đọc được và đánh đổi về quy mô, bối cảnh.
+- Cỡ cảnh ở bước option là đề xuất để chọn hướng, chưa phải composition đã chốt. Chưa dựng preview hoặc khóa camera, crop, staging hay tọa độ trước khi người dùng chọn direction; triển khai và kiểm chứng chúng ở bước composition.
+- Sau chọn, ghi `confirmed.narrative_direction: true`, `confirmed.composition: false`.
 
-Preview chính phải là SVG semantic do Codex dựng riêng theo shot: silhouette đọc
-được đầu, thân, pose, hướng mặt/ánh nhìn, interaction và location anchor; dùng
-bảng màu lấy từ profile gốc đúng tập để phân biệt nhân vật. Sau đó chạy
-`scripts/render-composition-preview.js <semantic.svg> <composition.json>
-[output.png]` để kiểm contract và rasterize.
+## Dựng composition đã chọn
 
-Rectangle/bounding-box chỉ được dùng trong ảnh debug tạo bởi
-`scripts/render-composition-debug.js`; không trình bày debug-box như option cho
-người dùng chọn. Nếu semantic quality gate không đạt, bổ sung/customize SVG,
-không hạ xuống preview hình chữ nhật.
-Không dùng preview làm identity reference, style reference hoặc output sản xuất.
-Nếu không thể tạo PNG, nêu blocker thay vì cho người dùng chọn chỉ từ mô tả chữ.
+- Dùng lượng chữ và cỡ đọc làm ngân sách từ đầu; thiết kế nhịp hình trước, rồi art-direct chữ quanh hình. Cấm lấy khoảng trống layout nguồn làm khuôn staging.
+- Chọn cỡ cảnh và crop theo tín hiệu cần đọc, không mặc định toàn thân hoặc medium close-up.
+- Diễn xuất phải riêng cho cảnh: gaze, tay, posture, khoảng cách và subtext. Hỏi điều gì khiến hành động này khác hành động thông thường; cấm thay ý nghĩa bằng danh sách đạo cụ.
+- Tách hiện diện trong truyện, bằng chứng cần thấy và phần có thể hàm ý. Hoạt động đang diễn ra cần đủ tín hiệu để hiểu đúng, không mặc định mọi người phải hiện trọn trong khung.
+- Chọn `sceneExtentPlan` theo ý nghĩa và context tối thiểu; canvas lớn không buộc cảnh phủ trang.
+- Ghi `contextLocks`, `forbidden`, `creativeFreedom` riêng. Mỗi hard lock phải có nguồn hoặc xác nhận; inference không tạo hard lock.
+- Đánh giá ít nhất một cách kể cạnh tranh trong nội bộ khi bố cục đầu tiên quá thông thường; không tạo option giả hoặc ép người dùng qua thêm gate.
 
-## Cổng trình bày composition cho người dùng
+## Preview và QA
 
-Mỗi option phải có hai lớp artifact riêng:
+- Mặc định dựng phác thảo bằng SVG có source chỉnh sửa được, rồi render PNG theo [semantic-preview.md](references/semantic-preview.md). Giữ vị trí, tỷ lệ, pose và lớp sâu trong các group/tham số riêng để sửa cục bộ; mỗi revision lưu version mới, không ghi đè.
+- Preview phải đọc được camera, tỷ lệ, crop, hướng nhìn, cử chỉ chính, lớp sâu và quan hệ chữ–hình ở kích thước trang. Dùng silhouette và nét giản lược riêng cho cảnh; hình hộp/debug hoặc pose chung chỉ là draft nội bộ. Không yêu cầu nét, ánh sáng, chất liệu hoặc biểu cảm hoàn thiện như production.
+- Không gọi công cụ tạo ảnh cho phác thảo composition trừ khi người dùng yêu cầu rõ. Khi có override, ghi `SKIPPED_BY_USER` cho mặc định SVG trong deliverable hiện tại; lưu source và overlay phù hợp với phương pháp được yêu cầu.
+- Review nghệ thuật trước khi tinh chỉnh proof kỹ thuật. Nếu hình vô cảm, chia ô hoặc diễn xuất chưa rõ, sửa staging/camera; không bù bằng thêm đạo cụ hay mô tả.
+- Với chữ–hình, resolve [contract](../comic-layout-qa/references/text-artwork-integration.md). Proxy giữ lượng/cỡ chữ và nhịp đoạn, cho phép dàn khác mẫu. Sau khi hình đạt, kiểm burden và khả năng dàn chữ trước cổng duyệt.
+- Với crop, đọc [crop-read-contract.md](references/crop-read-contract.md); thân phải tiếp tục ngoài trim/khung thật hoặc sau vật che có nghĩa, không fade thân giữa trang.
+- Dùng renderer để kiểm artifact; marker đủ không chứng minh ý đồ kể chuyện đã đọc được. Nếu tín hiệu diễn xuất chưa kiểm chứng được bằng nét phác, ghi hạn chế và phần cần kiểm ở production; không tự ghi PASS hoặc đổi sang tạo ảnh.
+- Mỗi kết luận nghệ thuật phải có dấu hiệu nhìn thấy và hạn chế; kiểm ở thumbnail, kích thước đọc và crop. Cấm tự ghi PASS để mở gate.
 
-1. storyboard artifact đầy đủ theo `storyboard-schema.md`;
-2. preview contract tối thiểu chỉ phục vụ kiểm tra SVG và rasterize.
+## Duyệt và bàn giao
 
-Không dùng preview contract thay cho storyboard artifact. Các field kỹ thuật
-như actor, palette, location anchor và interaction không đủ để mở cổng lựa chọn.
+Lưu storyboard và preview riêng theo [storyboard-schema.md](references/storyboard-schema.md), version mới không ghi đè. Artifact chỉ giữ field áp dụng; không tạo placeholder cho đủ schema.
 
-Ngay dưới preview của từng option, hiển thị composition card gồm:
+Trình PNG toàn trang và card đúng chín mục: Ý nghĩa cảnh; Khoảnh khắc; Trọng tâm và eye path; Dàn cảnh; Cảm xúc; Bối cảnh bắt buộc; Không được xuất hiện; Ràng buộc layout; Đánh đổi. Không bắt người dùng đọc JSON để hiểu composition.
 
-- **Ý nghĩa cảnh:** option đang kể điều gì;
-- **Khoảnh khắc:** trước, trong hoặc sau hành động nào;
-- **Trọng tâm và eye path:** người đọc nhìn đâu trước và sau đó nhìn đâu;
-- **Dàn cảnh:** vị trí, tỷ lệ, hướng mặt, cử chỉ và crop của chủ thể;
-- **Cảm xúc:** cảm xúc cần đọc được và các cách hiểu sai phải tránh;
-- **Bối cảnh bắt buộc:** chi tiết cần thấy hoặc có thể gợi;
-- **Không được xuất hiện:** chi tiết sai continuity hoặc xảy ra sau scene;
-- **Ràng buộc layout:** mask, vùng chữ, gáy, safe zone và chi tiết dễ bị cắt;
-- **Đánh đổi:** điểm mạnh và phần giảm nhẹ so với option khác.
+`selectedPageComposition` là `PROPOSED` tới khi người dùng duyệt preview. Khóa ý nghĩa, moment, camera, quan hệ, hierarchy, crop và nhịp bố cục; placement/scale là định hướng, không khóa từng contour/tọa độ. Chỉ `CONFIRMED` mới sang prompt/production. Chưa tách layer hoặc ghi canon.
 
-Không yêu cầu người dùng mở JSON, manifest hoặc báo cáo để kiểm chứng. Cổng lựa
-chọn chỉ hợp lệ khi storyboard artifact đủ schema, preview PNG đã được kiểm tra
-trực quan, composition card đã hiển thị và ba lớp này khớp nhau.
+Phản hồi về chi tiết: sửa cục bộ. Phản hồi về hành động/cảm xúc: xét lại diễn xuất và camera. Phản hồi hình khô/chia ô: dựng lại staging và nhịp chữ–hình. Giữ direction trừ khi người dùng đổi cảm nhận, focus hoặc khoảnh khắc.
 
-Đầu ra phải đủ để `comic-prompt-writer` viết prompt mà không cần phát minh lại
-shot. Mỗi option khai báo continuity fact đã đọc, trạng thái không được đổi,
-chi tiết bị cấm và thay đổi dự kiến chỉ khi approved theo
-[storyboard-schema.md](references/storyboard-schema.md). Không coi composition
-card sơ bộ là phê duyệt cuối và không tự ghi ledger.
+## Reference theo nhu cầu
+
+- [cinematic-language.md](references/cinematic-language.md): shot và hàm ý.
+- [emotional-flow.md](references/emotional-flow.md): chuỗi nhiều hình.
+- [composition-strategy.md](references/composition-strategy.md): tổ chức nhịp và chiều sâu.
+- [proxy typography](../comic-layout-qa/references/proxy-typography-measurement.md): đo kỹ thuật sau thiết kế.

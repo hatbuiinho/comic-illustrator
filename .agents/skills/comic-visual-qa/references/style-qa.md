@@ -1,8 +1,30 @@
 # Style QA
 
-PASS khi line art rõ và nhất quán; màu là flat fills; bóng là 1–2 mảng cel có
-cạnh rõ; da, tóc, vải và background đều đọc như đồ họa 2D.
+Resolve chuẩn tại `docs/project-style-policy.md` của project trước review;
+reference này quy định cách đánh giá, không lập mức shading riêng.
 
-FAIL khi có CGI/3D/2.5D, tạo khối mềm, texture chân thực, soft airbrush,
-gradient nặng, glow, bloom, volumetric light, DOF, bokeh hoặc background bán
-hiện thực. Chuyển màu nền nhẹ chỉ PASS khi vẫn là mảng đồ họa và không tạo khối.
+PASS khi nét, silhouette và mảng màu thiết kế dẫn hình; shading và chi tiết
+cùng ngôn ngữ 2D. Cel-shading có thể kết hợp chuyển sắc mềm nhẹ, cục bộ theo
+policy. Không FAIL chỉ vì có gradient, nhiều hơn hai sắc độ hoặc vật liệu có
+biến thiên màu tiết chế. Không chữa style bằng xóa nếp vải, tóc, trang sức hoặc
+biến mọi đá thành khối hộp đều nhau.
+
+FAIL khi CGI/3D/2.5D, tạo khối sáng–tối liên tục kiểu render, highlight/vân
+mô phỏng vật liệu thật, texture ảnh dày, gradient nặng, bloom, volumetric light,
+DOF, bokeh hoặc background bán hiện thực lấn át thiết kế 2D.
+
+## Kiểm theo từng nhóm hình
+
+Không cho PASS chỉ vì nhân vật có outline. Chạy `styleConsistencyByElement` cho
+ít nhất: nhân vật, da/tóc/vải, đạo cụ chính, vật liệu kể chuyện (đá/gạch/gỗ),
+xe/công cụ và background tự nhiên khi xuất hiện. Với mỗi nhóm, nêu bằng chứng:
+
+- nét và các mảng chính có còn chi phối hình hay không;
+- độ mềm có cục bộ, tiết chế và phục vụ hình hay đã thành tạo khối kiểu render;
+- dấu nét/biến thiên màu có gợi vật liệu bằng thiết kế hay mô phỏng ảnh thật;
+- mức chi tiết, tương phản và shading có nhất quán với hierarchy của cả cảnh.
+
+Outline riêng lẻ không chứng minh 2D, cũng như màu phẳng riêng lẻ không chứng
+minh hình đẹp. Trả `STYLE_2D_MATERIAL_DRIFT` hoặc
+`STYLE_INCONSISTENT_BACKGROUND` khi có dấu hiệu cụ thể tương ứng. Delta sửa
+chỉ nhắm vùng drift, đồng thời bảo vệ chi tiết và độ mềm còn hợp policy.

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "contract": "TEXT_PROXY_INTEGRATION",
+  "spatialComparisonIgnored": true,
+  "sourceTextBurden": {
+    "contentUnits": 100,
+    "visualWeight": 100,
+    "readableScale": 1
+  },
+  "proxyTextBurden": {
+    "contentUnits": 62,
+    "visualWeight": 58,
+    "readableScale": 0.72,
+    "representedContent": "PARTIAL"
+  },
+  "readingContinuity": "PASS",
+  "readability": "PASS",
+  "artisticIntegration": "PASS"
+}

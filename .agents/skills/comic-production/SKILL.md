@@ -5,6 +5,9 @@ description: Điều phối trực tiếp quy trình minh họa truyện tranh n
 
 # Điều phối sản xuất truyện tranh
 
+Áp [quy tắc nghệ thuật](../comic-shot-design/references/art-first-policy.md).
+Chỉ dùng skill này khi được gọi đích danh; không thay entry point comic-page-guide.
+
 Skill này là explicit-only. Không tự động chọn, đọc hoặc gọi skill này chỉ vì
 người dùng yêu cầu làm hoàn chỉnh một page, frame hoặc chuỗi shot. Trong trường
 hợp đó, dùng `comic-page-guide`. Chỉ tiếp tục ở đây khi người dùng gọi đích danh
@@ -22,9 +25,13 @@ mới nhất của người dùng luôn được ưu tiên hơn mặc định c�
 4. Viết prompt: dùng `comic-prompt-writer`.
 5. Tạo, chỉnh hoặc tạo variant ảnh: dùng `comic-image-production`.
 6. Kiểm tra nội dung nhìn thấy: dùng `comic-visual-qa`.
-7. Kiểm tra ảnh trong layout: chỉ dùng `comic-layout-qa` khi deliverable gắn
-   với layout hoặc người dùng yêu cầu.
-8. Chuyển bản đã duyệt vào `approved/`: dùng `comic-delivery`; sau đó commit
+7. Kiểm tra master trong layout có chữ: dùng `comic-layout-qa` khi deliverable
+   gắn với layout; coi vùng brief là guide, không phải frame cứng.
+8. Khi người dùng chọn đúng master, ghi `SELECTED_FOR_LAYOUT`, dùng
+   `comic-image-production` tạo bộ `master + bg + mgfg + wrap + layout-preview`
+   đồng phiên bản rồi chạy layout QA kỹ thuật. Không tách layer cho variant chưa
+   chọn và không chạy anatomy QA.
+9. Chuyển cả bộ đã duyệt vào `approved/`: dùng `comic-delivery`; sau đó commit
    continuity event đã được xác nhận và invalidate đúng dependency downstream.
 
 Không chạy lại giai đoạn đã được người dùng chốt nếu dependency của giai đoạn

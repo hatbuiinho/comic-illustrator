@@ -23,6 +23,18 @@ if (has("data-render-mode", "debug-box")) errors.push("Debug-box SVG không đư
 if (!has("data-preview-type", "semantic-composition")) errors.push("SVG thiếu data-preview-type=semantic-composition.");
 
 const actors = contract.actors || [];
+if (contract.layoutBasis?.textIntegrationContract === "TEXT_PROXY_INTEGRATION") {
+  if (!contract.proxyFidelityProof) errors.push("TEXT_PROXY_INTEGRATION thiếu proxyFidelityProof.");
+  else {
+    const proofPath = path.resolve(path.dirname(contractPath), contract.proxyFidelityProof);
+    if (!fs.existsSync(proofPath)) errors.push(`proxyFidelityProof không tồn tại: ${contract.proxyFidelityProof}.`);
+    else {
+      const verifier = path.resolve(__dirname, "../../comic-layout-qa/scripts/verify-proxy-fidelity.js");
+      const result = spawnSync(process.execPath, [verifier, proofPath], { encoding: "utf8" });
+      if (result.status !== 0) errors.push(`proxyFidelityProof chưa PASS: ${(result.stdout || result.stderr || "").trim()}`);
+    }
+  }
+}
 if (!actors.length && !contract.allowNoActors) errors.push("Composition có nhân vật nhưng contract không khai báo actors.");
 for (const actor of actors) {
   if (!actor.id) { errors.push("Actor thiếu id."); continue; }
@@ -40,6 +52,15 @@ for (const actor of actors) {
   if (!colors.length) errors.push(`Actor ${actor.id} thiếu palette lấy từ profile.`);
   for (const color of colors) if (!svg.toLowerCase().includes(color.toLowerCase())) errors.push(`SVG chưa dùng màu ${color} của actor ${actor.id}.`);
 }
+for (const performance of contract.performanceContracts || []) {
+  if (!performance.actorId) { errors.push("performanceContract thiếu actorId."); continue; }
+  if (!performance.intendedRead) errors.push(`performanceContract ${performance.actorId} thiếu intendedRead.`);
+  if (!Array.isArray(performance.forbiddenReads) || !performance.forbiddenReads.length) errors.push(`performanceContract ${performance.actorId} thiếu forbiddenReads.`);
+  for (const part of ["gaze", "hand-gesture", "posture"]) {
+    const pattern = new RegExp(`data-owner=["']${escaped(performance.actorId)}["'][^>]*data-part=["']${escaped(part)}["']|data-part=["']${escaped(part)}["'][^>]*data-owner=["']${escaped(performance.actorId)}["']`, "i");
+    if (!pattern.test(svg)) errors.push(`Actor ${performance.actorId} thiếu performance semantic part: ${part}.`);
+  }
+}
 for (const anchor of contract.requiredLocationAnchors || []) if (!has("data-location-anchor", anchor)) errors.push(`Thiếu location anchor: ${anchor}.`);
 for (const interaction of contract.requiredInteractions || []) if (!has("data-interaction", interaction)) errors.push(`Thiếu interaction: ${interaction}.`);
 if (contract.layoutBasis?.pageImage && !has("data-role", "layout-raster")) errors.push("Có pageImage nhưng SVG thiếu layout raster layer.");
@@ -51,7 +72,10 @@ if (errors.length) {
   process.exit(1);
 }
 fs.mkdirSync(path.dirname(output), { recursive: true });
-const render = spawnSync("rsvg-convert", ["-o", output, svgPath], { encoding: "utf8" });
+const proofEnvironment = contract.proxyFidelityProof ? JSON.parse(fs.readFileSync(path.resolve(path.dirname(contractPath), contract.proxyFidelityProof), 'utf8')).renderEnvironment : null;
+const backend = proofEnvironment?.pangoCairoBackend;
+if (backend && !['fc', 'coretext'].includes(backend)) throw new Error('pangoCairoBackend không hợp lệ.');
+const render = spawnSync("rsvg-convert", ["-o", output, svgPath], { encoding: "utf8", env: backend ? {...process.env, PANGOCAIRO_BACKEND: backend} : process.env });
 if (render.status !== 0) {
   console.error(render.stderr || "Không rasterize được semantic SVG.");
   process.exit(render.status || 1);

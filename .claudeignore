@@ -1,0 +1,35 @@
+# ===== FILE BINARY & MEDIA =====
+# Claude không parse được nội dung ảnh/pdf/docx, chỉ tốn token khi cố đọc
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.svg
+*.psd
+*.clip
+*.pdf
+*.docx
+
+# ===== THƯ MỤC NẶNG =====
+# Tài liệu tham khảo tập cũ (97 MB PDF)
+referrences/
+
+# Thư mục tạm, output build
+tmp/
+outputs/
+
+# Môi trường ảo Python & toolchain local
+.venv/
+.tools/
+
+# QA overlay (chỉ cần đọc frame-report.md, không cần ảnh)
+**/qa/*.png
+**/qa/*.svg
+
+# Hàng đợi runtime
+sentry/queue/
+
+# Git & OS
+.git/
+.DS_Store

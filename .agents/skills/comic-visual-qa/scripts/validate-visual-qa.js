@@ -19,6 +19,20 @@ else if (!fs.existsSync(path.resolve(root, data.output))) errors.push(`Output kh
 if (data.inputStatus === "STALE" || data.inputStatus === "STALE_INPUT") errors.push("Input của visual QA đã stale.");
 const required = new Set(data.requiredChecks || []);
 const checks = data.checks || {};
+if (data.requiresPerformanceCoherence === true) {
+  const reads = data.performanceReadByCharacter;
+  if (!reads || typeof reads !== "object" || !Object.keys(reads).length) errors.push("Thiếu performanceReadByCharacter cho shot dựa vào cảm xúc.");
+  else {
+    for (const [actor, read] of Object.entries(reads)) {
+      if (!read.intendedRead || !read.observedRead) errors.push(`performanceReadByCharacter.${actor} thiếu intendedRead hoặc observedRead.`);
+      if (!allowed.has(read.status)) errors.push(`performanceReadByCharacter.${actor}: status không hợp lệ.`);
+      if (read.status === "FAIL" && (!read.conflictingSignals || !read.remediation)) errors.push(`performanceReadByCharacter.${actor}: FAIL cần conflictingSignals và remediation.`);
+    }
+  }
+  const coherence = data.groupEmotionalCoherence;
+  if (!coherence || !allowed.has(coherence.status)) errors.push("Thiếu groupEmotionalCoherence hợp lệ.");
+  else if (coherence.status === "FAIL" && (!coherence.evidence || !coherence.remediation)) errors.push("groupEmotionalCoherence FAIL cần evidence và remediation.");
+}
 for (const name of required) if (!checks[name]) errors.push(`Thiếu check REQUIRED: ${name}.`);
 for (const [name, raw] of Object.entries(checks)) {
   const check = typeof raw === "string" ? { status: raw } : raw;

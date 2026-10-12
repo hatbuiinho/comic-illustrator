@@ -2,7 +2,10 @@
 
 Mỗi hình chen là một shot riêng. Kiểm mask, tỷ lệ, text reserve và khả năng đọc
 ở kích thước layout. Spine chỉ áp dụng nếu frame thật sự giao vùng đóng sách.
-Intentional crop được phép khi vẫn giữ nghĩa, anatomy và recognition core.
+Intentional crop được phép khi vẫn giữ nghĩa, cử chỉ và recognition core.
+Điểm cắt là biên khung/mask inset thật; không kết thúc cơ thể tùy ý bên trong
+khung. Phân biệt crop tại biên với che khuất bởi vật thể theo
+[crop-read-contract.md](../../comic-shot-design/references/crop-read-contract.md).
 
 Với mask tròn, oval hoặc hình bất quy tắc, raw output phải là ảnh chữ nhật
 full-bleed và được kiểm riêng trước khi áp mask. FAIL nếu canvas/alpha đã cắt

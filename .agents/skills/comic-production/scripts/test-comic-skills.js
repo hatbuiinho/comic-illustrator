@@ -53,6 +53,14 @@ try {
   run("layout QA and PNG overlay", process.execPath, [path.join(root, "comic-layout-qa/scripts/layout-frame-qa.js"), path.join(root, "comic-layout-qa/tests/spine-skip.fixture.json"), path.join(temporary, "layout-qa")]);
   const overlays = fs.existsSync(path.join(temporary, "layout-qa")) ? fs.readdirSync(path.join(temporary, "layout-qa")).filter(name => name.endsWith("-overlay.png")) : [];
   results.push({ name: "layout overlay PNG exists", passed: overlays.length > 0, status: overlays.length ? 0 : 1, expected: 0, output: overlays.join(", ") });
+  const autoLayoutManifest = path.join(temporary, "auto-layout.json");
+  fs.writeFileSync(autoLayoutManifest, `${JSON.stringify({
+    defaults: { checks: { hardFrame: "NOT_APPLICABLE", ratio: "NOT_APPLICABLE", subjectExclusion: "REQUIRED", textReadability: "REQUIRED", textIntegrity: "REQUIRED", printSafe: "NOT_APPLICABLE", spine: "NOT_APPLICABLE" } },
+    spreads: [{ id: "auto-layout", canvas: { width: 900, height: 600 }, pageImage: "composition.png", artworks: [{ id: "fluid-art", layoutMode: "AUTO_LAYOUT", output: "composition.png", proposedTextFrames: [{ x: 0.05, y: 0.05, width: 0.3, height: 0.2 }], subjectExclusionZones: [{ x: 0.04, y: 0.04, width: 0.32, height: 0.22 }], subjectBounds: [{ id: "subject", box: { x: 0.55, y: 0.3, width: 0.3, height: 0.5 } }], readingOrder: ["body-1"], fixedTextElements: ["page-number"], textReadability: { status: "PASS", evidence: "Clean preview readable" }, textIntegrity: { status: "PASS", evidence: "Content and reading order preserved" } }] }]
+  }, null, 2)}\n`);
+  run("AUTO_LAYOUT rejects unverified reflow", process.execPath, [path.join(root, "comic-layout-qa/scripts/layout-frame-qa.js"), autoLayoutManifest, path.join(temporary, "auto-layout-qa")], 1);
+  run("text reflow evidence checks", process.execPath, ["--test", path.join(root, "comic-layout-qa/tests/text-reflow.test.js")]);
+  run("proxy fidelity artifact and region checks", process.execPath, ["--test", path.join(root, "comic-layout-qa/tests/proxy-fidelity.test.js")]);
   run("delivery preflight", process.execPath, [path.join(root, "comic-delivery/scripts/validate-delivery.js"), path.join(root, "comic-delivery/tests/valid.fixture.json")]);
   const deliveryDir = path.join(temporary, "delivery");
   fs.mkdirSync(path.join(deliveryDir, "outputs"), { recursive: true });
@@ -71,6 +79,23 @@ try {
   const delivered = fs.existsSync(path.join(deliveryDir, "approved", "art-v1.png"));
   const updated = fs.readFileSync(path.join(deliveryDir, "consumer.json"), "utf8").includes("approved/art-v1.png");
   results.push({ name: "delivery file and path updated", passed: delivered && updated, status: delivered && updated ? 0 : 1, expected: 0, output: `delivered=${delivered} updated=${updated}` });
+
+  const layeredDir = path.join(temporary, "layered-delivery");
+  fs.mkdirSync(path.join(layeredDir, "outputs"), { recursive: true });
+  for (const name of ["page-v3-master.png", "page-v3-bg.png", "page-v3-mgfg.png", "page-v3-wrap.svg", "page-v3-layout-preview.png"]) fs.writeFileSync(path.join(layeredDir, "outputs", name), "fixture");
+  const layeredManifest = path.join(layeredDir, "delivery.json");
+  fs.writeFileSync(layeredManifest, `${JSON.stringify({
+    outputs: ["outputs/page-v3-master.png", "outputs/page-v3-bg.png", "outputs/page-v3-mgfg.png", "outputs/page-v3-wrap.svg", "outputs/page-v3-layout-preview.png"],
+    approvedDir: "approved",
+    projectRoot: ".",
+    userSelectedOutput: true,
+    status: "layer-package-ready",
+    checks: { visualQa: "PASS", layoutQa: "PASS", layerPackage: "PASS" }
+  }, null, 2)}\n`);
+  run("layer package preflight", process.execPath, [path.join(root, "comic-delivery/scripts/validate-delivery.js"), layeredManifest]);
+  run("layer package delivery", process.execPath, [path.join(root, "comic-delivery/scripts/execute-delivery.js"), layeredManifest, "--execute"]);
+  const layeredDelivered = ["page-v3-master.png", "page-v3-bg.png", "page-v3-mgfg.png", "page-v3-wrap.svg", "page-v3-layout-preview.png"].every(name => fs.existsSync(path.join(layeredDir, "approved", name)));
+  results.push({ name: "layer package files delivered together", passed: layeredDelivered, status: layeredDelivered ? 0 : 1, expected: 0, output: `delivered=${layeredDelivered}` });
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

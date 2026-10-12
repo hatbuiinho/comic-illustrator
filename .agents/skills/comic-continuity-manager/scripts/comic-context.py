@@ -135,7 +135,7 @@ def validate(path: Path, data) -> list[str]:
             if isinstance(event, dict) and event.get("status") not in {"CONFIRMED", "REVOKED"}:
                 errors.append(f"Event {event_id or index} có status không hợp lệ.")
     if kind == "page-state" and data.get("stage") not in {
-        None, "scope", "source", "composition", "production", "visual_qa",
+        None, "scope", "source", "direction", "composition", "production", "visual_qa",
         "layout_qa", "delivery", "complete"
     }:
         errors.append(f"stage không hợp lệ: {data.get('stage')}.")

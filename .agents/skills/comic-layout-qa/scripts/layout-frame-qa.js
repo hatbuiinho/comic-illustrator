@@ -2,6 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
+const { verify: verifyTextReflow } = require("./verify-text-reflow");
 
 const [manifestArg, outputArg] = process.argv.slice(2);
 if (!manifestArg || ["-h", "--help"].includes(manifestArg)) {
@@ -117,10 +118,23 @@ for (const spread of manifest.spreads || []) {
     height: 1 - 2 * print.criticalSafePercent.y
   } : null;
 
-  for (const frame of spread.frames || []) {
+  const artworks = spread.artworks || spread.frames || [];
+  const legacyFrames = !spread.artworks && Array.isArray(spread.frames);
+  for (const frame of artworks) {
     const frameScope = `${scope}/${frame.id || "frame-khong-ten"}`;
-    evaluate("frame", frame, spread, frameScope, boxValid(frame.box), "Frame box không hợp lệ.", "Frame box hợp lệ.");
-    for (const [index, area] of (frame.textReserve || []).entries()) if (!boxValid(area)) fail(`${frameScope}/textReserve/${index}`, "Text reserve box không hợp lệ.");
+    const legacyHardMask = legacyFrames && ["ellipse", "circle", "oval", "irregular"].includes(frame.shape);
+    const hardFrame = frame.hardFrame || (legacyHardMask ? frame.box : null);
+    const briefRegion = frame.briefRegion || (legacyFrames && !legacyHardMask ? frame.box : null);
+    const layoutMode = frame.layoutMode || (!briefRegion && !hardFrame ? "GENERATION_LAYOUT_INTEGRATION" : "GUIDED");
+    const placement = frame.placement || hardFrame || { x: 0, y: 0, width: 1, height: 1 };
+    const textZones = frame.proposedTextFrames || frame.textZones || frame.textReserve || [];
+    const exclusionZones = frame.subjectExclusionZones || textZones;
+    const subjects = frame.subjectBounds || frame.critical || [];
+    if (briefRegion && !boxValid(briefRegion)) fail(`${frameScope}/briefRegion`, "briefRegion không hợp lệ.");
+    else if (briefRegion) pass(`${frameScope}/briefRegion`, "briefRegion hợp lệ và chỉ được dùng làm guide.");
+    if (hardFrame) evaluate("hardFrame", frame, spread, frameScope, boxValid(hardFrame), "Hard frame/mask không hợp lệ.", "Hard frame/mask hợp lệ.");
+    for (const [index, area] of textZones.entries()) if (!boxValid(area)) fail(`${frameScope}/textZones/${index}`, "Text zone không hợp lệ.");
+    for (const [index, area] of exclusionZones.entries()) if (!boxValid(area)) fail(`${frameScope}/subjectExclusionZones/${index}`, "Subject exclusion zone không hợp lệ.");
     if (frame.spine && !boxValid(frame.spine)) fail(`${frameScope}/spine`, "Spine box không hợp lệ.");
     let output = null;
     if (frame.output) {
@@ -129,50 +143,75 @@ for (const spread of manifest.spreads || []) {
       else try {
         const meta = imageSize(file);
         output = { ...meta, uri: dataUri(file, meta.mime) };
-        const expected = frame.box.width * canvas.width / (frame.box.height * canvas.height);
-        if (frame.contentFrame && !boxValid(frame.contentFrame)) fail(frameScope, "contentFrame không hợp lệ.");
-        const actual = boxValid(frame.contentFrame)
-          ? frame.contentFrame.width * meta.width / (frame.contentFrame.height * meta.height)
-          : meta.width / meta.height;
-        const error = Math.abs(actual / expected - 1);
-        evaluate("ratio", frame, spread, `${frameScope}/ratio`, error <= (frame.ratioTolerance ?? manifest.defaults?.ratioTolerance ?? 0.015), `Sai tỷ lệ ${(error * 100).toFixed(2)}%.`, `Tỷ lệ khớp, lệch ${(error * 100).toFixed(2)}%.`);
+        if (hardFrame && boxValid(hardFrame)) {
+          const expected = hardFrame.width * canvas.width / (hardFrame.height * canvas.height);
+          const actual = meta.width / meta.height;
+          const error = Math.abs(actual / expected - 1);
+          evaluate("ratio", frame, spread, `${frameScope}/ratio`, error <= (frame.ratioTolerance ?? manifest.defaults?.ratioTolerance ?? 0.015), `Sai tỷ lệ ${(error * 100).toFixed(2)}%.`, `Tỷ lệ khớp, lệch ${(error * 100).toFixed(2)}%.`);
+        } else skip(`${frameScope}/ratio`, "ratio: N/A vì artwork không có hard frame/mask.");
+        if (frame.contentFrame) warn(`${frameScope}/contentFrame`, "contentFrame là field legacy; không dùng nó làm briefRegion hoặc hard frame khi migrate.");
       } catch (error) { fail(frameScope, error.message); }
     } else warn(frameScope, "Chưa có output; chỉ kiểm guide.");
 
-    for (const critical of frame.critical || []) {
+    for (const critical of subjects) {
       const criticalScope = `${frameScope}/${critical.id || "critical"}`;
       if (!boxValid(critical.box)) { fail(criticalScope, "Critical box không hợp lệ."); continue; }
-      const inMask = frame.shape === "ellipse"
-        ? insideEllipse(frame.box, critical.box)
-        : contains(frame.box, critical.box);
-      evaluate("frame", frame, spread, criticalScope, inMask, "Chi tiết nằm ngoài frame/mask.", "Chi tiết nằm trong frame/mask.");
+      if (hardFrame && boxValid(hardFrame)) {
+        const inMask = frame.shape === "ellipse"
+          ? insideEllipse(hardFrame, critical.box)
+          : contains(hardFrame, critical.box);
+        evaluate("hardFrame", frame, spread, criticalScope, inMask, "Chi tiết nằm ngoài hard frame/mask.", "Chi tiết nằm trong hard frame/mask.");
+      }
       if (safe) evaluate("printSafe", frame, spread, `${criticalScope}/printSafe`, contains(safe, critical.box), "Chi tiết vượt critical-safe.", "Chi tiết nằm trong critical-safe.");
       else if (checkStatus("printSafe", frame, spread) === "REQUIRED") fail(`${criticalScope}/printSafe`, "Thiếu defaults.printTrim.criticalSafePercent.");
-      const textHit = (frame.textReserve || []).some(area => intersects(critical.box, area));
-      evaluate("textReserve", frame, spread, `${criticalScope}/textReserve`, !textHit, "Chi tiết đè vùng chữ.", "Chi tiết không đè vùng chữ.");
+      const textHit = exclusionZones.some(area => intersects(critical.box, area));
+      evaluate("subjectExclusion", frame, spread, `${criticalScope}/subjectExclusion`, !textHit, "Chủ thể/chi tiết kể chuyện đè vùng chữ.", "Chủ thể/chi tiết kể chuyện không đè vùng chữ.");
       const spineHit = frame.spine && intersects(critical.box, frame.spine);
       evaluate("spine", frame, spread, `${criticalScope}/spine`, !spineHit, "Chi tiết rơi vào gáy.", "Chi tiết không rơi vào gáy.");
     }
-    prepared.push({ frame, output });
+    const cleanPreview = frame.layerPackage?.layoutPreview;
+    if (cleanPreview && !fs.existsSync(resolve(cleanPreview))) fail(`${frameScope}/layoutPreview`, `Không tìm thấy clean layout preview: ${cleanPreview}`);
+    else if (cleanPreview) pass(`${frameScope}/layoutPreview`, "Đã có clean layout preview với chữ thật.");
+    const readabilityConfigured = !legacyFrames || frame.textReadability || manifest.defaults?.checks?.textReadability;
+    const readabilityPassed = frame.textReadability?.status === "PASS" && frame.textReadability?.evidence;
+    if (readabilityConfigured) evaluate("textReadability", frame, spread, `${frameScope}/textReadability`, Boolean(readabilityPassed), "Thiếu kết quả review clean preview hoặc chữ chưa đọc tốt trên background.", "Clean preview xác nhận chữ đọc tốt trên background.");
+    else skip(`${frameScope}/textReadability`, "Legacy manifest chưa khai báo textReadability; cần migrate để bật check này.");
+    if (["GENERATION_LAYOUT_INTEGRATION", "TEXT_FIRST_AUTO_LAYOUT", "AUTO_LAYOUT"].includes(layoutMode)) {
+      const proof = typeof frame.textCapacityProof === "string"
+        ? verifyTextReflow(resolve(frame.textCapacityProof))
+        : { status: "FAIL", errors: ["Thiếu đường dẫn textCapacityProof; cần bổ sung dữ liệu reflow."] };
+      evaluate("textCapacity", frame, spread, `${frameScope}/textCapacity`, proof.status === "PASS", proof.errors.join("; "), "Dữ liệu reflow giữ nguyên chữ, typography và vừa vùng dòng đã xuất.");
+      const textIntegrityPassed = frame.textIntegrity?.status === "PASS" && frame.textIntegrity?.evidence;
+      const hasReadingOrder = Array.isArray(frame.readingOrder) && frame.readingOrder.length > 0;
+      evaluate("textIntegrity", frame, spread, `${frameScope}/textIntegrity`, Boolean(textIntegrityPassed && hasReadingOrder), "Layout chưa chứng minh nguyên văn và thứ tự đọc được giữ.", "Nội dung và thứ tự đọc được giữ sau reflow.");
+      if (["GENERATION_LAYOUT_INTEGRATION", "TEXT_FIRST_AUTO_LAYOUT"].includes(layoutMode)) {
+        const typographyIntegrityPassed = frame.typographyIntegrity?.status === "PASS" && frame.typographyIntegrity?.evidence;
+        const hasTypographyLock = frame.typographyLock && typeof frame.typographyLock === "object";
+        evaluate("typographyIntegrity", frame, spread, `${frameScope}/typographyIntegrity`, Boolean(typographyIntegrityPassed && hasTypographyLock), `${layoutMode} thiếu typographyLock hoặc đã thay đổi typography để ép chữ vừa.`, "Typography khớp layout gốc; chỉ text frame và wrap path thay đổi.");
+      }
+    } else skip(`${frameScope}/textIntegrity`, "textIntegrity: N/A vì layout không dùng auto layout.");
+    prepared.push({ frame, output, hardFrame, briefRegion, placement, textZones, exclusionZones, subjects, cleanPreview, layoutMode });
   }
 
   let overlay = null;
   if (background) {
     const guides = [];
     const art = [];
-    for (const { frame, output } of prepared) {
-      if (output && boxValid(frame.contentFrame)) {
+    for (const { frame, output, hardFrame, briefRegion, placement, textZones, exclusionZones, subjects } of prepared) {
+      if (output && legacyFrames && hardFrame && boxValid(frame.contentFrame) && boxValid(frame.box)) {
         const cf = frame.contentFrame;
         const sx = frame.box.width * canvas.width / (cf.width * output.width);
         const sy = frame.box.height * canvas.height / (cf.height * output.height);
         art.push(`<image href="${output.uri}" x="${frame.box.x * canvas.width - cf.x * output.width * sx}" y="${frame.box.y * canvas.height - cf.y * output.height * sy}" width="${output.width * sx}" height="${output.height * sy}" preserveAspectRatio="none" opacity="0.86"/>`);
-      } else if (output) art.push(`<image href="${output.uri}" x="${frame.box.x * canvas.width}" y="${frame.box.y * canvas.height}" width="${frame.box.width * canvas.width}" height="${frame.box.height * canvas.height}" preserveAspectRatio="xMidYMid slice" opacity="0.86"/>`);
-      if (frame.shape === "ellipse") {
-        guides.push(`<ellipse cx="${(frame.box.x + frame.box.width / 2) * canvas.width}" cy="${(frame.box.y + frame.box.height / 2) * canvas.height}" rx="${frame.box.width * canvas.width / 2}" ry="${frame.box.height * canvas.height / 2}" fill="none" stroke="#00b7ff" stroke-width="3" stroke-dasharray="10 7"/>`);
-      } else guides.push(rect(frame.box, canvas, 'fill="none" stroke="#00b7ff" stroke-width="3" stroke-dasharray="10 7"'));
-      for (const area of frame.textReserve || []) guides.push(rect(area, canvas, 'fill="#ffd400" fill-opacity="0.18" stroke="#bd8d00"'));
+      } else if (output) art.push(`<image href="${output.uri}" x="${placement.x * canvas.width}" y="${placement.y * canvas.height}" width="${placement.width * canvas.width}" height="${placement.height * canvas.height}" preserveAspectRatio="xMidYMid slice" opacity="0.86"/>`);
+      if (hardFrame && frame.shape === "ellipse") {
+        guides.push(`<ellipse cx="${(hardFrame.x + hardFrame.width / 2) * canvas.width}" cy="${(hardFrame.y + hardFrame.height / 2) * canvas.height}" rx="${hardFrame.width * canvas.width / 2}" ry="${hardFrame.height * canvas.height / 2}" fill="none" stroke="#00b7ff" stroke-width="3" stroke-dasharray="10 7"/>`);
+      } else if (hardFrame) guides.push(rect(hardFrame, canvas, 'fill="none" stroke="#00b7ff" stroke-width="3" stroke-dasharray="10 7"'));
+      if (briefRegion) guides.push(rect(briefRegion, canvas, 'fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-dasharray="5 7"'));
+      for (const area of textZones) guides.push(rect(area, canvas, 'fill="#ffd400" fill-opacity="0.12" stroke="#bd8d00"'));
+      for (const area of exclusionZones) guides.push(rect(area, canvas, 'fill="#ff8c42" fill-opacity="0.08" stroke="#d65a00" stroke-dasharray="8 5"'));
       if (frame.spine) guides.push(rect(frame.spine, canvas, 'fill="#ef3340" fill-opacity="0.22" stroke="#b5121b"'));
-      for (const item of frame.critical || []) guides.push(rect(item.box, canvas, 'fill="#75ff62" fill-opacity="0.15" stroke="#178c23"'));
+      for (const item of subjects) guides.push(rect(item.box, canvas, 'fill="#75ff62" fill-opacity="0.15" stroke="#178c23"'));
     }
     if (safe) guides.push(rect(safe, canvas, 'fill="none" stroke="#20a840" stroke-width="4"'));
     const base = path.join(outputDir, `${scope.replace(/[^a-zA-Z0-9_-]/g, "_")}-overlay`);
