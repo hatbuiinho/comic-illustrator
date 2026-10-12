@@ -1,0 +1,29 @@
+artifactType: page-state
+schemaVersion: 2
+scope:
+  episode: fixture
+  part: Part 1
+  page: 1
+  frame: null
+status: CURRENT
+stage: production
+confirmed:
+  target: true
+  sourceSnapshot: true
+  narrativeDirection: true
+  composition: true
+  productionRun: false
+active:
+  direction: direction-1
+  composition: page001-d1-v01
+  compositionStatus: CONFIRMED
+  candidate: null
+artifacts: {}
+userConfirmed:
+  - key: page001.composition
+    value: "Duyệt composition v01."
+    date: "2026-10-12"
+    evidence: fixture-user-confirmation
+pendingQuestion: null
+unresolved: []
+staleReasons: []

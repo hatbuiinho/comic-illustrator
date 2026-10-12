@@ -7,8 +7,10 @@ trong từng thư mục tập.
 ## Cấu trúc
 
 ```text
-.agents/skills/       Workflow dùng chung
+.agents/skills/       Workflow dùng chung (nguồn duy nhất của skill)
+.claude/skills        Symlink tới .agents/skills/ cho Claude Code
 AGENTS.md             Quy tắc nền và routing
+CLAUDE.md             Chỉ dẫn riêng cho Claude, import AGENTS.md
 Tap 53/               Dữ liệu riêng của Tập 53
   notes.md            Dữ kiện và ngoại lệ cấp tập
   shot_notes.md       Continuity/nhịp shot riêng của tập
@@ -20,8 +22,9 @@ Tap 53/               Dữ liệu riêng của Tập 53
 
 | Skill | Dùng khi |
 | --- | --- |
-| `comic-page-guide` | Dẫn người dùng từng bước và xin xác nhận tại mỗi cổng |
-| `comic-production` | Làm một page/frame hoàn chỉnh qua nhiều giai đoạn |
+| `comic-page-guide` | **Entry point mặc định** cho mọi yêu cầu tạo, tiếp tục, sửa, variant hoặc hoàn thiện minh họa; điều phối các skill bên dưới |
+| `comic-production` | Chỉ khi người dùng gọi đích danh; không tự được chọn |
+| `comic-continuity-manager` | Biên dịch, truy vấn và cập nhật continuity context |
 | `comic-source-reader` | Đọc và kiểm chứng nguồn |
 | `comic-shot-design` | Lên storyboard hoặc composition |
 | `comic-prompt-writer` | Viết prompt từ shot đã chọn |
@@ -30,12 +33,13 @@ Tap 53/               Dữ liệu riêng của Tập 53
 | `comic-layout-qa` | QA ảnh trong layout |
 | `comic-delivery` | Lưu bản đã duyệt vào `approved/` |
 
-Codex có thể tự chọn skill theo mô tả. Có thể gọi trực tiếp bằng `$ten-skill`
-khi muốn khóa workflow cụ thể.
+Yêu cầu minh họa thông thường luôn đi qua `comic-page-guide` theo routing trong
+`AGENTS.md`; các skill chuyên môn có thể gọi thẳng cho tác vụ độc lập. Gọi trực
+tiếp bằng `$ten-skill` (Codex) hoặc `/ten-skill` (Claude Code).
 
 ## Chuẩn bị máy Windows
 
-Người dùng Codex không cần mở PowerShell hoặc tự chạy lệnh. Khi một tác vụ cần
+Người dùng không cần mở PowerShell hoặc tự chạy lệnh. Khi một tác vụ cần
 tool local, agent tự chạy bootstrap trước rồi mới xử lý. Windows 10/11 cần có
 `winget` (Microsoft App Installer) và kết nối Internet trong lần cài đầu tiên.
 
@@ -82,7 +86,7 @@ AI cũng không được cài bởi bootstrap vì được cung cấp qua dịch
 
 ## Chuẩn bị máy macOS
 
-Người dùng Codex không cần mở Terminal hoặc tự chạy lệnh. Khi một tác vụ cần
+Người dùng không cần mở Terminal hoặc tự chạy lệnh. Khi một tác vụ cần
 tool local, agent tự chạy bootstrap trước rồi mới xử lý. Nếu máy chưa có
 Homebrew, bootstrap tự chạy installer chính thức; macOS có thể hiện yêu cầu
 nhập mật khẩu quản trị. Máy cần kết nối Internet trong lần cài đầu tiên.

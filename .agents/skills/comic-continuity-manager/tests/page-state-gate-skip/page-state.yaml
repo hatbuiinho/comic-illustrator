@@ -1,0 +1,17 @@
+artifactType: page-state
+schemaVersion: 2
+scope:
+  episode: fixture
+  part: Part 1
+  page: 1
+status: CURRENT
+stage: production
+confirmed:
+  target: true
+  sourceSnapshot: true
+  narrativeDirection: true
+  composition: false
+active:
+  direction: direction-1
+  composition: page001-d1-v01
+  compositionStatus: PROPOSED

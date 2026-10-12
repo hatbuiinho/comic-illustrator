@@ -1,0 +1,12 @@
+schemaVersion: 1
+scope:
+  episode: fixture
+  part: Part 1
+  page: 1
+stage: composition
+confirmed:
+  target: true
+  source_snapshot: true
+active_choice: null
+pending_question: confirm_composition
+stale_reasons: []

@@ -61,6 +61,9 @@ context locks, forbidden facts, đường dẫn artifact hiện hành, pending q
 và stale reasons. Page state ghi nhớ quyết định, không thay thế artifact chuyên
 môn và không ghi output là canonical trước delivery.
 
+Cấu trúc bắt buộc theo [page-state-schema.md](page-state-schema.md)
+(schemaVersion 2); validator từ chối schema cũ.
+
 ## Continuity ledger
 
 Lưu event theo trật tự truyện. Mỗi event có `eventId`, `effectiveAfter`, scope,

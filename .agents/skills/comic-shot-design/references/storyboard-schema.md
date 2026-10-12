@@ -22,7 +22,8 @@ preview. Mỗi direction gồm:
 Cho phép đề xuất cỡ cảnh và đánh giá khả năng bố trí định tính để người dùng
 chọn direction. Chưa khóa camera, staging, scale, crop hoặc tọa độ; chưa dựng
 composition preview hay layout proof trước khi direction được chọn. Trạng thái sau khi chọn direction là
-`confirmed.narrative_direction: true`, `confirmed.composition: false`.
+`confirmed.narrativeDirection: true`, `confirmed.composition: false` trong
+page-state; `active.compositionStatus` phản chiếu `selectedPageComposition.status`.
 
 ## Storyboard đầy đủ cho direction đã chọn
 

@@ -11,6 +11,9 @@ page dang dở.
 4. Cuối câu trả lời, trình bày mỗi câu trả lời/bước tiếp theo trong một code
    block riêng để người dùng có thể copy nguyên khối. Không gom nhiều phương án
    vào cùng một block; mỗi block phải tự đủ nghĩa và đặt lựa chọn đề xuất trước.
+   Giữ mẫu trả lời thuần văn bản trong block; không thêm bullet hoặc số thứ tự
+   trước câu hay trước block. Bullet/đánh số ở phần giải thích option hoặc
+   composition không thay thế các mẫu trả lời có thể copy ở cuối lượt hỏi.
 
 Ví dụ chọn narrative direction nhanh, chưa tạo ảnh (dùng hàng rào ngoài khác
 loại để thể hiện khối copy bên trong):
@@ -66,37 +69,12 @@ câu kết.
 
 ## Phiếu tiến độ nội bộ
 
-Giữ trạng thái trong artifact hiện có của page nếu workflow của page đã có nơi
-lưu quyết định. Nếu workflow kéo dài qua nhiều phiên, dùng `page-state` theo mô
-hình của `comic-continuity-manager`; nếu chưa cần tái sử dụng thì chỉ duy trì
-trong hội thoại. Không tạo hai nguồn trạng thái song song.
-
-```yaml
-target:
-  episode: null
-  part: null
-  page: null
-  scope: null
-stage: scope
-confirmed:
-  target: false
-  source_snapshot: false
-  narrative_direction: false
-  composition: false
-  production_run: false
-  qa_resolution: false
-  final_output: false
-active_direction: null
-active_choice: null
-pending_question: confirm_target
-context_revision: {}
-stale_reasons: []
-```
-
-`stage` chỉ nhận một trong: `scope`, `source`, `direction`, `composition`, `production`,
-`visual_qa`, `selected_for_layout`, `layer_package`, `layout_qa`, `delivery`,
-`complete`. `production` bao gồm viết prompt kỹ thuật và tạo master; tách layer
-chỉ chạy ở `layer_package` sau khi người dùng chọn master.
+Nếu workflow kéo dài qua nhiều phiên, lưu trạng thái tại
+`page-XXX/page-state.yaml` theo đúng
+[page-state-schema.md](../../comic-continuity-manager/references/page-state-schema.md);
+nếu chưa cần tái sử dụng thì chỉ duy trì trong hội thoại. Không tạo hai nguồn
+trạng thái song song và không tự đặt key/stage ngoài schema. Validate sau mỗi
+lần ghi. Tách layer chỉ chạy ở `layer_package` sau khi người dùng chọn master.
 
 ## Diễn giải thuật ngữ
 

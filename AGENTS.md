@@ -16,6 +16,10 @@ sao chép các chi tiết đó vào đây khi cập nhật workflow.
   cỡ cảnh/bố trí và đánh đổi thành một đoạn văn dài. Giữ các mục theo skill
   đang áp dụng; đây là quy tắc trình bày chung cho mọi người dùng project.
 - Nội dung người dùng cần copy phải đầy đủ trong code block hoặc writing block.
+  Với mẫu câu trả lời để chọn hoặc duyệt bước tiếp theo, đặt mỗi mẫu trong một
+  block riêng, giữ câu trả lời thuần văn bản, không thêm bullet hoặc số thứ tự
+  vào trước câu hay trước block. Quy tắc đầu dòng cho chi tiết option/composition
+  ở trên chỉ áp dụng cho phần giải thích, không thay thế các block có thể copy.
 
 ## Phạm vi nguồn
 
@@ -39,7 +43,7 @@ các chỉ dẫn hệ thống và môi trường đang có hiệu lực.
 3. Continuity hoặc ngoại lệ trong `shot_notes.md` của đúng tập.
 4. Skill phù hợp trong `.agents/skills/`.
 5. Quy tắc nền trong file này và policy chung được dẫn chiếu.
-6. Giả định sáng tạo của Codex.
+6. Giả định sáng tạo của agent.
 
 Một override rõ của người dùng phải được ghi là `SKIPPED_BY_USER`, không được
 âm thầm áp lại quy tắc mặc định. Nếu người dùng không nêu phạm vi, override chỉ

@@ -51,7 +51,7 @@ tiết ở bước composition.
   chiếm trang/tỷ lệ nhân vật và cách bố trí chữ–hình dự kiến. Nêu tín hiệu cảm
   xúc đọc được và đánh đổi về quy mô, bối cảnh.
 - Cỡ cảnh ở bước option là đề xuất để chọn hướng, chưa phải composition đã chốt. Chưa dựng preview hoặc khóa camera, crop, staging hay tọa độ trước khi người dùng chọn direction; triển khai và kiểm chứng chúng ở bước composition.
-- Sau chọn, ghi `confirmed.narrative_direction: true`, `confirmed.composition: false`.
+- Sau chọn, ghi page-state `confirmed.narrativeDirection: true`, `confirmed.composition: false`.
 
 ## Dựng composition đã chọn
 

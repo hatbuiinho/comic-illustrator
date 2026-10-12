@@ -4,7 +4,7 @@
 sửa được và render PNG để review. Không dùng công cụ tạo ảnh ở bước này trừ khi
 người dùng yêu cầu rõ; ngoại lệ được ghi `SKIPPED_BY_USER` cho deliverable hiện tại.
 
-Preview SVG do Codex dựng riêng theo shot, dùng silhouette, pose,
+Preview SVG do agent dựng riêng theo shot, dùng silhouette, pose,
 interaction, background và bảng màu lấy từ profile đúng tập. Script chỉ kiểm
 contract và rasterize; không thay cảnh bằng bounding box.
 
@@ -52,7 +52,7 @@ crop đọc được cụm mặt–tay–quan hệ, không chỉ thumbnail toàn
 
 ## Routing
 
-1. Sau khi narrative direction đã được chọn, Codex viết semantic SVG phù hợp
+1. Sau khi narrative direction đã được chọn, agent viết semantic SVG phù hợp
    riêng với composition đang đề xuất.
 2. Chạy `scripts/render-composition-preview.js <svg> <contract.json> [png]`.
 3. Nếu quality gate báo `SEMANTIC_RENDER_INSUFFICIENT`, bổ sung SVG; không hạ

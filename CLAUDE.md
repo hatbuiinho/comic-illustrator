@@ -1,5 +1,10 @@
 # Comic Project — Claude Instructions
 
+Chỉ dẫn chung, routing skill và khóa phong cách nằm trong `AGENTS.md`
+(dùng chung cho mọi agent):
+
+@AGENTS.md
+
 ## Ngôn ngữ
 - Trả lời bằng tiếng Việt. Giữ nguyên thuật ngữ kỹ thuật và tên file.
 
@@ -9,6 +14,12 @@
 - Không chạy lệnh build/test toàn project trừ khi được yêu cầu.
 - Khi cần ngữ cảnh nhân vật hoặc cảnh, chỉ đọc file `.md` profile, KHÔNG mở file `.png`.
 
+## Skill trong Claude Code
+- `.claude/skills` là symlink tới `.agents/skills/`; chỉ sửa skill tại `.agents/skills/`.
+- Gọi skill bằng `/<ten-skill>` (ví dụ `/comic-page-guide`). `comic-production`
+  chỉ dùng khi người dùng gọi đích danh, theo routing trong `AGENTS.md`.
+- `agents/openai.yaml` trong mỗi skill là cấu hình riêng của Codex; Claude bỏ qua.
+
 ## Cấu trúc project
 - `AGENTS.md` — Chỉ dẫn chung và routing skill.
 - `Tap XX/notes.md` — Dữ kiện và ngoại lệ theo tập.
@@ -17,7 +28,4 @@
 - `.agents/skills/` — 10 skill chuyên môn, chỉ đọc skill liên quan.
 
 ## Thứ tự ưu tiên
-1. Yêu cầu trực tiếp của người dùng
-2. `notes.md` → `shot_notes.md` của đúng tập
-3. Skill phù hợp trong `.agents/skills/`
-4. Quy tắc trong file này
+Theo mục **Thứ tự ưu tiên trong project** của `AGENTS.md`.

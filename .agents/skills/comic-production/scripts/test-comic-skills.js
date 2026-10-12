@@ -20,6 +20,9 @@ try {
   run("continuity validate", "python3", [context, "validate", ledger]);
   run("continuity valid event", "python3", [context, "commit-event", ledger, path.join(root, "comic-continuity-manager/tests/event.fixture.yaml")]);
   run("continuity rejects inference", "python3", [context, "commit-event", ledger, path.join(root, "comic-continuity-manager/tests/invalid-inference-event.fixture.yaml")], 2);
+  run("page-state v2 valid", "python3", [context, "validate", path.join(root, "comic-continuity-manager/tests/page-state-v2/page-state.yaml")]);
+  run("page-state rejects legacy schema", "python3", [context, "validate", path.join(root, "comic-continuity-manager/tests/page-state-legacy/page-state.yaml")], 1);
+  run("page-state rejects production before composition", "python3", [context, "validate", path.join(root, "comic-continuity-manager/tests/page-state-gate-skip/page-state.yaml")], 1);
   const episode = path.join(temporary, "episode");
   fs.mkdirSync(path.join(episode, "continuity"), { recursive: true });
   fs.writeFileSync(path.join(episode, "episode.json"), '{}\n');

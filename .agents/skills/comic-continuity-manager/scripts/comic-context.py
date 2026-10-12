@@ -16,6 +16,20 @@ import yaml
 
 PROVENANCE = {"sourceFact", "userConfirmed", "assistantInference"}
 STATUSES = {"CURRENT", "STALE", "CONFLICT"}
+PAGE_STATE_VERSION = 2
+PAGE_STAGES = [
+    "scope", "source", "direction", "composition", "production", "visual_qa",
+    "selected_for_layout", "layer_package", "layout_qa", "delivery", "complete",
+]
+PAGE_GATES = [
+    "target", "sourceSnapshot", "narrativeDirection", "composition",
+    "productionRun", "qaResolution", "selectedForLayout", "finalOutput",
+]
+PAGE_LEGACY_KEYS = {
+    "confirmedGates", "activeChoice", "active_choice", "active_direction",
+    "pending_question", "stale_reasons", "next_action", "selectedPageComposition", "target",
+}
+COMPOSITION_STATUSES = {None, "PROPOSED", "CONFIRMED"}
 
 
 def load_data(path: Path):
@@ -68,10 +82,12 @@ def episode_root(artifact: Path) -> Path:
     return start
 
 
-def artifact_kind(data) -> str:
+def artifact_kind(data, path: Path | None = None) -> str:
     explicit = data.get("artifactType") if isinstance(data, dict) else None
     if explicit:
         return explicit
+    if path is not None and path.stem == "page-state":
+        return "page-state"
     if isinstance(data, dict) and "events" in data:
         return "continuity-ledger"
     if isinstance(data, dict) and ("stage" in data or "pendingQuestion" in data):
@@ -120,7 +136,7 @@ def validate(path: Path, data) -> list[str]:
             errors.append(f"facts[{index}] provenance không hợp lệ: {provenance}.")
         if not fact.get("evidence"):
             errors.append(f"facts[{index}] thiếu evidence.")
-    kind = artifact_kind(data)
+    kind = artifact_kind(data, path)
     if kind == "continuity-ledger":
         seen = set()
         for index, event in enumerate(data.get("events", []) or []):
@@ -134,12 +150,105 @@ def validate(path: Path, data) -> list[str]:
                 errors.append(f"Event {event_id or index} không được dùng assistantInference.")
             if isinstance(event, dict) and event.get("status") not in {"CONFIRMED", "REVOKED"}:
                 errors.append(f"Event {event_id or index} có status không hợp lệ.")
-    if kind == "page-state" and data.get("stage") not in {
-        None, "scope", "source", "direction", "composition", "production", "visual_qa",
-        "layout_qa", "delivery", "complete"
-    }:
-        errors.append(f"stage không hợp lệ: {data.get('stage')}.")
+    if kind == "page-state":
+        errors.extend(validate_page_state(path, data))
     return errors
+
+
+def page_state_paths(data):
+    active = data.get("active") or {}
+    for key in ("candidate", "bestAestheticVersion", "selectedVersion"):
+        if isinstance(active.get(key), str):
+            yield f"active.{key}", active[key]
+    for key, value in (data.get("artifacts") or {}).items():
+        values = value if isinstance(value, list) else [value]
+        for item in values:
+            if isinstance(item, str):
+                yield f"artifacts.{key}", item
+    for index, item in enumerate(data.get("candidates") or []):
+        if isinstance(item, dict):
+            for key in ("path", "qa"):
+                if isinstance(item.get(key), str):
+                    yield f"candidates[{index}].{key}", item[key]
+    for index, item in enumerate(data.get("superseded") or []):
+        if isinstance(item, str):
+            yield f"superseded[{index}]", item
+
+
+def validate_page_state(path: Path, data) -> list[str]:
+    """Schema page-state v2: references/page-state-schema.md."""
+    errors: list[str] = []
+    if path.suffix.lower() != ".yaml":
+        errors.append("page-state phải là file .yaml.")
+    if data.get("schemaVersion") != PAGE_STATE_VERSION:
+        errors.append(f"page-state phải dùng schemaVersion {PAGE_STATE_VERSION}; migrate theo references/page-state-schema.md.")
+    legacy = sorted(PAGE_LEGACY_KEYS & set(data))
+    if legacy:
+        errors.append(f"Key schema cũ: {', '.join(legacy)}.")
+    scope = data.get("scope") or {}
+    for key in ("episode", "part", "page"):
+        if scope.get(key) in (None, ""):
+            errors.append(f"scope.{key} bắt buộc.")
+    if scope.get("page") is not None and not isinstance(scope.get("page"), int):
+        errors.append("scope.page phải là số nguyên.")
+    if isinstance(scope.get("part"), int):
+        errors.append("scope.part phải là tên thư mục, ví dụ \"Part 1\".")
+    stage = data.get("stage")
+    if stage not in PAGE_STAGES:
+        errors.append(f"stage không hợp lệ: {stage}.")
+        return errors
+    confirmed = data.get("confirmed")
+    if not isinstance(confirmed, dict):
+        errors.append("confirmed phải là map các gate.")
+        confirmed = {}
+    unknown = sorted(set(confirmed) - set(PAGE_GATES))
+    if unknown:
+        errors.append(f"confirmed có gate không hợp lệ: {', '.join(unknown)}.")
+    for gate, value in confirmed.items():
+        if not isinstance(value, bool):
+            errors.append(f"confirmed.{gate} phải là true/false.")
+    previous = None
+    for gate in PAGE_GATES:
+        if confirmed.get(gate) is True and previous is not None and confirmed.get(previous) is not True:
+            errors.append(f"confirmed.{gate} true nhưng gate trước {previous} chưa true.")
+        previous = gate
+    active = data.get("active") or {}
+    if not isinstance(active, dict):
+        errors.append("active phải là map.")
+        active = {}
+    if active.get("compositionStatus") not in COMPOSITION_STATUSES:
+        errors.append(f"active.compositionStatus không hợp lệ: {active.get('compositionStatus')}.")
+    rank = PAGE_STAGES.index(stage)
+    if rank >= PAGE_STAGES.index("production"):
+        if confirmed.get("composition") is not True or active.get("compositionStatus") != "CONFIRMED":
+            errors.append(f"stage {stage} cần confirmed.composition true và active.compositionStatus CONFIRMED.")
+    elif active.get("compositionStatus") == "CONFIRMED" and confirmed.get("composition") is not True:
+        errors.append("active.compositionStatus CONFIRMED nhưng confirmed.composition chưa true.")
+    if rank >= PAGE_STAGES.index("selected_for_layout"):
+        if confirmed.get("selectedForLayout") is not True or not active.get("selectedVersion"):
+            errors.append(f"stage {stage} cần confirmed.selectedForLayout true và active.selectedVersion.")
+    if stage == "complete" and confirmed.get("finalOutput") is not True:
+        errors.append("stage complete cần confirmed.finalOutput true.")
+    for label, raw in page_state_paths(data):
+        if Path(raw).is_absolute():
+            errors.append(f"{label} phải dùng đường dẫn tương đối.")
+    return errors
+
+
+def page_state_warnings(path: Path, data) -> list[str]:
+    if artifact_kind(data, path) != "page-state":
+        return []
+    base = episode_root(path)
+    warnings = []
+    for label, raw in page_state_paths(data):
+        if Path(raw).is_absolute():
+            continue
+        try:
+            if not relative_target(base, raw).exists():
+                warnings.append(f"{label} không tồn tại: {raw}.")
+        except ValueError as error:
+            warnings.append(f"{label}: {error}")
+    return warnings
 
 
 def freshness(path: Path, data):
@@ -168,7 +277,8 @@ def cmd_validate(args):
     data = load_data(path)
     errors = validate(path, data)
     stale = freshness(path, data) if isinstance(data, dict) else []
-    result = {"artifact": str(path), "kind": artifact_kind(data), "valid": not errors, "errors": errors, "staleDependencies": stale}
+    warnings = page_state_warnings(path, data) if isinstance(data, dict) else []
+    result = {"artifact": str(path), "kind": artifact_kind(data, path), "valid": not errors, "errors": errors, "warnings": warnings, "staleDependencies": stale}
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 1 if errors else 0
 
@@ -293,8 +403,7 @@ def cmd_resolve(args):
     else:
         page_pattern = f"page-{int(args.page):03d}" if args.page else None
         if page_pattern:
-            candidates.extend(episode.glob(f"**/{page_pattern}/page-state.y*ml"))
-            candidates.extend(episode.glob(f"**/{page_pattern}/page-state.json"))
+            candidates.extend(episode.glob(f"**/{page_pattern}/page-state.yaml"))
     candidates.extend(sorted((episode / "continuity" / "scenes").glob("*.y*ml")) if (episode / "continuity" / "scenes").exists() else [])
     candidates.extend([episode / "continuity" / "ledger.yaml", episode / "continuity" / "ledger.json", episode / "continuity" / "episode-canon.yaml", episode / "continuity" / "episode-canon.json"])
     artifacts = []
@@ -305,7 +414,7 @@ def cmd_resolve(args):
         data = load_data(path)
         stale = freshness(path, data)
         stale_all.extend({"artifact": str(path), **item} for item in stale)
-        artifacts.append({"path": str(path), "kind": artifact_kind(data), "status": "STALE" if stale else data.get("status", "CURRENT")})
+        artifacts.append({"path": str(path), "kind": artifact_kind(data, path), "status": "STALE" if stale else data.get("status", "CURRENT")})
     status = "STALE" if stale_all else ("COMPLETE" if artifacts else "NEEDS_SOURCE_EXPANSION")
     print(json.dumps({"target": {"episode": episode.name, "part": args.part, "page": args.page, "frame": args.frame}, "status": status, "artifacts": artifacts, "staleArtifacts": stale_all}, ensure_ascii=False, indent=2))
     return 0
