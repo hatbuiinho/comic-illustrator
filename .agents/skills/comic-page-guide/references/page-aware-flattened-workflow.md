@@ -12,9 +12,9 @@ InDesign.
 2. `comic-shot-design` đưa 2–3 narrative direction bằng chữ, ưu tiên cảm nhận
    của người đọc, emotional thesis, khoảnh khắc, cách kể và đánh đổi. Không dựng
    shot preview, reflow preview hoặc layout proof ở bước này.
-3. Sau khi người dùng chọn một direction, dựng đúng một phác thảo SVG có source
-   chỉnh sửa được và render PNG; chỉ dùng phương pháp khác khi người dùng yêu
-   cầu rõ. Composition preview thể
+3. Sau khi người dùng chọn một direction, dựng phác chì ImageGen tối giản
+   theo `comic-shot-design/references/pencil-composition-preview.md`; SVG chỉ
+   khi người dùng chọn rõ. Composition preview thể
    hiện camera, cỡ cảnh, vị trí/tỷ lệ/crop tương đối, emotional anchor, eye path
    và lớp sâu trong `sceneExtentPlan` vừa đủ; preview toàn canvas bao gồm cả
    nền giấy/khoảng thở chủ ý, không bắt cảnh phủ spread.

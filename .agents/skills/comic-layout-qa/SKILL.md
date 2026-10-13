@@ -39,7 +39,7 @@ pixel lock và background continuity; chỉ báo `CLEAN_PLATE_PASS` khi toàn b�
 
 Review nghệ thuật trước khi tinh chỉnh proof cuối. Lỗi mất chữ/cỡ đọc/khả năng
 bàn giao phải sửa; chênh lệch hình học so mẫu phải xét tác động, không tự tạo FAIL.
-Preview raster/sketch dùng SVG text overlay đo riêng; không cần marker actor.
+Preview raster dùng SVG text overlay đo riêng; không cần marker actor.
 
 Đọc [layout-routing.md](references/layout-routing.md) để xác định check
 nào áp dụng. Đọc [manifest-schema.md](references/manifest-schema.md) trước khi

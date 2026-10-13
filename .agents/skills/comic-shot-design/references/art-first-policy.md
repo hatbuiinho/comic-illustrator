@@ -8,7 +8,7 @@ Cảm xúc, ý nghĩa hình ảnh và vẻ đẹp bố cục dẫn thiết kế.
 - Chọn camera, khoảnh khắc, diễn xuất và nhịp hình theo ý nghĩa riêng của cảnh.
 - Tự do bố trí chữ–hình; giữ lượng nội dung và cỡ đọc, không giữ mặc định tọa độ layout mẫu.
 - Thể hiện dữ kiện bằng bằng chứng vừa đủ; cho phép hàm ý và ngoài khung khi vẫn hiểu đúng.
-- Dùng phác thảo SVG có source chỉnh sửa được để đọc bố cục và tín hiệu diễn xuất chính; chỉ dùng phương pháp khác khi người dùng yêu cầu rõ.
+- Dùng ImageGen phác chì tối giản để đọc bố cục, hướng đầu và cử chỉ chính theo [pencil-composition-preview.md](pencil-composition-preview.md). SVG chỉ dùng khi người dùng chọn rõ.
 - Ở cổng phác thảo, đánh giá ý đồ kể chuyện, camera, staging, nhịp và khả năng đọc; độ hoàn thiện nét, ánh sáng, chất liệu và biểu cảm tinh tế được kiểm ở production. Không làm đẹp preview đến mức production để mở gate.
 - Khi hình yếu về cảm xúc hoặc nghệ thuật, xem lại camera và staging trước khi sửa chi tiết.
 - Khóa ý đồ composition đã duyệt; cho phép hoàn thiện nét, pose và mảng màu trong production.

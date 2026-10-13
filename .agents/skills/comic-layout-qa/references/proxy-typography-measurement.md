@@ -58,7 +58,7 @@ thu nhỏ cỡ đọc. Script đo kỹ thuật; `PROXY_COMPOSITION_PASS` không 
 
 Thiếu dependency/evidence hoặc render lỗi phải báo thiếu bằng chứng, không bịa PASS.
 CSS/tspan/textLength và nhiều cột chưa có exporter phù hợp phải báo giới hạn;
-không hạ chất lượng composition để né giới hạn công cụ. Raster/sketch dùng SVG
+không hạ chất lượng composition để né giới hạn công cụ. Raster dùng SVG
 text overlay riêng để đo; artwork không cần SVG marker.
 
 Các nhãn `readability`, `wrapReview`, `artisticIntegration` là review bằng mắt,

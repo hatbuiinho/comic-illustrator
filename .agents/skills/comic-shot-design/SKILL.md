@@ -65,13 +65,13 @@ tiết ở bước composition.
 
 ## Preview và QA
 
-- Mặc định dựng phác thảo bằng SVG có source chỉnh sửa được, rồi render PNG theo [semantic-preview.md](references/semantic-preview.md). Giữ vị trí, tỷ lệ, pose và lớp sâu trong các group/tham số riêng để sửa cục bộ; mỗi revision lưu version mới, không ghi đè.
+- Mặc định dùng ImageGen phác chì tối giản theo [pencil-composition-preview.md](references/pencil-composition-preview.md); đọc reference này trước mỗi lượt tạo/chỉnh preview. Lưu prompt, reference map, artwork và PNG toàn trang với version mới. SVG chỉ dùng khi người dùng chọn rõ, theo [semantic-preview.md](references/semantic-preview.md).
 - Preview phải đọc được camera, tỷ lệ, crop, hướng nhìn, cử chỉ chính, lớp sâu và quan hệ chữ–hình ở kích thước trang. Dùng silhouette và nét giản lược riêng cho cảnh; hình hộp/debug hoặc pose chung chỉ là draft nội bộ. Không yêu cầu nét, ánh sáng, chất liệu hoặc biểu cảm hoàn thiện như production.
-- Không gọi công cụ tạo ảnh cho phác thảo composition trừ khi người dùng yêu cầu rõ. Khi có override, ghi `SKIPPED_BY_USER` cho mặc định SVG trong deliverable hiện tại; lưu source và overlay phù hợp với phương pháp được yêu cầu.
+- ImageGen tạo phác sau khi direction được chọn thuộc bước thiết kế composition, không phải production artwork cuối. Không cần duyệt composition trước khi tạo chính preview đó; vẫn phải duyệt preview trước production ảnh hoàn thiện.
 - Review nghệ thuật trước khi tinh chỉnh proof kỹ thuật. Nếu hình vô cảm, chia ô hoặc diễn xuất chưa rõ, sửa staging/camera; không bù bằng thêm đạo cụ hay mô tả.
 - Với chữ–hình, resolve [contract](../comic-layout-qa/references/text-artwork-integration.md). Proxy giữ lượng/cỡ chữ và nhịp đoạn, cho phép dàn khác mẫu. Sau khi hình đạt, kiểm burden và khả năng dàn chữ trước cổng duyệt.
 - Với crop, đọc [crop-read-contract.md](references/crop-read-contract.md); thân phải tiếp tục ngoài trim/khung thật hoặc sau vật che có nghĩa, không fade thân giữa trang.
-- Dùng renderer để kiểm artifact; marker đủ không chứng minh ý đồ kể chuyện đã đọc được. Nếu tín hiệu diễn xuất chưa kiểm chứng được bằng nét phác, ghi hạn chế và phần cần kiểm ở production; không tự ghi PASS hoặc đổi sang tạo ảnh.
+- Dùng renderer để kiểm artifact; marker đủ không chứng minh ý đồ kể chuyện đã đọc được. Nếu tín hiệu diễn xuất chưa kiểm chứng được bằng nét phác, ghi hạn chế và phần cần kiểm ở production; không tự ghi PASS hoặc thêm mắt/lông mày để làm phác thành ảnh hoàn thiện.
 - Mỗi kết luận nghệ thuật phải có dấu hiệu nhìn thấy và hạn chế; kiểm ở thumbnail, kích thước đọc và crop. Cấm tự ghi PASS để mở gate.
 
 ## Duyệt và bàn giao

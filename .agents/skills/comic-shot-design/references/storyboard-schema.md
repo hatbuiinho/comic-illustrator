@@ -130,12 +130,12 @@ Composition được dựng gồm:
     trên PASS; trường hợp khác ghi `COMPOSITION_NEEDS_REVISION`;
 - `compositionPreview`:
   - `pngPath`: đường dẫn tới PNG riêng của option;
-  - `semanticSvgPath`: source SVG chỉnh sửa được, bắt buộc với phương pháp mặc định; phương pháp khác theo yêu cầu rõ của người dùng lưu source và text overlay riêng, ghi override `SKIPPED_BY_USER`;
+  - `previewMethod`: mặc định `IMAGEGEN_MINIMAL_PENCIL`; lưu `promptPath`, `artworkPath`, reference map và text overlay riêng khi có chữ. `semanticSvgPath` chỉ bắt buộc khi chọn SVG;
   - `debugPngPath`: overlay geometry riêng, không phải preview lựa chọn;
-  - `renderMode`: mặc định `semantic-svg`; `sketch`, `collage`, `raster` hoặc `custom-vector` chỉ khi người dùng yêu cầu rõ;
+  - `renderMode`: mặc định `raster` với phác ImageGen; `semantic-svg`, `collage` hoặc `custom-vector` khi người dùng chọn rõ;
     `debug-box` không hợp lệ ở cổng duyệt composition;
-  - `actors`: actor ID, profile reference, palette lấy từ profile và semantic
-    parts bắt buộc (`head`, `torso`, `gesture` mặc định);
+  - `actors`: actor ID, profile reference, dấu hiệu identity lấy từ profile. Với SVG, khai semantic
+    parts (`head`, `torso`, `gesture`); raster dùng reference map và review bằng mắt, không bịa marker hoặc bắt phác đơn sắc có palette màu;
   - `requiredLocationAnchors` và `requiredInteractions`;
   - `layoutBasis`: canvas trang/spread, typography/content budget, brief region,
     hard frame/mask thật, fixed element, trim, safe zone và gáy. Composition của

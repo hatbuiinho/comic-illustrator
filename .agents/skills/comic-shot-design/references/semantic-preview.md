@@ -1,8 +1,9 @@
 # Preview composition bằng SVG semantic
 
-Đây là phương pháp mặc định cho phác thảo composition. Giữ SVG làm source chỉnh
-sửa được và render PNG để review. Không dùng công cụ tạo ảnh ở bước này trừ khi
-người dùng yêu cầu rõ; ngoại lệ được ghi `SKIPPED_BY_USER` cho deliverable hiện tại.
+Đây là phương pháp tùy chọn khi người dùng yêu cầu SVG.
+Mặc định dùng [ImageGen phác chì tối giản](pencil-composition-preview.md).
+Với SVG, giữ source chỉnh sửa được và render PNG. Marker/renderer dưới đây
+chỉ áp dụng cho SVG; không ép artwork raster ImageGen qua contract SVG.
 
 Preview SVG do agent dựng riêng theo shot, dùng silhouette, pose,
 interaction, background và bảng màu lấy từ profile đúng tập. Script chỉ kiểm

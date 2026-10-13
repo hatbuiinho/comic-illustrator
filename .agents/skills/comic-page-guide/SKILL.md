@@ -31,7 +31,7 @@ hoặc khóa camera/crop/staging. Sau chọn, dựng một composition cho direc
 
 Thiết kế ý tưởng thị giác và diễn xuất trước, art-direct chữ–hình cùng nhau, rồi kiểm kỹ thuật. Resolve [text-artwork-integration.md](../comic-layout-qa/references/text-artwork-integration.md); đọc reference proxy/reflow chỉ theo mode áp dụng. Không làm yếu hình để giống phép đo layout mẫu.
 
-Review ý đồ kể chuyện trước proof cuối. Mặc định dùng phác thảo SVG có source chỉnh sửa được và PNG toàn trang cùng card chín mục theo shot-design; không gọi công cụ tạo ảnh cho preview trừ yêu cầu rõ của người dùng. Kiểm camera, staging, cử chỉ chính, nhịp và khả năng đọc ở mức phác; chất lượng hoàn thiện kiểm ở production. Proxy cần burden, layout và artifact binding đủ bằng chứng; chữ chính xác hoãn InDesign khi contract cho phép. Cấm dùng debug-box hoặc pose chung làm bằng chứng diễn xuất.
+Review ý đồ kể chuyện trước proof cuối. Mặc định dùng ImageGen tạo phác chì tối giản theo [pencil-composition-preview.md](../comic-shot-design/references/pencil-composition-preview.md), trình PNG toàn trang cùng card chín mục. SVG chỉ dùng khi người dùng chọn rõ; đây là preview để duyệt composition, chưa phải production ảnh hoàn thiện. Kiểm camera, staging, cử chỉ chính, nhịp và khả năng đọc ở mức phác; chất lượng hoàn thiện kiểm ở production. Proxy cần burden, layout và artifact binding đủ bằng chứng; chữ chính xác hoãn InDesign khi contract cho phép. Cấm dùng debug-box hoặc pose chung làm bằng chứng diễn xuất.
 
 Khi người dùng phản hồi, phân loại chi tiết / diễn xuất / cấu trúc bố cục. Nếu ý nghĩa hành động hoặc nghệ thuật yếu, xét lại camera/staging trước khi vá chi tiết. Giữ direction đã chọn trừ khi focus/cảm nhận/moment đổi.
 

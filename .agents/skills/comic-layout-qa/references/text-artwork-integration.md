@@ -104,7 +104,7 @@ proxy về tổng lượng nội dung đại diện, visual weight ở scale đ�
 typography scale, paragraph rhythm, line measure, reading continuity và khả
 năng đọc. Chạy
 `scripts/verify-proxy-fidelity.js <proof.json>` với `layoutComparison: ART_DIRECTED`
-cho bố cục mới. Raster/sketch dùng SVG text overlay riêng; artwork không cần là SVG.
+cho bố cục mới. Raster dùng SVG text overlay riêng; artwork không cần là SVG.
 Gate không đo độ giống vị trí;
 FAIL khi proxy co chữ, bỏ burden, thu nhỏ scale hoặc tạo khoảng trống giả để
 dành đất cho hình.
