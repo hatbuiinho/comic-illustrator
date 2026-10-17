@@ -76,9 +76,11 @@ không trùng nghĩa với key chuẩn ở trên.
 
 ## Stage
 
-Theo thứ tự: `scope` → `source` → `direction` → `composition` → `production` →
-`visual_qa` → `selected_for_layout` → `layer_package` → `layout_qa` →
-`delivery` → `complete`.
+Chuỗi mặc định: `scope` → `source` → `direction` → `composition` → `production`
+→ `visual_qa` → `selected_for_layout` → `delivery` → `complete`.
+`layer_package` và `layout_qa` là nhánh tùy chọn giữa selection và delivery khi
+người dùng yêu cầu bộ layer; không cần tạo stage/artifact này cho ảnh đơn.
+Các stage vẫn được validator giữ theo thứ tự cũ để tương thích artifact hiện có.
 
 - `production` gồm viết prompt và tạo candidate.
 - `visual_qa` gồm QA candidate và chờ người dùng chọn master.

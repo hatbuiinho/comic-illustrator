@@ -1,8 +1,9 @@
 # Bộ layer cho InDesign
 
-Chỉ chạy sau khi người dùng chọn đích danh master và trạng thái là
+Đây là hậu kỳ tùy chọn, không phải bước delivery mặc định. Chỉ chạy khi người
+dùng yêu cầu rõ bộ layer InDesign, đã chọn đích danh master và trạng thái là
 `SELECTED_FOR_LAYOUT`. Không chạy cho option, variant hoặc master chưa được
-chọn.
+chọn. Chọn master hoặc yêu cầu “bàn giao” không tự cấp phép tạo bộ layer.
 
 Tạo từ candidate đã chọn. Trước tiên lưu `visible-art-lock-mask` và chỉ expand
 phần bị chữ/knockout che; pixel trong vùng đã duyệt phải bất biến. Từ full-page

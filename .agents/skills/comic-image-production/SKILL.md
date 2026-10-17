@@ -24,7 +24,7 @@ rằng việc chọn direction đồng nghĩa với duyệt bố cục.
 Khi tạo variant hoặc sửa output, đọc [variant-policy.md](references/variant-policy.md).
 Khi remediation/retry, đọc [retry-quality-contract.md](references/retry-quality-contract.md).
 Phân biệt sửa hình với transform layout; bản sửa phải giữ chất lượng phần đã đạt.
-Khi master đã được người dùng chọn để dàn trang, đọc
+Chỉ khi người dùng yêu cầu rõ bộ layer InDesign từ master đã chọn, đọc
 [indesign-layer-package.md](references/indesign-layer-package.md).
 
 Tạo từng `flattenedPageCandidate`/variant riêng từ `selectedPageComposition` và
@@ -93,7 +93,12 @@ chuyển file vào `approved/`.
 Với `BAKED_TEXT_PROXY_CONCEPT`, bàn giao `integratedTextConcept` thay cho cặp raw
 candidate/overlay ở trên và ghi `exactTextCapacity: DEFERRED_TO_INDESIGN`.
 
-Không tách hoặc expand option/variant chưa được chọn. Sau khi người dùng chọn
+Không tự tách hoặc expand ở bước delivery. Chọn master chỉ xác định hình để
+lưu; chuyển hình đã chọn theo `comic-delivery`, rồi đề xuất làm thêm nếu cần.
+Chỉ khi người dùng yêu cầu tách/expand/bộ layer mới chạy phần hậu kỳ dưới đây.
+
+Không tách hoặc expand option/variant chưa được chọn. Khi đã có yêu cầu bổ sung
+rõ và người dùng chọn
 đúng candidate, ghi `SELECTED_FOR_LAYOUT`, tạo `visibleArtLockMask`, giữ nguyên
 pixel artwork đã nhìn thấy và chỉ expand vùng bị chữ/knockout che. Recognition
 core, cử chỉ và đạo cụ kể chuyện không được phát minh ở bước expand. Sau đó mới
@@ -101,7 +106,7 @@ tạo bộ layer đồng phiên bản. Đây là hậu kỳ kỹ thuật: không
 nhân vật hoặc nội dung đã chốt; lỗi tách/expand chỉ sửa trong bộ layer, không tự
 sửa candidate đã duyệt.
 
-Riêng mode baked, sau `SELECTED_FOR_LAYOUT` phải tạo
+Riêng mode baked, chỉ khi người dùng yêu cầu artwork sạch hoặc bộ layer mới tạo
 `cleanArtworkMaster` bằng edit/inpaint từ đúng concept đã chọn. Chỉ vùng
 `proxyRemovalMask + repairContextRing` được thay đổi; vùng
 `protectedArtworkMask` phải bất biến. Chạy `CLEAN_PLATE_PASS` trước khi tách

@@ -44,9 +44,18 @@ tiết ở bước composition.
 
 ## Chọn hướng kể
 
+- Trước lần đề xuất đầu tiên, đọc [ngôn ngữ điện ảnh](references/cinematic-language.md)
+  và thực hiện sàng lọc hướng kể trong reference đó. Mỗi hướng phải chuyển ý
+  nghĩa thành trải nghiệm nhìn cụ thể, đủ sức kể ngay từ lượt đầu.
 - Ưu tiên cảm nhận → ý nghĩa → ý tưởng thị giác → diễn xuất/quan hệ → khoảnh khắc → nhịp hình → context vừa đủ.
 - Highlight trong layout là ưu tiên kể chuyện, không phải yêu cầu thêm hiệu ứng hoặc sao chép vị trí hình.
 - Đề xuất 1–3 hướng khác nhau thật sự; mỗi hướng gồm bảy mục: Cảm nhận muốn để lại, Ý nghĩa hình ảnh, Khoảnh khắc, Trọng tâm cảm xúc, Cách kể dự kiến, Cỡ cảnh dự kiến và khả năng bố trí trong layout, Đánh đổi.
+- Trong **Cách kể dự kiến**, tích hợp ngắn gọn điểm nhìn của người đọc, cơ chế
+  thị giác, trình tự mắt khám phá thông tin và bằng chứng cảm xúc nhìn thấy.
+  Đây là giả thuyết để chọn direction; camera/crop/staging cụ thể còn mở tới
+  bước composition. Không thêm mục hoặc cổng duyệt mới.
+- Các option phải khác về trải nghiệm đọc hoặc quan hệ thị giác; chỉ đổi cỡ
+  cảnh/góc máy hay đặt tên cảm xúc khác cho cùng cách kể chưa tạo hướng mới.
 - Mỗi option dùng kết quả đánh giá không gian ở trên để đề xuất cỡ cảnh, mức
   chiếm trang/tỷ lệ nhân vật và cách bố trí chữ–hình dự kiến. Nêu tín hiệu cảm
   xúc đọc được và đánh đổi về quy mô, bối cảnh.
@@ -66,8 +75,10 @@ tiết ở bước composition.
 ## Preview và QA
 
 - Mặc định dùng ImageGen phác chì tối giản theo [pencil-composition-preview.md](references/pencil-composition-preview.md); đọc reference này trước mỗi lượt tạo/chỉnh preview. Lưu prompt, reference map, artwork và PNG toàn trang với version mới. SVG chỉ dùng khi người dùng chọn rõ, theo [semantic-preview.md](references/semantic-preview.md).
+- Ngay lượt đầu, truyền mẫu mức giản nét v02 trong reference trên và đặt yêu cầu khớp mức phác trước nội dung cảnh; so trực tiếp với mẫu trước khi trình. Mẫu chỉ hướng dẫn mật độ nét/mức hoàn thiện, không thay profile, shot hoặc composition hiện tại.
 - Preview phải đọc được camera, tỷ lệ, crop, hướng nhìn, cử chỉ chính, lớp sâu và quan hệ chữ–hình ở kích thước trang. Dùng silhouette và nét giản lược riêng cho cảnh; hình hộp/debug hoặc pose chung chỉ là draft nội bộ. Không yêu cầu nét, ánh sáng, chất liệu hoặc biểu cảm hoàn thiện như production.
 - ImageGen tạo phác sau khi direction được chọn thuộc bước thiết kế composition, không phải production artwork cuối. Không cần duyệt composition trước khi tạo chính preview đó; vẫn phải duyệt preview trước production ảnh hoàn thiện.
+- Tự tạo/chỉnh lại composition đến khi đạt, không giới hạn lượt theo số ảnh và không áp giới hạn hai ảnh của production. Giữ version và phần đã đạt; khi lỗi lặp, đổi cách sửa hoặc xem lại staging/camera trong direction đã chọn. Chỉ trình duyệt khi preview đạt nghệ thuật và QA áp dụng; cần đổi direction/nguồn, công cụ lỗi hoặc người dùng yêu cầu dừng thì báo đúng nguyên nhân. Không coi số lần thử hoặc im lặng là duyệt composition.
 - Review nghệ thuật trước khi tinh chỉnh proof kỹ thuật. Nếu hình vô cảm, chia ô hoặc diễn xuất chưa rõ, sửa staging/camera; không bù bằng thêm đạo cụ hay mô tả.
 - Với chữ–hình, resolve [contract](../comic-layout-qa/references/text-artwork-integration.md). Proxy giữ lượng/cỡ chữ và nhịp đoạn, cho phép dàn khác mẫu. Sau khi hình đạt, kiểm burden và khả năng dàn chữ trước cổng duyệt.
 - Với crop, đọc [crop-read-contract.md](references/crop-read-contract.md); thân phải tiếp tục ngoài trim/khung thật hoặc sau vật che có nghĩa, không fade thân giữa trang.
@@ -86,7 +97,7 @@ Phản hồi về chi tiết: sửa cục bộ. Phản hồi về hành động/
 
 ## Reference theo nhu cầu
 
-- [cinematic-language.md](references/cinematic-language.md): shot và hàm ý.
+- [cinematic-language.md](references/cinematic-language.md): bắt buộc trước đề xuất direction; điểm nhìn, khám phá thông tin và sàng lọc hướng kể.
 - [emotional-flow.md](references/emotional-flow.md): chuỗi nhiều hình.
 - [composition-strategy.md](references/composition-strategy.md): tổ chức nhịp và chiều sâu.
 - [proxy typography](../comic-layout-qa/references/proxy-typography-measurement.md): đo kỹ thuật sau thiết kế.

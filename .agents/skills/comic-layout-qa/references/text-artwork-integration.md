@@ -269,4 +269,7 @@ Riêng `BAKED_TEXT_PROXY_CONCEPT`, QA chia hai cổng:
 - `CLEAN_PLATE_PASS`: proxy đã được tháo sạch mà không làm composition sụp,
   recognition core đổi hoặc background xuất hiện vết vá.
 
-Thiếu một trong hai cổng thì chưa được tạo bộ layer hoặc chuyển `approved/`.
+`INTEGRATED_CONCEPT_PASS` cho phép lưu concept đã được người dùng chọn vào
+`approved/` đúng vai trò; không gọi đó là artwork sạch để in. `CLEAN_PLATE_PASS`
+chỉ bắt buộc khi người dùng yêu cầu artwork sạch hoặc bộ layer. Không tự tháo
+proxy hay tách layer như điều kiện delivery mặc định.

@@ -74,7 +74,8 @@ Nếu workflow kéo dài qua nhiều phiên, lưu trạng thái tại
 [page-state-schema.md](../../comic-continuity-manager/references/page-state-schema.md);
 nếu chưa cần tái sử dụng thì chỉ duy trì trong hội thoại. Không tạo hai nguồn
 trạng thái song song và không tự đặt key/stage ngoài schema. Validate sau mỗi
-lần ghi. Tách layer chỉ chạy ở `layer_package` sau khi người dùng chọn master.
+lần ghi. Ảnh đơn đi từ selection sang delivery; chỉ dùng `layer_package` khi
+người dùng yêu cầu rõ bộ layer sau khi chọn nguồn.
 
 ## Diễn giải thuật ngữ
 
@@ -82,11 +83,12 @@ lần ghi. Tách layer chỉ chạy ở `layer_package` sau khi người dùng c
 - `composition`: cách đặt nhân vật, bối cảnh và điểm nhìn trong khung.
 - `visual QA`: kiểm tra ảnh có đúng nhân vật, bối cảnh, phong cách và câu chuyện.
 - `layout QA`: kiểm tra ảnh khi đặt vào khung trang, vùng chữ, mép cắt và gáy.
-- `selected-for-layout`: master đã được người dùng chọn; cho phép tách layer
-  InDesign nhưng chưa phải bộ nguồn chuẩn cuối.
+- `selected-for-layout`: master đã được người dùng chọn; xác định hình để
+  bàn giao, không tự cấp phép tách layer.
 - `layer-package-ready`: bộ `master + bg + mgfg + wrap + layout-preview` đã qua
   QA kỹ thuật.
-- `approved`: cả bộ cuối đã được bàn giao làm nguồn chuẩn.
+- `approved`: hình đã chọn (hoặc bộ bổ sung được yêu cầu rõ) đã được bàn giao
+  làm nguồn chuẩn.
 
 Chỉ giải thích thuật ngữ khi nó xuất hiện trong câu trả lời dành cho người dùng.
 

@@ -1,0 +1,29 @@
+artifactType: continuity-ledger
+schemaVersion: 1
+scope:
+  episode: Tap 53
+status: CURRENT
+events:
+- eventId: T53-P1-P005-MASTER-V4-MAIN-LAYERS-20261014
+  effectiveAfter: Part 1/page-005/delivery
+  scope:
+    episode: Tap 53
+    part: Part 1
+    page: 5
+  changes:
+    page005.selectedMaster:
+      before: null
+      after: v4
+    page005.layerStructure:
+      before: Thử ba lớp theo chiều sâu, chưa duyệt
+      after: Chỉ Visakha và Nalini trên foreground alpha; phần còn lại trên background
+    page005.delivery:
+      after: approved master v4 với bộ hai lớp đồng phiên bản
+  provenance: userConfirmed
+  evidence:
+  - Chọn v4 làm master trang 5, Part 1, Tập 53. Tiếp tục tách layer và bàn giao.
+  - Chỉ nên tách nhân vật chính và phần còn lại, nhưng cần tách sạch.
+  - triển khai ạ
+  approvedOutput: Part 1/pages/page-005/approved/page005-d1-v4-main-separation-v12.png
+  status: CONFIRMED
+  note: Chỉ ghi selection và cách bàn giao; không thay canon hoặc sự kiện truyện.

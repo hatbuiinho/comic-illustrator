@@ -15,9 +15,10 @@ Trạng thái hợp lệ:
 
 `qa-passed` chỉ dùng khi master đã qua QA sáng tạo áp dụng.
 `selected-for-layout` chỉ dùng sau khi người dùng chọn đích danh master; trạng
-thái này cho phép tách `bg + mgfg + wrap` nhưng chưa cho phép chuyển vào
-`approved/`. `layer-package-ready` chỉ dùng khi bộ layer đồng phiên bản đã qua
-QA kỹ thuật và bản ghép khớp master.
+thái này xác định nguồn được chọn; không tự cấp phép tách `bg + mgfg + wrap`.
+Ảnh đơn đã qua QA áp dụng được chuyển thẳng sang delivery, không cần
+`layer-package-ready`. Trạng thái `layer-package-ready` chỉ áp dụng khi người
+dùng yêu cầu bộ layer và bộ đồng phiên bản đã qua QA kỹ thuật, bản ghép khớp master.
 `approved-filed` chỉ dùng sau khi người dùng chọn rõ output, file đã được chuyển
 vào `approved/`, mọi đường dẫn liên quan đã cập nhật và continuity event bắt
 buộc đã được commit. `approved-filed-context-pending` dùng khi file/đường dẫn đã

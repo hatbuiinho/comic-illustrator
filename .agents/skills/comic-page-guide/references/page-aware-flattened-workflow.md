@@ -1,8 +1,8 @@
 # Workflow page-aware flattened artwork
 
 Dùng cho page/spread mà shot được duyệt trước, sau đó layout chữ thật được đưa
-vào ngay tại bước tạo hình để artwork và chữ hòa quyện, rồi mới tách artwork cho
-InDesign.
+vào ngay tại bước tạo hình để artwork và chữ hòa quyện. Delivery mặc định lưu
+đúng ảnh được chọn; hậu kỳ cho InDesign chỉ chạy khi người dùng yêu cầu.
 
 ## Chuỗi bắt buộc
 
@@ -38,11 +38,14 @@ InDesign.
    đó.
 9. Chạy visual QA và layout art-direction QA trên toàn trang. Chữ sai không phải
    lỗi ở mode baked; footprint giả, proxy co nhỏ hoặc hình–chữ không hòa nhập là lỗi.
-10. Khi người dùng chọn đích danh concept, ghi `SELECTED_FOR_LAYOUT`; khóa artwork
-   ngoài `proxyRemovalMask`, rồi edit/inpaint đúng concept đã chọn để tạo
-   `cleanArtworkMaster`. Không tạo lại master từ đầu.
-11. Kiểm `CLEAN_PLATE_PASS`, sau đó tạo `bg + mgfg + wrap + layout-preview`, đặt
-   chữ production trong InDesign và kiểm layout cuối.
+10. Khi người dùng chọn đích danh ảnh/concept và QA áp dụng đạt, ghi selection
+    rồi dùng `comic-delivery` lưu đúng file đó vào `approved/`. Concept có proxy
+    giữ vai trò `integratedTextConcept`, không được gọi là artwork sạch để in.
+11. Đề xuất tùy chọn tách nhân vật/background bằng ImageGen hoặc hậu kỳ InDesign.
+    Chỉ khi người dùng yêu cầu artwork sạch mới khóa artwork ngoài
+    `proxyRemovalMask`, edit/inpaint concept để tạo `cleanArtworkMaster` và kiểm
+    `CLEAN_PLATE_PASS`. Chỉ tạo `bg + mgfg + wrap + layout-preview` nếu họ yêu cầu
+    bộ layer; không tạo lại master từ đầu.
 
 ## Invariant
 
@@ -57,7 +60,8 @@ InDesign.
   art-direct contour/knockout/overlap cuối;
   bước này không được âm thầm đổi camera, staging hay tương quan nhân vật/cảnh.
 - Typography thật được giữ ngoài deliverable artwork; chữ model sinh trong
-  `integratedTextConcept` chỉ là proxy tạm và phải được tháo trước bàn giao.
+  `integratedTextConcept` chỉ là proxy tạm. Concept được approved đúng vai trò;
+  phải tháo proxy trước bàn giao artwork sạch hoặc bộ layer được yêu cầu.
 - Recognition core, cử chỉ và đạo cụ kể chuyện phải nằm trong phần nhìn thấy ở
   candidate; không giao bước expand phát minh nội dung quan trọng.
 - Clean-up/expand chỉ sửa vùng removal/repair đã khai báo và không được đổi pixel

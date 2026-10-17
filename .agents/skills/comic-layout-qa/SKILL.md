@@ -91,14 +91,15 @@ Với workflow page-aware, clean preview phải ghép từ raw candidate và l�
 ngoài model: typography thật cho `FINAL_TEXT_REFLOW`, proxy overlay cho
 `TEXT_PROXY_INTEGRATION`. Không dùng chữ do model render.
 
-Ngoại lệ là `BAKED_TEXT_PROXY_CONCEPT`: dùng chữ model render để duyệt concept,
-nhưng clean preview và bộ layer bàn giao phải lấy từ `cleanArtworkMaster` không
-còn glyph, sau đó mới đặt chữ production ngoài model.
+Ngoại lệ là `BAKED_TEXT_PROXY_CONCEPT`: dùng chữ model render để duyệt/lưu
+concept đúng vai trò. Chỉ khi người dùng yêu cầu artwork sạch hoặc bộ layer thì
+clean preview phải lấy từ `cleanArtworkMaster` không còn glyph, sau đó mới đặt
+chữ production ngoài model. Không tự chạy hậu kỳ để mở gate delivery concept.
 
 Luôn tạo hai cách xem khi đủ dữ liệu: clean layout preview với chữ thật để đánh
 giá hòa hình–chữ, và debug overlay chứa brief region, text zone, subject
 exclusion, wrap path, trim/gáy. Không dùng debug overlay thay clean preview.
 
-Với master ở `SELECTED_FOR_LAYOUT`, kiểm thêm bộ layer theo
+Chỉ khi người dùng yêu cầu bộ layer và master ở `SELECTED_FOR_LAYOUT`, kiểm thêm theo
 `comic-image-production/references/indesign-layer-package.md`. Đây là QA kỹ
 thuật hậu kỳ; không mở lại visual QA hoặc thay đổi master đã chọn.

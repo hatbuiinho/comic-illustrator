@@ -51,9 +51,8 @@ thật. Background được phép chạy dưới chữ và mở rộng toàn lay
 cần giảm tương phản/mật độ nét để dễ đọc, không bị giới hạn thành nền phụ đơn
 điệu. Frame oval/tròn thật vẫn nhận output chữ nhật đầy đủ.
 
-Sau khi người dùng chọn master, mới tách bộ InDesign đồng phiên bản gồm
-background clean plate và mid+foreground có alpha, kèm text-wrap path. Không
-tách layer cho option hoặc variant chưa được chọn.
+Tập 53 không yêu cầu bắt buộc bộ layer InDesign cho mọi hình được chọn. Delivery
+và các đề xuất hậu kỳ tùy chọn thực hiện theo `comic-delivery` ở root repository.
 
 Tỷ lệ in tham chiếu của tập: `286 × 203 mm`. Khi layout QA yêu cầu print-safe,
 dùng tỷ lệ chuẩn hóa:

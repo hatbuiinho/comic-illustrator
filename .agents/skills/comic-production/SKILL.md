@@ -28,12 +28,12 @@ mới nhất của người dùng luôn được ưu tiên hơn mặc định c�
 6. Kiểm tra nội dung nhìn thấy: dùng `comic-visual-qa`.
 7. Kiểm tra master trong layout có chữ: dùng `comic-layout-qa` khi deliverable
    gắn với layout; coi vùng brief là guide, không phải frame cứng.
-8. Khi người dùng chọn đúng master, ghi `SELECTED_FOR_LAYOUT`, dùng
-   `comic-image-production` tạo bộ `master + bg + mgfg + wrap + layout-preview`
-   đồng phiên bản rồi chạy layout QA kỹ thuật. Không tách layer cho variant chưa
-   chọn và không chạy anatomy QA.
-9. Chuyển cả bộ đã duyệt vào `approved/`: dùng `comic-delivery`; sau đó commit
-   continuity event đã được xác nhận và invalidate đúng dependency downstream.
+8. Khi người dùng chọn đúng master và QA áp dụng đạt, dùng `comic-delivery`
+   chuyển đúng hình đã tạo vào `approved/`, rồi commit continuity event đã được
+   xác nhận và invalidate đúng dependency downstream. Không tự tách layer.
+9. Sau bàn giao, đề xuất tách nhân vật/background bằng ImageGen hoặc chuẩn bị
+   bộ InDesign. Chỉ khi người dùng yêu cầu rõ mới gọi production hậu kỳ và QA
+   tương ứng. Không chạy anatomy QA.
 
 Không chạy lại giai đoạn đã được người dùng chốt nếu dependency của giai đoạn
 đó không thay đổi. Nếu input stale, chỉ chạy lại consumer chịu ảnh hưởng; không

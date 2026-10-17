@@ -2,6 +2,35 @@
 
 Đọc khi tự sửa, tạo variant khắc phục lỗi hoặc đổi chiến lược generation.
 
+Giới hạn số ảnh bên dưới chỉ áp dụng cho production ảnh hoàn thiện sau khi
+composition đã duyệt. Phác và revision composition thuộc `comic-shot-design`:
+được tự tạo/chỉnh lại đến khi đạt, không giới hạn lượt theo số ảnh; vẫn cần
+người dùng duyệt preview trước production. Các nguyên tắc sửa có mục tiêu và
+giữ chất lượng trong tài liệu này có thể dùng cho composition, nhưng không
+mang giới hạn hai ảnh sang vòng phác.
+
+## Giới hạn tự động và quyết định tiếp tục
+
+- Mỗi đợt có tối đa hai ảnh, gồm ảnh đầu và một ảnh sửa/tạo lại nếu ảnh đầu
+  chưa đạt QA áp dụng. Edit và fresh generation đều tính lượt; đổi prompt,
+  parent, chiến lược hoặc tiếp tục phiên không đặt lại bộ đếm.
+- Ảnh nào đạt QA thì chuyển tới bước chọn version; không tạo thêm ảnh tự động
+  và không tự chọn master.
+- Ảnh thứ hai chưa đạt QA thì dừng ngay, hiển thị hai version, báo lỗi còn lại
+  theo version và tác động. Đưa hai option có tên rõ: **Tạo lại** hoặc
+  **Xác nhận qua bước tiếp theo với lỗi đã nêu**; mỗi mẫu trả lời nằm trong
+  một block riêng. Chờ người dùng quyết định, không tự tạo ảnh thứ ba.
+- Chọn tạo lại mở đợt mới tối đa hai ảnh theo cùng quy tắc, giữ lịch sử và mốc
+  thẩm mỹ. Chỉ mở đợt mới khi người dùng yêu cầu rõ.
+- Chọn đi tiếp phải xác định version và check được bỏ qua; ghi `SKIPPED_BY_USER`
+  đúng version/deliverable, giữ bằng chứng lỗi, không đổi thành PASS hoặc báo
+  QA đạt toàn bộ. Chỉ qua bước tiếp theo đã nêu; vẫn giữ cổng chọn master và
+  bàn giao. Điều kiện QA khi bàn giao chỉ được miễn cho check có override rõ;
+  các check khác vẫn phải đạt, và hồ sơ bàn giao phải nêu ngoại lệ.
+- Ghi số ảnh của đợt và quyết định tiếp tục trong record production đang dùng
+  để giữ giới hạn qua các phiên. Báo ngay lỗi công cụ hoặc thiếu nguồn cần thiết;
+  không dùng lượt còn lại để gọi lặp mù.
+
 ## Chọn cách sửa
 
 - Chỉ lỗi placement/scale: ưu tiên compositing/transform xác định, scale đồng
@@ -68,5 +97,5 @@ bản có chất lượng tốt phù hợp với phép sửa và đổi cách s�
 sai identity/context hoặc khác shot active, không dùng nó làm parent; lấy
 profile gốc và composition active để phục hồi các phẩm chất tốt. Nếu giới hạn
 công cụ ngăn giữ chất lượng, báo blocker.
-Giữ điều kiện dừng hiện hành của page guide, không mở vòng retry vô hạn. Sửa
+Giữ giới hạn hai ảnh mỗi đợt ở trên, không mở vòng retry vô hạn. Sửa
 làm đổi shot hoặc trade-off cần người dùng quyết định quay lại cổng tương ứng.
