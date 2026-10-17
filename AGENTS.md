@@ -24,8 +24,10 @@ sao chép các chi tiết đó vào đây khi cập nhật workflow.
 ## Phạm vi nguồn
 
 - Mỗi thư mục tập là một đơn vị nội dung độc lập.
-- Không lấy profile, layout, bối cảnh, script hoặc asset từ tập khác để thay thế.
-- Trước công việc phụ thuộc nội dung, xác định đúng tập, part, page và frame.
+- Với minh họa tập, không lấy profile, layout, bối cảnh, script hoặc asset từ
+  tập khác để thay thế. Hai studio chỉ dùng nguồn ngoài phạm vi khi người dùng
+  chỉ định rõ, theo `docs/studio-contract.md`.
+- Trước công việc minh họa phụ thuộc nội dung tập, xác định đúng tập, part, page và frame.
   Tái sử dụng context còn hiệu lực; cách truy xuất và kiểm chứng nguồn thuộc
   `comic-source-reader` và `comic-continuity-manager`.
 - Context đã biên dịch phải giữ provenance; không được tóm tắt nối tiếp từ bản
@@ -51,9 +53,15 @@ Một override rõ của người dùng phải được ghi là `SKIPPED_BY_USER
 
 ## Routing skill
 
-- Mọi yêu cầu tạo, tiếp tục, chỉnh sửa, tạo variant hoặc hoàn thiện hình minh
-  họa truyện tranh mặc định đi qua `comic-page-guide`, kể cả khi người dùng đã
-  nêu rõ page, frame hoặc deliverable.
+- Tạo/phát triển/chỉnh character profile, character sheet hoặc gọi Character
+  Studio đi thẳng vào `comic-character-studio`.
+- Tạo/chỉnh ảnh tự do, concept, poster, thử pose/cảnh hoặc gọi Image Playground
+  đi thẳng vào `comic-image-playground` khi không phải deliverable minh họa tập.
+- Hai studio dùng [contract studio](docs/studio-contract.md), không đi qua
+  `comic-page-guide` hoặc tự áp gate minh họa. Yêu cầu gọi studio rõ được ưu tiên;
+  mention profile trong một tập không tự biến tác vụ thành minh họa tập.
+- Các yêu cầu minh họa theo tập/page/frame còn lại mặc định đi qua
+  `comic-page-guide`, kể cả khi người dùng đã nêu rõ deliverable.
 - Chỉ dùng `comic-production` khi người dùng gọi đích danh skill đó hoặc yêu
   cầu rõ dùng `comic-production`; không tự động đọc hoặc gọi nó từ
   `comic-page-guide`.
@@ -66,12 +74,16 @@ chuyên môn do từng skill quy định.
 
 ## Khóa phong cách nền
 
-Phong cách mặc định là thuần 2D animation. Trước thiết kế hình, viết prompt,
+Phong cách nền là thuần 2D animation. Style policy là chuẩn bắt buộc cho mọi
+ảnh trong Character Studio và Image Playground, kể cả bản thử và variant.
+Trước thiết kế hình, viết prompt,
 tạo ảnh hoặc visual QA, đọc [policy phong cách](docs/project-style-policy.md),
 bao gồm ngoại lệ nền trời đã được người dùng xác nhận. Đây là nguồn chung cho
 quy chuẩn phong cách; skill phụ trách cách thực thi và kiểm tra.
 
-Profile gốc trong đúng tập là chuẩn identity. Không dùng output trước làm chuẩn
+Với minh họa tập, profile gốc trong đúng tập là chuẩn identity. Với hai studio,
+profile gốc được người dùng chỉ định là chuẩn identity theo contract studio.
+Không dùng output trước làm chuẩn
 thay thế và không cho nhân vật phụ mượn dấu hiệu đặc trưng của nhân vật chính.
 Trước mỗi lần chỉnh sửa ảnh có nhân vật, luôn đọc lại profile reference gốc của
 từng nhân vật xuất hiện, kể cả khi ảnh nguồn hoặc revision trước đã được kiểm.
@@ -81,8 +93,9 @@ từng nhân vật xuất hiện, kể cả khi ảnh nguồn hoặc revision tr
 - Dùng đường dẫn tương đối trong tài liệu và manifest nội bộ.
 - Không sửa, di chuyển hoặc xóa profile, script nguồn hay layout khi chưa được yêu cầu.
 - Không ghi đè output; luôn tạo version mới.
-- Ảnh mới/variant nằm trong `outputs/` của đúng tập/page.
-- Chỉ đưa output vào `approved/` sau khi người dùng chọn rõ và đạt QA áp dụng;
+- Ảnh minh họa mới/variant nằm trong `outputs/` của đúng tập/page. Hai studio
+  lưu riêng trong `studios/` theo contract studio.
+- Với minh họa tập, chỉ đưa output vào `approved/` sau khi người dùng chọn rõ và đạt QA áp dụng;
   thực hiện bàn giao và cập nhật đường dẫn theo `comic-delivery`.
 - Không đưa file tạm, cache hoặc asset của tập khác vào deliverable cuối.
 

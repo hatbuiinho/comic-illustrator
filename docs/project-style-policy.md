@@ -6,6 +6,10 @@ tham chiếu policy chung khi thực thi; cập nhật quy chuẩn tại đây �
 bản sao khác nhau. Ngoại lệ cấp tập hoặc yêu cầu trực tiếp của người dùng được
 áp dụng theo thứ tự ưu tiên trong `AGENTS.md`.
 
+Policy này cũng bắt buộc cho mọi ảnh trong Character Studio và Image Playground,
+kể cả bản thử, character sheet và variant. Không cần người dùng nhắc lại trong
+từng prompt; reference đầu vào không tự tạo ngoại lệ phong cách.
+
 ## Phong cách mặc định
 
 2D animation với nét và mảng màu thiết kế dẫn hình; cel-shading là nền tảng,

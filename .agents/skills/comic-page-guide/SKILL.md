@@ -1,11 +1,15 @@
 ---
 name: comic-page-guide
-description: Entry point mặc định cho mọi yêu cầu tạo, tiếp tục, chỉnh sửa hoặc hoàn thiện hình minh họa truyện tranh; hướng dẫn theo từng cổng quyết định và gọi các skill chuyên môn cần thiết. Không dùng comic-production thay thế trừ khi người dùng gọi đích danh skill đó.
+description: Entry point cho tạo, tiếp tục, chỉnh sửa hoặc hoàn thiện minh họa theo tập/page/frame; không áp dụng cho Character Studio hoặc Image Playground; hướng dẫn theo từng cổng quyết định và gọi các skill chuyên môn cần thiết. Không dùng comic-production thay thế trừ khi người dùng gọi đích danh skill đó.
 ---
 
 # Hướng dẫn làm một page
 
 Entry point cho tạo, tiếp tục, sửa, variant và hoàn thiện minh họa. Đọc [quy tắc nghệ thuật](../comic-shot-design/references/art-first-policy.md). Route tác vụ độc lập thẳng tới skill chuyên môn; không tự gọi `comic-production`.
+
+Nếu yêu cầu là tạo/phát triển profile hoặc ảnh tự do trong studio, chuyển thẳng
+sang `comic-character-studio` hoặc `comic-image-playground` trước khi đọc nguồn
+minh họa hay mở gate. Mention profile cấp tập không đủ để chọn workflow page.
 
 ## Hội thoại và trạng thái
 
