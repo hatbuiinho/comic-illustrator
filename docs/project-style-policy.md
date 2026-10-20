@@ -12,6 +12,33 @@ từng prompt; reference đầu vào không tự tạo ngoại lệ phong cách.
 
 ## Phong cách mặc định
 
+Style mặc định toàn project là **[st03 — 2D mềm, màu tự nhiên cân bằng](style-st03.md)**,
+được người dùng chọn ngày 2026-10-18, thay st02. Đọc định nghĩa và vai trò ảnh mẫu
+tại tài liệu đó cùng policy này. st01 và st02 được giữ làm tham chiếu lịch sử.
+
+Áp dụng st03 cho mọi lượt tạo/chỉnh ảnh mới trong flow minh họa tập/page/frame,
+Character Studio và Image Playground, gồm bản thử, character sheet và variant;
+không cần người dùng gọi lại tên style. Giữ identity theo profile gốc, thể hiện
+bằng st03; không tự đổi thiết kế hoặc ghi đè profile.
+
+### Thực thi trong prompt và QA
+
+- Resolve style hiện hành trước thiết kế, viết prompt, tạo/chỉnh ảnh và QA.
+  Prompt phải mô tả các yêu cầu st03 phù hợp cảnh, không chỉ ghi tên style:
+  2D mềm với nét/mảng rõ, bề mặt sạch không hạt, màu tự nhiên cân bằng,
+  xanh lá dịu khi xuất hiện và ánh sáng theo thời điểm/nguồn sáng thực tế.
+- QA kiểm các yêu cầu trên ở từng nhóm hình đang có, đặc biệt grain/noise,
+  ám xanh lam/cyan toàn cảnh, màu bị phủ vàng/cam và cảnh đêm sáng như ban ngày;
+  đánh giá theo định nghĩa st03, không coi lỗi trong ảnh mẫu là đặc điểm cần giữ.
+- Khi tiếp tục tác vụ cũ, cập nhật phần style của prompt/qaLocks cho lượt mới
+  theo policy hiện hành; ghi style st03 và thay đổi so với lượt trước trong
+  record. Prompt cũ và output trước không khóa style cũ cho lượt mới.
+- Giữ nguyên ảnh, prompt, record và kết quả duyệt trước đây; không hồi tố kết
+  quả QA hoặc tự chuyển đổi tài sản cũ. Output chỉnh mới luôn có version mới
+  và qua bước chọn/duyệt đang áp dụng của workflow tương ứng.
+- Nếu người dùng yêu cầu ngoại lệ rõ, ghi `SKIPPED_BY_USER` cùng phạm vi theo
+  AGENTS.md; reference có style khác không tự tạo ngoại lệ.
+
 2D animation với nét và mảng màu thiết kế dẫn hình; cel-shading là nền tảng,
 không bắt mọi bề mặt phải tuyệt đối phẳng hoặc chỉ có cạnh bóng cứng. Cho phép
 chuyển sắc mềm nhẹ, cục bộ ở da, tóc, nếp vải và vật liệu để giữ độ tinh tế,

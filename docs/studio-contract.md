@@ -8,6 +8,9 @@ skill trong repository, không phải ứng dụng hoặc chat mới. Không t�
 - Đọc [project-style-policy.md](project-style-policy.md) trước thiết kế, prompt,
   tạo/chỉnh ảnh và QA. Policy bắt buộc cho mọi ảnh ở cả hai studio, gồm bản thử,
   sheet, edit và variant; áp dụng cả ngoại lệ nền trời hiện hành.
+- Resolve style mặc định từ policy chung cùng tài liệu định nghĩa style được
+  dẫn chiếu; áp dụng các yêu cầu thực thi prompt và QA tại đó cho mọi lượt mới,
+  kể cả khi tiếp tục brief hoặc chỉnh output cũ. Ghi style áp dụng trong record.
 - Reference cung cấp identity, trang phục, pose hoặc bố cục theo vai trò chỉ định;
   không tự nhập style trái policy. Nếu người dùng yêu cầu thay style rõ, xử lý
   theo thứ tự ưu tiên AGENTS.md và ghi `SKIPPED_BY_USER` đúng phạm vi; không suy

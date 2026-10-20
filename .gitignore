@@ -5,6 +5,11 @@ outputs/
 **/tmp/
 **/Part */pages/
 
+# Dữ liệu sinh khi tạo hình trong hai studio (giữ README hướng dẫn)
+/studios/**
+!/studios/**/
+!/studios/**/README.md
+
 # Hàng đợi/trạng thái runtime của workflow
 sentry/queue/
 
