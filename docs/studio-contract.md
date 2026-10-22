@@ -39,14 +39,13 @@ skill trong repository, không phải ứng dụng hoặc chat mới. Không t�
   tạo ảnh/script/PDF/QA; trao đổi brief hoặc sửa Markdown không cần bootstrap.
 - Brief đủ rõ thì bắt đầu ngay bước phù hợp của studio. Không bắt source gate,
   composition card, preview shot, page-state, layout QA hoặc InDesign. Riêng
-  Character Studio chuyển ảnh gốc thành profile mới tuân theo luồng chân dung
-  nét (line art sạch khi cần loại rendering nguồn, theo Character Studio)
-  → chân dung theo style dự án → sheet; chỉ dựng sheet sau khi chân dung màu
-  đạt kiểm và được người dùng chọn. Không áp luồng đó cho mọi tác vụ hai studio.
-  Khi lên màu profile từ ảnh gốc, theo mặc định đã được người dùng chốt:
-  kiểm line art → lập/kiểm bảng màu theo vùng → tô từ line art + bảng màu +
-  hai user style → QA đối chiếu ảnh gốc. Cách lấy màu, phân vai input và ngoại
-  lệ do `comic-character-studio` quản lý; không bắt tô phẳng toàn nhân vật.
+  Character Studio chuyển ảnh gốc thành profile mới mặc định chuyển trực tiếp
+  ảnh nguồn sang style dự án, giữ nguyên chi tiết → QA → chờ người dùng duyệt
+  ảnh chuyển style → tạo sheet. Khi người dùng duyệt ảnh đạt kiểm thì thực
+  hiện bước sheet; không tự dựng sheet trước duyệt. Nhánh nét chì/line art và
+  nhánh bảng màu, lên màu được giữ nhưng chỉ thực hiện khi người dùng yêu cầu
+  rõ nhánh tương ứng. Chi tiết input, reference, ngoại lệ và kiểm/chọn do
+  `comic-character-studio` quản lý; không bắt tô phẳng toàn nhân vật.
 - Xem ảnh kết quả, kiểm style policy, identity từng người, anatomy/pose và yêu
   cầu cụ thể; sheet phải nhất quán giữa các góc. Báo lỗi thấy được, không ghi
   PASS khi chưa xem. Với lỗi rõ sửa an toàn được và còn trong brief, tự sửa

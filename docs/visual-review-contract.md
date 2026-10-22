@@ -31,7 +31,14 @@ prompt hoặc tên st03. Nhóm không xuất hiện ghi không áp dụng, khôn
 | Trang sức/đá/ngọc | Nét/mảng gợi vật liệu hay phản chiếu, bóng cầu, độ trong mô phỏng vật liệu thật? Có tự thêm hoa văn/hạt/nét khắc, tăng mật độ so với nguồn hoặc lấn trọng tâm mặt ở kích thước sử dụng không? |
 | Đạo cụ/background | Cùng ngôn ngữ với nhân vật, đúng mức chi tiết và ánh sáng theo policy? |
 
-Mềm cục bộ, nhiều sắc độ hoặc một dấu sáng đồ họa không tự là lỗi. Cũng không
+Kiểm ánh sáng trên toàn hình và từng nhóm đang có: các vùng sáng–trung–tối
+phải đọc thành mảng có thiết kế, không nối thành dải chuyển liên tục tạo khối
+bán thực. Độ mềm tiết chế ở rìa mảng được phép; giữ ngoại lệ nền trời theo policy.
+Vật liệu phải còn nhận biết được: trang sức/kim loại có thể dùng mảng sáng
+mạnh hoặc highlight đồ họa, không yêu cầu tô lì hay cấm màu trắng/gần trắng.
+Không đánh giá chỉ riêng vùng vừa được người dùng nhắc đến.
+
+Mềm ở rìa mảng, nhiều sắc độ hoặc một dấu sáng đồ họa không tự là lỗi. Cũng không
 PASS vì đã bỏ hết highlight: shading có thể vẫn render. Không đặt số mảng,
 sắc độ hay cấm mọi dấu sáng; không làm mất nếp, hoa văn, tóc, tuổi hoặc khiến
 hình khô/nhạt để đạt nhãn 2D. Delta chỉ nhắm dấu hiệu drift đã thấy và giữ phần

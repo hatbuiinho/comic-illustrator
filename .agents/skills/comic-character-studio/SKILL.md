@@ -11,7 +11,7 @@ và [policy phong cách](../../../docs/project-style-policy.md).
 ## Hướng dẫn người dùng và bước tiếp theo
 
 - Khi bắt đầu nhân vật mới từ ảnh gốc, giới thiệu ngắn một lần:
-  `Ảnh gốc → line art → bảng màu và lên màu → chọn chân dung màu → sheet → chọn và lưu profile`.
+  `Ảnh gốc → chuyển trực tiếp sang style dự án, giữ nguyên chi tiết → chờ người dùng duyệt → sheet → chọn và lưu profile`.
   Với tác vụ chỉ chỉnh một phần hoặc nhân vật chỉ có brief, nêu đoạn workflow
   thực sự áp dụng, không bắt đi lại các bước đã chọn/đạt.
 - Cuối mỗi lần trả kết quả, nêu bước hiện tại, trạng thái đạt/chưa đạt/chờ
@@ -19,12 +19,16 @@ và [policy phong cách](../../../docs/project-style-policy.md).
   dùng chọn hướng, đưa 2–3 lựa chọn thực tế có tên rõ, phù hợp trạng thái;
   không ép đủ lựa chọn nếu chỉ có một bước hợp lệ. Mỗi câu trả lời mẫu để
   chọn/sửa đặt trong một code block riêng, thuần văn bản theo AGENTS.md.
-- Sau line art: dùng bản nét để lập bảng màu và lên màu / chỉnh phần nét
-  cụ thể / thử phương án nét khác từ nguồn. Nêu lỗi còn lại trước lựa chọn;
-  không tự coi việc xem ảnh là chọn bản nét hoặc miễn QA.
-- Sau chân dung màu: chọn để dựng sheet / chỉnh màu hoặc chi tiết cụ thể /
-  thử cách tô khác nếu có lý do. Chỉ dựng sheet khi chân dung màu đạt kiểm
-  và được người dùng chọn rõ theo contract.
+- Sau ảnh chuyển style: trình ảnh và kết quả QA, chờ người dùng duyệt rõ
+  version đó hoặc yêu cầu chỉnh; không tự dựng sheet trong cùng lượt chuyển
+  style. Khi người dùng duyệt ảnh đạt kiểm, chuyển sang tạo sheet, không hỏi
+  lại chỉ để xác nhận bước đã được duyệt. Duyệt ảnh chuyển style chưa phải
+  duyệt sheet hay cho phép lưu profile.
+- Nhánh tùy chọn: chỉ tạo nét chì/line art khi người dùng yêu cầu rõ bước nét;
+  chỉ lập bảng màu và lên màu riêng khi người dùng yêu cầu rõ nhánh màu.
+  Yêu cầu tạo nét không tự cho phép lập bảng màu/lên màu; không đề xuất nhánh
+  này như bước bắt buộc sau ảnh chuyển style. Trong nhánh được yêu cầu, trình
+  kết quả đúng phạm vi và giữ các điều kiện kiểm/chọn tương ứng bên dưới.
 - Sau sheet: chọn để lưu profile khi đạt QA / chỉnh góc hoặc chi tiết cụ thể /
   tiếp tục xem xét, chưa lưu. Phân biệt duyệt một phần, chọn ảnh để bước tiếp
   và chọn toàn bộ profile; không tự suy phạm vi rộng hơn câu trả lời.
@@ -32,12 +36,10 @@ và [policy phong cách](../../../docs/project-style-policy.md).
   vì hỏi lại. Khi cần người dùng định hướng, nêu lỗi và đề xuất sửa hoặc đổi
   hướng; không đưa lên màu/dựng sheet/lưu profile như hành động đã sẵn sàng
   nếu điều kiện phụ thuộc chưa đạt, trừ override rõ có ghi phạm vi.
-- Đây là hướng dẫn để người dùng hiểu và chọn, không thêm gate. Nếu đã có
-  chỉ dẫn cho phép tiếp tục và điều kiện bước sau đủ, thực hiện luôn; không
-  dừng chỉ để trình menu. Bảng màu được kiểm rồi có thể dùng lên màu cùng
-  lượt nếu không thuộc nhánh người dùng chỉ định màu da cần chốt dưới đây.
-  Không tự tạo biến thể hay chạy ảnh
-  chỉ vì có lựa chọn đó trong menu; chờ lựa chọn nếu hành động chưa được yêu cầu.
+- Không tự tạo biến thể hoặc chạy ảnh chỉ vì có lựa chọn trong menu.
+  Cổng chờ duyệt ảnh chuyển style trước sheet là bắt buộc trong luồng mặc
+  định. Trong nhánh màu được yêu cầu rõ, bảng màu đã kiểm có thể dùng lên màu
+  cùng lượt nếu yêu cầu bao gồm lên màu và không thuộc nhánh màu da cần chốt.
 
 ## Mục tiêu tạo hình
 
@@ -52,6 +54,39 @@ và [policy phong cách](../../../docs/project-style-policy.md).
 - Không dùng một công thức mặt đại diện mọi người Ấn Độ; không khẳng định
   nguồn gốc dân tộc chỉ từ nét mặt được vẽ.
 
+### Cấm thay đổi tỷ lệ các bộ phận so với ảnh gốc
+
+- Áp dụng cho mọi lượt chuyển style, nét, màu, sheet, variant và sửa lỗi có
+  ảnh gốc/profile. Cấm tự thay đổi tỷ lệ bên trong từng bộ phận và tương quan
+  giữa các bộ phận: dài–rộng mặt, kích thước/vị trí/khoảng cách mắt–mày–mũi–
+  miệng–tai, má–hàm–cằm; đầu–cổ–vai–thân; ngực–eo–hông; chiều dài và bề rộng
+  tay/chân, bàn tay/bàn chân và vị trí khớp theo nguồn đang thấy.
+- Chuyển style hoặc sửa nét, tuổi, màu, hoa văn, trang phục không cho phép
+  model tự cân chỉnh lại giải phẫu hay tỷ lệ. Mỗi prompt thực tế phải có cả
+  yêu cầu giữ tỷ lệ và điều cấm rõ trong `Avoid/Negative constraints`, kể cả
+  lượt sửa chỉ nhắm một vùng khác. Không chỉ ghi chung “giữ identity”.
+- Luôn đối chiếu ảnh gốc, không lấy output đã lệch làm chuẩn tỷ lệ. Chỉ đổi
+  tỷ lệ khi người dùng yêu cầu rõ đúng bộ phận/phạm vi đó và ghi
+  `SKIPPED_BY_USER`; yêu cầu đổi góc/pose không tự cho phép đổi tỷ lệ cơ thể.
+  Góc mới có phối cảnh/co ngắn theo góc nhìn nhưng phải giữ cấu trúc nhân vật.
+- QA kiểm tỷ lệ trước style và hoa văn. Thay đổi tỷ lệ thấy rõ là FAIL, kể
+  cả khi ảnh còn nhận ra nhân vật hoặc trông đẹp hơn; không hạ thành “lệch
+  nhẹ” để chuyển bước. Sai biệt nét/anti-alias không đổi tỷ lệ không phải lỗi
+  giải phẫu. Prompt không bảo đảm khóa hình học: nếu model vẫn đổi tỷ lệ,
+  báo chưa đạt, tuân giới hạn sửa và không tự dùng làm nền dựng sheet.
+
+Khối điều cấm cần tích hợp và cụ thể hóa theo phần cơ thể xuất hiện:
+
+```text
+Preserve the original proportions within every visible body part and the
+relative proportions between body parts. Do not resize, lengthen, shorten,
+widen, narrow, reposition or rebalance facial features, face, head, neck,
+shoulders, torso, waist, hips, arms, legs, hands, feet or joints relative to
+the original source. Style transfer and local corrections must not redesign
+anatomy or adjust proportions. The original source remains the proportion
+authority; previous generated outputs and style references do not replace it.
+```
+
 ### Không tự lý tưởng hóa nguồn
 
 - Khi có ảnh gốc/profile, giữ nét riêng quan sát được: độ đầy má, rộng/dài
@@ -59,7 +94,7 @@ và [policy phong cách](../../../docs/project-style-policy.md).
   tuổi, thể trạng và bất đối xứng tự nhiên đang thấy. Không tự cân xứng hóa,
   nâng mắt, thu mũi, gọt hàm, kéo cổ, làm thon dáng, làm sáng da hoặc trẻ hóa.
   Không tự thêm bất đối xứng hay dấu tuổi khi nguồn không thể hiện rõ.
-- Trước mỗi lượt nét, màu hoặc sheet, chọn các dấu riêng thực sự có trong
+- Trước mỗi lượt chuyển style, nét, màu hoặc sheet, chọn các dấu riêng thực sự có trong
   nguồn để đưa vào phần bắt buộc giữ của prompt; nêu cụ thể xu hướng không
   được đổi tương ứng. Không chỉ ghi chung “giữ identity” hoặc “không làm đẹp”.
   Mẫu style chỉ cung cấp cách thể hiện, không cung cấp chuẩn mặt/cơ thể lý tưởng.
@@ -117,6 +152,85 @@ và [policy phong cách](../../../docs/project-style-policy.md).
   không bảo đảm mô hình tuân thủ; vẫn giữ giới hạn sửa và dung sai tỷ lệ hiện
   hành. Không tự chạy ảnh kiểm chứng khi người dùng chỉ yêu cầu sửa workflow.
 
+### Nét đen cấu trúc trên khuôn mặt
+
+- Áp dụng cho ảnh chuyển style, ảnh màu, sheet và mọi lượt sửa có mặt nhìn
+  thấy. Prompt phải chỉ rõ vị trí cần nét đen theo cấu trúc nguồn; không chỉ
+  ghi “nét rõ” hoặc dùng bóng màu sẫm thay nét. Với góc khuất hoặc chi tiết
+  nguồn không có, không tự thêm nét để đủ danh sách.
+- Khi biên soạn prompt thực tế, tách yêu cầu **Mũi** và **Miệng** thành hai
+  mục riêng theo vùng nhìn thấy; không rút gọn thành “fine dark linework”.
+  Trong `Avoid/Negative constraints` phải có câu cấm dùng bóng nâu/xám,
+  đường màu môi hoặc ranh giới mảng màu thay nét mực đen/near-black. Kiểm
+  câu này có trong prompt đã gửi, không chỉ trong skill hay record QA.
+  “Mềm”, “dịu”, “tiết chế” mô tả độ dày/đầu nét và rìa mảng shading, không
+  cho phép làm nhạt màu nét cấu trúc hoặc hòa nét vào bóng da/môi.
+- Mắt: nét đen thanh ở bờ mí trên, khóe mắt và lông mi đang có; mí dưới chỉ
+  nhấn đoạn cấu trúc theo nguồn, không mặc định viền đen kín mắt. Mày giữ
+  hình, độ dày và màu theo identity, không ép mọi lông mày thành khối đen.
+- Mũi: nét đen thanh ở lỗ mũi và đoạn ngắn chân/cánh mũi thực sự thấy trong
+  nguồn. Không viền đen toàn bộ mũi, kéo nét dọc hai bên sống mũi hoặc làm
+  mũi nhỏ/nhọn hơn. Không lấy ranh giới bóng sáng làm đường cấu trúc mới.
+- Miệng: đường khép/tiếp giáp hai môi cần nét đen thanh, rõ theo đúng đường
+  cong nguồn, nối về hai khóe khi nguồn thể hiện; khóe miệng nhấn ngắn và
+  tiết chế, không thành hai mảng đen dày. Không chỉ giữ một đường nâu/xám
+  hoặc bóng mềm rồi coi đã có nét đen. Không viền kín cả hai môi, tô môi
+  thành đen hoặc thay hình môi/nụ cười. Miệng mở thì theo đúng mép miệng
+  đang thấy, không tự thêm đường khép môi xuyên qua khoảng mở.
+- Môi dưới: thêm nét đen/near-black thanh, ngắn, thu hai đầu ở đoạn bờ dưới
+  thực sự đọc được theo cấu trúc nguồn; có thể ngắt, không nối thành viền
+  kín môi. Phân biệt nét này với đường khép môi và bóng đổ dưới môi: không
+  dùng bóng nâu thay nét, cũng không đồ toàn bộ mép bóng thành đường đen dài.
+  Không tự thêm khi góc nhìn che khuất hoặc nguồn không cho thấy cấu trúc đó.
+  Yêu cầu “không viền kín cả hai môi” không có nghĩa bỏ nét chọn lọc môi dưới.
+- Tai, hàm/cằm và cổ: giữ nét đường bao và nét cấu trúc chọn lọc theo nguồn,
+  phân cấp thanh–đậm với mắt/mũi/miệng; không đồ mọi nếp tuổi, rãnh má hoặc
+  ranh giới mảng sáng–tối thành nét đen. Răng khi có theo hướng dẫn riêng
+  bên dưới, không viền đen kín từng chiếc.
+- Nét đen/near-black phải đọc như nét mực ở kích thước sử dụng, có đầu nét
+  thu và độ dày tiết chế, không làm toàn bộ viền mặt đậm cứng. Giữ màu môi,
+  màu da và mảng ánh sáng; tăng nét không cho phép đổi vị trí, kích thước,
+  hình dạng hay tỷ lệ bộ phận. Màu biểu đạt riêng trong nguồn chỉ đổi khi
+  người dùng yêu cầu rõ, ghi phạm vi; không tự thêm makeup.
+- QA xem riêng mắt, mũi và miệng: nét có thật sự đen, đủ rõ và đúng vị trí
+  không; có thiếu đường khép môi, chỉ đen ở khóe, viền kín hoặc khóe quá dày
+  không. Kiểm lại hình/tỷ lệ nguồn và shading sau nhấn nét. Nét đen rõ không
+  bù được tỷ lệ sai hoặc khối mặt còn giống render 3D. Ghi đúng phần chưa
+  đạt, không gọi bóng màu sẫm là nét đen đã đạt.
+- QA ghi kết quả mũi và miệng riêng ở kích thước sử dụng, phóng lớn để xác
+  minh khi cần: mũi kiểm lỗ mũi cùng đoạn chân/cánh mũi đang thấy; miệng
+  kiểm riêng đoạn giữa đường khép môi, hai khóe và nét bờ dưới môi khi nguồn
+  thể hiện; không coi đường khép môi đã đạt là đủ cho nét môi dưới. Chỉ đen ở khóe
+  không đủ để đạt toàn miệng; thấy rõ hình môi hoặc màu tối không chứng minh
+  đã có nét đen. Nếu chưa đọc thành nét mực ở kích thước sử dụng thì ghi
+  chưa đạt phần đó, không lấy nét mắt rõ hoặc tương phản tổng thể để bù.
+- Ref trắng đen v002 mới là bản xem trước về nhấn nét, chưa được người dùng
+  chọn thay ref chung; không tự cập nhật reference style chỉ vì đã sửa skill.
+
+Khối gợi ý tích hợp theo góc nhìn và phần thực sự xuất hiện:
+
+```text
+Eyes: fine black or near-black tapered structural ink at the visible upper
+eyelids and eye corners, following the source.
+Nose: distinct fine black or near-black ink at the visible nostril apertures
+and short alar/nose-base edges actually shown in the source. These must read
+as ink strokes at the intended viewing size, separate from colored shading.
+Mouth: a fine black or near-black actual lip-separation line, including its
+central segment and its connection toward the corners where the source shows
+them; restrained short corner accents alone are insufficient. For an open
+mouth, follow its visible edges without adding a closed-lip seam across it.
+Lower lip: where the source reveals its lower structural edge, use a short,
+fine black/near-black tapered stroke, optionally broken, distinct from the
+lip-separation line. Do not enclose the lip or trace the entire cast shadow.
+Keep source feature shapes, positions and proportions. Softness means tapered
+delicate strokes and locally soft shading edges, not faded structural ink.
+Avoid/Negative constraints: do not substitute brown/gray shading, lip-colored
+lines or color-patch boundaries for the required black/near-black ink. Do not
+encircle the whole nose or both lips, thicken corners into black wedges, trace
+every wrinkle or light/shadow boundary, or add lines on hidden features.
+Preserve source anatomy and all relative proportions.
+```
+
 ### Sắc vùng mắt theo identity gốc
 
 Người dùng xác nhận ngày 2026-10-21 từ thử nghiệm Nhân vật nữ test: giữ chuyển
@@ -136,6 +250,33 @@ không thể hiện. Không dùng đặc điểm này để kết luận nguồn
 - Thể hiện bằng nét/mảng 2D với độ mềm cục bộ tiết chế; giữ biến thiên sắc
   không đồng nghĩa sao chép tạo khối ảnh thật. QA so cả vùng mắt với nguồn,
   kiểm mất sắc riêng, tăng độ đậm quá mức và sai quan hệ trên–dưới mí.
+- Giữ quan hệ sắc bằng các mảng màu riêng có hình dạng rõ; “giữ chuyển sắc”
+  không cho phép blend rộng từ hốc mắt sang má hoặc làm mượt toàn mặt.
+  Độ mềm trên da theo giới hạn trong policy chung bên dưới.
+
+### Giới hạn độ mềm trên da
+
+- Áp dụng [giới hạn da của policy chung](../../../docs/project-style-policy.md#giới-hạn-độ-mềm-trên-da)
+  cho prompt và QA: mảng sáng–trung–tối liền, đọc rõ hình dạng; chỉ dịu mép
+  hẹp, không chuyển mượt lan rộng ôm khối má–mũi–cằm–cổ. Giữ cấu trúc và
+  sắc riêng theo nguồn, không làm da lì một màu hoặc tăng tương phản gắt.
+- Prompt thực tế phải có giới hạn riêng cho da, không chỉ “soft 2D” hoặc
+  lệnh cấm 3D chung. Khối gợi ý:
+
+  ```text
+  Skin: use coherent light/midtone/shadow color shapes with clean, continuous
+  interiors and readable boundaries. Allow only a narrow local softening at
+  selected edges, preserving each shape. Keep source anatomy and regional
+  skin colors, including eye-area colors, through designed color shapes.
+  Avoid/Negative constraints: no broad blended transitions wrapping around
+  cheeks, nose, chin or neck; no airbrushed or spherical skin shading, diffuse
+  glow patches or continuous volumetric ramps. Do not flatten all skin to one
+  color, sharpen every edge, deepen shadows or redesign anatomy to compensate.
+  ```
+- QA da ở kích thước sử dụng và phóng lớn khi cần: kiểm riêng má, mũi, cằm,
+  cổ và quanh mắt; mảng có còn đọc rõ hay hòa thành khối mượt. Chuyển sắc
+  rộng tạo cảm giác 3D là chưa đạt dù nét đen rõ. Không dùng kết quả nét môi
+  hoặc vải để bù lỗi da; không tự nâng ảnh minh họa mới thành ref style chung.
 
 ## Trang phục nữ kín đáo
 
@@ -159,6 +300,47 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
 
 ## Chuyển style và mức chi tiết
 
+- Khi ảnh có trang sức, bắt buộc xem và truyền kèm
+  [bảng trang sức v003](../../../studios/playground/outputs/punna-trang-suc-den-trang/board-v003.png)
+  trong mỗi lượt tạo/chỉnh theo [policy chung](../../../docs/project-style-policy.md#vật-liệu-và-giới-hạn-rendering).
+  Áp dụng cả chuyển style, sheet, bản thử, variant và sửa lỗi; không chỉ mô
+  tả bằng chữ. Phân vai ref vật liệu giảm bóng, giữ thiết kế/màu theo nguồn;
+  ghi input thực tế và kiểm nhiễm thiết kế từ bảng. Không tự tạo ảnh chỉ vì
+  đang cập nhật quy tắc này.
+
+- **Vải phẳng, sạch:** áp dụng cho chuyển style, ảnh màu, sheet và lượt sửa
+  có trang phục. Giữ silhouette, cách quấn, mép chồng, nếp gấp chính và màu
+  theo nguồn; diễn bề mặt bằng mảng màu rộng, liền và ít chia vụn. Bóng theo
+  nếp chính, chênh sắc vừa, rìa mềm tiết chế theo st03; không làm từng nếp
+  nhỏ thành khối nổi hoặc phủ các vệt sáng–tối li ti lên toàn mặt vải.
+- Phân biệt **hoa văn thiết kế** với **texture vật liệu** trước viết prompt:
+  giữ hình, vị trí và nhịp lặp của viền/motif nhận diện đọc được; bỏ vân dệt,
+  sợi vải, lưới nhỏ, hatching, nét xước, hạt và vệt loang mô phỏng bề mặt.
+  Không hiểu “giữ nguyên chi tiết” là sao chép hoặc tăng rõ mọi vân vật liệu.
+  Hoa văn thân vải thực sự có trong nguồn được diễn bằng nét/mảng 2D tiết chế,
+  không tăng mật độ hay độ tương phản để lấp vùng trống. Chi tiết không đọc
+  rõ thì ghi giới hạn, không đoán motif, biến vân dệt thành họa tiết mới hoặc
+  xóa viền nhận diện để làm phẳng vải.
+- Prompt thực tế phải nêu riêng phần giữ và phần bỏ ở vải; đưa các texture
+  bị loại vào `Avoid/Negative constraints` ngay từ đầu. Khối gợi ý, điều chỉnh
+  theo trang phục đang có:
+
+  ```text
+  Fabric: preserve the source garment silhouette, wrap, overlaps, main folds,
+  colors and readable identifying border/motif shapes and spacing. Use broad,
+  clean, uninterrupted 2D color areas and restrained designed shadow shapes
+  following the main folds, with moderate contrast and locally soft edges.
+  Avoid/Negative constraints: no woven microtexture, visible threads, fine
+  crosshatch/grid, grain, scratches, mottling, dense tiny crease lines or
+  fragmented highlight/shadow streaks across the fabric. Do not turn weave
+  texture into invented motifs, amplify faint patterns, add decoration, or
+  erase/change identifying borders and motifs to obtain a flatter surface.
+  ```
+- QA vải ở toàn hình/kích thước sheet và vùng phóng lớn: bề mặt đọc thành
+  mảng sạch, nếp chính và lớp quấn còn rõ; không có vân dày, lưới sợi hoặc
+  mảng vụn làm nhiễu. Kiểm riêng viền/motif với nguồn để phát hiện mất/đổi/thêm
+  hoa văn. Phẳng hơn không có nghĩa xóa toàn bộ bóng, nếp hoặc thiết kế;
+  giảm texture không cho phép thay tỷ lệ cơ thể hay các vùng khác.
 - Trước lượt tạo đầu, tách thiết kế cần giữ khỏi cách thể hiện cần chuyển:
   identity, silhouette, cấu trúc trang phục/trang sức theo nguồn; nét, màu,
   shading và mức nhấn theo policy. Không chờ output lệch rồi mới bổ sung
@@ -272,7 +454,48 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
 
 ## Sử dụng reference và chỉnh sửa
 
-### Workflow mặc định: line art + bảng màu theo vùng + hai user style
+### Workflow mặc định: chuyển trực tiếp ảnh gốc sang style dự án
+
+Người dùng cập nhật ngày 2026-10-22: luồng này thay mặc định nét → bảng màu
+→ lên màu ngày 2026-10-21; giữ nhánh cũ chỉ để dùng khi được yêu cầu rõ.
+
+- Đọc brief và xem ảnh gốc → chuyển chính ảnh đó sang st03 hiện hành → QA
+  đối chiếu trực tiếp nguồn → trình ảnh, chờ người dùng duyệt → tạo sheet.
+  Không tạo nét chì/line art, bảng màu hoặc lượt lên màu tách riêng ở giữa.
+- Truyền ảnh gốc làm reference identity/thiết kế/màu/cấu trúc; dùng reference
+  style hiện hành theo policy và định nghĩa st03. Style ref chỉ cung cấp cách
+  diễn nét/mảng, không cung cấp khuôn mặt, trang phục, màu hoặc bố cục.
+  Không mặc định truyền hai user style cũ của nhánh tô màu vào luồng này.
+- Giữ nguyên chi tiết quan sát được: mặt, tuổi, thể trạng, tỷ lệ, tóc/râu,
+  trang phục, hoa văn, trang sức/phụ kiện, màu và vị trí vật liệu; giữ pose,
+  biểu cảm, góc nhìn, crop và bố cục nguồn. Chỉ chuyển cách diễn nét, mảng
+  sáng–trung–tối và bề mặt sang style dự án. Không tự thêm/bớt, thay thiết kế,
+  làm đẹp, sửa trang phục hoặc đổi pose để chuẩn bị cho sheet.
+- Với vải, “giữ nguyên chi tiết” giữ thiết kế nhận diện, không giữ texture
+  vật liệu; áp dụng mục **Vải phẳng, sạch** ở trên trong prompt và QA.
+- Prompt và record phải tách `Giữ nguyên theo nguồn`, `Chỉ đổi cách thể hiện`
+  và `Avoid/Negative constraints`, nêu dấu riêng cụ thể và điều cấm tương ứng.
+  Chi tiết không đọc rõ thì ghi giới hạn, không đoán hoặc thêm motif để bù.
+- Với yêu cầu giữ nguyên chi tiết ở luồng này, ghi `SKIPPED_BY_USER` đúng phạm
+  vi nếu quy chuẩn thiết kế mặc định về trang phục nữ hoặc y tỳ-kheo đòi đổi
+  thiết kế đang có trong nguồn; không âm thầm sửa nguồn theo quy chuẩn đó.
+  Style policy vẫn áp dụng. Thay đổi thiết kế khác chỉ làm khi người dùng
+  yêu cầu rõ, ghi phạm vi và provenance, không mở rộng sang phần khác.
+- QA kiểm đồng thời identity, hình học, chi tiết/màu và style trên toàn ảnh;
+  áp dụng dung sai tỷ lệ và giới hạn tự sửa hiện hành. Không lấy nét 2D sạch
+  làm lý do bỏ chi tiết nguồn. Nếu chưa đạt, báo lỗi cụ thể, không coi ảnh
+  sẵn sàng dựng sheet; nếu đạt, vẫn chờ người dùng duyệt version hiện hành.
+- Khi dựng sheet sau duyệt, dùng ảnh chuyển style được chọn cùng nguồn gốc
+  đúng vai trò; bố cục/góc đứng theo mục sheet. Không đổi thiết kế đã duyệt;
+  phần khuất chưa có dữ kiện phải ghi là suy dựng, không giả là chi tiết nguồn.
+
+### Nhánh tùy chọn: nét chì/line art và bảng màu, lên màu
+
+Chỉ đọc và thực hiện các hướng dẫn chuyên biệt dưới đây khi người dùng yêu
+cầu rõ nhánh tương ứng. Các từ “mặc định” về input bên dưới chỉ áp dụng trong
+nhánh tô màu này, không thay workflow chuyển style trực tiếp. Yêu cầu chuyển
+style, chỉnh style hoặc QA chưa đạt không tự kích hoạt nhánh nét/màu.
+
 
 #### Khi người dùng chỉ định màu da trước khi lên màu
 
@@ -299,11 +522,11 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
   version hiện hành và line art đủ điều kiện. Yêu cầu chỉnh bảng chưa phải
   duyệt tô; tạo version bảng mới và trình lại nếu thay màu chưa được chốt.
 
-Người dùng chốt nâng cấp ngày 2026-10-21, thay phương pháp tạm truyền ảnh gốc
-vào lượt tô. Đây là lựa chọn workflow, không miễn QA hoặc xác nhận phương pháp
+Phương pháp nhánh màu được chốt ngày 2026-10-21, thay phương pháp tạm truyền
+ảnh gốc vào lượt tô riêng. Đây là lựa chọn workflow, không miễn QA hoặc xác nhận phương pháp
 đã ổn định trên mọi nhân vật. Policy st03 vẫn có hiệu lực.
 
-- Với chuyển ảnh gốc thành profile: đọc brief và ảnh gốc → tạo/kiểm chân dung
+- Khi người dùng yêu cầu trọn nhánh nét và màu: đọc brief và ảnh gốc → tạo/kiểm chân dung
   line art sạch → lập/kiểm bảng màu theo vùng → tô mới bằng line art + bảng
   màu + hai user style → QA đối chiếu ảnh gốc → người dùng chọn chân dung
   màu → dựng sheet theo contract. Bảng màu là các ô màu có nhãn, không phải
@@ -366,7 +589,7 @@ vào lượt tô. Đây là lựa chọn workflow, không miễn QA hoặc xác 
   nó đúng vai trò reference nhân vật, giữ provenance theo contract. Bảng màu
   theo thiết kế đã chọn phải ghi phần tự thiết kế, không giả là trích ảnh gốc.
 
-### Chuẩn line art và các nhánh chẩn đoán
+### Chuẩn line art và chẩn đoán trong nhánh tùy chọn
 
 #### Tách chi tiết thiết kế khỏi shading trước tạo nét
 
@@ -447,9 +670,9 @@ vào lượt tô. Đây là lựa chọn workflow, không miễn QA hoặc xác 
   hoặc đo mốc để xác minh. Không kéo giãn, warp hoặc căn riêng từng bộ phận
   để che sai lệch. Phân biệt lệch vị trí toàn hình với thay đổi tỷ lệ nội bộ;
   giữ crop không tự chứng minh mặt/cơ thể đúng tỷ lệ.
-- Mục tiêu là ít sai tỷ lệ, không trùng từng pixel. Sai khác nhỏ do diễn đạt
-  nét có thể chấp nhận nếu còn nhận diện, tuổi, thể trạng và quan hệ mặt–cổ–vai;
-  không tự FAIL chỉ vì vài đường bao khác nhẹ. Lệch làm đổi người, mắt lớn rõ,
+- Không đòi trùng từng pixel; chỉ chấp nhận sai khác cách đi nét không làm
+  đổi tỷ lệ. Còn nhận diện, tuổi hoặc thể trạng không bù được tỷ lệ đã đổi.
+  Áp dụng mục cấm thay đổi tỷ lệ cho cả nhánh này. Lệch làm đổi người, mắt lớn rõ,
   mặt dài/thon rõ, đầu lớn so với thân hoặc cổ bị kéo dài cần nêu và sửa theo
   giới hạn lượt hiện hành. Không đặt ngưỡng phần trăm khi chưa có phép đo và
   tiêu chí được xác lập. Người dùng chấp nhận lệch cụ thể thì ghi phạm vi
@@ -464,7 +687,7 @@ vào lượt tô. Đây là lựa chọn workflow, không miễn QA hoặc xác 
   và shading; thuộc tính được lấy/không lấy. Ảnh đơn sắc còn mảng xám,
   highlight hoặc bóng vật liệu không phải line art thuần. Gán vai trò bằng
   chữ không bảo đảm mô hình cô lập ảnh hưởng.
-- Khi chuyển ảnh gốc thành profile và cần loại ảnh hưởng rendering nguồn,
+- Trong nhánh nét được yêu cầu rõ, khi cần loại ảnh hưởng rendering nguồn,
   dùng chân dung line art sạch làm bước nét: đường cấu trúc mặt, silhouette,
   nếp vải chính và dấu riêng của phụ kiện; nền/vùng tô trắng, không mảng
   bóng xám, chuyển sắc, hatching, vân chì hoặc đường bao highlight.

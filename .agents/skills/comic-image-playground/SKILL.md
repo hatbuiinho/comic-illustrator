@@ -16,5 +16,9 @@ description: Tạo hoặc chỉnh ảnh tự do trong Image Playground theo styl
   storyboard. Suy luận vừa đủ chi tiết chưa nêu, không tự thêm sự kiện canon.
 - Khi sửa, nêu delta và các phần giữ nguyên; xem lại ảnh đích cùng profile gốc.
   Tạo version mới trong Playground, kể cả khi ảnh đích xuất phát từ một tập.
+- Khi chuyển ảnh gốc sang style dự án và cần giữ chi tiết, đọc
+  [chuyển style giữ nguồn](references/source-faithful-restyling.md). Áp dụng
+  khóa mảng theo nguồn và phân vai ref; có trang sức thì dùng phương án giảm
+  bóng đã tạm chốt trong reference, không lấy thiết kế từ bảng vật liệu.
 - Bàn giao ảnh cùng kết quả kiểm style/identity ngắn gọn. Ảnh Playground không
   tự trở thành character profile, canon, master hoặc asset đã duyệt của tập.

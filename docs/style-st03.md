@@ -10,13 +10,35 @@ giữ nguyên; khi tiếp tục tạo/chỉnh thì áp dụng st03 cho version m
 
 ## Đặc điểm
 
+- Cập nhật người dùng xác nhận ngày 2026-10-22: dùng cách diễn mảng sáng
+  trong [reference đen trắng v001](../studios/playground/outputs/chan-dung-den-trang/portrait-v001.png)
+  làm chuẩn cho nét, tổ chức mảng và độ dịu của rìa mảng. Người dùng chốt dùng
+  bản đen trắng làm ảnh ref style, thay bản màu Gavampati v003. Mảng sáng–trung–tối vẫn có hình dạng
+  thiết kế, nhưng chênh sắc vừa, ranh giới hơi nhạt và mềm tiết chế; không
+  viền đậm quanh mảng sáng hoặc làm cạnh mảng nổi thành vệt cắt gắt.
+  Cho phép chuyển nhẹ cục bộ ở rìa như mẫu, không ép mọi mảng thành ô màu
+  tuyệt đối phẳng/cạnh cứng. Không nối toàn bộ sáng–tối thành khối render
+  bán thực. Áp dụng theo vật liệu và nguồn sáng; vẫn giữ nét cấu trúc và
+  chi tiết identity đủ rõ, không làm nhạt toàn hình.
+- Với da, áp dụng [giới hạn độ mềm trên da](project-style-policy.md#giới-hạn-độ-mềm-trên-da):
+  mảng màu liền, hình dạng và ranh giới còn đọc rõ; chỉ dịu mép hẹp, không
+  blend rộng ôm khối má–mũi–cằm–cổ. Sắc quanh mắt được giữ bằng mảng màu,
+  không phải chuyển mượt toàn vùng. Đây là giới hạn của “mềm tiết chế” trên
+  da, không yêu cầu tô một màu hoặc làm mọi cạnh sắc gắt.
 - Giữ nét vẽ và mảng màu thiết kế của 2D animation mềm: silhouette rõ, khối nhẹ,
-  cel-shading và chuyển sắc mềm cục bộ, tiết chế. Không giảm chi tiết mắt, tóc,
+  cel-shading với các mảng sáng–trung–tối có thiết kế; rìa mảng có thể mềm
+  tiết chế, không tạo dải chuyển ánh sáng liên tục gây cảm giác bán thực.
+  Áp dụng trên mọi thành phần theo [policy ánh sáng và vật liệu](project-style-policy.md).
+  Không giảm chi tiết mắt, tóc,
   nếp vải, hoa văn hoặc trang sức chỉ để làm phẳng hình.
+- Cấu trúc khuôn mặt theo profile/reference gốc: giữ nét và mảng gợi gò má,
+  độ đầy má, hàm và tuổi theo [policy giữ cấu trúc khuôn mặt](project-style-policy.md#giữ-cấu-trúc-khuôn-mặt-theo-nguồn).
+  Nét thanh nhưng đủ đọc; không xóa đến phẳng mặt hoặc tự thêm rãnh má.
 - Bề mặt màu phải sạch và liền mảng. Cấm hạt giấy, hạt màu, grain/noise,
   chấm li ti, vân giấy và texture cọ khô trên da, vải, vật thể lẫn background,
-  kể cả lớp phủ rất nhẹ. Độ mềm đến từ chuyển sắc cục bộ sạch và tiết chế,
-  không từ texture hạt; vẫn giữ nét và chi tiết thiết kế có chủ ý.
+  kể cả lớp phủ rất nhẹ. Độ mềm đến từ nét, hình dạng và rìa mảng được xử lý
+  tiết chế, không từ texture hạt hoặc dải shading liên tục; vẫn giữ nét và
+  chi tiết thiết kế có chủ ý.
   Quy định này được người dùng bổ sung ngày 2026-10-18, áp dụng cho mọi ảnh st03 mới.
 - Ánh sáng theo thời điểm, môi trường và nguồn sáng thực sự của cảnh; không mặc
   định ánh sáng ban ngày cho mọi ảnh. Ánh sáng trắng trung tính dùng cho character
@@ -49,6 +71,23 @@ giữ nguyên; khi tiếp tục tạo/chỉnh thì áp dụng st03 cho version m
 
 ## Mẫu tham chiếu và vai trò
 
+- [Reference đen trắng v001](../studios/playground/outputs/chan-dung-den-trang/portrait-v001.png):
+  **ảnh ref style mặc định hiện hành**, người dùng chốt ngày 2026-10-22 sau
+  lượt thử [Mục Kiền Liên v002](../studios/playground/outputs/muc-kien-lien-st03/portrait-v002.md).
+  Lấy nét, cách chia mảng sáng–trung–tối, tương quan sắc độ và độ dịu rìa mảng
+  trên da/vải theo policy. Không lấy khuôn mặt, tuổi, nếp nhăn, tỷ lệ, thiết kế
+  y phục hoặc bố cục. Không chuyển output sang grayscale trừ khi được yêu cầu;
+  màu vẫn theo nguồn từng đối tượng và định nghĩa st03.
+  [Record và prompt gốc](../studios/playground/outputs/chan-dung-den-trang/portrait-v001.md)
+  giữ provenance; việc chọn ref không phải duyệt profile/canon nhân vật mẫu.
+- [Tôn giả Gavampati v003](../studios/playground/outputs/gavampati-st03/portrait-v003.png):
+  mẫu màu lịch sử, được thay vai trò ref mặc định bằng bản đen trắng ở trên.
+  Người dùng từng chọn ngày 2026-10-22 làm mẫu cho **cách diễn mảng sáng và độ dịu
+  của rìa mảng**, nhất là da và vải. [Prompt](../studios/playground/outputs/gavampati-st03/prompt-v003.md)
+  và [record](../studios/playground/outputs/gavampati-st03/portrait-v003.md)
+  giữ provenance. Chỉ lấy thuộc tính ánh sáng này; không lấy khuôn mặt,
+  nếp áo, màu da/áo hoặc sai khác chi tiết nguồn làm chuẩn cho nhân vật khác.
+  Xác nhận này không phải duyệt toàn ảnh hoặc profile Gavampati.
 - [Công trường v001](../studios/playground/outputs/cong-truong-st03/scene-v001.png):
   mẫu thử tổng thể cho màu lá dịu, phân biệt nhóm màu và cảnh đông theo st03.
   [Prompt](../studios/playground/outputs/cong-truong-st03/prompt-v001.md) và
