@@ -54,7 +54,7 @@ nhưng không nối các vùng thành dải chuyển sáng–tối liên tục t
 Giữ chi tiết đồ họa có giá trị: mắt, tóc, nếp vải, hoa văn và trang sức; không
 giản lược chúng chỉ để đạt nhãn “phẳng”.
 
-Người dùng chốt ngày 2026-10-22: dùng [reference đen trắng v001](../studios/playground/outputs/chan-dung-den-trang/portrait-v001.png)
+Người dùng chốt ngày 2026-10-22: dùng [reference đen trắng v001](../.agents/skills/comic-image-production/references/style-st03/portrait-bw-v001.png)
 làm ảnh ref style hiện hành của st03 trên toàn project, thay vai trò ref mặc định
 của bản màu Gavampati v003. Chỉ lấy cách diễn nét, tổ chức mảng sáng–trung–tối
 và độ dịu của rìa mảng; không lấy identity, tuổi, nếp nhăn, thiết kế trang phục
@@ -101,7 +101,7 @@ không tự thay giải phẫu để làm mặt phẳng hơn hoặc có vẻ sâ
 
 Người dùng xác nhận ngày 2026-10-22: trong mọi workflow tạo/chỉnh ảnh, khi
 ảnh có trang sức, bắt buộc xem và truyền kèm
-[ảnh ref bảng trang sức v003](../studios/playground/outputs/punna-trang-suc-den-trang/board-v003.png)
+[ảnh ref bảng trang sức v003](../.agents/skills/comic-image-production/references/style-st03/jewelry-board-v003.png)
 vào mỗi lượt ImageGen, kể cả bản thử, chuyển style, sheet, variant và sửa lỗi.
 Mô tả bằng chữ không thay thế input ảnh này. Nếu không truyền được, báo giới
 hạn trước lượt tạo, không âm thầm bỏ ref. Chỉ miễn khi người dùng chỉ định rõ.

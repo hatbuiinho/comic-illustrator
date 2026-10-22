@@ -11,7 +11,7 @@ giữ nguyên; khi tiếp tục tạo/chỉnh thì áp dụng st03 cho version m
 ## Đặc điểm
 
 - Cập nhật người dùng xác nhận ngày 2026-10-22: dùng cách diễn mảng sáng
-  trong [reference đen trắng v001](../studios/playground/outputs/chan-dung-den-trang/portrait-v001.png)
+  trong [reference đen trắng v001](../.agents/skills/comic-image-production/references/style-st03/portrait-bw-v001.png)
   làm chuẩn cho nét, tổ chức mảng và độ dịu của rìa mảng. Người dùng chốt dùng
   bản đen trắng làm ảnh ref style, thay bản màu Gavampati v003. Mảng sáng–trung–tối vẫn có hình dạng
   thiết kế, nhưng chênh sắc vừa, ranh giới hơi nhạt và mềm tiết chế; không
@@ -71,7 +71,7 @@ giữ nguyên; khi tiếp tục tạo/chỉnh thì áp dụng st03 cho version m
 
 ## Mẫu tham chiếu và vai trò
 
-- [Reference đen trắng v001](../studios/playground/outputs/chan-dung-den-trang/portrait-v001.png):
+- [Reference đen trắng v001](../.agents/skills/comic-image-production/references/style-st03/portrait-bw-v001.png):
   **ảnh ref style mặc định hiện hành**, người dùng chốt ngày 2026-10-22 sau
   lượt thử [Mục Kiền Liên v002](../studios/playground/outputs/muc-kien-lien-st03/portrait-v002.md).
   Lấy nét, cách chia mảng sáng–trung–tối, tương quan sắc độ và độ dịu rìa mảng
@@ -80,7 +80,7 @@ giữ nguyên; khi tiếp tục tạo/chỉnh thì áp dụng st03 cho version m
   màu vẫn theo nguồn từng đối tượng và định nghĩa st03.
   [Record và prompt gốc](../studios/playground/outputs/chan-dung-den-trang/portrait-v001.md)
   giữ provenance; việc chọn ref không phải duyệt profile/canon nhân vật mẫu.
-- [Tôn giả Gavampati v003](../studios/playground/outputs/gavampati-st03/portrait-v003.png):
+- [Tôn giả Gavampati v003](../.agents/skills/comic-image-production/references/style-st03/gavampati-v003.png):
   mẫu màu lịch sử, được thay vai trò ref mặc định bằng bản đen trắng ở trên.
   Người dùng từng chọn ngày 2026-10-22 làm mẫu cho **cách diễn mảng sáng và độ dịu
   của rìa mảng**, nhất là da và vải. [Prompt](../studios/playground/outputs/gavampati-st03/prompt-v003.md)
@@ -88,11 +88,11 @@ giữ nguyên; khi tiếp tục tạo/chỉnh thì áp dụng st03 cho version m
   giữ provenance. Chỉ lấy thuộc tính ánh sáng này; không lấy khuôn mặt,
   nếp áo, màu da/áo hoặc sai khác chi tiết nguồn làm chuẩn cho nhân vật khác.
   Xác nhận này không phải duyệt toàn ảnh hoặc profile Gavampati.
-- [Công trường v001](../studios/playground/outputs/cong-truong-st03/scene-v001.png):
+- [Công trường v001](../.agents/skills/comic-image-production/references/style-st03/cong-truong-v001.png):
   mẫu thử tổng thể cho màu lá dịu, phân biệt nhóm màu và cảnh đông theo st03.
   [Prompt](../studios/playground/outputs/cong-truong-st03/prompt-v001.md) và
   [record](../studios/playground/outputs/cong-truong-st03/scene-v001.md) giữ provenance.
-- [Cảnh rắn cắn v001](../studios/playground/outputs/ran-can-st03/spread-v001.png):
+- [Cảnh rắn cắn v001](../.agents/skills/comic-image-production/references/style-st03/ran-can-v001.png):
   mẫu bổ trợ cho nét/mảng 2D, cách hòa hình chữ và tương phản cảm xúc trong cảnh đông.
   [Prompt](../studios/playground/outputs/ran-can-st03/prompt-v001.md) và
   [record](../studios/playground/outputs/ran-can-st03/spread-v001.md) giữ provenance.

@@ -1,5 +1,10 @@
 # Chọn reference
 
+Ảnh mẫu st03 dùng chung được lưu trong [style-st03/](style-st03/README.md),
+được Git theo dõi. Lấy vai trò và giới hạn từ
+[định nghĩa st03](../../../../docs/style-st03.md) và
+[policy phong cách](../../../../docs/project-style-policy.md).
+
 Ưu tiên filesystem theo thứ tự:
 
 1. Profile gốc của đúng nhân vật trong đúng tập.

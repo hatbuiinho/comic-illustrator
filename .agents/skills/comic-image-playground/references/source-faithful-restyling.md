@@ -12,7 +12,7 @@ không mở rộng thành thay đổi thiết kế, nguồn sáng hoặc policy 
   lấy nét cấu trúc đen thanh, rõ và vuốt đầu nét; cách xử lý rìa mảng tiết chế.
   Không lấy khuôn mặt, tuổi, nếp nhăn, y phục hoặc bản đồ ánh sáng của ref.
 - Khi có trang sức, dùng
-  [bảng trang sức v003](../../../../studios/playground/outputs/punna-trang-suc-den-trang/board-v003.png)
+  [bảng trang sức v003](../../comic-image-production/references/style-st03/jewelry-board-v003.png)
   cho cách diễn vật liệu giảm bóng. Không lấy hình phụ kiện, connector, motif,
   số hàng hạt, độ rộng/số vòng tay từ bảng; chúng còn sai khác với nguồn Punna.
   Không áp trang sức hoặc ref này vào vùng không có trang sức.

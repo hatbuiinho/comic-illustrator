@@ -301,7 +301,7 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
 ## Chuyển style và mức chi tiết
 
 - Khi ảnh có trang sức, bắt buộc xem và truyền kèm
-  [bảng trang sức v003](../../../studios/playground/outputs/punna-trang-suc-den-trang/board-v003.png)
+  [bảng trang sức v003](../comic-image-production/references/style-st03/jewelry-board-v003.png)
   trong mỗi lượt tạo/chỉnh theo [policy chung](../../../docs/project-style-policy.md#vật-liệu-và-giới-hạn-rendering).
   Áp dụng cả chuyển style, sheet, bản thử, variant và sửa lỗi; không chỉ mô
   tả bằng chữ. Phân vai ref vật liệu giảm bóng, giữ thiết kế/màu theo nguồn;
