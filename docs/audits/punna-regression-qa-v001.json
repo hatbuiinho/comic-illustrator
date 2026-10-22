@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "deliverableType": "studio-profile",
+  "hasCharacters": true,
+  "output": "../../studios/character/outputs/punna-vaddhana/pencil-test/color-v002.png",
+  "inputStatus": "CURRENT",
+  "assessmentScope": "Audit hồi quy riêng ngày 2026-10-20, không ghi đè QA lịch sử hoặc duyệt profile.",
+  "checks": {
+    "style": {
+      "status": "FAIL",
+      "evidence": "Môi và vùng mí dưới còn nhiều lớp bóng nhỏ, đá/hạt còn sáng tối ôm bề mặt; tóc/vải đã có mảng cel rõ.",
+      "remediation": "Chỉ gom bóng phụ ở mặt và sửa rendering đá/hạt theo policy st03; không ép phẳng cổ/vải.",
+      "preserve": "Giữ chi tiết hoa văn, mảng tóc/vải hợp lệ; không lấy mặt lệch làm chuẩn identity.",
+      "retryable": true
+    },
+    "profile": {
+      "status": "FAIL",
+      "evidence": "Mặt vẫn thuôn hơn identity gốc, hình mắt/mày kế thừa sai lệch bản chì; chưa được owner chọn làm identity.",
+      "remediation": "Phục hồi dấu nhận diện từ ảnh gốc trước khi dùng chân dung làm mẫu sheet.",
+      "preserve": "Thiết kế trang phục và dấu phân biệt Punna theo ảnh gốc, không bảo vệ feature sai của bản cha.",
+      "retryable": true
+    }
+  },
+  "styleConsistencyByElement": {
+    "faceSkin": {
+      "status": "FAIL",
+      "evidence": "Môi và bóng mí dưới nối nhiều lớp; mũi còn sáng tối mô phỏng khối, khác mức mảng cel rõ ở cổ."
+    },
+    "hair": {
+      "status": "PASS",
+      "evidence": "Cụm tóc tối và các mảng charcoal đọc như hình vẽ, đã giảm bóng sợi rõ so với color-v001."
+    },
+    "fabric": {
+      "status": "PASS",
+      "evidence": "Khăn/áo có nét và mảng bóng chính rõ, softness cục bộ không lấn át thiết kế."
+    },
+    "jewelry": {
+      "status": "FAIL",
+      "evidence": "Đá và hạt ngọc/vàng vẫn có vùng sáng và bóng ôm mép tạo cảm giác lồi, bóng hơn nhóm vải."
+    },
+    "background": {
+      "status": "NOT_APPLICABLE",
+      "reason": "Chân dung trên nền trắng, không có cảnh nền cần đối chiếu vật liệu."
+    }
+  }
+}

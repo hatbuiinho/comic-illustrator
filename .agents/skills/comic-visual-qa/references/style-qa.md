@@ -3,6 +3,10 @@
 Resolve chuẩn tại `docs/project-style-policy.md` của project trước review;
 reference này quy định cách đánh giá, không lập mức shading riêng.
 
+Áp dụng [contract kiểm hình dùng chung](../../../../docs/visual-review-contract.md)
+để kiểm các vùng mặt/vật liệu, ref contamination và phần cần giữ khi sửa.
+Contract không thay fast gates hay mở anatomy/layout QA ở skill này.
+
 PASS khi nét, silhouette và mảng màu thiết kế dẫn hình; shading và chi tiết
 cùng ngôn ngữ 2D. Cel-shading có thể kết hợp chuyển sắc mềm nhẹ, cục bộ theo
 policy. Không FAIL chỉ vì có gradient, nhiều hơn hai sắc độ hoặc vật liệu có

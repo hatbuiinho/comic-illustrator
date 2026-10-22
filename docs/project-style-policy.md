@@ -46,6 +46,11 @@ miễn silhouette, nét, mảng sáng–tối chính và hierarchy vẫn đọc 
 Giữ chi tiết đồ họa có giá trị: mắt, tóc, nếp vải, hoa văn và trang sức; không
 giản lược chúng chỉ để đạt nhãn “phẳng”.
 
+Giữ chi tiết có giá trị không có nghĩa tăng mật độ trang trí. Mức chi tiết
+theo thiết kế nguồn, kích thước sử dụng và trọng tâm hình; trang sức không
+tự thêm hoa văn/hạt/nét khắc để bù việc giảm bóng render. Chuyển style thay
+cách thể hiện vật liệu, không tự thiết kế lại vật liệu hoặc phụ kiện.
+
 Vật liệu có thể dùng biến thiên màu lớn, tiết chế và vài dấu nét đặc trưng;
 không dùng vi texture dày hoặc vân mô phỏng ảnh thật. Đánh giá shading theo
 hiệu quả tổng thể: một chuyển sắc nhẹ không tự tạo FAIL; tạo khối liên tục

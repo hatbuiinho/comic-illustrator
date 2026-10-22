@@ -15,3 +15,7 @@ Với mỗi reference truyền vào model, ghi path, vai trò và phạm vi ản
 `style` chỉ ngôn ngữ tạo hình; `composition` chỉ staging/pose đã chọn. Một ảnh
 có nhiều vai trò chỉ khi nguồn xác nhận rõ. Không lấy nhân vật trong layout
 làm identity hay để style reference thay trang phục/profile.
+
+Vai trò là chỉ dẫn, không bảo đảm model tách được ảnh hưởng. Kiểm thuộc tính
+bị lẫn sau tạo theo [contract kiểm hình](../../../../docs/visual-review-contract.md),
+không dùng việc đã truyền đúng ref làm bằng chứng identity/style PASS.

@@ -112,8 +112,10 @@ không tự ghi continuity ledger.
 
 Sau khi hoàn tất đánh giá bằng mắt, có thể lưu report JSON và chạy
 `scripts/validate-visual-qa.js <visual-qa.json>` để kiểm completeness, trạng
-thái input và coverage của continuity dependency. Script không thay thế đánh
-giá focus, identity hay cảm xúc.
+thái input và coverage của continuity dependency. Dùng
+[report-contract.md](references/report-contract.md) khi lưu/chạy report:
+`reportValidity` khác `qaOutcome`, không dùng report hợp lệ làm bằng chứng ảnh
+đạt. Script không thay thế đánh giá focus, identity hay cảm xúc.
 
 Không đánh FAIL một yếu tố `implicitReadable` chỉ vì nó không được thể hiện
 trọn vẹn. Đánh giá khả năng suy ra từ toàn bộ hình và chỉ FAIL khi tổng thể dẫn

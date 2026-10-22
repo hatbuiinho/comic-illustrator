@@ -2,15 +2,22 @@
   "schemaVersion": 1,
   "output": "../../comic-shot-design/tests/semantic-composition.fixture.svg",
   "inputStatus": "CURRENT",
+  "deliverableType": "technical-asset",
+  "hasCharacters": false,
   "requiredChecks": ["focus", "profile"],
   "continuityDependencies": {
     "mustNotChange": ["prop.bag"],
     "forbidden": ["character.future-entry"]
   },
   "checks": {
-    "focus": { "status": "PASS" },
-    "profile": { "status": "NOT_APPLICABLE" },
-    "mustNotChange:prop.bag": { "status": "PASS" },
-    "forbidden:character.future-entry": { "status": "PASS" }
+    "style": { "status": "PASS", "evidence": "Fixture SVG dùng nét và mảng vector, không hiệu ứng vật liệu." },
+    "focus": { "status": "PASS", "evidence": "Fixture có anchor và hierarchy theo semantic composition." },
+    "profile": { "status": "NOT_APPLICABLE", "reason": "Fixture kiểm asset kỹ thuật, không xác nhận identity nhân vật." },
+    "mustNotChange:prop.bag": { "status": "PASS", "evidence": "Prop bag được giữ trong fixture." },
+    "forbidden:character.future-entry": { "status": "PASS", "evidence": "Không có future-entry trong fixture." }
+  },
+  "styleConsistencyByElement": {
+    "subject": { "status": "PASS", "evidence": "Mảng vector của fixture không có rendering vật liệu." },
+    "background": { "status": "NOT_APPLICABLE", "reason": "Fixture kỹ thuật, không có background cảnh." }
   }
 }

@@ -27,18 +27,31 @@ skill trong repository, không phải ứng dụng hoặc chat mới. Không t�
 
 ## Tạo ảnh và kiểm tra
 
+- Áp dụng [contract kiểm hình](visual-review-contract.md) cho reference,
+  QA theo vùng, điều kiện chuyển bước và giới hạn công cụ. Đây là kiểm studio,
+  không gọi toàn workflow Visual QA của tập. Chân dung chì trong luồng chuyển
+  ảnh gốc thành profile mới do Character Studio quy định riêng.
+
 - Khi tạo/chỉnh raster, dùng skill `imagegen` và ImageGen trực tiếp; không gọi
   `comic-image-production`, `comic-prompt-writer`, `comic-shot-design`,
   `comic-layout-qa` hay `comic-delivery` làm chuỗi mặc định.
 - Chuẩn bị công cụ theo [project-toolchain.md](project-toolchain.md) khi cần
   tạo ảnh/script/PDF/QA; trao đổi brief hoặc sửa Markdown không cần bootstrap.
-- Brief đủ rõ thì tạo ngay. Chỉ đề xuất hướng hoặc chờ chọn khi người dùng yêu
-  cầu hay thiếu quyết định thiết yếu; không bắt source gate, composition card,
-  preview chì, page-state, layout QA hoặc InDesign.
+- Brief đủ rõ thì bắt đầu ngay bước phù hợp của studio. Không bắt source gate,
+  composition card, preview shot, page-state, layout QA hoặc InDesign. Riêng
+  Character Studio chuyển ảnh gốc thành profile mới tuân theo luồng chân dung
+  nét (line art sạch khi cần loại rendering nguồn, theo Character Studio)
+  → chân dung theo style dự án → sheet; chỉ dựng sheet sau khi chân dung màu
+  đạt kiểm và được người dùng chọn. Không áp luồng đó cho mọi tác vụ hai studio.
+  Khi lên màu profile từ ảnh gốc, theo mặc định đã được người dùng chốt:
+  kiểm line art → lập/kiểm bảng màu theo vùng → tô từ line art + bảng màu +
+  hai user style → QA đối chiếu ảnh gốc. Cách lấy màu, phân vai input và ngoại
+  lệ do `comic-character-studio` quản lý; không bắt tô phẳng toàn nhân vật.
 - Xem ảnh kết quả, kiểm style policy, identity từng người, anatomy/pose và yêu
   cầu cụ thể; sheet phải nhất quán giữa các góc. Báo lỗi thấy được, không ghi
-  PASS khi chưa xem. Có thể sửa một lần có mục tiêu nếu lỗi rõ và còn trong brief;
-  nếu vẫn lỗi, trình trạng thái và chờ hướng tiếp, không tự tạo vô hạn.
+  PASS khi chưa xem. Với lỗi rõ sửa an toàn được và còn trong brief, tự sửa
+  một lần có mục tiêu, kiểm regression; ghi số lượt và phần đã giữ.
+  Nếu vẫn lỗi, trình trạng thái và chờ hướng tiếp, không tự tạo vô hạn.
 - Hiển thị ảnh và đường dẫn lưu. Không tuyên bố canon hoặc phê duyệt thay người dùng.
 
 ## Lưu trữ và provenance
@@ -53,6 +66,8 @@ skill trong repository, không phải ứng dụng hoặc chat mới. Không t�
 - Mỗi version có record Markdown cùng tên: yêu cầu, prompt đầy đủ, nguồn profile
   và vai trò reference (đường dẫn tương đối trong repo hoặc định danh ngoài repo),
   ảnh output, parentVersion nếu chỉnh, kết quả kiểm và override nếu có.
+- Record trỏ brief revision đang có hiệu lực và thay đổi yêu cầu theo
+  contract kiểm hình; không để yêu cầu mới chỉ tồn tại trong chat/prompt.
 - Chỉ khi người dùng chọn rõ version và kiểm áp dụng đạt mới copy bản profile
   vào `profiles/<character-id>/` với tên có version, kèm record trỏ về output
   và nguồn gốc. Nếu còn lỗi, nêu rõ và cần lựa chọn/override cụ thể trước khi lưu

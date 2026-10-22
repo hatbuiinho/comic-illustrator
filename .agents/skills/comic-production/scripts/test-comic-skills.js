@@ -53,6 +53,7 @@ try {
   run("semantic gate rejects debug-box", process.execPath, [path.join(root, "comic-shot-design/scripts/render-composition-preview.js"), debugPreview.replace(/\.png$/, ".svg"), path.join(root, "comic-shot-design/tests/semantic-composition.fixture.json"), path.join(temporary, "must-not-exist.png")], 1);
 
   run("visual QA completeness", process.execPath, [path.join(root, "comic-visual-qa/scripts/validate-visual-qa.js"), path.join(root, "comic-visual-qa/tests/visual-qa.fixture.json")]);
+  run("visual QA validity versus outcome", process.execPath, ["--test", path.join(root, "comic-visual-qa/tests/report-validation.test.js")]);
   run("layout QA and PNG overlay", process.execPath, [path.join(root, "comic-layout-qa/scripts/layout-frame-qa.js"), path.join(root, "comic-layout-qa/tests/spine-skip.fixture.json"), path.join(temporary, "layout-qa")]);
   const overlays = fs.existsSync(path.join(temporary, "layout-qa")) ? fs.readdirSync(path.join(temporary, "layout-qa")).filter(name => name.endsWith("-overlay.png")) : [];
   results.push({ name: "layout overlay PNG exists", passed: overlays.length > 0, status: overlays.length ? 0 : 1, expected: 0, output: overlays.join(", ") });
