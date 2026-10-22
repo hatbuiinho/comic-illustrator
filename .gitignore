@@ -20,3 +20,5 @@ sentry/queue/
 .venv/
 .tools/state.windows.json
 .tools/state.macos.json
+
+local

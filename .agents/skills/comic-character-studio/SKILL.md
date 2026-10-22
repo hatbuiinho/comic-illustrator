@@ -370,14 +370,21 @@ vào lượt tô. Đây là lựa chọn workflow, không miễn QA hoặc xác 
 
 #### Tách chi tiết thiết kế khỏi shading trước tạo nét
 
+- Ảnh gốc quyết định nét mặt, tỷ lệ, đường bao, trang phục, hoa văn, phụ kiện,
+  pose và crop. Brief chỉ bổ sung dữ kiện hoặc thay đổi người dùng yêu cầu rõ.
+  Mô tả do agent suy từ ảnh phải ghi là quan sát, không dùng làm lệnh sửa hình.
+- Prompt yêu cầu chuyển chính ảnh nguồn thành nét, không dựng lại nhân vật
+  từ mô tả. Không viết lại công thức khuôn mặt, đổi crop/pose, chỉnh dáng hoặc
+  giản lược thiết kế nếu chưa được yêu cầu. Mẫu nét chỉ hướng dẫn cách đi nét,
+  không thay hình học hay thiết kế nguồn. Ngoại lệ đã chốt chỉ áp đúng phạm vi.
 - Trước tạo line art từ nguồn, ghi theo các vùng thực sự xuất hiện hai nhóm
   trong prompt và record: `Giữ thiết kế` và `Bỏ cách render`. Không chỉ dùng
   yêu cầu chung “clean”, “simple” hoặc “ít chi tiết”.
 - `Giữ thiết kế`: cấu trúc mặt và nét nhận diện, silhouette/cụm tóc, nếp vải
   chính, hình/vị trí/mật độ motif, họa tiết viền và cấu trúc phụ kiện theo nguồn.
   Nêu riêng những dấu dễ mất, như viền sari hoặc tầng/hạt khuyên, khi có.
-  Chi tiết nhỏ được gom thành dấu nét đọc được ở kích thước sử dụng, không
-  tự xóa cả nhóm, thay motif hoặc tăng mật độ để lấp vùng trắng.
+  Không tự giản lược, xóa, thay hoặc thêm chi tiết thiết kế để làm nét sạch.
+  Chi tiết nguồn không đọc rõ thì ghi giới hạn, không tự đoán hoặc bù motif.
 - `Bỏ cách render`: bóng xám, gradient, hatching, vân da/môi, phản chiếu và
   đường bao chỉ do ranh giới sáng–tối. Da, môi và vải giữ trắng bên trong;
   đường mí, mũi, môi và nếp vải có giá trị cấu trúc vẫn giữ. Tóc/mày có thể
@@ -428,8 +435,8 @@ vào lượt tô. Đây là lựa chọn workflow, không miễn QA hoặc xác 
 - Ảnh gốc là input cấu trúc/identity cho lượt nét đầu; không lấy bản nét lệch
   hoặc mẫu style làm chuẩn hình học. Prompt ưu tiên giữ hình học nguồn trước,
   rồi mới mô tả nét sạch. Không dùng chỉ dẫn làm đẹp, cân đối hóa mặt, làm
-  thon, mắt to, cổ thanh/dài hoặc dáng lý tưởng. Tả đặc điểm quan sát được,
-  không dùng một công thức mặt “tự nhiên” thay cho tỷ lệ của người trong ảnh.
+  thon, mắt to, cổ thanh/dài hoặc dáng lý tưởng. Không dùng mô tả hình mặt
+  do agent suy ra thay cho cấu trúc trực tiếp trong ảnh.
 - Trước tạo, xác định các mốc đang nhìn thấy: đỉnh đầu/chân tóc, mắt, mũi,
   miệng, cằm, chân cổ, đầu vai và đường bao thân/tay. Prompt nêu quan hệ cần
   giữ: dài–rộng mặt, vị trí/kích thước ngũ quan, đầu so với vai/thân và
