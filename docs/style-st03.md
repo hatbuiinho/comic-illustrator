@@ -58,7 +58,12 @@ giữ nguyên; khi tiếp tục tạo/chỉnh thì áp dụng st03 cho version m
   và xanh neon. Lá vẫn tươi, không thành olive xám hoặc bạc màu.
 - Với cảnh ban ngày, trời xanh nhạt, ít cyan; núi xa có thể dùng xám tím nhẹ hoặc xám trung tính theo
   cảnh. Sắc lạnh tập trung ở khoảng xa khi hợp lý, không lan sang da, áo và đất.
-- Da giữ sắc riêng theo profile, ấm vừa và không cam. Áo kem đọc như ngà sạch;
+- Da giữ sắc độ, sắc màu và độ bão hòa theo profile/reference gốc; không mặc
+  định tăng độ ấm. Prompt phải cấm tăng vàng/cam riêng trên da, không chỉ cấm
+  lớp phủ vàng/cam toàn ảnh; không tự dùng “warm skin tone” thay khóa màu nguồn.
+  Không lấy màu da từ ref style hoặc ref vật liệu. QA so riêng vùng sáng–trung–tối
+  của mặt, cổ và tay/chân với nguồn; nền trắng không chứng minh da đúng màu.
+  Áo kem đọc như ngà sạch;
   bóng be xám nhẹ dưới ánh sáng trung tính. Trong cảnh đêm hoặc nguồn sáng có màu,
   điều chỉnh có căn cứ theo nguồn sáng, vẫn giữ phân biệt màu da và y phục.
   Không ép mọi nhân vật về cùng một màu da.

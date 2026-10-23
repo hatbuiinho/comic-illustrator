@@ -8,6 +8,31 @@ description: Tạo, phát triển hoặc chỉnh character profile và character
 Đọc và áp dụng [contract studio](../../../docs/studio-contract.md)
 và [policy phong cách](../../../docs/project-style-policy.md).
 
+## Prompt mặc định đã chốt
+
+Người dùng chốt ngày 2026-10-23: khi chỉ @ skill và đính kèm ảnh gốc,
+tự bắt đầu chuyển style bằng [prompt 2D mặc định](references/default-2d-prompt.md);
+không yêu cầu viết lại prompt hoặc chọn workflow. Nếu chỉ gọi skill mà không
+có ảnh/brief truy cập được, hỏi nguồn cần dùng. Yêu cầu chỉnh, tạo sheet,
+bảo trì skill hoặc nhánh nét/màu rõ ràng vẫn route theo đúng yêu cầu đó.
+
+- Đọc reference trên trước viết prompt cho lượt chuyển style. Giữ khối lõi
+  đã chốt; chỉ bổ sung ngắn các dấu riêng và ràng buộc thực sự áp dụng.
+- Mặc định rendering trong Character Studio là mảng phẳng, da khoảng ba tông,
+  không gradient/airbrush trên toàn ảnh. Đây là override người dùng đối với
+  mép mềm/chuyển nhẹ của st03, chỉ trong Character Studio; ghi
+  `SKIPPED_BY_USER` cùng phạm vi trong record. Các mô tả “mềm” ở dưới chỉ
+  còn áp dụng cho hình dáng nếp, đầu nét hoặc nhánh được yêu cầu riêng,
+  không cho phép blend màu trái prompt này. Không đổi policy toàn project.
+- Giữ các rule thiết kế, tỷ lệ, nét cấu trúc, đầu cạo, trang phục nữ, reference,
+  QA, giới hạn tự sửa và cổng duyệt trước sheet/lưu profile. Rule màu y và
+  cách quấn y chuẩn vẫn mặc định có hiệu lực; dòng giữ màu da không miễn
+  rule màu y. Câu giữ thiết kế chung trong prompt không tự miễn chuẩn quấn y.
+- Ngoại lệ trực tiếp mới nhất chỉ thay đúng dòng/phạm vi liên quan; không
+  giữ đồng thời chỉ dẫn mâu thuẫn. Ví dụ đổi da hồng tuổi 60–70 thì thay dòng
+  giữ màu da, không trẻ hóa hay đổi thiết kế. Chỉ giữ màu/cách quấn y khác
+  chuẩn khi người dùng yêu cầu rõ phạm vi đó; ghi `SKIPPED_BY_USER`.
+
 ## Hướng dẫn người dùng và bước tiếp theo
 
 - Khi bắt đầu nhân vật mới từ ảnh gốc, giới thiệu ngắn một lần:
@@ -43,8 +68,8 @@ và [policy phong cách](../../../docs/project-style-policy.md).
 
 ## Mục tiêu tạo hình
 
-- Mặc định dùng st03 với cấu trúc mặt và cơ thể tự nhiên: nét/mảng 2D rõ,
-  cel-shading mềm tiết chế, màu sạch không hạt.
+- Mặc định dùng nền st03 với cấu trúc mặt/cơ thể tự nhiên, nhưng rendering
+  theo mục **Prompt mặc định đã chốt**: nét/mảng 2D rõ, màu phẳng sạch không hạt.
 - Không mặc định mắt lớn, mũi nhỏ, cằm ngắn, đầu to hoặc dáng người mẫu.
   Giữ tuổi, thể trạng và nét riêng theo brief.
 - Vẻ đẹp và sự thanh tịnh thể hiện qua ánh mắt, biểu cảm, phong thái và sự
@@ -417,10 +442,37 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
 
 ### Màu y
 
-- Nâu đỏ đất trầm, đỏ gạch pha nâu; midtone tham khảo khoảng `#8F4933`,
-  không khóa mọi vùng sáng/tối vào một mã.
+- Người dùng chọn ngày 2026-10-23: [mẫu màu y v001](assets/mau-y-chuan-v001.png)
+  là chuẩn màu y chung cho các vị tu sĩ trong Character Studio. Xem bản gốc,
+  nhưng truyền [crop chỉ chứa vải](assets/mau-y-chuan-crop-v002.png) làm
+  reference **chỉ màu y** khi tạo/chỉnh có y, nếu công cụ cho phép;
+  ghi input thực tế. Không lấy mặt, da, tuổi, tỷ lệ, cách quấn, bố cục hoặc
+  shading/rendering của mẫu; style tiếp tục theo st03 hiện hành. Phạm vi và
+  provenance tại [record màu y](assets/mau-y-chuan-v001.md).
+- Crop giữ pixel/màu nguyên trạng từ mẫu đã chọn, không thay chuẩn màu y hoặc
+  tạo gate chọn màu mới. Không truyền toàn ảnh ref màu y chứa mặt/da để giảm
+  ảnh hưởng chéo. Crop khác phải chỉ chứa vải, loại da/nền/chữ, ghi nguồn và
+  toạ độ, xem lại trước khi dùng. Chỉ lấy màu, không lấy hình học bóng/rendering.
+- Màu y lấy trực tiếp theo ảnh mẫu được chọn: nâu đỏ đất trầm. Bỏ mã tham
+  khảo cũ chưa được xác minh; không dùng lại mã đó trong prompt mới hoặc coi
+  một mô tả tên màu là chuẩn thay ảnh. Không khóa mọi vùng sáng/tối vào một mã.
+- Mặc định dùng ảnh ref màu y, không bắt lập bảng màu hoặc mở gate duyệt màu
+  riêng. Bảng màu chỉ là công cụ bổ trợ khi người dùng yêu cầu mã màu hoặc
+  cần chẩn đoán lệch màu lặp lại: lấy mẫu vùng sáng/trung/tối đại diện trên
+  vải, tránh da, nét đen và vùng bóng cực sâu; ghi vùng/toạ độ, phương pháp
+  và phân biệt màu pixel quan sát với màu nền vật liệu. Bảng trích từ mẫu đã
+  chọn không thay chuẩn ảnh, không tự tạo yêu cầu người dùng duyệt lại màu.
 - Không tự đổi sang nâu vàng/ochre, cam tươi hay đỏ rực; giữ sắc nhất quán
   qua các góc dưới ánh sáng trung tính.
+- Prompt phân vai nguồn identity, ref style và ref màu y; nêu rõ giữ nâu đỏ
+  đất của mẫu, không đẩy đỏ cam hoặc làm nhạt/xám mất sắc đỏ. QA so riêng vùng
+  sáng, trung và tối của y với mẫu dưới ánh sáng tương ứng; cùng tên màu hoặc
+  đúng một mã midtone chưa đủ để kết luận khớp. Không sao chép hình học bóng.
+- Khi chuyển style giữ màu nguồn, phân biệt màu y nguồn với mẫu chung: yêu cầu
+  giữ nguyên màu nguồn rõ ràng vẫn ưu tiên và ghi `SKIPPED_BY_USER` đúng phạm vi
+  màu y. Không âm thầm gọi màu của ảnh nguồn khác hoặc output thử là màu chuẩn.
+- Khi không có yêu cầu giữ nguyên màu y nguồn rõ ràng, dùng mẫu màu y chung
+  đã chọn; giữ nguyên thiết kế/cách quấn không đồng nghĩa giữ màu y khác mẫu.
 - Reference mới về cách quấn không tự thay màu đã chốt.
 
 ### Cấu trúc y quấn
@@ -459,7 +511,7 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
 Người dùng cập nhật ngày 2026-10-22: luồng này thay mặc định nét → bảng màu
 → lên màu ngày 2026-10-21; giữ nhánh cũ chỉ để dùng khi được yêu cầu rõ.
 
-- Đọc brief và xem ảnh gốc → chuyển chính ảnh đó sang st03 hiện hành → QA
+- Đọc brief và xem ảnh gốc → dùng prompt 2D mặc định cùng rule thiết kế → QA
   đối chiếu trực tiếp nguồn → trình ảnh, chờ người dùng duyệt → tạo sheet.
   Không tạo nét chì/line art, bảng màu hoặc lượt lên màu tách riêng ở giữa.
 - Truyền ảnh gốc làm reference identity/thiết kế/màu/cấu trúc; dùng reference
@@ -476,11 +528,17 @@ Người dùng cập nhật ngày 2026-10-22: luồng này thay mặc định n�
 - Prompt và record phải tách `Giữ nguyên theo nguồn`, `Chỉ đổi cách thể hiện`
   và `Avoid/Negative constraints`, nêu dấu riêng cụ thể và điều cấm tương ứng.
   Chi tiết không đọc rõ thì ghi giới hạn, không đoán hoặc thêm motif để bù.
-- Với yêu cầu giữ nguyên chi tiết ở luồng này, ghi `SKIPPED_BY_USER` đúng phạm
-  vi nếu quy chuẩn thiết kế mặc định về trang phục nữ hoặc y tỳ-kheo đòi đổi
-  thiết kế đang có trong nguồn; không âm thầm sửa nguồn theo quy chuẩn đó.
-  Style policy vẫn áp dụng. Thay đổi thiết kế khác chỉ làm khi người dùng
-  yêu cầu rõ, ghi phạm vi và provenance, không mở rộng sang phần khác.
+- Màu da: giữ sắc độ, sắc màu và độ bão hòa theo nguồn; không mặc định tăng
+  độ ấm hoặc dùng “warm skin tone” thay khóa màu nguồn. Prompt phải cấm tăng
+  vàng/cam riêng trên da, kể cả khi đã cấm lớp phủ vàng/cam toàn ảnh. Không lấy
+  màu da từ ref style hay ref màu y. QA so riêng mặt, cổ, tay/chân ở vùng
+  sáng–trung–tối với nguồn theo st03; giữ ngoại lệ nguồn sáng có căn cứ hoặc
+  thay màu da được người dùng yêu cầu rõ.
+- Giữ thiết kế nguồn trong phạm vi không xung đột với rule thiết kế studio:
+  màu/cách quấn y chuẩn và độ phủ trang phục nữ vẫn mặc định áp dụng.
+  Nếu nguồn khác chuẩn, nêu delta áp dụng trong prompt/record. Chỉ ghi
+  `SKIPPED_BY_USER` cho phần người dùng yêu cầu rõ giữ khác chuẩn, không
+  suy waiver từ câu giữ thiết kế chung của prompt mặc định.
 - QA kiểm đồng thời identity, hình học, chi tiết/màu và style trên toàn ảnh;
   áp dụng dung sai tỷ lệ và giới hạn tự sửa hiện hành. Không lấy nét 2D sạch
   làm lý do bỏ chi tiết nguồn. Nếu chưa đạt, báo lỗi cụ thể, không coi ảnh
