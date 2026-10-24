@@ -1,11 +1,16 @@
 # Nhánh tùy chọn: nét chì/line art và bảng màu, lên màu
 
-Tách nguyên văn từ SKILL.md. Chỉ đọc khi người dùng yêu cầu rõ nhánh nét hoặc nhánh màu.
+Một phần của [SKILL.md](../SKILL.md) Character Studio. Chỉ đọc khi người dùng yêu cầu rõ nhánh nét hoặc nhánh màu.
 
 Chỉ đọc và thực hiện các hướng dẫn chuyên biệt dưới đây khi người dùng yêu
 cầu rõ nhánh tương ứng. Các từ “mặc định” về input bên dưới chỉ áp dụng trong
 nhánh tô màu này, không thay workflow chuyển style trực tiếp. Yêu cầu chuyển
 style, chỉnh style hoặc QA chưa đạt không tự kích hoạt nhánh nét/màu.
+
+Rendering: các mô tả “độ mềm cục bộ”, “mềm tiết chế” trong nhánh này là
+cách tô của nhánh màu đã chốt ngày 2026-10-21. Chỉ áp dụng khi người dùng
+yêu cầu rõ nhánh màu; không đưa vào luồng chuyển style trực tiếp, nơi
+rendering mảng phẳng của SKILL.md có hiệu lực.
 
 
 #### Khi người dùng chỉ định màu da trước khi lên màu
@@ -183,7 +188,7 @@ Phương pháp nhánh màu được chốt ngày 2026-10-21, thay phương pháp
   giữ crop không tự chứng minh mặt/cơ thể đúng tỷ lệ.
 - Không đòi trùng từng pixel; chỉ chấp nhận sai khác cách đi nét không làm
   đổi tỷ lệ. Còn nhận diện, tuổi hoặc thể trạng không bù được tỷ lệ đã đổi.
-  Áp dụng mục cấm thay đổi tỷ lệ cho cả nhánh này. Lệch làm đổi người, mắt lớn rõ,
+  Áp dụng mục cấm thay đổi tỷ lệ trong [SKILL.md](../SKILL.md) cho cả nhánh này. Lệch làm đổi người, mắt lớn rõ,
   mặt dài/thon rõ, đầu lớn so với thân hoặc cổ bị kéo dài cần nêu và sửa theo
   giới hạn lượt hiện hành. Không đặt ngưỡng phần trăm khi chưa có phép đo và
   tiêu chí được xác lập. Người dùng chấp nhận lệch cụ thể thì ghi phạm vi

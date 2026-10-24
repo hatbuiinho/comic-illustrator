@@ -1,6 +1,6 @@
 # Quy chuẩn tỳ-kheo
 
-Tách nguyên văn từ SKILL.md. Đọc khi nhân vật là tu sĩ.
+Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi nhân vật là tu sĩ.
 
 ## Quy chuẩn tỳ-kheo
 

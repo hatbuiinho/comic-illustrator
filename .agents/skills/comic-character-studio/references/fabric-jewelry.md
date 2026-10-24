@@ -1,6 +1,6 @@
 # Vải, trang sức và mức chi tiết
 
-Tách nguyên văn từ SKILL.md. Đọc khi ảnh có trang phục hoặc trang sức.
+Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi ảnh có trang phục hoặc trang sức.
 
 ## Chuyển style và mức chi tiết
 
@@ -15,7 +15,7 @@ Tách nguyên văn từ SKILL.md. Đọc khi ảnh có trang phục hoặc trang
 - **Vải phẳng, sạch:** áp dụng cho chuyển style, ảnh màu, sheet và lượt sửa
   có trang phục. Giữ silhouette, cách quấn, mép chồng, nếp gấp chính và màu
   theo nguồn; diễn bề mặt bằng mảng màu rộng, liền và ít chia vụn. Bóng theo
-  nếp chính, chênh sắc vừa, rìa mềm tiết chế theo st03; không làm từng nếp
+  nếp chính, chênh sắc vừa, mảng phẳng ranh giới rõ, không blend; không làm từng nếp
   nhỏ thành khối nổi hoặc phủ các vệt sáng–tối li ti lên toàn mặt vải.
 - Phân biệt **hoa văn thiết kế** với **texture vật liệu** trước viết prompt:
   giữ hình, vị trí và nhịp lặp của viền/motif nhận diện đọc được; bỏ vân dệt,
@@ -33,7 +33,8 @@ Tách nguyên văn từ SKILL.md. Đọc khi ảnh có trang phục hoặc trang
   Fabric: preserve the source garment silhouette, wrap, overlaps, main folds,
   colors and readable identifying border/motif shapes and spacing. Use broad,
   clean, uninterrupted 2D color areas and restrained designed shadow shapes
-  following the main folds, with moderate contrast and locally soft edges.
+  following the main folds, with moderate contrast, flat color inside each
+  shape and clear boundaries; no gradient blends.
   Avoid/Negative constraints: no woven microtexture, visible threads, fine
   crosshatch/grid, grain, scratches, mottling, dense tiny crease lines or
   fragmented highlight/shadow streaks across the fabric. Do not turn weave

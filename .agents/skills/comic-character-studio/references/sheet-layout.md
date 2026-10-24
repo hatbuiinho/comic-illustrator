@@ -1,6 +1,6 @@
 # Bố cục sheet và độ phân giải
 
-Tách nguyên văn từ SKILL.md. Đọc khi dựng sheet tổng hợp.
+Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi dựng sheet tổng hợp.
 
 ## Bố cục sheet tổng hợp mặc định
 

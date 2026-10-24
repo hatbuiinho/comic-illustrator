@@ -15,11 +15,11 @@ quan và ghi override. Nguồn identity luôn là ảnh gốc, không phải out
 ```text
 Chuyển ảnh gốc sang phong cách 2D hand-drawn animation, với những nguyên tắc:
 
-- Giữ nguyên cấu trúc khuôn mặt, biểu cảm, nụ cười nếu có, ria mép và tỷ lệ nhân vật theo ảnh gốc.
+- Giữ nguyên cấu trúc khuôn mặt, biểu cảm, nụ cười nếu có, râu/ria nếu có và tỷ lệ nhân vật theo ảnh gốc.
 - Không phóng to mắt, thu nhỏ mũi, làm thon mặt, kéo dài cổ, trẻ hóa hoặc tự cân chỉnh lại các bộ phận.
 - Giữ nguyên kiểu tóc, trang phục, phụ kiện, tư thế và bố cục. Không tự thêm hoặc thay đổi thiết kế.
 
-- Tóc, da, khăn xếp và trang phục được vẽ thành các mảng màu rõ ràng, với nét vẽ tay thanh, có chủ ý.
+- Tóc, da, khăn/mũ đội đầu nếu có và trang phục được vẽ thành các mảng màu rõ ràng, với nét vẽ tay thanh, có chủ ý.
 - Da sử dụng khoảng 3 tông: màu gốc, vùng sáng và vùng tối. Mỗi mảng có màu đồng nhất bên trong, không thêm các dải chuyển màu trung gian.
 - Giữ màu da gốc, không tự tăng vàng/cam, làm trắng hoặc làm tối da.
 - Giữ nguyên màu môi từ ảnh gốc, gồm sắc màu, độ sáng, độ bão hòa và sự khác biệt giữa môi trên–môi dưới nếu có. Không tự đổi sang đỏ/hồng, tăng độ rực hoặc tô hai môi cùng một màu khi nguồn khác nhau; chỉ chuyển cách thể hiện sang mảng màu 2D, không đổi hình hay độ đầy môi.
@@ -30,13 +30,17 @@ Chuyển ảnh gốc sang phong cách 2D hand-drawn animation, với những ngu
 - Background dùng cùng ngôn ngữ vẽ 2D với nhân vật.
 
 - Không gradient, không airbrush, không hiệu ứng 3D, không texture hạt và không tạo cảm giác ảnh chụp được xử lý bằng filter.
-- Chỉ áp dụng cho các thành phần thực sự có trong ảnh; không tự thêm tóc, ria mép, khăn xếp hoặc phụ kiện.
+- Chỉ áp dụng cho các thành phần thực sự có trong ảnh; không tự thêm tóc, râu/ria, khăn/mũ đội đầu hoặc phụ kiện.
 ```
 
 ## Bổ sung có điều kiện và QA
 
-- Chỉ thêm dấu nhận diện dễ mất của nguồn, phần mũi/miệng và khối cấm đổi
-  tỷ lệ theo SKILL.md; gộp các câu trùng, không lặp mô tả style nhiều lần.
+- Chỉ thêm dấu nhận diện dễ mất của nguồn và các khối theo checklist lắp
+  prompt trong SKILL.md; gộp các câu trùng, không lặp mô tả style nhiều lần.
+- Ngôn ngữ: giữ khối lõi tiếng Việt như đã chốt. Dán các khối bổ sung tiếng
+  Anh nguyên văn bên dưới tiêu đề `Additional constraints:` và
+  `Avoid/Negative constraints:`; không dịch lại hoặc trộn câu hai ngôn ngữ
+  trong cùng một dòng.
 - Giữ màu da nguồn mặc định. Khi được yêu cầu màu khác, thay dòng màu da
   bằng yêu cầu mới, giữ tuổi/tỷ lệ và ghi provenance; không mở nhánh bảng
   màu chỉ vì có mô tả màu trong yêu cầu chuyển style trực tiếp.

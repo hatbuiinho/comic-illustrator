@@ -1,6 +1,6 @@
 ---
 name: comic-character-studio
-description: Tạo, phát triển hoặc chỉnh character profile và character sheet trong Character Studio, giữ style dự án; độc lập với workflow minh họa tập/page.
+description: Tạo, phát triển hoặc chỉnh character profile và character sheet trong Character Studio, giữ style dự án. Dùng khi người dùng @ skill kèm ảnh gốc để chuyển sang style 2D dự án, dựng sheet nhân vật, chỉnh nhân vật hoặc lưu profile; độc lập với workflow minh họa tập/page.
 ---
 
 # Character Studio
@@ -8,34 +8,56 @@ description: Tạo, phát triển hoặc chỉnh character profile và character
 Đọc và áp dụng [contract studio](../../../docs/studio-contract.md)
 và [policy phong cách](../../../docs/project-style-policy.md).
 
-## Bản đồ reference
+## Checklist lắp prompt trước khi gửi
 
-Đọc SKILL.md cho workflow, cổng duyệt và rule lõi. Đọc thêm đúng file theo
-thành phần thực sự có trong lượt hiện tại:
+SKILL.md giữ workflow, cổng duyệt và rule lõi. Trước mỗi lượt tạo/chỉnh,
+đi qua bảng dưới theo thành phần thực sự có trong ảnh; đọc đúng file, chèn
+khối tương ứng vào prompt và truyền ref cần thiết. Không đọc file không áp dụng.
 
-- [prompt 2D mặc định](references/default-2d-prompt.md): mọi lượt chuyển style.
-- [nét mặt, vùng mắt và da](references/face-and-skin.md): khi có mặt/da nhìn thấy.
-- [vải, trang sức và mức chi tiết](references/fabric-jewelry.md): khi có trang phục hoặc trang sức.
-- [quy chuẩn tỳ-kheo](references/monk-standard.md): khi nhân vật là tu sĩ.
-- [bố cục sheet và độ phân giải](references/sheet-layout.md): khi dựng sheet.
-- [nhánh nét/màu](references/line-color-branch.md): chỉ khi người dùng yêu cầu rõ nhánh đó.
+| Điều kiện | Đọc | Chèn vào prompt | Ref truyền kèm |
+|---|---|---|---|
+| Mọi lượt chuyển style | [default-2d-prompt.md](references/default-2d-prompt.md) | khối lõi | ảnh gốc (identity) |
+| Mọi lượt có ảnh gốc/profile | mục tỷ lệ, lý tưởng hóa, negative bên dưới | khối giữ tỷ lệ + khối Avoid chibi/Trung Quốc hóa + dấu riêng của nguồn | — |
+| Có mặt/da nhìn thấy | [face-and-skin.md](references/face-and-skin.md) | khối Eyes/Nose/Mouth/Lower lip + khối Skin | — |
+| Có trang phục | [fabric-jewelry.md](references/fabric-jewelry.md) | khối Fabric | — |
+| Có trang sức | [fabric-jewelry.md](references/fabric-jewelry.md) | phần giữ/đổi trang sức | [bảng trang sức v003](../comic-image-production/references/style-st03/jewelry-board-v003.png) |
+| Nhân vật nữ | mục **Trang phục nữ kín đáo** bên dưới | câu che kín bụng/eo mọi góc | — |
+| Tu sĩ | [monk-standard.md](references/monk-standard.md) | đầu cạo sạch, màu y, cấu trúc y quấn | [crop màu y v002](assets/mau-y-chuan-crop-v002.png), [mẫu quấn y v001](assets/y-quan-chuan-v001.png) |
+| Dựng sheet | [sheet-layout.md](references/sheet-layout.md) | bố cục, thông tin in, độ phân giải | ảnh chuyển style đã duyệt + ảnh gốc |
+| Người dùng yêu cầu rõ nhánh nét/màu | [line-color-branch.md](references/line-color-branch.md) | theo nhánh | theo nhánh |
+
+- Sau khi lắp, kiểm prompt có đủ các khối của mọi dòng áp dụng và các
+  `SKIPPED_BY_USER` đang có hiệu lực, rồi mới gửi. Lưu prompt thực tế trong record.
+- Lịch sử các quyết định người dùng đã chốt nằm tại
+  [decision-log.md](references/decision-log.md); rule bên dưới là bản hiện hành.
+
+## Công cụ tạo ảnh
+
+- Codex: dùng skill `imagegen`/ImageGen trực tiếp theo
+  [contract studio](../../../docs/studio-contract.md).
+- Claude Code không có ImageGen. Khi cần tạo/chỉnh ảnh, gọi qua Codex CLI:
+  `codex exec -C <repo> -i <ảnh gốc> -i <ref khác> "<prompt>"`, trong đó
+  prompt nêu vai trò từng ảnh theo thứ tự `-i` và đường dẫn lưu output có
+  version. Sau khi chạy, kiểm file thực sự tồn tại ở đúng đường dẫn và xem
+  ảnh trước QA; không coi lời báo của Codex là bằng chứng đã tạo.
+- Nếu công cụ không nhận đủ ảnh ref, ghi input thực tế đã truyền và chuyển
+  phần thiếu thành mô tả chữ; không tuyên bố đã dùng ref không được truyền.
 
 ## Prompt mặc định đã chốt
 
-Người dùng chốt ngày 2026-10-23: khi chỉ @ skill và đính kèm ảnh gốc,
-tự bắt đầu chuyển style bằng [prompt 2D mặc định](references/default-2d-prompt.md);
+Khi chỉ @ skill và đính kèm ảnh gốc, tự bắt đầu chuyển style bằng [prompt 2D mặc định](references/default-2d-prompt.md);
 không yêu cầu viết lại prompt hoặc chọn workflow. Nếu chỉ gọi skill mà không
 có ảnh/brief truy cập được, hỏi nguồn cần dùng. Yêu cầu chỉnh, tạo sheet,
 bảo trì skill hoặc nhánh nét/màu rõ ràng vẫn route theo đúng yêu cầu đó.
 
-- Đọc reference trên trước viết prompt cho lượt chuyển style. Giữ khối lõi
+- Đọc prompt 2D mặc định trước khi viết prompt cho lượt chuyển style. Giữ khối lõi
   đã chốt; chỉ bổ sung ngắn các dấu riêng và ràng buộc thực sự áp dụng.
 - Mặc định rendering trong Character Studio là mảng phẳng, da khoảng ba tông,
   không gradient/airbrush trên toàn ảnh. Đây là override người dùng đối với
   mép mềm/chuyển nhẹ của st03, chỉ trong Character Studio; ghi
-  `SKIPPED_BY_USER` cùng phạm vi trong record. Các mô tả “mềm” ở dưới chỉ
-  còn áp dụng cho hình dáng nếp, đầu nét hoặc nhánh được yêu cầu riêng,
-  không cho phép blend màu trái prompt này. Không đổi policy toàn project.
+  `SKIPPED_BY_USER` cùng phạm vi trong record. Các khối prompt trong
+  `references/` đã viết theo override này; độ mềm cục bộ chỉ còn trong nhánh
+  màu khi được yêu cầu rõ. Không đổi policy toàn project.
 - Giữ các rule thiết kế, tỷ lệ, nét cấu trúc, đầu cạo, trang phục nữ, reference,
   QA, giới hạn tự sửa và cổng duyệt trước sheet/lưu profile. Rule màu y và
   cách quấn y chuẩn vẫn mặc định có hiệu lực; dòng giữ màu da không miễn
@@ -189,14 +211,9 @@ authority; previous generated outputs and style references do not replace it.
   không bảo đảm mô hình tuân thủ; vẫn giữ giới hạn sửa và dung sai tỷ lệ hiện
   hành. Không tự chạy ảnh kiểm chứng khi người dùng chỉ yêu cầu sửa workflow.
 
-### Nét mặt, vùng mắt và da
-
-- Chi tiết, khối prompt và tiêu chí QA tại [face-and-skin.md](references/face-and-skin.md).
-
 ## Trang phục nữ kín đáo
 
-Quy tắc thiết kế project do người dùng xác nhận ngày 2026-10-21, áp dụng
-cho mọi nhân vật nữ trong Character Studio, gồm chân dung, sheet, bản thử
+Quy tắc thiết kế project, áp dụng cho mọi nhân vật nữ trong Character Studio, gồm chân dung, sheet, bản thử
 và variant; không phải khẳng định về mọi trang phục lịch sử.
 
 - Trang phục phải che kín bụng và eo ở mọi góc nhìn và tư thế. Với sari,
@@ -213,9 +230,7 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
   góc nghiêng và phía sau. Một khoảng da hở ở bụng/eo là chưa đạt, dù mặt,
   màu và các góc còn lại đúng; không khóa bản đó thành profile chuẩn.
 
-## Chuyển style và mức chi tiết
-
-- Vải và trang sức: chi tiết, khối prompt và QA tại [fabric-jewelry.md](references/fabric-jewelry.md).
+## Bảo trì skill và kiểm thử workflow
 
 - Khi người dùng đang cải thiện skill/workflow, ưu tiên sửa hướng dẫn tái sử
   dụng từ lỗi quan sát được. Không tự chuyển trao đổi phương pháp thành chuỗi
@@ -226,10 +241,6 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
   đạt. Nêu hướng ưu tiên cùng lý do; nếu có 2–3 phương án thực tế thì đánh số,
   ghi đánh đổi ngắn. Không dừng ở chẩn đoán hoặc để người dùng tự suy bước sau;
   phân biệt đề xuất với việc đã thực hiện, không tự coi đề xuất là phê duyệt.
-
-## Bố cục sheet và độ phân giải
-
-- Bố cục mặc định và yêu cầu độ phân giải tại [sheet-layout.md](references/sheet-layout.md).
 
 ## Tỷ lệ và anatomy
 
@@ -244,16 +255,12 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
 - Giữ hộp sọ, độ nhô mũi, hàm, thể trạng và chiều dài các phần qua mọi góc.
 - Không kết luận tỷ lệ tự nhiên chỉ vì hình không phải chibi.
 
-## Quy chuẩn tỳ-kheo
-
-- Đầu cạo, màu y và cấu trúc y quấn tại [monk-standard.md](references/monk-standard.md).
-
 ## Sử dụng reference và chỉnh sửa
 
 ### Workflow mặc định: chuyển trực tiếp ảnh gốc sang style dự án
 
-Người dùng cập nhật ngày 2026-10-22: luồng này thay mặc định nét → bảng màu
-→ lên màu ngày 2026-10-21; giữ nhánh cũ chỉ để dùng khi được yêu cầu rõ.
+Luồng này thay mặc định cũ nét → bảng màu → lên màu; nhánh cũ chỉ dùng khi
+được yêu cầu rõ.
 
 - Đọc brief và xem ảnh gốc → dùng prompt 2D mặc định cùng rule thiết kế → QA
   đối chiếu trực tiếp nguồn → trình ảnh, chờ người dùng duyệt → tạo sheet.
@@ -268,7 +275,8 @@ Người dùng cập nhật ngày 2026-10-22: luồng này thay mặc định n�
   sáng–trung–tối và bề mặt sang style dự án. Không tự thêm/bớt, thay thiết kế,
   làm đẹp, sửa trang phục hoặc đổi pose để chuẩn bị cho sheet.
 - Với vải, “giữ nguyên chi tiết” giữ thiết kế nhận diện, không giữ texture
-  vật liệu; áp dụng mục **Vải phẳng, sạch** ở trên trong prompt và QA.
+  vật liệu; áp dụng mục **Vải phẳng, sạch** trong
+  [fabric-jewelry.md](references/fabric-jewelry.md) cho prompt và QA.
 - Prompt và record phải tách `Giữ nguyên theo nguồn`, `Chỉ đổi cách thể hiện`
   và `Avoid/Negative constraints`, nêu dấu riêng cụ thể và điều cấm tương ứng.
   Chi tiết không đọc rõ thì ghi giới hạn, không đoán hoặc thêm motif để bù.

@@ -1,6 +1,6 @@
 # Nét mặt, vùng mắt và da
 
-Tách nguyên văn từ SKILL.md. Đọc khi prompt/QA có mặt hoặc da nhìn thấy.
+Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi prompt/QA có mặt hoặc da nhìn thấy.
 
 ### Nét đen cấu trúc trên khuôn mặt
 
@@ -13,8 +13,8 @@ Tách nguyên văn từ SKILL.md. Đọc khi prompt/QA có mặt hoặc da nhìn
   Trong `Avoid/Negative constraints` phải có câu cấm dùng bóng nâu/xám,
   đường màu môi hoặc ranh giới mảng màu thay nét mực đen/near-black. Kiểm
   câu này có trong prompt đã gửi, không chỉ trong skill hay record QA.
-  “Mềm”, “dịu”, “tiết chế” mô tả độ dày/đầu nét và rìa mảng shading, không
-  cho phép làm nhạt màu nét cấu trúc hoặc hòa nét vào bóng da/môi.
+  “Mềm”, “dịu”, “tiết chế” chỉ mô tả độ dày/đầu nét, không cho phép làm
+  nhạt màu nét cấu trúc, hòa nét vào bóng da/môi hoặc blend mảng shading.
 - Mắt: nét đen thanh ở bờ mí trên, khóe mắt và lông mi đang có; mí dưới chỉ
   nhấn đoạn cấu trúc theo nguồn, không mặc định viền đen kín mắt. Mày giữ
   hình, độ dày và màu theo identity, không ép mọi lông mày thành khối đen.
@@ -35,8 +35,12 @@ Tách nguyên văn từ SKILL.md. Đọc khi prompt/QA có mặt hoặc da nhìn
   Yêu cầu “không viền kín cả hai môi” không có nghĩa bỏ nét chọn lọc môi dưới.
 - Tai, hàm/cằm và cổ: giữ nét đường bao và nét cấu trúc chọn lọc theo nguồn,
   phân cấp thanh–đậm với mắt/mũi/miệng; không đồ mọi nếp tuổi, rãnh má hoặc
-  ranh giới mảng sáng–tối thành nét đen. Răng khi có theo hướng dẫn riêng
-  bên dưới, không viền đen kín từng chiếc.
+  ranh giới mảng sáng–tối thành nét đen. Răng khi có theo mục **Răng** bên
+  dưới, không viền đen kín từng chiếc.
+- Răng: với nụ cười thấy răng, giữ nét đen có chủ ý ở mép đầu răng và ít nét
+  kẽ ngắn theo cấu trúc, giảm shading men răng; không biến “ít chi tiết” thành
+  xóa hết nét hoặc viền kín mọi chiếc. Không thêm răng/chi tiết miệng khi
+  nguồn không có.
 - Nét đen/near-black phải đọc như nét mực ở kích thước sử dụng, có đầu nét
   thu và độ dày tiết chế, không làm toàn bộ viền mặt đậm cứng. Giữ màu môi,
   màu da và mảng ánh sáng; tăng nét không cho phép đổi vị trí, kích thước,
@@ -54,8 +58,8 @@ Tách nguyên văn từ SKILL.md. Đọc khi prompt/QA có mặt hoặc da nhìn
   không đủ để đạt toàn miệng; thấy rõ hình môi hoặc màu tối không chứng minh
   đã có nét đen. Nếu chưa đọc thành nét mực ở kích thước sử dụng thì ghi
   chưa đạt phần đó, không lấy nét mắt rõ hoặc tương phản tổng thể để bù.
-- Ref trắng đen v002 mới là bản xem trước về nhấn nét, chưa được người dùng
-  chọn thay ref chung; không tự cập nhật reference style chỉ vì đã sửa skill.
+- Không tự cập nhật reference style chỉ vì đã sửa skill; ref style mới cần
+  người dùng chọn rõ.
 
 Khối gợi ý tích hợp theo góc nhìn và phần thực sự xuất hiện:
 
@@ -73,7 +77,7 @@ Lower lip: where the source reveals its lower structural edge, use a short,
 fine black/near-black tapered stroke, optionally broken, distinct from the
 lip-separation line. Do not enclose the lip or trace the entire cast shadow.
 Keep source feature shapes, positions and proportions. Softness means tapered
-delicate strokes and locally soft shading edges, not faded structural ink.
+delicate strokes only, not faded structural ink or blended shading.
 Avoid/Negative constraints: do not substitute brown/gray shading, lip-colored
 lines or color-patch boundaries for the required black/near-black ink. Do not
 encircle the whole nose or both lips, thicken corners into black wedges, trace
@@ -97,31 +101,33 @@ không thể hiện. Không dùng đặc điểm này để kết luận nguồn
 - Khi dùng bảng màu cô lập, bổ sung màu chuyển tiếp và vị trí dùng, phân biệt
   da quanh mắt với tròng mắt/lông mi. Màu tối nhất chỉ dùng đúng phạm vi nguồn;
   không phủ toàn hốc mắt hoặc tự diễn giải thành smoky makeup.
-- Thể hiện bằng nét/mảng 2D với độ mềm cục bộ tiết chế; giữ biến thiên sắc
-  không đồng nghĩa sao chép tạo khối ảnh thật. QA so cả vùng mắt với nguồn,
+- Thể hiện bằng nét/mảng 2D phẳng, ranh giới rõ; giữ biến thiên sắc không
+  đồng nghĩa sao chép tạo khối ảnh thật. QA so cả vùng mắt với nguồn,
   kiểm mất sắc riêng, tăng độ đậm quá mức và sai quan hệ trên–dưới mí.
 - Giữ quan hệ sắc bằng các mảng màu riêng có hình dạng rõ; “giữ chuyển sắc”
   không cho phép blend rộng từ hốc mắt sang má hoặc làm mượt toàn mặt.
-  Độ mềm trên da theo giới hạn trong policy chung bên dưới.
+  Rendering da theo mục **Rendering da** bên dưới.
 
-### Giới hạn độ mềm trên da
+### Rendering da
 
-- Áp dụng [giới hạn da của policy chung](../../../../docs/project-style-policy.md#giới-hạn-độ-mềm-trên-da)
-  cho prompt và QA: mảng sáng–trung–tối liền, đọc rõ hình dạng; chỉ dịu mép
-  hẹp, không chuyển mượt lan rộng ôm khối má–mũi–cằm–cổ. Giữ cấu trúc và
-  sắc riêng theo nguồn, không làm da lì một màu hoặc tăng tương phản gắt.
+- Character Studio dùng override mảng phẳng của SKILL.md, chặt hơn
+  [giới hạn da của policy chung](../../../../docs/project-style-policy.md#giới-hạn-độ-mềm-trên-da):
+  da khoảng ba tông (màu gốc, sáng, tối), mỗi mảng đồng nhất bên trong, ranh
+  giới rõ; không dịu mép bằng dải chuyển màu trung gian. Giữ cấu trúc và sắc
+  riêng theo nguồn, không làm da lì một màu hoặc tăng tương phản gắt.
 - Prompt thực tế phải có giới hạn riêng cho da, không chỉ “soft 2D” hoặc
   lệnh cấm 3D chung. Khối gợi ý:
 
   ```text
-  Skin: use coherent light/midtone/shadow color shapes with clean, continuous
-  interiors and readable boundaries. Allow only a narrow local softening at
-  selected edges, preserving each shape. Keep source anatomy and regional
-  skin colors, including eye-area colors, through designed color shapes.
-  Avoid/Negative constraints: no broad blended transitions wrapping around
-  cheeks, nose, chin or neck; no airbrushed or spherical skin shading, diffuse
-  glow patches or continuous volumetric ramps. Do not flatten all skin to one
-  color, sharpen every edge, deepen shadows or redesign anatomy to compensate.
+  Skin: about three flat tones (source base, light, shadow) as designed color
+  shapes, each uniform inside, with clear readable boundaries. Keep source
+  anatomy and regional skin colors, including eye-area colors, through these
+  shapes.
+  Avoid/Negative constraints: no gradient or intermediate blend bands between
+  skin tones; no blended transitions wrapping around cheeks, nose, chin or
+  neck; no airbrushed or spherical skin shading, diffuse glow patches or
+  continuous volumetric ramps. Do not flatten all skin to one color, deepen
+  shadows or redesign anatomy to compensate.
   ```
 - QA da ở kích thước sử dụng và phóng lớn khi cần: kiểm riêng má, mũi, cằm,
   cổ và quanh mắt; mảng có còn đọc rõ hay hòa thành khối mượt. Chuyển sắc
