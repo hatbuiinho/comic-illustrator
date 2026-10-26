@@ -20,5 +20,8 @@ description: Tạo hoặc chỉnh ảnh tự do trong Image Playground theo styl
   [chuyển style giữ nguồn](references/source-faithful-restyling.md). Áp dụng
   khóa mảng theo nguồn và phân vai ref; có trang sức thì dùng phương án giảm
   bóng đã tạm chốt trong reference, không lấy thiết kế từ bảng vật liệu.
+- Copy output của lượt (ảnh tạo, crop nguồn) vào
+  `studios/playground/outputs/<request-id>/` theo contract; chỉ trình người
+  dùng bản trong thư mục đó. Ảnh so sánh QA không cần lưu.
 - Bàn giao ảnh cùng kết quả kiểm style/identity ngắn gọn. Ảnh Playground không
   tự trở thành character profile, canon, master hoặc asset đã duyệt của tập.

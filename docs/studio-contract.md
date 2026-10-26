@@ -20,7 +20,9 @@ skill trong repository, không phải ứng dụng hoặc chat mới. Không t�
   chỉ định lại nguồn; vẫn làm phần brief độc lập có thể làm.
 - Trước MỖI lượt tạo/chỉnh có nhân vật đã có profile, đọc lại mô tả gốc và xem ảnh
   reference gốc của từng nhân vật, truyền đúng reference vào lượt tạo. Output cũ
-  chỉ là ảnh đích hoặc nguồn pose, không thay chuẩn identity.
+  chỉ là ảnh đích hoặc nguồn pose, không thay chuẩn identity. Riêng Character
+  Studio: chỉ tạo lại từ ảnh gốc, không dùng output làm ảnh đích hay ref; xem
+  mục **Chỉ tạo lại từ ảnh gốc** trong `comic-character-studio`.
 - Được dùng profile từ tập khi người dùng chỉ định rõ; ghi đường dẫn nguồn,
   không tự lấy asset tập khác thay thế. Không bắt khai báo tập/part/page/frame.
   Chỉ đọc notes/script/continuity nếu yêu cầu thực sự phụ thuộc nội dung đó.
@@ -50,6 +52,7 @@ skill trong repository, không phải ứng dụng hoặc chat mới. Không t�
   cầu cụ thể; sheet phải nhất quán giữa các góc. Báo lỗi thấy được, không ghi
   PASS khi chưa xem. Với lỗi rõ sửa an toàn được và còn trong brief, tự sửa
   một lần có mục tiêu, kiểm regression; ghi số lượt và phần đã giữ.
+  Trong Character Studio, lượt tự sửa chạy lại từ ảnh gốc với prompt bổ sung.
   Nếu vẫn lỗi, trình trạng thái và chờ hướng tiếp, không tự tạo vô hạn.
 - Hiển thị ảnh và đường dẫn lưu. Không tuyên bố canon hoặc phê duyệt thay người dùng.
 
@@ -62,6 +65,13 @@ skill trong repository, không phải ứng dụng hoặc chat mới. Không t�
 - Tạo thư mục con khi cần; dùng tên ngắn ổn định. Mọi ảnh/prompt/record mới có
   version `v001`, `v002`…; không ghi đè (brief cũng tạo version khi thay đổi).
   Lưu ảnh thực vào workspace, không chỉ tham chiếu file cache công cụ.
+- Người dùng chốt ngày 2026-10-24: mọi file output của một lượt studio phải
+  được copy vào thư mục output của đúng studio đó (`studios/character/outputs/<character-id>/`
+  hoặc `studios/playground/outputs/<request-id>/`), gồm ảnh tạo và ảnh crop/đệm
+  nguồn (`references/`). Không để output chỉ nằm ở cache công cụ, thư mục tạm
+  hay scratchpad; ảnh output trình cho người dùng phải là bản trong thư mục
+  output của studio. Ảnh so sánh/overlay/zoom chỉ dùng cho QA không cần lưu. Không lưu output của studio này sang
+  studio khác hoặc vào thư mục tập.
 - Mỗi version có record Markdown cùng tên: yêu cầu, prompt đầy đủ, nguồn profile
   và vai trò reference (đường dẫn tương đối trong repo hoặc định danh ngoài repo),
   ảnh output, parentVersion nếu chỉnh, kết quả kiểm và override nếu có.

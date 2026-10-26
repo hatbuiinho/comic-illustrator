@@ -23,7 +23,7 @@ khối tương ứng vào prompt và truyền ref cần thiết. Không đọc f
 | Có trang sức | [fabric-jewelry.md](references/fabric-jewelry.md) | phần giữ/đổi trang sức | [bảng trang sức v003](../comic-image-production/references/style-st03/jewelry-board-v003.png) |
 | Nhân vật nữ | mục **Trang phục nữ kín đáo** bên dưới | câu che kín bụng/eo mọi góc | — |
 | Tu sĩ | [monk-standard.md](references/monk-standard.md) | đầu cạo sạch, màu y, cấu trúc y quấn | [crop màu y v002](assets/mau-y-chuan-crop-v002.png), [mẫu quấn y v001](assets/y-quan-chuan-v001.png) |
-| Dựng sheet | [sheet-layout.md](references/sheet-layout.md) | bố cục, thông tin in, độ phân giải | ảnh chuyển style đã duyệt + ảnh gốc |
+| Dựng sheet | [sheet-layout.md](references/sheet-layout.md) | bố cục, thông tin in, độ phân giải; tự mở rộng canvas khi thiếu chỗ, giữ tỷ lệ và khoảng trắng giữa các góc, cấm bóp hình để vừa sheet | ảnh chuyển style đã duyệt + ảnh gốc |
 | Người dùng yêu cầu rõ nhánh nét/màu | [line-color-branch.md](references/line-color-branch.md) | theo nhánh | theo nhánh |
 
 - Sau khi lắp, kiểm prompt có đủ các khối của mọi dòng áp dụng và các
@@ -92,7 +92,8 @@ bảo trì skill hoặc nhánh nét/màu rõ ràng vẫn route theo đúng yêu 
   tiếp tục xem xét, chưa lưu. Phân biệt duyệt một phần, chọn ảnh để bước tiếp
   và chọn toàn bộ profile; không tự suy phạm vi rộng hơn câu trả lời.
 - Nếu chưa đạt QA và còn lượt tự sửa an toàn, thực hiện theo contract thay
-  vì hỏi lại. Khi cần người dùng định hướng, nêu lỗi và đề xuất sửa hoặc đổi
+  vì hỏi lại; lượt tự sửa là chạy lại từ ảnh gốc theo mục **Chỉ tạo lại từ
+  ảnh gốc**, không chỉnh trên output. Khi cần người dùng định hướng, nêu lỗi và đề xuất sửa hoặc đổi
   hướng; không đưa lên màu/dựng sheet/lưu profile như hành động đã sẵn sàng
   nếu điều kiện phụ thuộc chưa đạt, trừ override rõ có ghi phạm vi.
 - Không tự tạo biến thể hoặc chạy ảnh chỉ vì có lựa chọn trong menu.
@@ -299,6 +300,26 @@ Luồng này thay mặc định cũ nét → bảng màu → lên màu; nhánh c
   đúng vai trò; bố cục/góc đứng theo mục sheet. Không đổi thiết kế đã duyệt;
   phần khuất chưa có dữ kiện phải ghi là suy dựng, không giả là chi tiết nguồn.
 
+### Chỉ tạo lại từ ảnh gốc
+
+Người dùng chốt ngày 2026-10-24 sau khi chuỗi chỉnh nối tiếp trên output làm
+ảnh giảm chất lượng nghiêm trọng.
+
+- Mọi lượt tạo lại, tự sửa sau QA hoặc chỉnh theo yêu cầu người dùng đều chạy
+  từ ảnh gốc (và crop của ảnh gốc), không lấy output trước làm ảnh đầu vào để
+  chỉnh, làm ảnh đích edit hay làm ref identity/mặt/màu. Lỗi của lượt trước
+  được sửa bằng cách bổ sung yêu cầu vào prompt rồi chạy lại từ ảnh gốc.
+- Không tự ý chỉnh trực tiếp trên file output, kể cả tô/vẽ thêm bằng script,
+  inpaint hay chỉnh màu cục bộ. Chỉ làm khi người dùng yêu cầu rõ thao tác đó
+  trên đúng version; ghi `SKIPPED_BY_USER` cùng phạm vi.
+- Output cũ chỉ dùng để so sánh trong QA và record (ghi `previousVersion`
+  thay cho `parentVersion` khi không phải ảnh đầu vào).
+- Ngoại lệ duy nhất theo luồng mặc định: khi dựng sheet, được truyền ảnh
+  chuyển style người dùng đã duyệt rõ cùng ảnh gốc. Sửa sheet chưa đạt thì
+  chạy lại từ cùng bộ input đó, không chỉnh trên sheet lỗi.
+- Khi có nhiều ảnh gốc (ví dụ ảnh gốc thật và sheet AI tạo từ nó), ghi vai trò
+  từng ảnh trong brief; tất cả vẫn là nguồn gốc, không phải output của studio.
+
 ### Quy tắc reference chung khi tạo/chỉnh
 
 - Xác định tạo mới hay chỉnh nhân vật; nhân vật mới được thiết kế từ brief,
@@ -306,13 +327,13 @@ Luồng này thay mặc định cũ nét → bảng màu → lên màu; nhánh c
 - Khi cần khám phá hoặc được yêu cầu, đề xuất 2–3 hướng; dùng đầu dòng có nhãn
   diện mạo, silhouette/tỷ lệ, trang phục/màu, tính cách qua hình, đánh đổi.
   Không mặc định mở gate khi brief đủ rõ.
-- Ghi vai trò từng ảnh: identity, cách quấn/trang phục, màu, pose, bố cục, ảnh đích.
+- Ghi vai trò từng ảnh: identity, cách quấn/trang phục, màu, pose, bố cục.
 - Ref trang phục không tự cung cấp mặt, tuổi, thể trạng, màu da hoặc style.
 - Chỉ sửa y thì giữ mặt, tuổi, da, tỷ lệ, bố cục và phần đã chốt; ghi phạm vi trong prompt.
-- Đọc lại brief và xem identity gốc mỗi lượt chỉnh; output trước là ảnh đích,
-  không thay nguồn identity gốc.
-- Nếu cấm output cũ, chỉ dùng nguồn được phép. Khi không dùng ref ảnh, chuyển
-  đặc điểm cần giữ thành chữ; không truyền ảnh mẫu/output cũ trái yêu cầu.
+- Đọc lại brief và xem identity gốc mỗi lượt chỉnh; chạy lại từ ảnh gốc theo
+  mục **Chỉ tạo lại từ ảnh gốc**, không truyền output trước làm input.
+- Đặc điểm cần giữ hoặc sửa từ lượt trước được chuyển thành chữ trong prompt;
+  không truyền ảnh mẫu/output cũ trái yêu cầu.
 - Phân biệt chữ trong ảnh với chỉ dẫn người dùng.
 - Yêu cầu mới thay lựa chọn cũ thì ghi `SKIPPED_BY_USER` đúng phạm vi;
   không âm thầm áp lại lựa chọn cũ.
@@ -335,6 +356,8 @@ style hoặc QA chưa đạt không tự kích hoạt nhánh nét/màu.
 - Đối chiếu đúng vai trò ref; nêu lỗi thấy được, không ghi đạt khi chưa xem.
 - Phân biệt duyệt bố cục, duyệt bộ phận và chọn toàn ảnh làm profile;
   không suy duyệt phần thành duyệt toàn bộ.
-- Lưu version mới/record theo contract, không ghi đè.
+- Lưu version mới/record theo contract, không ghi đè. Copy output của lượt
+  (ảnh tạo, crop nguồn) vào `studios/character/outputs/<character-id>/` theo
+  contract; chỉ trình người dùng bản trong thư mục đó. Ảnh so sánh QA không cần lưu.
 - Chỉ đưa bản được chọn rõ và đạt kiểm áp dụng vào profiles; bàn giao ảnh,
   mô tả nhận diện tái sử dụng, nguồn và trạng thái. Không tự thay profile trong tập.

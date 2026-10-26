@@ -51,7 +51,8 @@ hình khô/nhạt để đạt nhãn 2D. Delta chỉ nhắm dấu hiệu drift �
   tạo lại; phải kiểm thêm hoặc ghi chưa đủ bằng chứng.
 - Chỉ dùng bản làm nền sản xuất bước sau khi các thuộc tính bước đó phụ thuộc
   đã đạt. Không khóa feature sai chỉ vì nó nằm trong bản cha. Output FAIL có
-  thể là ảnh đích sửa phần lỗi, không trở thành nguồn identity/style mới.
+  thể là ảnh đích sửa phần lỗi, không trở thành nguồn identity/style mới;
+  trừ workflow cấm dùng output làm ảnh đích (Character Studio chỉ tạo lại từ ảnh gốc).
 - Test chẩn đoán được người dùng yêu cầu có thể dùng bản chưa đạt để cô lập
   nguyên nhân; ghi mục tiêu test và lỗi kế thừa, không nâng thành mẫu chuẩn.
   Khi so phương pháp, giữ brief/pose/input ổn định và ghi biến đã thay, thay vì
