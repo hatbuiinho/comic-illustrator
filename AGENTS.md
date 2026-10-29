@@ -27,6 +27,7 @@ sao chép các chi tiết đó vào đây khi cập nhật workflow.
 | Minh họa tập | Tạo/chỉnh minh họa theo tập/part/page/frame | `comic-page-guide` | [comic-illustrator/contract.md](comic-illustrator/contract.md) |
 | Character Studio | Tạo/phát triển/chỉnh character profile, character sheet | `comic-character-studio` | [docs/studio-contract.md](docs/studio-contract.md) |
 | Image Playground | Ảnh tự do, concept, poster, thử pose/cảnh ngoài minh họa tập | `comic-image-playground` | [docs/studio-contract.md](docs/studio-contract.md) |
+| TTPQ Comic | Viết prompt ChatGPT Image cho spread truyện cuộc đời Đức Phật (tranh + chữ VI/EN) | `ttpq-comic` | [ttpq-comic/contract.md](ttpq-comic/contract.md) |
 
 - Yêu cầu gọi rõ một workflow/skill được ưu tiên. Trước khi làm, đọc contract
   của workflow đã chọn.
@@ -51,9 +52,11 @@ Một override rõ của người dùng phải được ghi là `SKIPPED_BY_USER
 
 ## Phong cách và nhân vật
 
-- Phong cách nền là thuần 2D animation, bắt buộc cho mọi ảnh trong mọi workflow,
-  kể cả bản thử và variant. Trước thiết kế hình, viết prompt, tạo ảnh hoặc
-  visual QA, đọc [policy phong cách](docs/project-style-policy.md).
+- Style duy nhất cho mọi workflow là **ttpq comic light**, thuần 2D, theo
+  [định nghĩa độc lập](docs/style-ttpq-comic-light.md) và
+  [policy phong cách](docs/project-style-policy.md). Đọc trước thiết kế hình,
+  viết prompt, tạo ảnh hoặc visual QA. Chỉ khi ảnh cần vẽ tu sĩ mới đọc và
+  dẫn chiếu [màu y/cách quấn y](docs/monastic-robes.md).
 - Mọi prompt tạo/chỉnh ảnh phải có điều cấm áp dụng ngay từ đầu, theo
   [điều cấm trong prompt](docs/prompt-constraints.md).
 - Profile gốc do contract của workflow xác định là chuẩn identity. Không dùng

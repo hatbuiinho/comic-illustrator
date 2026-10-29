@@ -1,6 +1,15 @@
 # Nhánh tùy chọn: nét chì/line art và bảng màu, lên màu
 
+> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
+> override st03 và khối prompt style cũ bên dưới đã được thay thế; không
+> copy các phần đó vào prompt mới. Workflow và identity vẫn giữ; QA theo qa-checklist.md.
+> Chỉ khi ảnh có tu sĩ mới đọc `docs/monastic-robes.md` cho màu/cách quấn y.
+
+
 Một phần của [SKILL.md](../SKILL.md) Character Studio. Chỉ đọc khi người dùng yêu cầu rõ nhánh nét hoặc nhánh màu.
+QA ảnh trong nhánh theo [qa-checklist.md](qa-checklist.md).
 
 Chỉ đọc và thực hiện các hướng dẫn chuyên biệt dưới đây khi người dùng yêu
 cầu rõ nhánh tương ứng. Các từ “mặc định” về input bên dưới chỉ áp dụng trong
@@ -40,7 +49,7 @@ rendering mảng phẳng của SKILL.md có hiệu lực.
 
 Phương pháp nhánh màu được chốt ngày 2026-10-21, thay phương pháp tạm truyền
 ảnh gốc vào lượt tô riêng. Đây là lựa chọn workflow, không miễn QA hoặc xác nhận phương pháp
-đã ổn định trên mọi nhân vật. Policy st03 vẫn có hiệu lực.
+đã ổn định trên mọi nhân vật. Style theo ttpq comic light.
 
 - Khi người dùng yêu cầu trọn nhánh nét và màu: đọc brief và ảnh gốc → tạo/kiểm chân dung
   line art sạch → lập/kiểm bảng màu theo vùng → tô mới bằng line art + bảng
@@ -236,10 +245,9 @@ Phương pháp nhánh màu được chốt ngày 2026-10-21, thay phương pháp
   Kiểm màu phẳng với nguồn trước khi thêm cel-shading; không dùng tên màu
   chung hoặc một mã màu để suy toàn bộ vật liệu. Đây là bước kiểm có điều
   kiện, không bảo đảm model giữ pixel hay tự động tô đúng mọi vùng.
-- Màu phẳng chỉ là kiểm gán vùng, không phải đích style st03. Không nâng
+- Màu phẳng chỉ là kiểm gán vùng, không phải đích style. Không nâng
   việc bỏ bóng ở bước nét thành yêu cầu bỏ độ mềm/chi tiết ở ảnh màu cuối.
   Chỉ truyền lại ảnh gốc vào test khi người dùng yêu cầu rõ, ghi input và
   biến thay đổi, không âm thầm quay về phương pháp cũ. Line art giản lược không khóa mức chi tiết
   tối đa. Đối chiếu nguồn để khôi phục chi tiết bị mất, không tự thêm motif.
-  QA giữ cả nét/mảng dẫn hình lẫn độ mềm cục bộ theo policy; không đánh giá
-  đạt chỉ vì ảnh ít bóng hoặc ít chi tiết hơn.
+  Không đánh giá đạt chỉ vì ảnh ít bóng hoặc ít chi tiết hơn.

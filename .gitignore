@@ -10,6 +10,15 @@ outputs/
 !/studios/**/
 !/studios/**/README.md
 
+# Dữ liệu sinh khi chạy flow TTPQ Comic (giữ nguồn và README hướng dẫn)
+/ttpq-comic/spreads/**
+!/ttpq-comic/spreads/**/
+!/ttpq-comic/spreads/**/README.md
+
+# Cache Python của script workflow
+__pycache__/
+*.py[cod]
+
 # Hàng đợi/trạng thái runtime của workflow
 sentry/queue/
 

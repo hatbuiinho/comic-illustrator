@@ -26,8 +26,8 @@ Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi dựng s
   được crop phần khung trắng dư nhưng không cắt silhouette.
 - Prompt thực tế khi dựng góc/sheet phải nêu rõ: mở rộng canvas khi cần,
   mỗi góc có khoảng trắng riêng, giữ nguyên tỷ lệ nguồn; cấm ép, bóp hoặc
-  rút ngắn nhân vật để khớp bố cục. QA kiểm trọn đầu/chân, khoảng cách giữa
-  các silhouette và tỷ lệ từng góc trước khi coi sheet đạt.
+  rút ngắn nhân vật để khớp bố cục. QA theo nhóm Sheet trong
+  [qa-checklist.md](qa-checklist.md).
 - Chân dung thấy trọn đầu, tóc hoặc khăn, vai và ngực; đủ lớn để nhận diện mặt.
 - Các góc đứng cùng tỷ lệ, đường chân và chiều cao tương ứng; thấy trọn đầu/chân.
 - Thông tin gồm tên, tuổi, giới tính, chiều cao, vai trò và xuất thân theo

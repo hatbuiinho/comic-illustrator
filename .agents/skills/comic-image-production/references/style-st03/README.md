@@ -1,5 +1,9 @@
 # Ảnh tham chiếu st03 dùng chung
 
+> LỊCH SỬ — từ 2026-10-29 đã được thay hoàn toàn bởi `ttpq comic light`
+> tại `docs/style-ttpq-comic-light.md` (đường dẫn từ root). Không áp dụng
+> định nghĩa, ref hoặc chỉ dẫn “hiện hành” bên dưới cho lượt mới.
+
 Các bản sao tham chiếu này được Git theo dõi để mọi workflow dùng được khi
 clone repo. Định nghĩa và giới hạn vẫn do [st03](../../../../../docs/style-st03.md)
 và [policy chung](../../../../../docs/project-style-policy.md) quản lý.

@@ -1,5 +1,13 @@
 # Chuyển style giữ nguồn
 
+> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
+> override st03 và khối prompt style cũ bên dưới đã được thay thế; không
+> copy các phần đó vào prompt mới. Workflow, identity và QA fidelity vẫn giữ.
+> Chỉ khi ảnh có tu sĩ mới đọc `docs/monastic-robes.md` cho màu/cách quấn y.
+
+
 Phương án người dùng tạm chốt ngày 2026-10-22 sau test Punna v004.
 Áp dụng cho chuyển style ảnh có yêu cầu giữ chi tiết trong Image Playground;
 không mở rộng thành thay đổi thiết kế, nguồn sáng hoặc policy chung của project.

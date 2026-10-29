@@ -1,16 +1,17 @@
 # Vải, trang sức và mức chi tiết
 
+> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
+> override st03 và khối prompt style cũ bên dưới đã được thay thế; không
+> copy các phần đó vào prompt mới. Workflow và identity vẫn giữ; QA theo qa-checklist.md.
+> Chỉ khi ảnh có tu sĩ mới đọc `docs/monastic-robes.md` cho màu/cách quấn y.
+
+
 Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi ảnh có trang phục hoặc trang sức.
+QA theo [qa-checklist.md](qa-checklist.md).
 
 ## Chuyển style và mức chi tiết
-
-- Khi ảnh có trang sức, bắt buộc xem và truyền kèm
-  [bảng trang sức v003](../../comic-image-production/references/style-st03/jewelry-board-v003.png)
-  trong mỗi lượt tạo/chỉnh theo [policy chung](../../../../docs/project-style-policy.md#vật-liệu-và-giới-hạn-rendering).
-  Áp dụng cả chuyển style, sheet, bản thử, variant và sửa lỗi; không chỉ mô
-  tả bằng chữ. Phân vai ref vật liệu giảm bóng, giữ thiết kế/màu theo nguồn;
-  ghi input thực tế và kiểm nhiễm thiết kế từ bảng. Không tự tạo ảnh chỉ vì
-  đang cập nhật quy tắc này.
 
 - **Vải phẳng, sạch:** áp dụng cho chuyển style, ảnh màu, sheet và lượt sửa
   có trang phục. Giữ silhouette, cách quấn, mép chồng, nếp gấp chính và màu
@@ -41,11 +42,6 @@ Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi ảnh c�
   texture into invented motifs, amplify faint patterns, add decoration, or
   erase/change identifying borders and motifs to obtain a flatter surface.
   ```
-- QA vải ở toàn hình/kích thước sheet và vùng phóng lớn: bề mặt đọc thành
-  mảng sạch, nếp chính và lớp quấn còn rõ; không có vân dày, lưới sợi hoặc
-  mảng vụn làm nhiễu. Kiểm riêng viền/motif với nguồn để phát hiện mất/đổi/thêm
-  hoa văn. Phẳng hơn không có nghĩa xóa toàn bộ bóng, nếp hoặc thiết kế;
-  giảm texture không cho phép thay tỷ lệ cơ thể hay các vùng khác.
 - Trước lượt tạo đầu, tách thiết kế cần giữ khỏi cách thể hiện cần chuyển:
   identity, silhouette, cấu trúc trang phục/trang sức theo nguồn; nét, màu,
   shading và mức nhấn theo policy. Không chờ output lệch rồi mới bổ sung
@@ -61,5 +57,4 @@ Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi ảnh c�
   nêu đó là thay đổi thiết kế, không âm thầm gọi là chỉnh style.
 - Prompt nêu cụ thể phần giữ, phần đổi và mức chi tiết theo vùng đang có;
   tránh các yêu cầu chung như “rich details”, “intricate” khiến mô hình
-  tự trang trí thêm. QA so cả độ bóng lẫn mật độ chi tiết với nguồn và
-  hierarchy mặt–phụ kiện; sửa được style nhưng thêm hoa văn vẫn là regression.
+  tự trang trí thêm.

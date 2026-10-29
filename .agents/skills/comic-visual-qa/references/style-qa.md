@@ -1,5 +1,13 @@
 # Style QA
 
+> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
+> override st03 và khối prompt style cũ bên dưới đã được thay thế; không
+> copy các phần đó vào prompt mới. Workflow, identity và QA fidelity vẫn giữ.
+> Chỉ khi ảnh có tu sĩ mới đọc `docs/monastic-robes.md` cho màu/cách quấn y.
+
+
 Resolve chuẩn tại `docs/project-style-policy.md` của project trước review;
 reference này quy định cách đánh giá, không lập mức shading riêng.
 

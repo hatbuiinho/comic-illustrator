@@ -1,5 +1,9 @@
 # st02
 
+> LỊCH SỬ — từ 2026-10-29 đã được thay hoàn toàn bởi `ttpq comic light`
+> tại `docs/style-ttpq-comic-light.md` (đường dẫn từ root). Không áp dụng
+> định nghĩa, ref hoặc chỉ dẫn “hiện hành” bên dưới cho lượt mới.
+
 Người dùng đặt tên ngày 2026-10-17 cho hướng 2D mềm của st01 được điều chỉnh về màu tiết chế và ánh sáng tự nhiên theo cảnh vương quốc v002. Bản này được giữ để tham chiếu lịch sử; từ ngày 2026-10-18, style mặc định toàn project là [st03](style-st03.md).
 
 ## Đặc điểm

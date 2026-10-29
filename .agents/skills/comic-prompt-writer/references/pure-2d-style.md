@@ -1,5 +1,13 @@
 # Khóa thuần 2D animation
 
+> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
+> override st03 và khối prompt style cũ bên dưới đã được thay thế; không
+> copy các phần đó vào prompt mới. Workflow, identity và QA fidelity vẫn giữ.
+> Chỉ khi ảnh có tu sĩ mới đọc `docs/monastic-robes.md` cho màu/cách quấn y.
+
+
 - Nét viền rõ, sạch và nhất quán.
 - Hình khối bằng mảng màu thiết kế rõ; cel-shading làm nền tảng.
 - Cho phép chuyển sắc mềm nhẹ, cục bộ ở da/tóc/vải/vật liệu theo policy chung;

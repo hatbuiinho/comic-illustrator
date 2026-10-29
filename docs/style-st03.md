@@ -1,5 +1,9 @@
 # st03 — 2D mềm, màu tự nhiên cân bằng
 
+> LỊCH SỬ — từ 2026-10-29 đã được thay hoàn toàn bởi `ttpq comic light`
+> tại `docs/style-ttpq-comic-light.md` (đường dẫn từ root). Không áp dụng
+> định nghĩa, ref hoặc chỉ dẫn “hiện hành” bên dưới cho lượt mới.
+
 Được đề xuất trong hội thoại ngày 2026-10-17 và người dùng yêu cầu lưu ngày
 2026-10-18. Mục tiêu: khắc phục xanh lá hơi rực của st01 và cảm giác lạnh/ám
 xanh trời của st02, giữ màu rõ, có sức sống và phù hợp nhiều bối cảnh.

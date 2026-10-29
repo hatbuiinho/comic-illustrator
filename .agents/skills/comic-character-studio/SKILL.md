@@ -5,6 +5,15 @@ description: Tạo, phát triển hoặc chỉnh character profile và character
 
 # Character Studio
 
+> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
+> override st03 và khối prompt style cũ bên dưới đã được thay thế; không
+> copy các phần đó vào prompt mới. Workflow và identity vẫn giữ; QA cũ đã
+> thay bằng [qa-checklist.md](references/qa-checklist.md).
+> Chỉ khi ảnh có tu sĩ mới đọc `docs/monastic-robes.md` cho màu/cách quấn y.
+
+
 Đọc và áp dụng [contract studio](../../../docs/studio-contract.md)
 và [policy phong cách](../../../docs/project-style-policy.md).
 
@@ -18,9 +27,9 @@ khối tương ứng vào prompt và truyền ref cần thiết. Không đọc f
 |---|---|---|---|
 | Mọi lượt chuyển style | [default-2d-prompt.md](references/default-2d-prompt.md) | khối lõi | ảnh gốc (identity) |
 | Mọi lượt có ảnh gốc/profile | mục tỷ lệ, lý tưởng hóa, negative bên dưới | khối giữ tỷ lệ + khối Avoid chibi/Trung Quốc hóa + dấu riêng của nguồn | — |
-| Có mặt/da nhìn thấy | [face-and-skin.md](references/face-and-skin.md) | khối Eyes/Nose/Mouth/Lower lip + khối Skin | — |
+| Có mặt/da nhìn thấy | [face-and-skin.md](references/face-and-skin.md) | khối Eyes/Nose/Mouth/Lower lip | — |
 | Có trang phục | [fabric-jewelry.md](references/fabric-jewelry.md) | khối Fabric | — |
-| Có trang sức | [fabric-jewelry.md](references/fabric-jewelry.md) | phần giữ/đổi trang sức | [bảng trang sức v003](../comic-image-production/references/style-st03/jewelry-board-v003.png) |
+| Có trang sức | [fabric-jewelry.md](references/fabric-jewelry.md) | phần giữ/đổi trang sức | — (không bắt buộc ref vật liệu cũ) |
 | Nhân vật nữ | mục **Trang phục nữ kín đáo** bên dưới | câu che kín bụng/eo mọi góc | — |
 | Tu sĩ | [monk-standard.md](references/monk-standard.md) | đầu cạo sạch, màu y, cấu trúc y quấn | [crop màu y v002](assets/mau-y-chuan-crop-v002.png), [mẫu quấn y v001](assets/y-quan-chuan-v001.png) |
 | Dựng sheet | [sheet-layout.md](references/sheet-layout.md) | bố cục, thông tin in, độ phân giải; tự mở rộng canvas khi thiếu chỗ, giữ tỷ lệ và khoảng trắng giữa các góc, cấm bóp hình để vừa sheet | ảnh chuyển style đã duyệt + ảnh gốc |
@@ -28,6 +37,8 @@ khối tương ứng vào prompt và truyền ref cần thiết. Không đọc f
 
 - Sau khi lắp, kiểm prompt có đủ các khối của mọi dòng áp dụng và các
   `SKIPPED_BY_USER` đang có hiệu lực, rồi mới gửi. Lưu prompt thực tế trong record.
+- Sau khi tạo, QA duy nhất theo [qa-checklist.md](references/qa-checklist.md);
+  các file reference khác chỉ dùng để lắp prompt.
 - Lịch sử các quyết định người dùng đã chốt nằm tại
   [decision-log.md](references/decision-log.md); rule bên dưới là bản hiện hành.
 
@@ -52,12 +63,9 @@ bảo trì skill hoặc nhánh nét/màu rõ ràng vẫn route theo đúng yêu 
 
 - Đọc prompt 2D mặc định trước khi viết prompt cho lượt chuyển style. Giữ khối lõi
   đã chốt; chỉ bổ sung ngắn các dấu riêng và ràng buộc thực sự áp dụng.
-- Mặc định rendering trong Character Studio là mảng phẳng, da khoảng ba tông,
-  không gradient/airbrush trên toàn ảnh. Đây là override người dùng đối với
-  mép mềm/chuyển nhẹ của st03, chỉ trong Character Studio; ghi
-  `SKIPPED_BY_USER` cùng phạm vi trong record. Các khối prompt trong
-  `references/` đã viết theo override này; độ mềm cục bộ chỉ còn trong nhánh
-  màu khi được yêu cầu rõ. Không đổi policy toàn project.
+- Rendering mặc định là `ttpq comic light` theo policy toàn dự án;
+  override rendering st03 trước đây đã hết hiệu lực. Không dùng khối style
+  hoặc ref vật liệu cũ để thay định nghĩa mới.
 - Giữ các rule thiết kế, tỷ lệ, nét cấu trúc, đầu cạo, trang phục nữ, reference,
   QA, giới hạn tự sửa và cổng duyệt trước sheet/lưu profile. Rule màu y và
   cách quấn y chuẩn vẫn mặc định có hiệu lực; dòng giữ màu da không miễn
@@ -103,7 +111,7 @@ bảo trì skill hoặc nhánh nét/màu rõ ràng vẫn route theo đúng yêu 
 
 ## Mục tiêu tạo hình
 
-- Mặc định dùng nền st03 với cấu trúc mặt/cơ thể tự nhiên, nhưng rendering
+- Mặc định dùng ttpq comic light với cấu trúc mặt/cơ thể tự nhiên, nhưng rendering
   theo mục **Prompt mặc định đã chốt**: nét/mảng 2D rõ, màu phẳng sạch không hạt.
 - Không mặc định mắt lớn, mũi nhỏ, cằm ngắn, đầu to hoặc dáng người mẫu.
   Giữ tuổi, thể trạng và nét riêng theo brief.
@@ -129,11 +137,6 @@ bảo trì skill hoặc nhánh nét/màu rõ ràng vẫn route theo đúng yêu 
   tỷ lệ khi người dùng yêu cầu rõ đúng bộ phận/phạm vi đó và ghi
   `SKIPPED_BY_USER`; yêu cầu đổi góc/pose không tự cho phép đổi tỷ lệ cơ thể.
   Góc mới có phối cảnh/co ngắn theo góc nhìn nhưng phải giữ cấu trúc nhân vật.
-- QA kiểm tỷ lệ trước style và hoa văn. Thay đổi tỷ lệ thấy rõ là FAIL, kể
-  cả khi ảnh còn nhận ra nhân vật hoặc trông đẹp hơn; không hạ thành “lệch
-  nhẹ” để chuyển bước. Sai biệt nét/anti-alias không đổi tỷ lệ không phải lỗi
-  giải phẫu. Prompt không bảo đảm khóa hình học: nếu model vẫn đổi tỷ lệ,
-  báo chưa đạt, tuân giới hạn sửa và không tự dùng làm nền dựng sheet.
 
 Khối điều cấm cần tích hợp và cụ thể hóa theo phần cơ thể xuất hiện:
 
@@ -164,11 +167,6 @@ authority; previous generated outputs and style references do not replace it.
   Nét sạch, bỏ texture và giản lược shading là thay cách vẽ, không phải xóa
   hình mí, nét tuổi, độ đầy má hoặc thay hình môi/mũi. Line art không mang
   bóng nguồn; đặc điểm nhận diện biểu đạt bằng màu được giữ cho bảng màu/lượt tô.
-- QA đối chiếu các dấu riêng đã chọn, kiểm cả xu hướng lý tưởng hóa cộng dồn:
-  mắt lớn hơn, mũi nhỏ hơn, mặt thon/cân xứng hơn, cổ dài hơn hoặc dáng mảnh hơn.
-  Ghi điều nhìn thấy, không khẳng định mô hình đã “làm đẹp” chỉ từ cảm giác.
-  Sai khác nhỏ còn giữ nhận diện được đánh giá theo mục giữ tỷ lệ; không đòi
-  khớp từng pixel, không dùng vẻ đẹp của output để bù lệch identity.
 - Đây là biện pháp giảm nguy cơ, không bảo đảm mô hình không tự diễn giải.
   Nếu người dùng yêu cầu làm đẹp/đổi nét riêng rõ, chỉ thay trong phạm vi đó,
   ghi thay đổi và `SKIPPED_BY_USER` theo contract, không mở rộng sang phần khác.
@@ -206,11 +204,6 @@ authority; previous generated outputs and style references do not replace it.
   in that source or explicitly requested by the user.
   ```
 
-- QA kiểm lại đầu–thân, kích thước mắt, tuổi cảm nhận, chiều dài chi và các
-  thay thế cụ thể ở tóc/trang phục/phụ kiện; không chỉ ghi “không chibi” hay
-  “không Trung Quốc hóa” mà thiếu bằng chứng. Negative prompt giảm nguy cơ,
-  không bảo đảm mô hình tuân thủ; vẫn giữ giới hạn sửa và dung sai tỷ lệ hiện
-  hành. Không tự chạy ảnh kiểm chứng khi người dùng chỉ yêu cầu sửa workflow.
 
 ## Trang phục nữ kín đáo
 
@@ -227,9 +220,6 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
 - Prompt phải nêu rõ áo che kín bụng/eo và các lớp vải chồng liên tục ở mọi
   góc; không chỉ ghi chung “kín đáo” hoặc “modest”. Khi dựng góc mới, kiểm
   lại độ phủ thay vì suy từ góc chính diện đã kín.
-- QA kiểm riêng vùng dưới ngực–bụng–eo và mép áo/sari ở từng hình, đặc biệt
-  góc nghiêng và phía sau. Một khoảng da hở ở bụng/eo là chưa đạt, dù mặt,
-  màu và các góc còn lại đúng; không khóa bản đó thành profile chuẩn.
 
 ## Bảo trì skill và kiểm thử workflow
 
@@ -263,11 +253,11 @@ và variant; không phải khẳng định về mọi trang phục lịch sử.
 Luồng này thay mặc định cũ nét → bảng màu → lên màu; nhánh cũ chỉ dùng khi
 được yêu cầu rõ.
 
-- Đọc brief và xem ảnh gốc → dùng prompt 2D mặc định cùng rule thiết kế → QA
-  đối chiếu trực tiếp nguồn → trình ảnh, chờ người dùng duyệt → tạo sheet.
+- Đọc brief và xem ảnh gốc → dùng prompt 2D mặc định cùng rule thiết kế → QA theo
+  [qa-checklist.md](references/qa-checklist.md) → trình ảnh, chờ người dùng duyệt → tạo sheet.
   Không tạo nét chì/line art, bảng màu hoặc lượt lên màu tách riêng ở giữa.
 - Truyền ảnh gốc làm reference identity/thiết kế/màu/cấu trúc; dùng reference
-  style hiện hành theo policy và định nghĩa st03. Style ref chỉ cung cấp cách
+  style hiện hành theo policy và định nghĩa ttpq comic light. Style ref chỉ cung cấp cách
   diễn nét/mảng, không cung cấp khuôn mặt, trang phục, màu hoặc bố cục.
   Không mặc định truyền hai user style cũ của nhánh tô màu vào luồng này.
 - Giữ nguyên chi tiết quan sát được: mặt, tuổi, thể trạng, tỷ lệ, tóc/râu,
@@ -277,25 +267,22 @@ Luồng này thay mặc định cũ nét → bảng màu → lên màu; nhánh c
   làm đẹp, sửa trang phục hoặc đổi pose để chuẩn bị cho sheet.
 - Với vải, “giữ nguyên chi tiết” giữ thiết kế nhận diện, không giữ texture
   vật liệu; áp dụng mục **Vải phẳng, sạch** trong
-  [fabric-jewelry.md](references/fabric-jewelry.md) cho prompt và QA.
+  [fabric-jewelry.md](references/fabric-jewelry.md) cho prompt.
 - Prompt và record phải tách `Giữ nguyên theo nguồn`, `Chỉ đổi cách thể hiện`
   và `Avoid/Negative constraints`, nêu dấu riêng cụ thể và điều cấm tương ứng.
   Chi tiết không đọc rõ thì ghi giới hạn, không đoán hoặc thêm motif để bù.
 - Màu da: giữ sắc độ, sắc màu và độ bão hòa theo nguồn; không mặc định tăng
   độ ấm hoặc dùng “warm skin tone” thay khóa màu nguồn. Prompt phải cấm tăng
   vàng/cam riêng trên da, kể cả khi đã cấm lớp phủ vàng/cam toàn ảnh. Không lấy
-  màu da từ ref style hay ref màu y. QA so riêng mặt, cổ, tay/chân ở vùng
-  sáng–trung–tối với nguồn theo st03; giữ ngoại lệ nguồn sáng có căn cứ hoặc
-  thay màu da được người dùng yêu cầu rõ.
+  màu da từ ref style hay ref màu y. Chỉ đổi màu da khi người dùng
+  yêu cầu rõ.
 - Giữ thiết kế nguồn trong phạm vi không xung đột với rule thiết kế studio:
   màu/cách quấn y chuẩn và độ phủ trang phục nữ vẫn mặc định áp dụng.
   Nếu nguồn khác chuẩn, nêu delta áp dụng trong prompt/record. Chỉ ghi
   `SKIPPED_BY_USER` cho phần người dùng yêu cầu rõ giữ khác chuẩn, không
   suy waiver từ câu giữ thiết kế chung của prompt mặc định.
-- QA kiểm đồng thời identity, hình học, chi tiết/màu và style trên toàn ảnh;
-  áp dụng dung sai tỷ lệ và giới hạn tự sửa hiện hành. Không lấy nét 2D sạch
-  làm lý do bỏ chi tiết nguồn. Nếu chưa đạt, báo lỗi cụ thể, không coi ảnh
-  sẵn sàng dựng sheet; nếu đạt, vẫn chờ người dùng duyệt version hiện hành.
+- Nếu QA bị chặn, báo lỗi cụ thể, không coi ảnh sẵn sàng dựng sheet; nếu
+  đạt, vẫn chờ người dùng duyệt version hiện hành.
 - Khi dựng sheet sau duyệt, dùng ảnh chuyển style được chọn cùng nguồn gốc
   đúng vai trò; bố cục/góc đứng theo mục sheet. Không đổi thiết kế đã duyệt;
   phần khuất chưa có dữ kiện phải ghi là suy dựng, không giả là chi tiết nguồn.
@@ -346,14 +333,8 @@ style hoặc QA chưa đạt không tự kích hoạt nhánh nét/màu.
 
 ## Kiểm tra và bàn giao
 
-- Dùng [contract kiểm hình](../../../docs/visual-review-contract.md): kiểm mặt
-  và từng vật liệu đang có, tách identity/style, ghi lỗi kế thừa và điều kiện
-  chuyển bước. Một lệch nhận diện trọng yếu đủ không đạt; không dùng mẫu style
-  hay bản phác chưa đạt thay identity gốc. Không bắt mọi nhân vật qua chì→màu.
-
-- Kiểm chân dung, từng góc và sự nhất quán: identity, tuổi cảm nhận, anatomy,
-  màu, cấu trúc trang phục, đầu sạch khi áp dụng, chữ/bố cục.
-- Đối chiếu đúng vai trò ref; nêu lỗi thấy được, không ghi đạt khi chưa xem.
+- QA theo [qa-checklist.md](references/qa-checklist.md), thay cho contract
+  kiểm hình chung; không chạy thêm bảng kiểm style theo vùng hay zoom từng vùng.
 - Phân biệt duyệt bố cục, duyệt bộ phận và chọn toàn ảnh làm profile;
   không suy duyệt phần thành duyệt toàn bộ.
 - Lưu version mới/record theo contract, không ghi đè. Copy output của lượt

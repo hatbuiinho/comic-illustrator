@@ -1,9 +1,9 @@
 # Chọn reference
 
-Ảnh mẫu st03 dùng chung được lưu trong [style-st03/](style-st03/README.md),
-được Git theo dõi. Lấy vai trò và giới hạn từ
-[định nghĩa st03](../../../../docs/style-st03.md) và
-[policy phong cách](../../../../docs/project-style-policy.md).
+Style hiện hành là [ttpq comic light](../../../../docs/style-ttpq-comic-light.md),
+độc lập, không cần ref style cũ. Các ảnh st03 chỉ còn giá trị lịch sử, không tự
+truyền vào lượt mới. Chỉ khi có tu sĩ, đọc
+[quy chuẩn y](../../../../docs/monastic-robes.md) và dùng ref đúng vai trò.
 
 Ưu tiên filesystem theo thứ tự:
 

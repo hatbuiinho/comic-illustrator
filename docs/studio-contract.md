@@ -31,8 +31,9 @@ skill trong repository, không phải ứng dụng hoặc chat mới. Không t�
 
 - Áp dụng [contract kiểm hình](visual-review-contract.md) cho reference,
   QA theo vùng, điều kiện chuyển bước và giới hạn công cụ. Đây là kiểm studio,
-  không gọi toàn workflow Visual QA của tập. Chân dung chì trong luồng chuyển
-  ảnh gốc thành profile mới do Character Studio quy định riêng.
+  không gọi toàn workflow Visual QA của tập. Riêng Character Studio QA theo
+  `references/qa-checklist.md` của `comic-character-studio`, thay cho contract
+  kiểm hình.
 
 - Khi tạo/chỉnh raster, dùng skill `imagegen` và ImageGen trực tiếp; không gọi
   `comic-image-production`, `comic-prompt-writer`, `comic-shot-design`,

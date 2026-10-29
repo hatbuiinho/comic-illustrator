@@ -1,6 +1,15 @@
 # Nét mặt, vùng mắt và da
 
-Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi prompt/QA có mặt hoặc da nhìn thấy.
+> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
+> override st03 và khối prompt style cũ bên dưới đã được thay thế; không
+> copy các phần đó vào prompt mới. Workflow và identity vẫn giữ; QA theo qa-checklist.md.
+> Chỉ khi ảnh có tu sĩ mới đọc `docs/monastic-robes.md` cho màu/cách quấn y.
+
+
+Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi prompt có mặt hoặc da nhìn thấy.
+QA theo [qa-checklist.md](qa-checklist.md).
 
 ### Nét đen cấu trúc trên khuôn mặt
 
@@ -46,18 +55,6 @@ Một phần của [SKILL.md](../SKILL.md) Character Studio. Đọc khi prompt/Q
   màu da và mảng ánh sáng; tăng nét không cho phép đổi vị trí, kích thước,
   hình dạng hay tỷ lệ bộ phận. Màu biểu đạt riêng trong nguồn chỉ đổi khi
   người dùng yêu cầu rõ, ghi phạm vi; không tự thêm makeup.
-- QA xem riêng mắt, mũi và miệng: nét có thật sự đen, đủ rõ và đúng vị trí
-  không; có thiếu đường khép môi, chỉ đen ở khóe, viền kín hoặc khóe quá dày
-  không. Kiểm lại hình/tỷ lệ nguồn và shading sau nhấn nét. Nét đen rõ không
-  bù được tỷ lệ sai hoặc khối mặt còn giống render 3D. Ghi đúng phần chưa
-  đạt, không gọi bóng màu sẫm là nét đen đã đạt.
-- QA ghi kết quả mũi và miệng riêng ở kích thước sử dụng, phóng lớn để xác
-  minh khi cần: mũi kiểm lỗ mũi cùng đoạn chân/cánh mũi đang thấy; miệng
-  kiểm riêng đoạn giữa đường khép môi, hai khóe và nét bờ dưới môi khi nguồn
-  thể hiện; không coi đường khép môi đã đạt là đủ cho nét môi dưới. Chỉ đen ở khóe
-  không đủ để đạt toàn miệng; thấy rõ hình môi hoặc màu tối không chứng minh
-  đã có nét đen. Nếu chưa đọc thành nét mực ở kích thước sử dụng thì ghi
-  chưa đạt phần đó, không lấy nét mắt rõ hoặc tương phản tổng thể để bù.
 - Không tự cập nhật reference style chỉ vì đã sửa skill; ref style mới cần
   người dùng chọn rõ.
 
@@ -102,34 +99,7 @@ không thể hiện. Không dùng đặc điểm này để kết luận nguồn
   da quanh mắt với tròng mắt/lông mi. Màu tối nhất chỉ dùng đúng phạm vi nguồn;
   không phủ toàn hốc mắt hoặc tự diễn giải thành smoky makeup.
 - Thể hiện bằng nét/mảng 2D phẳng, ranh giới rõ; giữ biến thiên sắc không
-  đồng nghĩa sao chép tạo khối ảnh thật. QA so cả vùng mắt với nguồn,
-  kiểm mất sắc riêng, tăng độ đậm quá mức và sai quan hệ trên–dưới mí.
+  đồng nghĩa sao chép tạo khối ảnh thật.
 - Giữ quan hệ sắc bằng các mảng màu riêng có hình dạng rõ; “giữ chuyển sắc”
   không cho phép blend rộng từ hốc mắt sang má hoặc làm mượt toàn mặt.
-  Rendering da theo mục **Rendering da** bên dưới.
-
-### Rendering da
-
-- Character Studio dùng override mảng phẳng của SKILL.md, chặt hơn
-  [giới hạn da của policy chung](../../../../docs/project-style-policy.md#giới-hạn-độ-mềm-trên-da):
-  da khoảng ba tông (màu gốc, sáng, tối), mỗi mảng đồng nhất bên trong, ranh
-  giới rõ; không dịu mép bằng dải chuyển màu trung gian. Giữ cấu trúc và sắc
-  riêng theo nguồn, không làm da lì một màu hoặc tăng tương phản gắt.
-- Prompt thực tế phải có giới hạn riêng cho da, không chỉ “soft 2D” hoặc
-  lệnh cấm 3D chung. Khối gợi ý:
-
-  ```text
-  Skin: about three flat tones (source base, light, shadow) as designed color
-  shapes, each uniform inside, with clear readable boundaries. Keep source
-  anatomy and regional skin colors, including eye-area colors, through these
-  shapes.
-  Avoid/Negative constraints: no gradient or intermediate blend bands between
-  skin tones; no blended transitions wrapping around cheeks, nose, chin or
-  neck; no airbrushed or spherical skin shading, diffuse glow patches or
-  continuous volumetric ramps. Do not flatten all skin to one color, deepen
-  shadows or redesign anatomy to compensate.
-  ```
-- QA da ở kích thước sử dụng và phóng lớn khi cần: kiểm riêng má, mũi, cằm,
-  cổ và quanh mắt; mảng có còn đọc rõ hay hòa thành khối mượt. Chuyển sắc
-  rộng tạo cảm giác 3D là chưa đạt dù nét đen rõ. Không dùng kết quả nét môi
-  hoặc vải để bù lỗi da; không tự nâng ảnh minh họa mới thành ref style chung.
+  Rendering da theo cel-shading 2–3 tông của ttpq comic light.

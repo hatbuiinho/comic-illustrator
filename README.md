@@ -17,6 +17,7 @@ comic-illustrator/    Workflow minh họa tập: contract, dữ liệu tập, th
   Tap 53/             Dữ liệu riêng của Tập 53
   referrences/        Tài liệu tham khảo của tập cũ
 studios/              Output của Character Studio và Image Playground
+ttpq-comic/           Flow prompt spread truyện cuộc đời Đức Phật (style ttpq-comic)
 docs/                 Policy dùng chung (style, toolchain, kiểm hình)
 ```
 
@@ -27,6 +28,7 @@ docs/                 Policy dùng chung (style, toolchain, kiểm hình)
 | Minh họa tập | `comic-page-guide` (entry point) và chuỗi skill chuyên môn | [comic-illustrator/](comic-illustrator/README.md) |
 | Character Studio | `comic-character-studio` | [studios/character/](studios/character/README.md) |
 | Image Playground | `comic-image-playground` | [studios/playground/](studios/playground/README.md) |
+| TTPQ Comic | `ttpq-comic` | [ttpq-comic/](ttpq-comic/README.md) |
 
 Routing theo `AGENTS.md`. Gọi trực tiếp bằng `$ten-skill` (Codex) hoặc
 `/ten-skill` (Claude Code).
