@@ -5,7 +5,8 @@ description: Điều phối trực tiếp quy trình minh họa truyện tranh n
 
 # Điều phối sản xuất truyện tranh
 
-Áp [quy tắc nghệ thuật](../comic-shot-design/references/art-first-policy.md).
+Áp [contract workflow minh họa tập](../../../comic-illustrator/contract.md) và
+[quy tắc nghệ thuật](../comic-shot-design/references/art-first-policy.md).
 Chỉ dùng skill này khi được gọi đích danh; không thay entry point comic-page-guide.
 
 Skill này là explicit-only. Không tự động chọn, đọc hoặc gọi skill này chỉ vì

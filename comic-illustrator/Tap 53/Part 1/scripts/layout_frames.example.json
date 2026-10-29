@@ -6,7 +6,7 @@
     {
       "id": "part1-spread05",
       "canvas": { "width": 1410, "height": 1000 },
-      "pageImage": "../../../tmp/pdf_pages/page_05_hi.png",
+      "pageImage": "../../../../tmp/pdf_pages/page_05_hi.png",
       "frames": [
         {
           "id": "bottom-hero",

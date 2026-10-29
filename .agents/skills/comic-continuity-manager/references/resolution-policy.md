@@ -23,7 +23,8 @@ state. Nêu chính xác field và nguồn cần đọc.
 
 ## Authority khi xung đột
 
-Áp dụng thứ tự ưu tiên của `AGENTS.md`. Trong cùng một cấp, ưu tiên nguồn có
+Áp dụng thứ tự ưu tiên trong `comic-illustrator/contract.md` (chi tiết hóa
+`AGENTS.md`). Trong cùng một cấp, ưu tiên nguồn có
 scope cụ thể hơn và hiệu lực gần target hơn. Không tự giải quyết hai xác nhận rõ
 của người dùng; báo `CONFLICT` và hỏi một quyết định chính.
 

@@ -5,7 +5,7 @@ description: Entry point cho tạo, tiếp tục, chỉnh sửa hoặc hoàn thi
 
 # Hướng dẫn làm một page
 
-Entry point cho tạo, tiếp tục, sửa, variant và hoàn thiện minh họa. Đọc [quy tắc nghệ thuật](../comic-shot-design/references/art-first-policy.md). Route tác vụ độc lập thẳng tới skill chuyên môn; không tự gọi `comic-production`.
+Entry point cho tạo, tiếp tục, sửa, variant và hoàn thiện minh họa. Đọc [contract workflow minh họa tập](../../../comic-illustrator/contract.md) và [quy tắc nghệ thuật](../comic-shot-design/references/art-first-policy.md). Route tác vụ độc lập thẳng tới skill chuyên môn; không tự gọi `comic-production`.
 
 Nếu yêu cầu là tạo/phát triển profile hoặc ảnh tự do trong studio, chuyển thẳng
 sang `comic-character-studio` hoặc `comic-image-playground` trước khi đọc nguồn

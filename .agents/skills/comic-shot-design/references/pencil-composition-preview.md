@@ -9,7 +9,7 @@ Dùng [`pencil-detail-level-v02.png`](../assets/pencil-detail-level-v02.png)
 làm reference chính về mức giản nét, truyền ngay trong lượt tạo đầu tiên và
 các lượt chỉnh phác. Người dùng chọn mức này ngày 2026-10-16. Asset là bản sao
 nguyên vẹn từ
-`../../../../Tap 53/Part 2/pages/page-003/outputs/page003-d2-pencil-v02.png`;
+`../../../../comic-illustrator/Tap 53/Part 2/pages/page-003/outputs/page003-d2-pencil-v02.png`;
 SHA-256: `29ec911d95d9be23f0b9a0883aec76a889b951f90a138692ac697e03bdee9d0f`.
 Đường dẫn nguồn trên chỉ ghi provenance lịch sử; dữ liệu page 3, Part 2 đã
 được xóa theo yêu cầu reset. Dùng asset trong skill, không tìm lại output trang.

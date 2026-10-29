@@ -34,11 +34,11 @@ test('legacy proof cannot pass',()=>assert.equal(fixture(({proof})=>proof.schema
 test('changed preview hash fails',()=>assert.match(fixture(({preview})=>fs.appendFileSync(preview,'changed')).errors.artifact.join(' '),/SHA-256/));
 test('missing geometry cannot be repaired by handwritten PASS',()=>assert.equal(fixture(({proof})=>delete proof.sourceTextRegions[0].boundsPt).status,'LAYOUT_COMPOSITION_NEEDS_REVISION'));
 const project=path.resolve(__dirname,'../../../..');
-const actualPdf=path.join(project,'Tap 53/Part 1/layouts/T53_Part 1_test 2.pdf');
-test('real Page 10: independently measured source rejects composition v4', {skip:!fs.existsSync(actualPdf)||!fs.existsSync(path.join(project,'Tap 53/Part 1/pages/page-010/storyboards/page010-d1-quiet-consent-v4-proxy-fidelity.json'))},()=>{
+const actualPdf=path.join(project,'comic-illustrator/Tap 53/Part 1/layouts/T53_Part 1_test 2.pdf');
+test('real Page 10: independently measured source rejects composition v4', {skip:!fs.existsSync(actualPdf)||!fs.existsSync(path.join(project,'comic-illustrator/Tap 53/Part 1/pages/page-010/storyboards/page010-d1-quiet-consent-v4-proxy-fidelity.json'))},()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'page010-regression-'));
  try{
-  const base=path.join(project,'Tap 53/Part 1/pages/page-010/storyboards');
+  const base=path.join(project,'comic-illustrator/Tap 53/Part 1/pages/page-010/storyboards');
   const proof=JSON.parse(fs.readFileSync(path.join(base,'page010-d1-quiet-consent-v4-proxy-fidelity.json')));
   proof.schemaVersion=4;
   for(const a of Object.values(proof.artifacts))a.path=path.resolve(base,a.path);

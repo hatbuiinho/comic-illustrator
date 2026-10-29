@@ -1,11 +1,11 @@
 {
-  "partId": "part-2",
+  "partId": "part-1",
   "episode": "Tap 53",
   "sharedSources": {
     "notes": "../notes.md",
     "shotNotes": "../shot_notes.md",
     "episode": "../episode.json",
-    "skills": "../../.agents/skills",
+    "skills": "../../../.agents/skills",
     "scripts": "scripts",
     "characters": "../characters",
     "pages": "pages"

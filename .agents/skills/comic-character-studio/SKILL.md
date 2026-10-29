@@ -176,7 +176,7 @@ authority; previous generated outputs and style references do not replace it.
 ### Negative prompt trước tạo hình
 
 - Áp dụng quy tắc toàn dự án về
-  [đưa điều cấm vào prompt từ đầu](../../../AGENTS.md#điều-cấm-phải-có-trong-prompt-từ-đầu).
+  [đưa điều cấm vào prompt từ đầu](../../../docs/prompt-constraints.md).
 - Áp dụng ngay từ prompt thiết kế, line art, lên màu, sheet và variant; không
   chờ QA mới chặn chibi hoặc chuyển thiết kế sang mẫu khác. Gộp thành phần
   `Avoid/Negative constraints` trong prompt ImageGen; không giả định công cụ

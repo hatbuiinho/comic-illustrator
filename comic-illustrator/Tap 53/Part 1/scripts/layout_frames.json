@@ -228,7 +228,7 @@
         "width": 2252,
         "height": 1599
       },
-      "pageImage": "../../../tmp/pdf_pages/page_06_hi.png",
+      "pageImage": "../../../../tmp/pdf_pages/page_06_hi.png",
       "frames": [
         {
           "id": "rest-meal",
@@ -303,7 +303,7 @@
         "width": 2252,
         "height": 1599
       },
-      "pageImage": "../../../tmp/pdf_pages/page_06_hi.png",
+      "pageImage": "../../../../tmp/pdf_pages/page_06_hi.png",
       "frames": [
         {
           "id": "rest-meal",
@@ -415,7 +415,7 @@
         "width": 1217,
         "height": 864
       },
-      "pageImage": "../../../tmp/pdf_pages/page_23.png",
+      "pageImage": "../../../../tmp/pdf_pages/page_23.png",
       "optionDrafts": [
         {
           "id": "page23-restart-option2-calm-and-disorientation",
@@ -791,7 +791,7 @@
         "width": 1217,
         "height": 864
       },
-      "pageImage": "../../../tmp/pdf_pages/page_23.png",
+      "pageImage": "../../../../tmp/pdf_pages/page_23.png",
       "frames": [
         {
           "id": "h1-calm-moggallana",
@@ -1071,7 +1071,7 @@
         "width": 1217,
         "height": 864
       },
-      "pageImage": "../../../tmp/pdf_pages/page_24.png",
+      "pageImage": "../../../../tmp/pdf_pages/page_24.png",
       "frames": [
         {
           "id": "h1-silent-ascetic-circle",
@@ -1300,7 +1300,7 @@
         "width": 1217,
         "height": 864
       },
-      "pageImage": "../../../tmp/pdf_pages/page_24.png",
+      "pageImage": "../../../../tmp/pdf_pages/page_24.png",
       "beatMap": {
         "h1": "Quyết tâm của lão đạo trưởng làm cả vòng họp nín lặng.",
         "h2": "Ý định ấy lan thành luồng gió dập tắt nguồn sáng duy nhất.",
@@ -1590,7 +1590,7 @@
         "width": 1217,
         "height": 864
       },
-      "pageImage": "../../../tmp/pdf_pages/page_24.png",
+      "pageImage": "../../../../tmp/pdf_pages/page_24.png",
       "beatMap": {
         "h1": "Nắm tay lão đạo trưởng làm năm đạo sĩ im bặt.",
         "h2": "Gió qua tường đá dập tắt ngọn đèn dầu.",

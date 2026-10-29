@@ -1,6 +1,6 @@
 # Comic Project — Claude Instructions
 
-Chỉ dẫn chung, routing skill và khóa phong cách nằm trong `AGENTS.md`
+Chỉ dẫn chung, routing workflow và khóa phong cách nằm trong `AGENTS.md`
 (dùng chung cho mọi agent):
 
 @AGENTS.md
@@ -17,15 +17,17 @@ Chỉ dẫn chung, routing skill và khóa phong cách nằm trong `AGENTS.md`
 ## Skill trong Claude Code
 - `.claude/skills` là symlink tới `.agents/skills/`; chỉ sửa skill tại `.agents/skills/`.
 - Gọi skill bằng `/<ten-skill>` (ví dụ `/comic-page-guide`). `comic-production`
-  chỉ dùng khi người dùng gọi đích danh, theo routing trong `AGENTS.md`.
+  chỉ dùng khi người dùng gọi đích danh, theo `comic-illustrator/contract.md`.
 - `agents/openai.yaml` trong mỗi skill là cấu hình riêng của Codex; Claude bỏ qua.
 
 ## Cấu trúc project
-- `AGENTS.md` — Chỉ dẫn chung và routing skill.
-- `Tap XX/notes.md` — Dữ kiện và ngoại lệ theo tập.
-- `Tap XX/shot_notes.md` — Continuity notes.
-- `Tap XX/Part N/part-config.json` — Cấu hình từng part.
+- `AGENTS.md` — Chỉ dẫn chung và routing workflow.
+- `comic-illustrator/` — Workflow minh họa tập: contract, dữ liệu tập, tham khảo.
+- `comic-illustrator/Tap XX/notes.md` — Dữ kiện và ngoại lệ theo tập.
+- `comic-illustrator/Tap XX/shot_notes.md` — Continuity notes.
+- `comic-illustrator/Tap XX/Part N/part-config.json` — Cấu hình từng part.
 - `.agents/skills/` — 10 skill chuyên môn, chỉ đọc skill liên quan.
 
 ## Thứ tự ưu tiên
-Theo mục **Thứ tự ưu tiên trong project** của `AGENTS.md`.
+Theo mục **Thứ tự ưu tiên trong project** của `AGENTS.md`; với minh họa tập,
+theo bản chi tiết trong `comic-illustrator/contract.md`.

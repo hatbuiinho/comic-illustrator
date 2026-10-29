@@ -1,41 +1,35 @@
 # Comic Illustration Project
 
 Project tổ chức workflow minh họa truyện tranh bằng các skill repo-scoped trong
-`.agents/skills/`. Quy tắc chung nằm trong `AGENTS.md`; dữ liệu và ngoại lệ nằm
-trong từng thư mục tập.
+`.agents/skills/`. Quy tắc chung nằm trong `AGENTS.md`; quy tắc riêng của từng
+workflow nằm trong contract của workflow đó; dữ liệu và ngoại lệ nằm trong từng
+thư mục tập.
 
 ## Cấu trúc
 
 ```text
 .agents/skills/       Workflow dùng chung (nguồn duy nhất của skill)
 .claude/skills        Symlink tới .agents/skills/ cho Claude Code
-AGENTS.md             Quy tắc nền và routing
+AGENTS.md             Quy tắc chung và routing workflow
 CLAUDE.md             Chỉ dẫn riêng cho Claude, import AGENTS.md
-Tap 53/               Dữ liệu riêng của Tập 53
-  notes.md            Dữ kiện và ngoại lệ cấp tập
-  shot_notes.md       Continuity/nhịp shot riêng của tập
-  characters/         Profile nhân vật
-  Part 1/, Part 2/    Layout, page, output và QA theo part
+comic-illustrator/    Workflow minh họa tập: contract, dữ liệu tập, tham khảo
+  contract.md         Quy tắc nền của workflow
+  Tap 53/             Dữ liệu riêng của Tập 53
+  referrences/        Tài liệu tham khảo của tập cũ
+studios/              Output của Character Studio và Image Playground
+docs/                 Policy dùng chung (style, toolchain, kiểm hình)
 ```
 
 ## Các skill
 
-| Skill | Dùng khi |
-| --- | --- |
-| `comic-page-guide` | **Entry point mặc định** cho mọi yêu cầu tạo, tiếp tục, sửa, variant hoặc hoàn thiện minh họa; điều phối các skill bên dưới |
-| `comic-production` | Chỉ khi người dùng gọi đích danh; không tự được chọn |
-| `comic-continuity-manager` | Biên dịch, truy vấn và cập nhật continuity context |
-| `comic-source-reader` | Đọc và kiểm chứng nguồn |
-| `comic-shot-design` | Lên storyboard hoặc composition |
-| `comic-prompt-writer` | Viết prompt từ shot đã chọn |
-| `comic-image-production` | Tạo/chỉnh/variant ảnh |
-| `comic-visual-qa` | QA profile, style, context và storytelling |
-| `comic-layout-qa` | QA ảnh trong layout |
-| `comic-delivery` | Lưu bản đã duyệt vào `approved/` |
+| Workflow | Skill | Tài liệu |
+| --- | --- | --- |
+| Minh họa tập | `comic-page-guide` (entry point) và chuỗi skill chuyên môn | [comic-illustrator/](comic-illustrator/README.md) |
+| Character Studio | `comic-character-studio` | [studios/character/](studios/character/README.md) |
+| Image Playground | `comic-image-playground` | [studios/playground/](studios/playground/README.md) |
 
-Yêu cầu minh họa thông thường luôn đi qua `comic-page-guide` theo routing trong
-`AGENTS.md`; các skill chuyên môn có thể gọi thẳng cho tác vụ độc lập. Gọi trực
-tiếp bằng `$ten-skill` (Codex) hoặc `/ten-skill` (Claude Code).
+Routing theo `AGENTS.md`. Gọi trực tiếp bằng `$ten-skill` (Codex) hoặc
+`/ten-skill` (Claude Code).
 
 ## Chuẩn bị máy Windows
 
