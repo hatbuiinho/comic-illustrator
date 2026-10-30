@@ -133,19 +133,38 @@ Hỏi người dùng (ghi `brief.md`):
 
 ## 5. Ý đồ điện ảnh
 
-Đưa 2–3 phương án (hoặc dựng từ ảnh ý tưởng nếu người dùng gửi). Mỗi phương án
-tách đầu dòng:
+Đưa 2–3 phương án (hoặc dựng từ ảnh ý tưởng nếu người dùng gửi).
 
-- **Khoảnh khắc:** hành động/cảm xúc được chọn, dựa trên chữ và bối cảnh truyện.
+**Nguyên tắc một khoảnh khắc – một focus.** Một scene là một tích tắc, không
+phải tóm tắt cả đoạn chữ. Chữ đã kể các beat còn lại, nên hình chỉ chọn một
+beat. Trong scene chỉ có **một** hành động chính; mọi nhân vật khác phối hợp
+với hành động đó, không làm việc riêng. Spread có nhiều scene: mỗi scene một
+focus và chỉ rõ scene nào là chính; scene còn lại hạ một bậc (nhỏ hơn, ít chi
+tiết hơn).
+
+Mỗi phương án tách đầu dòng:
+
+- **Khoảnh khắc:** một tích tắc, diễn đạt bằng một động từ chính (ví dụ "nắm
+  đấm vừa siết lại"), dựa trên chữ và bối cảnh truyện.
+- **Focus:** một chủ thể + một hành động; nơi rõ nhất, tương phản nhất, nơi
+  đường mắt dừng lại.
+- **Phối hợp:** mỗi nhân vật khác chỉ nhận một vai so với focus — *nhìn về
+  focus*, *phản ứng* (im, khựng, cúi, lùi), *khung/dẫn mắt* (vai, lưng tiền
+  cảnh) hoặc *nền* (silhouette, nét thưa). Không ai có hành động độc lập.
+- **Không vẽ:** các beat trong chữ không đưa vào hình (lời nói khác, việc trước
+  hoặc sau tích tắc đã chọn).
 - **Cỡ cảnh, góc máy.**
 - **Vị trí:** nhân vật chính ở trang nào, khoảng x/y theo % canvas; gáy (x 45–55%)
   chỉ có nền.
-- **Đường mắt:** người xem đi từ đâu tới đâu.
+- **Đường mắt:** người xem đi từ đâu tới đâu, kết thúc ở focus; hướng nhìn và
+  hướng thân của vai phụ dẫn về focus.
 - **Chữ ôm hình:** phần tranh nào vươn vào vùng chữ, chữ ôm theo đường viền nào.
 - **Ánh sáng:** nguồn sáng, thời điểm (theo truyện).
 - **Đánh đổi.**
 
-Người dùng chọn → ghi `brief.md` (bối cảnh truyện + ý đồ đã chọn).
+Người dùng chọn → ghi `brief.md` (bối cảnh truyện + ý đồ đã chọn, gồm khối
+Focus / Phối hợp / Không vẽ). Phương án người dùng tự đưa thiếu các mục này thì
+agent điền theo ý đồ của họ và nêu ra để xác nhận, không tự đổi khoảnh khắc.
 
 ## 6. Viết gói prompt
 

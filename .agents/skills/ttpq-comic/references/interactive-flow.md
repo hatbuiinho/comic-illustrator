@@ -49,7 +49,10 @@ Dựa trên context và layout vừa đọc, hãy đề xuất 2–3 phương á
 Đề xuất phải thể hiện ý đồ điện ảnh qua lựa chọn khoảnh khắc, cỡ cảnh, góc máy,
 chiều sâu, hướng nhìn và nhịp kể; không chỉ đổi vị trí nhân vật hoặc gắn nhãn
 “điện ảnh”. Khi có nhiều scene, làm rõ nhịp chuyển và quan hệ giữa các scene.
-Dùng các mục ý đồ điện ảnh ở bước 5 của SKILL. Tách từng ý thành bullet có nhãn;
+Dùng các mục ý đồ điện ảnh ở bước 5 của SKILL, bắt buộc theo nguyên tắc một
+khoảnh khắc – một focus: mỗi scene có Focus, Phối hợp và Không vẽ. Các phương
+án khác nhau ở lựa chọn khoảnh khắc/focus, không phải gom nhiều beat vào một
+hình. Tách từng ý thành bullet có nhãn;
 không tự chạy nhánh gói prompt hai lượt. Người dùng chọn phương án thì ghi ý
 đồ vào brief/record và trình lệnh outline.
 
@@ -61,7 +64,9 @@ Mình sẽ gửi phương án minh họa có sẵn. Hãy đọc cùng context v�
 
 Người dùng có thể gửi phương án ngay cùng lệnh. Không tự thay bằng phương án
 khác. Chỉ hỏi phần thiếu gây thay đổi đáng kể ý đồ; không buộc chọn option do
-agent đề xuất. Khi nguồn và ý đồ đủ rõ, có thể đi thẳng từ context tới outline.
+agent đề xuất. Trong phần tóm tắt, nêu Focus / Phối hợp / Không vẽ theo cách
+hiểu phương án của người dùng; nếu phương án gom nhiều hành động cùng cần
+focus, chỉ ra và gợi ý hành động nào làm focus, chưa tự sửa. Khi nguồn và ý đồ đủ rõ, có thể đi thẳng từ context tới outline.
 
 ## 3. Tạo clean outline: prompt cố định nguyên văn
 
@@ -76,11 +81,25 @@ dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page
 - Dùng layout và profile gốc với vai trò rõ; nguồn EN theo contract, không
   tự dịch. Không giả vờ có font/khổ chữ chính xác nếu chỉ có ảnh raster; báo
   giới hạn quan sát được. Chữ trong ảnh vẫn là tham khảo dàn trang.
+- Prompt ImageGen do agent viết (lưu trong `prompts/`) đặt khối FOCUS ngay
+  trước COMPOSITION, viết từ brief active:
+
+  ```text
+  FOCUS (one single instant): <chủ thể> <một hành động>. This is the only action in the scene; make it the clearest, highest-contrast point where the eye lands.
+  SUPPORTING (reacting only): <nhân vật>: <nhìn về focus | phản ứng | khung tiền cảnh | nền>. No one else performs a separate action.
+  NOT SHOWN (text only): <beat chỉ có trong chữ>.
+  ```
+
+  Spread nhiều scene: mỗi scene một dòng FOCUS, ghi scene nào là chính. Mục
+  người/nhân vật trong prompt chỉ mô tả nhận diện và vai phối hợp; không gắn
+  hành động riêng cho từng người theo diễn biến trong chữ (ví dụ "man
+  touching his ribs", "whisperer") trừ khi đó là focus hoặc phản ứng đã chọn.
 - Trước tạo ảnh: đọc các hướng dẫn style/era/toolchain áp dụng và skill
   `imagegen`. Dùng ImageGen trực tiếp, không gọi chuỗi page-guide/studio.
 - Lưu ảnh thật `outputs/outline-vNNN.png` cùng prompt/nguồn/kết quả kiểm trong
   record; không ghi đè, không chỉ để bản cache. Xem ảnh toàn spread và vùng
-  quan trọng trước khi nhận xét: scene, profile, anatomy, gáy, nét, chữ VI/EN,
+  quan trọng trước khi nhận xét: focus (một điểm hút mắt, vai phụ không có
+  hành động riêng), scene, profile, anatomy, gáy, nét, chữ VI/EN,
   khổ chữ và đường ôm. Báo lỗi thấy được, không ghi PASS khi chưa xem.
 - Mỗi yêu cầu tạo/chỉnh mặc định một candidate rồi trình để người dùng comment;
   không tự tạo lặp nhiều bản. Nếu công cụ lỗi, báo lỗi, không tuyên bố đã có ảnh.

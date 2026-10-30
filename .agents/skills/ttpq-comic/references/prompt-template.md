@@ -56,11 +56,14 @@ STORY CONTEXT
 <2–4 câu: ai, ở đâu, khi nào, chuyện vừa xảy ra, chuyện chưa xảy ra.>
 
 DIRECTOR'S NOTES
-- Moment: <khoảnh khắc>.
+- Moment: <một tích tắc, một động từ chính>.
+- Focus: <chủ thể> <một hành động> — the only action in the scene; clearest, highest-contrast point where the eye lands.
+- Supporting (reacting only): <nhân vật>: <nhìn về focus | phản ứng | khung tiền cảnh | nền>. No one else performs a separate action.
+- Not shown (text only): <beat chỉ có trong chữ>.
 - <Vùng 1 (x a–b%)>: <cỡ cảnh, góc máy, nhân vật, hành động, hướng nhìn>.
 - <Gáy (x 45–55%)>: <chỉ nền>.
 - <Vùng 2 (x c–d%)>: <...>.
-- Eye flow: <từ đâu tới đâu>.
+- Eye flow: <từ đâu tới đâu>, ending on the focus.
 - Text wrap: <phần nào vươn vào vùng chữ, chữ ôm theo đâu>.
 - Background: <bối cảnh, độ xa>.
 
@@ -69,7 +72,7 @@ CHARACTERS
 - <nhân vật phụ/quần chúng: mô tả ngắn>
 
 DO NOT
-<điều cấm theo truyện: việc chưa xảy ra, đạo cụ sai>; <era liên quan>; nothing important at the center fold; no "Hình" notes or labels; text never over faces or hands.
+<điều cấm theo truyện: việc chưa xảy ra, đạo cụ sai>; <era liên quan>; no second competing action or focal point; nothing important at the center fold; no "Hình" notes or labels; text never over faces or hands.
 
 ENGLISH TEXT FOR THE RIGHT PAGE (copy exactly)
 """
@@ -132,8 +135,12 @@ BỐI CẢNH CẢNH — trang <trái>–<phải>, truyện cuộc đời Đức 
 CHUYỆN TRƯỚC ĐÓ
 <1–3 câu: cảnh liền trước>
 
-KHOẢNH KHẮC
-<điều đang xảy ra trên spread, theo chữ và scene sheet>
+DIỄN BIẾN TRONG CHỮ (để hiểu, không vẽ hết)
+<các beat trên spread theo thứ tự, mỗi beat một dòng ngắn, theo chữ và scene sheet>
+Hình chỉ vẽ một khoảnh khắc với một hành động focus, chọn ở bước phương án; các beat còn lại chỉ nằm trong chữ.
+
+KHOẢNH KHẮC ĐƯỢC VẼ
+<Khi đã có phương án active: Focus — chủ thể + một hành động; Phối hợp — vai của từng nhân vật khác so với focus; Không vẽ — beat chỉ có trong chữ. Chưa có phương án: "Chưa chọn; chờ phương án.">
 
 THỜI ĐIỂM & ÁNH SÁNG
 <thời điểm, nguồn sáng, sương/bóng đổ>
@@ -142,7 +149,7 @@ NƠI CHỐN
 <địa hình, tiến độ công trình, vật dụng, chân trời>
 
 CON NGƯỜI
-<nhóm người, hành động, trang phục theo era; dòng nhận diện nhân vật có profile và ảnh số mấy, bỏ qua nền và tư thế của ảnh>
+<nhóm người, dấu hiệu nhận diện tĩnh (tuổi, dáng, tóc, trang phục theo era); dòng nhận diện nhân vật có profile và ảnh số mấy, bỏ qua nền và tư thế của ảnh. Hành động theo chữ để ở DIỄN BIẾN, không gắn vào nhận diện.>
 
 KHÔNG ĐƯỢC
 <việc chưa/không xảy ra, đạo cụ dễ hiểu sai, ngoại lệ profile, niên đại liên quan>

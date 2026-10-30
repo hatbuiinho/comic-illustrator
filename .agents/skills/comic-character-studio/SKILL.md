@@ -31,7 +31,7 @@ khối tương ứng vào prompt và truyền ref cần thiết. Không đọc f
 | Có trang phục | [fabric-jewelry.md](references/fabric-jewelry.md) | khối Fabric | — |
 | Có trang sức | [fabric-jewelry.md](references/fabric-jewelry.md) | phần giữ/đổi trang sức | — (không bắt buộc ref vật liệu cũ) |
 | Nhân vật nữ | mục **Trang phục nữ kín đáo** bên dưới | câu che kín bụng/eo mọi góc | — |
-| Tu sĩ | [monk-standard.md](references/monk-standard.md) | đầu cạo sạch, màu y, cấu trúc y quấn | [crop màu y v002](assets/mau-y-chuan-crop-v002.png), [mẫu quấn y v001](assets/y-quan-chuan-v001.png) |
+| Tu sĩ | [monk-standard.md](references/monk-standard.md) | đầu cạo sạch; tu sĩ Ni có khăn trùm đầu, không bắt lộ da đầu; màu y, cấu trúc y quấn | [crop màu y v002](assets/mau-y-chuan-crop-v002.png), [mẫu quấn y v001](assets/y-quan-chuan-v001.png) |
 | Dựng sheet | [sheet-layout.md](references/sheet-layout.md) | bố cục, thông tin in, độ phân giải; tự mở rộng canvas khi thiếu chỗ, giữ tỷ lệ và khoảng trắng giữa các góc, cấm bóp hình để vừa sheet | ảnh chuyển style đã duyệt + ảnh gốc |
 | Người dùng yêu cầu rõ nhánh nét/màu | [line-color-branch.md](references/line-color-branch.md) | theo nhánh | theo nhánh |
 
@@ -206,6 +206,13 @@ authority; previous generated outputs and style references do not replace it.
 
 
 ## Trang phục nữ kín đáo
+
+### Khăn trùm đầu của tu sĩ Ni
+
+- Đính chính người dùng 2026-10-30 — `SKIPPED_BY_USER`, áp dụng cho tu sĩ Ni trong Character Studio ở các lượt sau: các vị Ni có khăn trùm đầu. Đầu cạo sạch bên dưới không đồng nghĩa phải bỏ khăn hoặc để lộ da đầu.
+- Khi có nguồn, giữ form khăn, mép khăn, độ phủ và cách rủ theo nguồn; giữ form đầu/mặt và pose. Không loại khăn vì yêu cầu tránh Trung Quốc hóa. Màu y và cấu trúc y quấn khác tiếp tục theo chuẩn dự án; mẫu quấn y nam không bắt buộc Ni để đầu trần.
+- Prompt phải yêu cầu khăn trùm đầu và cấm tự bỏ khăn; QA kiểm cùng yêu cầu. Đây là quy tắc tạo hình dự án, không phải khẳng định lịch sử chung cho mọi tu sĩ Ni.
+
 
 Quy tắc thiết kế project, áp dụng cho mọi nhân vật nữ trong Character Studio, gồm chân dung, sheet, bản thử
 và variant; không phải khẳng định về mọi trang phục lịch sử.

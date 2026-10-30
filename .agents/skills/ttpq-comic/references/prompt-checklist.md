@@ -26,6 +26,10 @@ Các mục Tin 1/Director's Notes/giới hạn ký tự thuộc nhánh gói prom
       tên riêng/thuật ngữ, lưu file EN có version và ghi nguồn agent dịch.
 - [ ] Director's Notes: khoảnh khắc, vị trí theo %, gáy chỉ có nền, đường mắt,
       chữ ôm hình, bối cảnh.
+- [ ] Một khoảnh khắc – một focus: có Focus (một chủ thể, một hành động),
+      Supporting chỉ gồm vai phản ứng/nhìn/khung/nền, Not shown liệt kê beat
+      chỉ có trong chữ; mục nhân vật không gắn hành động riêng cho từng người.
+      Nhiều scene: mỗi scene một focus, ghi scene chính.
 - [ ] Độ dài ≤ ~4.000 ký tự (không tính chữ EN); bố cục nằm trước nhân vật/cấm.
 
 ## Lượt màu
@@ -56,6 +60,9 @@ Các mục Tin 1/Director's Notes/giới hạn ký tự thuộc nhánh gói prom
 - [ ] Khớp cảnh trước/sau: việc đã xảy ra, chưa xảy ra; tiến độ công trình
       theo bible.
 - [ ] Quyết định trong `bible.md`/`record.md` (Cần quyết, SKIPPED_BY_USER) đã áp.
+- [ ] DIỄN BIẾN TRONG CHỮ tách beat từng dòng, có câu "chỉ vẽ một khoảnh
+      khắc"; KHOẢNH KHẮC ĐƯỢC VẼ ghi Focus / Phối hợp / Không vẽ theo phương án
+      active, hoặc "Chưa chọn" khi chưa có. CON NGƯỜI chỉ có nhận diện tĩnh.
 - [ ] Nhân vật có profile `APPROVED`: ghi số ảnh, chỉ dùng để nhận diện.
 - [ ] Mục KHÔNG ĐƯỢC có điều cấm truyện và niên đại liên quan; không cấm nhầm
       ngoại lệ profile.

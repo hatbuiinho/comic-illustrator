@@ -22,3 +22,5 @@ hiện hành có hiệu lực. Thêm dòng mới ở cuối, không sửa dòng 
 | 2026-10-24 | Thu hẹp rule copy output: ảnh so sánh/overlay/zoom chỉ dùng cho QA không cần lưu vào thư mục output của studio. | docs/studio-contract.md mục Lưu trữ; [SKILL.md](../SKILL.md) |
 | 2026-10-24 | Khi dựng sheet, tự mở rộng canvas để chứa đủ hình và khoảng trắng giữa các góc; kích thước mặc định không phải trần. Không bóp/rút ngắn/đổi tỷ lệ nhân vật để khớp sheet; prompt và QA phải kiểm điều này. | [sheet-layout.md](sheet-layout.md), [SKILL.md](../SKILL.md) checklist |
 | 2026-10-29 | Bỏ toàn bộ QA cũ (kiểm style theo vùng, da ba tông, nét đen từng đoạn, bảng trang sức, zoom từng vùng); thay bằng checklist QA hai tầng theo ttpq comic light. | [qa-checklist.md](qa-checklist.md), [SKILL.md](../SKILL.md), docs/studio-contract.md |
+
+| 2026-10-30 | `SKIPPED_BY_USER`: tu sĩ Ni có khăn trùm đầu; giữ form khăn theo nguồn, không tự bỏ khăn để lộ đầu cạo sạch hoặc vì tránh Trung Quốc hóa. Áp dụng các lượt Character Studio tiếp theo. | [SKILL.md](../SKILL.md) mục Khăn trùm đầu của tu sĩ Ni, [monk-standard.md](monk-standard.md), [qa-checklist.md](qa-checklist.md) |

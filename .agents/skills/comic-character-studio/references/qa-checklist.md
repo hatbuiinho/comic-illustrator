@@ -32,6 +32,7 @@ vải/da phóng lớn từng vùng). Đây là nguồn QA duy nhất của Chara
 - Lượt chuyển style: pose, biểu cảm, góc nhìn, crop giữ theo nguồn.
 - Nhân vật nữ: bụng/eo kín ở mọi hình, kể cả góc nghiêng và sau lưng.
 - Tu sĩ: đầu cạo sạch, màu y và cách quấn theo `docs/monastic-robes.md`.
+  Riêng tu sĩ Ni có khăn trùm đầu theo đính chính 2026-10-30; không bắt lộ da đầu, không tự bỏ khăn. Đối chiếu form khăn/cách rủ với nguồn nếu có.
 
 ## 3. Style ttpq comic light — chặn khi lệch rõ
 
