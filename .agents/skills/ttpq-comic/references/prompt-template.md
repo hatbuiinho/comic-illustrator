@@ -1,5 +1,10 @@
 # Mẫu gói prompt hai lượt
 
+Đây là nhánh xuất gói prompt riêng. Với flow tương tác và hai câu prompt cố
+định của người dùng, dùng [interactive-flow.md](interactive-flow.md). Quy tắc
+lượt màu mới ưu tiên profile gốc và outline chỉ tham khảo scene; khối khóa
+mọi outline bên dưới chỉ dùng khi người dùng yêu cầu rõ giữ nét chính xác.
+
 Khối bối cảnh truyện (STORY CONTEXT / khối bối cảnh riêng) viết bằng tiếng Việt
 để người dùng đọc và sửa; khối STYLE chép nguyên văn; chữ EN giữ nguyên văn.
 Thay mọi `<...>` bằng giá trị thật, xóa phần không áp dụng. File lưu gồm metadata và từng prompt trong code
@@ -109,8 +114,9 @@ sheet, bible và profile; không đưa chữ VI/EN, bố cục hay khối STYLE.
 ~~~markdown
 # Prompt <vNNN> — <layout-slug> p<trái>-<phải> — khối bối cảnh
 
-- Dùng: dán vào ChatGPT sau câu yêu cầu của người dùng, kèm ảnh layout và ảnh
-  profile (<Image N = TÊN>).
+- Dùng: gửi context trước để đọc hiểu cùng ảnh layout và ảnh profile
+  (<Image N = TÊN>); sau đó gửi yêu cầu minh họa riêng. Có thể dùng trong Codex
+  hoặc ChatGPT.
 - Nguồn: `story/<tập>/scenes.md` <Snn> (<trạng thái>), `story/<tập>/bible.md`
   (<mục>), profile <slug@vNNN>.
 - Quyết định áp dụng: <ví dụ: không vẽ đồi; SKIPPED_BY_USER …>

@@ -1,6 +1,6 @@
 ---
 name: ttpq-comic
-description: Nghiên cứu kịch bản tập thành story bible và timeline cảnh (thời điểm, được phép, bị cấm), đọc layout PDF, profile nhân vật, bối cảnh và contract của flow ttpq-comic để viết gói prompt hai lượt (clean outline có chữ ôm hình bằng ChatGPT Image, rồi tô màu giữ chữ bằng Codex/ChatGPT) cho spread truyện cuộc đời Đức Phật theo style ttpq-comic. Dùng khi người dùng gọi ttpq-comic hoặc yêu cầu prompt cho spread trong ttpq-comic/; dừng ở prompt, không tạo ảnh. Độc lập với comic-illustrator và hai studio.
+description: Chuẩn bị context truyện và menu lệnh cho spread trong ttpq-comic; đọc context, đề xuất hoặc tiếp nhận phương án minh họa, tạo/chỉnh clean outline và ảnh màu theo từng yêu cầu trực tiếp. Mặc định chỉ xuất context; hỗ trợ gói prompt khi được yêu cầu. Độc lập với comic-illustrator và hai studio.
 ---
 
 # TTPQ Comic — gói prompt cho spread
@@ -39,6 +39,18 @@ với yêu cầu, style và ảnh layout trên ChatGPT.
 
 ## Hội thoại
 
+- Flow tương tác context → đọc hiểu → phương án → outline → revision → màu:
+  đọc [menu lệnh và tạo ảnh](references/interactive-flow.md) khi trình context
+  hoặc xử lý một bước của flow này. Cuối phản hồi context luôn đề xuất nguyên
+  câu đọc context trong reference, sau ba phần deliverable; không chèn vào
+  khối bối cảnh. Chỉ hiện menu phù hợp bước hiện tại, không đổ toàn bộ menu.
+  Sau khi đọc hiểu context, trình hai lựa chọn về phương án theo reference;
+  chưa tự tạo phương án hoặc chuyển thẳng sang bước tạo ảnh.
+  Sau mỗi bản outline mới hoặc chỉnh sửa, trình đủ menu sửa / tạo lại / dàn
+  trang màu trong reference; luôn có prompt dàn trang màu nguyên văn.
+- Mặc định vẫn dừng sau context. Lệnh tạo outline/màu là yêu cầu tạo ảnh trực
+  tiếp trong chính flow này; không route sang workflow page hay studio và
+  không hỏi lại quyền tạo ảnh. Prompt cố định của người dùng giữ nguyên văn.
 - Mỗi lượt hỏi một quyết định chính; tự đọc dữ kiện có sẵn, không hỏi lại điều
   đã chốt trong `record.md`/`brief.md` còn hiệu lực.
 - Khi chờ người dùng chọn, đưa mỗi câu trả lời mẫu trong một code block riêng.
@@ -87,8 +99,16 @@ Trình snapshot ngắn:
   còn `DRAFT` thì trình phần liên quan để người dùng duyệt trước khi viết prompt.
 - **Cảnh báo:** từ script.
 
-Khi làm gói prompt hai lượt mà trang phải chưa phải tiếng Anh: dừng, hỏi nguồn
-chữ EN (dán vào chat hoặc file `text-en.md`). Không tự dịch.
+Khi cần chữ EN cho trang phải, ưu tiên bản người dùng cung cấp, rồi bản EN
+đã có trong layout hoặc `text-en.md` của spread. Nếu chưa có, tự dịch toàn bộ
+chữ VI của đúng spread sang tiếng Anh, không dừng để hỏi hoặc yêu cầu duyệt
+riêng bản dịch. Giữ đủ nội dung, thứ tự đoạn, lời thoại, tên riêng và nghĩa
+thuật ngữ Phật giáo; không dịch ghi chú Hình hoặc dấu biên tập thành chữ in.
+Tự soát đối chiếu VI–EN, lưu bản dịch vào `text-en.md` (nếu đã có file thì tạo
+`text-en-vNNN.md`, không ghi đè), ghi rõ agent dịch từ nguồn nào trong
+`record.md` và metadata prompt. Chép nguyên bản EN đã chọn vào prompt; bản
+người dùng cung cấp sau đó được ưu tiên ở version mới. Khối bối cảnh mặc định
+vẫn không cần dịch EN.
 
 ## 3. Nhân vật và bối cảnh
 
@@ -129,6 +149,10 @@ Người dùng chọn → ghi `brief.md` (bối cảnh truyện + ý đồ đã 
 
 ## 6. Viết gói prompt
 
+Mục này là nhánh xuất gói prompt theo yêu cầu, không tự áp thay cho flow tương
+tác. Khi người dùng dùng prompt cố định outline/màu, ưu tiên reference
+`interactive-flow.md`; đặc biệt lượt màu không khóa nét/identity theo outline.
+
 Ghép theo [mẫu gói prompt](references/prompt-template.md), gồm:
 
 - **Lượt nét — tin 1:** khối STYLE clean outline (chép nguyên).
@@ -144,6 +168,11 @@ Quy tắc viết:
 - Mọi vị trí theo % canvas 1536×1024 (spread) hoặc canvas của mode frame.
 - Mỗi ảnh đính kèm có dòng "Image N = …"; nói rõ ảnh profile chỉ để nhận diện,
   không chép nền, ánh sáng hay tư thế.
+- Cấm ref output cũ: không đính kèm, nhắc tới hay mô tả theo ảnh nét/màu đã
+  tạo trước (version cũ, spread khác). Muốn giữ ý từ ảnh cũ thì viết lại bằng
+  chữ trong Director's Notes. Ngoại lệ: ảnh nét đã chọn đính kèm ở lượt màu
+  của chính spread/frame đó, hoặc người dùng override rõ (ghi
+  `SKIPPED_BY_USER`).
 - Ghi đạo cụ và hành động dễ bị hiểu sai bằng cả điều đúng lẫn điều cấm (ví dụ
   "rolled leather plan, not a board").
 - Điều cấm áp dụng (style, era, theo bối cảnh truyện) nằm trong prompt từ đầu.

@@ -1,6 +1,8 @@
 # Checklist tự kiểm gói prompt
 
 Ghi kết quả từng mục (ĐẠT / SỬA / N/A) vào `record.md`.
+Các mục Tin 1/Director's Notes/giới hạn ký tự thuộc nhánh gói prompt, không
+ép lên câu lệnh cố định của flow tương tác; xem `interactive-flow.md`.
 
 ## Nguồn
 
@@ -9,6 +11,8 @@ Ghi kết quả từng mục (ĐẠT / SỬA / N/A) vào `record.md`.
       prompt khớp chữ (thời điểm, nơi chốn, đạo cụ, việc đã/chưa xảy ra).
 - [ ] Nhân vật có tên dùng profile `APPROVED`, ghi version; ảnh ref tương ứng
       được liệt kê để đính kèm.
+- [ ] Không có output cũ (ảnh nét/màu version trước, spread khác) trong danh
+      sách đính kèm hoặc lời prompt; chỉ ngoại lệ ảnh nét đã chọn ở lượt màu.
 - [ ] Mode và ý đồ điện ảnh khớp `brief.md`.
 
 ## Lượt nét
@@ -17,7 +21,9 @@ Ghi kết quả từng mục (ĐẠT / SỬA / N/A) vào `record.md`.
 - [ ] Mỗi ảnh đính kèm có dòng "Image N = …"; ảnh profile chỉ để nhận diện.
 - [ ] Có câu giữ cỡ chữ, leading, cho reflow ôm hình; VI trái, EN phải; chữ tô
       màu in đen; ô màu là vùng tranh.
-- [ ] Chữ EN chép nguyên văn khi trang phải của layout là chữ giữ chỗ.
+- [ ] Chữ EN chép nguyên văn từ bản được chọn; ưu tiên bản người dùng cung cấp.
+      Nếu chưa có EN: đã tự dịch đủ chữ VI, soát đối chiếu nội dung/thứ tự đoạn/
+      tên riêng/thuật ngữ, lưu file EN có version và ghi nguồn agent dịch.
 - [ ] Director's Notes: khoảnh khắc, vị trí theo %, gáy chỉ có nền, đường mắt,
       chữ ôm hình, bối cảnh.
 - [ ] Độ dài ≤ ~4.000 ký tự (không tính chữ EN); bố cục nằm trước nhân vật/cấm.
@@ -25,7 +31,9 @@ Ghi kết quả từng mục (ĐẠT / SỬA / N/A) vào `record.md`.
 ## Lượt màu
 
 - [ ] Có khối STYLE màu chép nguyên.
-- [ ] Có lệnh giữ nguyên bố cục, nét và chữ (vị trí, ngắt dòng, đường ôm).
+- [ ] Outline chỉ tham khảo scene và chữ; nhân vật theo profile gốc, không
+      khóa contour/identity theo output cũ. Giữ chữ (vị trí, ngắt dòng, đường
+      ôm), trừ yêu cầu đổi rõ. Chỉ khóa nét khi người dùng yêu cầu riêng.
 - [ ] Nhận diện nhân vật theo ảnh ref; ánh sáng cảnh ghi rõ và ưu tiên hơn
       "daylight" của style khi khác thời điểm.
 - [ ] Độ dài ≤ ~4.000 ký tự.
@@ -54,3 +62,5 @@ Ghi kết quả từng mục (ĐẠT / SỬA / N/A) vào `record.md`.
 - [ ] Viết tiếng Việt, trọn một code block, không còn `<...>`.
 - [ ] Trình kèm link `layout-ref.png` của spread và link profile + ảnh ref của
       từng nhân vật liên quan; số ảnh khớp với khối.
+- [ ] Cuối phản hồi có câu đọc context nguyên văn trong `interactive-flow.md`,
+      dẫn đúng version context; chưa tự tạo ảnh.

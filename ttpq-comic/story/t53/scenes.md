@@ -67,6 +67,7 @@
 - **Cấm:** xe tải, ròng rọc cơ khí, bao xi măng.
 
 ### S08 — Khu giữa công trường, gặp tỳ kheo ni · Ch1 L103–119 · DRAFT
+- **Duyệt theo phạm vi:** APPROVED — phần bối cảnh trang 26–27 (PDF 12, part 1), người dùng duyệt 2026-10-29; các phần khác giữ DRAFT.
 - **Thời điểm/ánh sáng:** N1 chiều; bóng người đổ trên đất.
 - **Nơi:** khu đất giữa công trường, rộng nhất, đang thi công phần cột chính; khoảng đất trống thênh thang phía tây.
 - **Nhân vật:** Nalini (ngón cái miết cuộn bản vẽ; vuốt cằm), Visakha, Punna, vài tỳ kheo ni.
@@ -74,6 +75,7 @@
 - **Cấm:** cột đã dựng cao hai tầng (chưa tới mốc); tỳ kheo ni tóc dài hoặc y màu sặc sỡ.
 
 ### S09 — Người chiên đà la và tranh luận giai cấp · Ch1 L120–157 · DRAFT
+- **Duyệt theo phạm vi:** APPROVED — phần bối cảnh trang 26–27 (PDF 12, part 1), người dùng duyệt 2026-10-29; các phần khác giữ DRAFT.
 - **Thời điểm/ánh sáng:** N1 chiều muộn (suy ra).
 - **Nơi:** cuối công trường, giáp cánh đồng lộng gió; xa xa thợ bổ cuốc xuống hố móng, phụ nữ còng lưng khiêng bao đất; hàng cây.
 - **Nhân vật:** Visakha, Punna, Nalini; người chiên đà la lưng còng dưới đôi quang gánh, rảo bước khuất về phía hàng cây.
@@ -123,6 +125,7 @@
 ## Chương 3 — Mưu tính trong bóng tối
 
 ### S16 — Các đạo sĩ họp trong đền đá hoang · Ch3 L214–242 · DRAFT
+- **Duyệt theo phạm vi:** APPROVED — phần bối cảnh trang 50–51 (PDF 24, part 1), người dùng duyệt 2026-10-30. Các phần S16 ngoài spread này giữ DRAFT.
 - **Thời điểm/ánh sáng:** đêm; một ngọn đèn dầu, cuối cảnh gió thốc làm tắt.
 - **Nơi:** đền đá cổ khuất trong rừng rậm tối, tường đá đổ nát (Cần quyết #7).
 - **Nhân vật:** lão đạo trưởng ngồi giữa vòng tròn; đạo sĩ trẻ gầy da xám ngoét; gã xoa mạn sườn trái; gã to cao thô kệch từ góc khuất; một người thì thào; người ngồi gần cửa.
