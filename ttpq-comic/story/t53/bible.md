@@ -60,7 +60,7 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Tỳ kheo ni | Thăm công trường | S08 | — | Nhóm nhỏ |
 | Godatta | Tôn giả trẻ, thần thông đào móng | S12–S14 | chưa | "vị sa môn trẻ", mắt tĩnh lặng (L179); xưa là lái buôn xe bò (L607) |
 | ~20 tỳ kheo | Khất thực, thọ thực | S11–S14 | — | Y nâu, bình bát |
-| Lão đạo trưởng + 5 đạo sĩ | Ngoại đạo | S16, (S48) | — | Trẻ gầy da xám; gã xoa sườn; gã to cao thô kệch; người ngồi gần cửa |
+| Lão đạo trưởng + 5 đạo sĩ | Ngoại đạo | S16, (S48) | Gã xoa sườn: APPROVED v001 (`characters/dao-si-om-man-suon/`); còn lại — | Trẻ gầy da xám; gã xoa sườn; gã to cao thô kệch; người ngồi gần cửa |
 | Anh thợ trẻ | Bị rắn cắn | S18 | chưa | Hai chấm máu ở cổ tay |
 | Thầy thuốc | | S18 | — | |
 | Cittahattha | Tôn giả, hàng xóm Nalini | S18–S19 | chưa | Ngồi bất động giữa náo loạn |
@@ -79,7 +79,7 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Bà cụ gánh nước | | S27 | — | |
 | Gã buôn tung tin | | S35 | — | Ngoài 40, áo vải thô, mặt lọc lõi |
 | Bà bán vải, bà bán gạo, bà bán gia vị | | S35–S36 | — | |
-| Moggallana | Tôn giả thần thông | S38, S45–S46 | chưa | |
+| Moggallana | Tôn giả thần thông | S38, S45–S46 | APPROVED v001 (`characters/moggallana/`) | |
 | Tiền kiếp Pavina/Matika | | S40 | — | Kiếp 9: thương nhân, tiểu thư, quan huyện; kiếp 10: cô gái, người lính; kiếp 11: chàng trai, cô gái |
 | Nalini lúc bé, cha Nalini | Hồi ức | S06, S10 | — | |
 
