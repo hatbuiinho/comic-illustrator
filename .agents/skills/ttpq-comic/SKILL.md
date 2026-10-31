@@ -142,29 +142,28 @@ với hành động đó, không làm việc riêng. Spread có nhiều scene: m
 focus và chỉ rõ scene nào là chính; scene còn lại hạ một bậc (nhỏ hơn, ít chi
 tiết hơn).
 
-Mỗi phương án tách đầu dòng:
+Mỗi phương án gồm đúng 5 mục, mỗi mục 1–2 câu, tách đầu dòng:
 
-- **Khoảnh khắc:** một tích tắc, diễn đạt bằng một động từ chính (ví dụ "nắm
-  đấm vừa siết lại"), dựa trên chữ và bối cảnh truyện.
-- **Focus:** một chủ thể + một hành động; nơi rõ nhất, tương phản nhất, nơi
-  đường mắt dừng lại.
-- **Phối hợp:** mỗi nhân vật khác chỉ nhận một vai so với focus — *nhìn về
-  focus*, *phản ứng* (im, khựng, cúi, lùi), *khung/dẫn mắt* (vai, lưng tiền
-  cảnh) hoặc *nền* (silhouette, nét thưa). Không ai có hành động độc lập.
-- **Không vẽ:** các beat trong chữ không đưa vào hình (lời nói khác, việc trước
-  hoặc sau tích tắc đã chọn).
-- **Cỡ cảnh, góc máy.**
-- **Vị trí:** nhân vật chính ở trang nào, khoảng x/y theo % canvas; gáy (x 45–55%)
-  chỉ có nền.
-- **Đường mắt:** người xem đi từ đâu tới đâu, kết thúc ở focus; hướng nhìn và
-  hướng thân của vai phụ dẫn về focus.
-- **Chữ ôm hình:** phần tranh nào vươn vào vùng chữ, chữ ôm theo đường viền nào.
-- **Ánh sáng:** nguồn sáng, thời điểm (theo truyện).
-- **Đánh đổi.**
+- **Cảm xúc:** người xem cần cảm thấy gì khi lật tới spread.
+- **Khoảnh khắc & focus:** một tích tắc, một chủ thể + một hành động; vai phụ
+  chỉ nhìn về focus, phản ứng, làm khung hoặc nền.
+- **Góc máy & cỡ cảnh:** cho từng trang/scene, kèm lý do cảm xúc. Nhiều scene:
+  ghi scene chính, các scene khác nhau về cỡ cảnh hoặc góc máy.
+- **Không vẽ:** beat chỉ có trong chữ.
+- **Chữ ôm hình:** phần tranh nào vươn vào vùng chữ.
 
-Người dùng chọn → ghi `brief.md` (bối cảnh truyện + ý đồ đã chọn, gồm khối
-Focus / Phối hợp / Không vẽ). Phương án người dùng tự đưa thiếu các mục này thì
-agent điền theo ý đồ của họ và nêu ra để xác nhận, không tự đổi khoảnh khắc.
+Phương án agent đề xuất thêm một dòng **Đánh đổi**. Không thêm mục khác (vị trí
+%, đường mắt, ánh sáng…); chi tiết cần thiết gộp vào câu góc máy.
+
+### brief.md chỉ giữ phương án active
+
+`brief.md` là nguồn duy nhất để viết prompt, gồm một khối "Phương án active"
+khoảng 10 dòng: context active, mode, profile dùng, 5 mục trên và
+`SKIPPED_BY_USER` nếu có. Chọn, chỉnh hoặc reset phương án thì ghi đè khối
+này; bản cũ chuyển nguyên văn sang mục "Lịch sử phương án" của `record.md`.
+Không ghi quan sát chi tiết của ảnh ý tưởng vào brief. Phương án người dùng tự
+đưa: agent điền 5 mục theo ý của họ và nêu ra để xác nhận, không tự đổi
+khoảnh khắc.
 
 ## 6. Viết gói prompt
 
@@ -172,29 +171,10 @@ Mục này là nhánh xuất gói prompt theo yêu cầu, không tự áp thay c
 tác. Khi người dùng dùng prompt cố định outline/màu, ưu tiên reference
 `interactive-flow.md`; đặc biệt lượt màu không khóa nét/identity theo outline.
 
-Ghép theo [mẫu gói prompt](references/prompt-template.md), gồm:
-
-- **Lượt nét — tin 1:** khối STYLE clean outline (chép nguyên).
-- **Lượt nét — tin 2:** yêu cầu + DIRECTOR'S NOTES + chữ EN (nếu trang phải của
-  layout là chữ giữ chỗ). Đính kèm `layout-ref.png` và ảnh ref profile.
-- **Lượt màu:** một prompt: khối STYLE màu + yêu cầu giữ nét, bố cục và chữ +
-  nhận diện nhân vật + ánh sáng/màu của cảnh. Đính kèm ảnh nét và ảnh ref profile.
-
-Quy tắc viết:
-
-- Tin 2 của lượt nét và prompt lượt màu, không tính khối chữ EN, giữ khoảng
-  ≤ 4.000 ký tự. Bố cục và vị trí đặt trước; chỉ đưa chi tiết era liên quan cảnh.
-- Mọi vị trí theo % canvas 1536×1024 (spread) hoặc canvas của mode frame.
-- Mỗi ảnh đính kèm có dòng "Image N = …"; nói rõ ảnh profile chỉ để nhận diện,
-  không chép nền, ánh sáng hay tư thế.
-- Cấm ref output cũ: không đính kèm, nhắc tới hay mô tả theo ảnh nét/màu đã
-  tạo trước (version cũ, spread khác). Muốn giữ ý từ ảnh cũ thì viết lại bằng
-  chữ trong Director's Notes. Ngoại lệ: ảnh nét đã chọn đính kèm ở lượt màu
-  của chính spread/frame đó, hoặc người dùng override rõ (ghi
-  `SKIPPED_BY_USER`).
-- Ghi đạo cụ và hành động dễ bị hiểu sai bằng cả điều đúng lẫn điều cấm (ví dụ
-  "rolled leather plan, not a board").
-- Điều cấm áp dụng (style, era, theo bối cảnh truyện) nằm trong prompt từ đầu.
+Viết theo [mẫu prompt](references/prompt-template.md); mẫu là nguồn duy nhất
+cho cấu trúc và quy tắc viết prompt (khối được dùng, luật vá, ref output cũ).
+Lượt nét: tin 1 khối STYLE, tin 2 phần còn lại; đính kèm `layout-ref.png` và
+ảnh ref profile. Lượt màu: một prompt, đính kèm ảnh nét đã chọn và ảnh ref.
 
 Lưu `prompts/vNNN-spread.md` hoặc `prompts/vNNN-hinh-N.md`.
 

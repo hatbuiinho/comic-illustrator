@@ -49,29 +49,37 @@ Dựa trên context và layout vừa đọc, hãy đề xuất 2–3 phương á
 Đề xuất phải thể hiện ý đồ điện ảnh qua lựa chọn khoảnh khắc, cỡ cảnh, góc máy,
 chiều sâu, hướng nhìn và nhịp kể; không chỉ đổi vị trí nhân vật hoặc gắn nhãn
 “điện ảnh”. Khi có nhiều scene, làm rõ nhịp chuyển và quan hệ giữa các scene.
-Dùng các mục ý đồ điện ảnh ở bước 5 của SKILL, bắt buộc theo nguyên tắc một
-khoảnh khắc – một focus: mỗi scene có Focus, Phối hợp và Không vẽ. Các phương
-án khác nhau ở lựa chọn khoảnh khắc/focus, không phải gom nhiều beat vào một
-hình. Tách từng ý thành bullet có nhãn;
-không tự chạy nhánh gói prompt hai lượt. Người dùng chọn phương án thì ghi ý
-đồ vào brief/record và trình lệnh outline.
+Mỗi phương án dùng đúng 5 mục ở bước 5 của SKILL, theo nguyên tắc một khoảnh
+khắc – một focus; các phương án khác nhau ở khoảnh khắc/focus hoặc góc máy.
+Không tự chạy nhánh gói prompt hai lượt. Cuối phản hồi, mỗi phương án một block:
+
+```text
+Chọn phương án N — <tên phương án>. Ghi vào brief và tạo clean outline theo phương án này.
+```
+
+Người dùng chọn thì ghi đè khối active trong brief rồi tạo outline (mục 3).
 
 **2. Dùng phương án có sẵn**
 
 ```text
-Mình sẽ gửi phương án minh họa có sẵn. Hãy đọc cùng context và layout đang dùng, tóm tắt cách bạn hiểu ý đồ của mình và chỉ ra điểm xung đột nếu có. Chưa tạo ảnh; chờ yêu cầu tiếp theo.
+Mình sẽ gửi phương án minh họa có sẵn. Hãy đọc cùng context và layout đang dùng, tóm tắt cách bạn hiểu ý đồ của mình và chỉ ra điểm xung đột nếu có. Chưa tạo ảnh.
 ```
 
 Người dùng có thể gửi phương án ngay cùng lệnh. Không tự thay bằng phương án
 khác. Chỉ hỏi phần thiếu gây thay đổi đáng kể ý đồ; không buộc chọn option do
-agent đề xuất. Trong phần tóm tắt, nêu Focus / Phối hợp / Không vẽ theo cách
-hiểu phương án của người dùng; nếu phương án gom nhiều hành động cùng cần
-focus, chỉ ra và gợi ý hành động nào làm focus, chưa tự sửa. Khi nguồn và ý đồ đủ rõ, có thể đi thẳng từ context tới outline.
+agent đề xuất. Tóm tắt bằng đúng 5 mục ở bước 5 của SKILL theo cách hiểu
+phương án của người dùng; nếu phương án gom nhiều hành động cùng cần focus,
+chỉ ra và gợi ý hành động nào làm focus, chưa tự sửa. Ghi đè khối active trong
+brief, rồi cuối phản hồi luôn trình lệnh outline (mục 3) và block chỉnh:
+
+```text
+Chỉnh phương án đang active theo comment mình gửi kèm. Cập nhật brief, chưa tạo ảnh.
+```
 
 ## 3. Tạo clean outline: prompt cố định nguyên văn
 
 ```text
-dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page này ở dạng clean outline, chữ sẽ hòa với hình nhưng giữ nguyên khổ chữ, chữ có thể được reflow để ôm hình 1 cách sống động, phần chữ bên phải là tiếng anh, bên trái là tiếng việt, truyện này là truyện về cuộc đời Đức Phật nên nhân vật sẽ là người Ấn Độ thời đó ạ
+dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page này ở dạng clean outline, chữ sẽ hòa với hình nhưng giữ nguyên khổ chữ, giữ nguyên vị trí dòng đầu tiên, chữ có thể được reflow để ôm hình 1 cách sống động, phần chữ bên phải là tiếng anh, bên trái là tiếng việt, truyện này là truyện về cuộc đời Đức Phật nên nhân vật sẽ là người Ấn Độ thời đó ạ
 ```
 
 - Context và phương án active quyết định nội dung/scene. Layout xác định
@@ -81,19 +89,9 @@ dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page
 - Dùng layout và profile gốc với vai trò rõ; nguồn EN theo contract, không
   tự dịch. Không giả vờ có font/khổ chữ chính xác nếu chỉ có ảnh raster; báo
   giới hạn quan sát được. Chữ trong ảnh vẫn là tham khảo dàn trang.
-- Prompt ImageGen do agent viết (lưu trong `prompts/`) đặt khối FOCUS ngay
-  trước COMPOSITION, viết từ brief active:
-
-  ```text
-  FOCUS (one single instant): <chủ thể> <một hành động>. This is the only action in the scene; make it the clearest, highest-contrast point where the eye lands.
-  SUPPORTING (reacting only): <nhân vật>: <nhìn về focus | phản ứng | khung tiền cảnh | nền>. No one else performs a separate action.
-  NOT SHOWN (text only): <beat chỉ có trong chữ>.
-  ```
-
-  Spread nhiều scene: mỗi scene một dòng FOCUS, ghi scene nào là chính. Mục
-  người/nhân vật trong prompt chỉ mô tả nhận diện và vai phối hợp; không gắn
-  hành động riêng cho từng người theo diễn biến trong chữ (ví dụ "man
-  touching his ribs", "whisperer") trừ khi đó là focus hoặc phản ứng đã chọn.
+- Prompt ImageGen do agent viết (lưu trong `prompts/`) theo
+  [mẫu prompt gọn](prompt-template.md#prompt-lượt-nét), chỉ từ khối active
+  của `brief.md`.
 - Trước tạo ảnh: đọc các hướng dẫn style/era/toolchain áp dụng và skill
   `imagegen`. Dùng ImageGen trực tiếp, không gọi chuỗi page-guide/studio.
 - Lưu ảnh thật `outputs/outline-vNNN.png` cùng prompt/nguồn/kết quả kiểm trong

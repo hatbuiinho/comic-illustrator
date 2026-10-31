@@ -1,12 +1,7 @@
-# Mẫu gói prompt hai lượt
+# Mẫu prompt gọn
 
-Đây là nhánh xuất gói prompt riêng. Với flow tương tác và hai câu prompt cố
-định của người dùng, dùng [interactive-flow.md](interactive-flow.md). Quy tắc
-lượt màu mới ưu tiên profile gốc và outline chỉ tham khảo scene; khối khóa
-mọi outline bên dưới chỉ dùng khi người dùng yêu cầu rõ giữ nét chính xác.
-
-Khối bối cảnh truyện (STORY CONTEXT / khối bối cảnh riêng) viết bằng tiếng Việt
-để người dùng đọc và sửa; khối STYLE chép nguyên văn; chữ EN giữ nguyên văn.
+Dùng cho cả prompt ImageGen nội bộ của flow tương tác và nhánh gói prompt.
+Khối bối cảnh riêng viết tiếng Việt; khối STYLE và chữ EN chép nguyên văn.
 Thay mọi `<...>` bằng giá trị thật, xóa phần không áp dụng. File lưu gồm metadata và từng prompt trong code
 block riêng.
 
@@ -43,41 +38,44 @@ block riêng.
 ```
 ~~~
 
-## Prompt lượt nét (tin 2)
+## Quy tắc viết (nguồn duy nhất)
+
+- Viết mới từ mẫu mỗi version, chỉ từ `brief.md` (phương án active) và
+  context active; không sửa từ prompt version trước.
+- Chỉ dùng đúng các khối trong mẫu, không thêm khối khác. INTENT mỗi
+  trang/scene 1–2 câu.
+- Nhân vật có profile: không mô tả lại identity bằng chữ (ảnh ref lo phần
+  này); chỉ thêm một cụm cho chi tiết hay bị vẽ sai (ví dụ "robe covers both
+  shoulders"). Nhân vật chưa có profile: một câu nhận diện.
+- Không thêm luật vá từ ảnh trước ("heads below y…", "reduce scale",
+  "keep feet visible", "do not invent a different composition"…). Lỗi bố cục
+  sửa ở brief.
+- Không đính kèm, nhắc tới hay mô tả theo output cũ. Ngoại lệ: ảnh nét đã chọn
+  ở lượt màu của chính spread, hoặc người dùng override rõ (`SKIPPED_BY_USER`).
+- DO NOT một dòng: beat "Không vẽ" và điều cấm truyện/era liên quan cảnh.
+
+## Prompt lượt nét
+
+Tin 1 là khối STYLE clean outline chép nguyên từ `style/ttpq-comic.md`. Khi
+gọi ImageGen một lượt, đặt khối STYLE ngay trước tin 2.
 
 ```text
-Using the line-art style above, draw the illustration and page layout for this two-page book spread (pages <trái>–<phải>) of a picture book about the life of the Buddha. Characters are ancient Indian people of the Buddha's time. One image, <W>x<H> px.
+Draw pages <trái>–<phải> of a picture book about the life of the Buddha (ancient northern India) as one <W>x<H> spread.
+Image 1 = the page layout. Image <N> = <TÊN>: use only for identity (face, hair, clothing, accessories); ignore pose, background and color.
 
-ATTACHED IMAGES
-- Image 1 = the page layout. Keep its text blocks, font size and line spacing; the text may reflow so the lines wrap vividly around the artwork. Left page Vietnamese, right page English. <Trang phải là chữ giữ chỗ: replace the Vietnamese placeholder on the right page with the English text below.> <Có chữ tô màu: colored text is only an editor's mark — all text black.> The <màu> rectangle is the illustration area; replace it with art, which may rise above it so the text wraps around it.
-- Image <N> = <TÊN> — use only for identity (face, hair, beard, headwear, clothing); redraw in this line-art style, ignore its background, lighting and pose.
+STORY: <1–2 câu: ai, ở đâu, chuyện gì vừa/chưa xảy ra>.
 
-STORY CONTEXT
-<2–4 câu: ai, ở đâu, khi nào, chuyện vừa xảy ra, chuyện chưa xảy ra.>
+INTENT: <cảm xúc>.
+- <Trang/scene chính>, <góc máy, cỡ cảnh>: <focus — một chủ thể, một hành động>. <vai phụ chỉ phản ứng/nhìn>.
+- <Trang/scene phụ nếu có>, <góc máy, cỡ cảnh khác scene chính>: <...>.
+- Center fold: quiet background only.
 
-DIRECTOR'S NOTES
-- Moment: <một tích tắc, một động từ chính>.
-- Focus: <chủ thể> <một hành động> — the only action in the scene; clearest, highest-contrast point where the eye lands.
-- Supporting (reacting only): <nhân vật>: <nhìn về focus | phản ứng | khung tiền cảnh | nền>. No one else performs a separate action.
-- Not shown (text only): <beat chỉ có trong chữ>.
-- <Vùng 1 (x a–b%)>: <cỡ cảnh, góc máy, nhân vật, hành động, hướng nhìn>.
-- <Gáy (x 45–55%)>: <chỉ nền>.
-- <Vùng 2 (x c–d%)>: <...>.
-- Eye flow: <từ đâu tới đâu>, ending on the focus.
-- Text wrap: <phần nào vươn vào vùng chữ, chữ ôm theo đâu>.
-- Background: <bối cảnh, độ xa>.
+TEXT: Left page Vietnamese exactly as in Image 1; right page the English below. Keep the font size and each page's first line exactly where Image 1 has them; lines may reflow downward and wrap around <phần tranh vươn vào vùng chữ> inside the column. Black text, no boxes.<Có chữ tô màu/ô màu: Colored text and <màu> areas are editor's marks only.>
 
-CHARACTERS
-- <dòng nhận diện của nhân vật có profile>
-- <nhân vật phụ/quần chúng: mô tả ngắn>
+DO NOT: <không vẽ + điều cấm truyện/era>.
 
-DO NOT
-<điều cấm theo truyện: việc chưa xảy ra, đạo cụ sai>; <era liên quan>; no second competing action or focal point; nothing important at the center fold; no "Hình" notes or labels; text never over faces or hands.
-
-ENGLISH TEXT FOR THE RIGHT PAGE (copy exactly)
-"""
+ENGLISH TEXT (copy exactly):
 <chữ EN>
-"""
 ```
 
 ## Prompt lượt màu
@@ -85,22 +83,13 @@ ENGLISH TEXT FOR THE RIGHT PAGE (copy exactly)
 ```text
 <khối STYLE màu>
 
-Color Image 1 (the approved line art of a two-page picture-book spread) in the ttpq comic light style above.
+Color Image 1, the line art of pages <trái>–<phải>, in the ttpq comic light style above. Use it for the scene and text; characters must match their profile images exactly. Image <N> = <TÊN>: identity only; ignore pose, background and color.
 
-KEEP EXACTLY FROM IMAGE 1
-- The composition, every figure's position, pose and gesture, and all outlines.
-- All text: same words, positions, line breaks and the way it wraps around the art. Text stays crisp near-black on a calm light background. Do not re-typeset, translate or move it.
+INTENT: <cảm xúc>; <thời điểm, nguồn sáng, bảng màu theo truyện>, keeping the soft 2D rendering of ttpq comic light. Calm light background behind the text.
 
-CHARACTERS
-- Image <N> = <TÊN>: <dòng nhận diện>. Correct his/her face, hair and costume to match Image <N> exactly; ignore its background, lighting and pose.
-- <nhân vật phụ: màu trang phục, tông da>
+TEXT: keep every word, line break and wrap from Image 1; crisp near-black, no boxes.
 
-LIGHT & COLOR
-- <thời điểm, nguồn sáng, bảng màu theo truyện>. Use this scene lighting while retaining the soft lighting and 2D rendering of ttpq comic light.
-- Behind the text: <nền nhạt, phẳng>.
-
-DO NOT
-<điều cấm theo truyện và era liên quan>; no new text, no colored text, no text boxes.
+DO NOT: <điều cấm truyện/era>; no new or colored text.
 ```
 
 ## Mode frame
@@ -140,7 +129,7 @@ DIỄN BIẾN TRONG CHỮ (để hiểu, không vẽ hết)
 Hình chỉ vẽ một khoảnh khắc với một hành động focus, chọn ở bước phương án; các beat còn lại chỉ nằm trong chữ.
 
 KHOẢNH KHẮC ĐƯỢC VẼ
-<Khi đã có phương án active: Focus — chủ thể + một hành động; Phối hợp — vai của từng nhân vật khác so với focus; Không vẽ — beat chỉ có trong chữ. Chưa có phương án: "Chưa chọn; chờ phương án.">
+<Khi đã có phương án active: chép 5 mục từ brief.md. Chưa có phương án: "Chưa chọn; chờ phương án.">
 
 THỜI ĐIỂM & ÁNH SÁNG
 <thời điểm, nguồn sáng, sương/bóng đổ>

@@ -54,13 +54,16 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Nalini | Thợ cả | S01–S10, S12–S14, S17–S19, S32, S45–S46 | có | Luôn có cuộn bản vẽ da; vuốt râu, vuốt cằm là cử chỉ quen (L83, L116, L134) |
 | Visakha | Nữ gia chủ, xây tinh xá | S04–S15, S18–S21, S32, S38, S47 | có | Dải lụa trên vai (L200); hiền, điềm tĩnh, ánh mắt trìu mến |
 | Punna Vaddhana | Chồng Visakha, trưởng giả | S04–S15, S18–S21, S32, S38, S47 | có | Ban đầu tin giai cấp; dần day dứt |
-| Bà lão (vai áo vá) | Dân tình nguyện | S02 | — | Mặt sạm, đồi mồi, miếng vá khéo trên vai áo (L25) |
+| Gia nhân nhà Visakha | Phục vụ gia đình Visakha – Punna | S05, S12, S15, S21 | APPROVED v001 (`characters/gia-nhan-nha-visakha/`), profile nhóm | Bưng thúng bánh trái, nước (L45); gánh thúng thức ăn ủ kín (L165) |
+| Thợ thuyền, phụ tá xây dựng | Cánh thợ và phụ tá của Nalini | S03, S05, S09, S32, S38 và các cảnh công trường | APPROVED v001 (`characters/tho-thuyen-phu-ta/`), profile nhóm | Cuốc xẻng vác đầy vai, chuyền gỗ (L27); kéo dây, lắp cấu kiện (L622–627); lưng trần trên giàn giáo (L729) |
+| Người dân đến công quả | Dân nghèo tự nguyện chấp tác | S02, S03, S05 | APPROVED v001 (`characters/nguoi-dan-cong-qua/`), profile nhóm | Không giao ước, không tiền công (L26); đào đất, gánh đất đá (L27); ngồi ăn bánh cùng thợ (L45) |
+| Bà lão (vai áo vá) | Dân tình nguyện | S02 | APPROVED v001 (`characters/ba-lao-vai-ao-va/`) | Mặt sạm, đồi mồi, miếng vá khéo trên vai áo (L25) |
 | Người đàn ông khai lời | Dân tình nguyện | S02 | — | Khoanh tay trước ngực (L17) |
-| Người chiên đà la | Gánh chất thải | S09 | — | Lưng còng dưới đôi quang gánh, rảo bước về hàng cây (L129) |
+| Người chiên đà la | Gánh chất thải | S09 | APPROVED v001 (`characters/nguoi-chien-da-la/`) | Lưng còng dưới đôi quang gánh, rảo bước về hàng cây (L129) |
 | Tỳ kheo ni | Thăm công trường | S08 | — | Nhóm nhỏ |
-| Godatta | Tôn giả trẻ, thần thông đào móng | S12–S14 | chưa | "vị sa môn trẻ", mắt tĩnh lặng (L179); xưa là lái buôn xe bò (L607) |
+| Godatta | Tôn giả trẻ, thần thông đào móng | S12–S14 | APPROVED v001 (`characters/godatta/`) | "vị sa môn trẻ", mắt tĩnh lặng (L179); xưa là lái buôn xe bò (L607) |
 | ~20 tỳ kheo | Khất thực, thọ thực | S11–S14 | — | Y nâu, bình bát |
-| Lão đạo trưởng + 5 đạo sĩ | Ngoại đạo | S16, (S48) | Gã xoa sườn: APPROVED v001 (`characters/dao-si-om-man-suon/`); còn lại — | Trẻ gầy da xám; gã xoa sườn; gã to cao thô kệch; người ngồi gần cửa |
+| Lão đạo trưởng + 5 đạo sĩ | Ngoại đạo | S16, (S48) | Gã xoa sườn: APPROVED v002 (`characters/dao-si-om-man-suon/`); đạo trưởng, gã cao to, người gần cửa, người thì thào dụ dỗ đệ tử: APPROVED v001 (`characters/nhom-dao-si/`); trẻ gầy da xám: — | Trẻ gầy da xám; gã xoa sườn; gã to cao thô kệch; người ngồi gần cửa |
 | Anh thợ trẻ | Bị rắn cắn | S18 | chưa | Hai chấm máu ở cổ tay |
 | Thầy thuốc | | S18 | — | |
 | Cittahattha | Tôn giả, hàng xóm Nalini | S18–S19 | chưa | Ngồi bất động giữa náo loạn |
