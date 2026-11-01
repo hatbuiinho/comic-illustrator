@@ -130,15 +130,18 @@ dùng style ttpq comic light để dàn trang màu, outline chỉ dùng để th
 
 ## 5. Sửa, tạo lại và lên màu
 
-- Comment sửa outline: xác định delta, phần giữ và version đích; xem lại ảnh
-  đích cùng profile gốc trước lượt edit. Tạo lại outline: xuất phát từ nguồn
-  gốc và phương án mới, không dùng outline bị bỏ làm chuẩn identity.
+- Chỉnh outline: sửa trực tiếp trên outline đích (đính kèm làm Image 1),
+  không áp quy tắc cấm output cũ và cấm luật vá (`SKIPPED_BY_USER` theo
+  contract ngày 2026-11-01). Xác định phần đổi, phần giữ và version đích; viết
+  prompt theo [mẫu chỉnh outline](prompt-template.md#prompt-chỉnh-outline);
+  xem lại profile gốc của nhân vật bị chỉnh. Tạo lại outline: xuất phát từ
+  nguồn gốc và phương án mới, không dùng outline bị bỏ làm chuẩn identity.
 - Lệnh màu trực tiếp cho phép thực hiện, không cần hỏi lại “đã duyệt chưa”.
   Resolve đúng outline người dùng muốn dùng; chỉ hỏi nếu có nhiều bản mà chưa
   rõ bản nào. Không tự tạo màu chỉ vì người dùng nói outline đẹp/ổn.
 - “Không ref lại output cũ”: không dùng ảnh màu cũ, outline lỗi hoặc output
-  khác làm chuẩn nhân vật/style. Outline được chọn là ngoại lệ được chỉ định
-  rõ để tham khảo scene và chữ; profile gốc quyết định mặt, tóc, trang phục,
+  khác làm chuẩn nhân vật/style. Ngoại lệ: outline được chọn để tham khảo
+  scene và chữ ở lượt màu, outline đích khi chỉnh outline; profile gốc quyết định mặt, tóc, trang phục,
   tỷ lệ và dấu nhận diện. Đọc và xem lại profile gốc mỗi lượt có nhân vật.
 - Không dùng khối KEEP EXACTLY mọi outlines trong mẫu prompt màu cũ. Cho phép
   vẽ lại nhân vật đúng profile trong scene đã chọn, không tự đổi moment hay
@@ -149,6 +152,7 @@ dùng style ttpq comic light để dàn trang màu, outline chỉ dùng để th
 - Lưu `outputs/color-vNNN.png` hoặc outline version mới, có record trỏ context,
   phương án, outline scene và profile version thực dùng. Trình ảnh bản lưu
   trong spread cùng kết quả kiểm ngắn. Không tự phê duyệt bản cuối.
-- Sau màu, menu chỉ cần “Chỉnh màu/minh họa” hoặc “Tạo bản màu khác”; cả hai
-  vẫn lấy profile gốc, không tự dùng ảnh màu trước làm ref. Nếu người dùng
-  yêu cầu dùng output trước để edit, ghi override đúng phạm vi lượt đó.
+- Sau màu, menu chỉ cần “Chỉnh màu/minh họa” hoặc “Tạo bản màu khác”. Chỉnh
+  màu là vẽ lại từ outline được chọn và profile gốc làm chuẩn, thêm comment
+  của người dùng; không đính kèm hay sửa trên ảnh màu đã tạo. Nếu người dùng
+  yêu cầu rõ edit trên ảnh màu trước, ghi override đúng phạm vi lượt đó.

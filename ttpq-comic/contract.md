@@ -30,13 +30,22 @@
   - Lượt nét: `layout-ref.png` của spread và ảnh ref profile của từng nhân vật
     có profile xuất hiện trong spread.
   - Lượt màu: ảnh nét người dùng chọn và ảnh ref profile như trên.
-  Prompt ghi rõ ảnh số mấy là gì. Nhân vật quần chúng và ảnh ý tưởng của người
-  dùng được mô tả bằng chữ.
+  - Chỉnh outline: outline đích của lượt đó và ảnh ref profile như trên.
+  Prompt ghi rõ ảnh số mấy là gì. Nhóm quần chúng có profile: đính kèm ảnh ref
+  nhóm và mô tả thêm bằng chữ (vai trò, số lượng, hành động theo cảnh). Người
+  không có profile và ảnh ý tưởng của người dùng được mô tả bằng chữ.
 - Cấm dùng output cũ làm ref khi tạo hình mới: không đính kèm, không nhắc tới
   và không mô tả theo ảnh nét/màu đã tạo trước (version cũ của spread, spread
   khác, ảnh trong `prompts/` hay thư mục output). Nhận diện chỉ lấy từ ảnh ref
-  profile/setting gốc. Ngoại lệ duy nhất: lượt màu dùng ảnh nét người dùng chọn
-  của chính lượt đó.
+  profile/setting gốc. Ngoại lệ: lượt màu dùng ảnh nét người dùng chọn của chính
+  lượt đó; lượt chỉnh outline dùng outline đích (mục dưới).
+- `SKIPPED_BY_USER` — từ 2026-11-01, toàn flow TTPQ Comic, theo quyết định của
+  người dùng:
+  - **Chỉnh outline:** không áp quy tắc cấm output cũ và cấm luật vá. Sửa trực
+    tiếp trên outline đích, prompt ghi phần đổi theo comment và phần giữ; nhân
+    vật vẫn đối chiếu profile gốc.
+  - **Chỉnh màu:** không sửa trên ảnh màu đã tạo. Vẽ lại từ outline được chọn
+    và profile gốc làm chuẩn, kèm comment của người dùng.
 - Style: [ttpq comic light](../docs/style-ttpq-comic-light.md). Bối cảnh mặc định:
   [Ấn Độ thời Đức Phật](style/era-ancient-india.md).
 

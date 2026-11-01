@@ -7,12 +7,14 @@ dùng. Quy tắc viết nằm ở `prompt-template.md`; checklist chỉ đối c
 ## Nguồn
 
 - [ ] `layout.json` đúng file và đúng spread; cảnh báo của script đã xử lý.
-- [ ] Đã đọc ít nhất một spread trước và một spread sau; bối cảnh truyện trong
-      prompt khớp chữ (thời điểm, nơi chốn, đạo cụ, việc đã/chưa xảy ra).
+- [ ] Bối cảnh truyện trong prompt khớp chữ và scene sheet (thời điểm, nơi
+      chốn, đạo cụ, việc đã/chưa xảy ra). Đọc spread liền kề khi chưa có story
+      bible, hoặc khi chữ của spread không ánh xạ chắc vào một `Snn`.
 - [ ] Nhân vật có tên dùng profile `APPROVED`, ghi version; ảnh ref tương ứng
       được liệt kê để đính kèm.
 - [ ] Không có output cũ (ảnh nét/màu version trước, spread khác) trong danh
-      sách đính kèm hoặc lời prompt; chỉ ngoại lệ ảnh nét đã chọn ở lượt màu.
+      sách đính kèm hoặc lời prompt; chỉ ngoại lệ ảnh nét đã chọn ở lượt màu
+      và outline đích khi chỉnh outline.
 - [ ] Prompt viết từ khối active của `brief.md` (5 mục), không từ lịch sử.
 
 ## Lượt nét
@@ -33,6 +35,13 @@ dùng. Quy tắc viết nằm ở `prompt-template.md`; checklist chỉ đối c
 - [ ] Khối STYLE màu chép nguyên; theo mẫu lượt màu.
 - [ ] Outline chỉ tham khảo scene và chữ; nhân vật theo profile gốc. Chỉ khóa
       nét khi người dùng yêu cầu riêng.
+
+## Chỉnh outline / chỉnh màu
+
+- [ ] Chỉnh outline: Image 1 là đúng outline đích; CHANGE ghi đủ comment, KEEP
+      giữ chữ; ảnh ref profile của nhân vật xuất hiện có đính kèm.
+- [ ] Chỉnh màu: Image 1 là outline được chọn, không đính kèm ảnh màu đã tạo;
+      comment nằm ở dòng CHANGE.
 
 ## Điều cấm
 

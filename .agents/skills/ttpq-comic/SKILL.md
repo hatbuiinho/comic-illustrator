@@ -84,8 +84,10 @@ scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/read-layo
 ```
 
 Dùng `--page <n>` thay `--folio` nếu biết số trang PDF. Ánh xạ chữ của spread
-vào cảnh `Snn` trong `scenes.md` (ghi vào `brief.md`). Chưa có story bible: đọc
-thêm ít nhất một spread trước và một spread sau (bỏ `--out`, script in JSON ra stdout).
+vào cảnh `Snn` trong `scenes.md` (ghi vào `brief.md`). Đã có story bible thì
+bible và scene sheet đủ bối cảnh. Chỉ đọc thêm một spread trước và một spread
+sau khi chưa có bible, hoặc khi chữ của spread không ánh xạ chắc vào một `Snn`
+(bỏ `--out`, script in JSON ra stdout).
 
 Trình snapshot ngắn:
 
@@ -121,7 +123,8 @@ và `ttpq-comic/settings/<slug>/setting.md`.
 - Chưa có: xin người dùng ảnh ref, chép vào thư mục đó (`ref-v001.png`), viết
   mô tả theo [mẫu profile](references/profile-template.md) /
   [mẫu setting](references/setting-template.md) ở trạng thái `DRAFT`, chờ duyệt.
-- Nhân vật quần chúng: mô tả ngắn trong prompt theo chữ của truyện và era guide.
+- Nhân vật quần chúng: có profile nhóm `APPROVED` thì dùng ảnh ref nhóm kết hợp
+  mô tả chữ theo cảnh; chưa có thì mô tả ngắn theo chữ của truyện và era guide.
 
 ## 4. Chọn mode
 

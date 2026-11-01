@@ -46,12 +46,15 @@ block riêng.
   trang/scene 1–2 câu.
 - Nhân vật có profile: không mô tả lại identity bằng chữ (ảnh ref lo phần
   này); chỉ thêm một cụm cho chi tiết hay bị vẽ sai (ví dụ "robe covers both
-  shoulders"). Nhân vật chưa có profile: một câu nhận diện.
+  shoulders"). Nhân vật chưa có profile: một câu nhận diện. Nhóm quần chúng có
+  profile: đính kèm ảnh ref nhóm, thêm một câu về vai trò, số lượng, hành động
+  theo cảnh.
 - Không thêm luật vá từ ảnh trước ("heads below y…", "reduce scale",
   "keep feet visible", "do not invent a different composition"…). Lỗi bố cục
-  sửa ở brief.
+  sửa ở brief. Ngoại lệ: prompt chỉnh outline.
 - Không đính kèm, nhắc tới hay mô tả theo output cũ. Ngoại lệ: ảnh nét đã chọn
-  ở lượt màu của chính spread, hoặc người dùng override rõ (`SKIPPED_BY_USER`).
+  ở lượt màu của chính spread, outline đích khi chỉnh outline, hoặc người dùng
+  override rõ (`SKIPPED_BY_USER`).
 - DO NOT một dòng: beat "Không vẽ" và điều cấm truyện/era liên quan cảnh.
 
 ## Prompt lượt nét
@@ -91,6 +94,29 @@ TEXT: keep every word, line break and wrap from Image 1; crisp near-black, no bo
 
 DO NOT: <điều cấm truyện/era>; no new or colored text.
 ```
+
+## Prompt chỉnh outline
+
+Dùng khi người dùng gửi comment sửa outline (`SKIPPED_BY_USER` ngày
+2026-11-01). Đính kèm: Image 1 = outline đích; ảnh ref profile của nhân vật
+xuất hiện. Được ghi luật vá theo comment.
+
+```text
+Edit Image 1, the clean outline of pages <trái>–<phải>; keep the same clean black line art, no color. Image <N> = <TÊN>: identity only; ignore pose, background and color.
+
+CHANGE:
+- <mỗi comment một dòng, cụ thể vị trí/chủ thể>
+
+KEEP: everything not listed above, including every word, font size, line breaks and text wrap.
+
+DO NOT: <điều cấm truyện/era liên quan phần sửa>.
+```
+
+## Chỉnh màu
+
+Không có mẫu riêng: viết lại prompt lượt màu với Image 1 = outline được chọn
+(hoặc outline mới vừa chỉnh), ảnh ref profile, thêm sau INTENT một dòng
+`CHANGE: <comment của người dùng>`. Không đính kèm ảnh màu đã tạo.
 
 ## Mode frame
 
