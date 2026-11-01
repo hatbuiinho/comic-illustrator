@@ -86,7 +86,7 @@ ENGLISH TEXT (copy exactly):
 ```text
 <khối STYLE màu>
 
-Color Image 1, the line art of pages <trái>–<phải>, in the ttpq comic light style above. Use it for the scene and text; characters must match their profile images exactly. Image <N> = <TÊN>: identity and colors (skin, eyes, hair, clothing); ignore pose and background. <TÊN> = <vị trí/hành động trong Image 1>. Where a face or costume in Image 1 differs from a profile image, follow the profile image.
+Color Image 1, the line art of pages <trái>–<phải>, in the ttpq comic light style above. Use it for the scene and text; characters must match their profile images exactly. Image <N> = <TÊN>: identity and local colors (skin tone, eye, hair and clothing colors); ignore pose, background, lighting and rendering, and paint in the ttpq comic light style above. <TÊN> = <vị trí/hành động trong Image 1>. Where a face or costume in Image 1 differs from a profile image, follow the profile image.
 
 INTENT: <cảm xúc>; <thời điểm, nguồn sáng, bảng màu theo truyện>, keeping the soft 2D rendering of ttpq comic light. Calm light background behind the text.
 
@@ -95,8 +95,9 @@ TEXT: keep every word, line break and wrap from Image 1; crisp near-black, no bo
 DO NOT: <điều cấm truyện/era>; no new or colored text.
 ```
 
-- Ảnh ref profile ở lượt màu là chuẩn cả identity lẫn màu (da, mắt, tóc,
-  trang phục); không ghi "ignore color" như lượt nét.
+- Ảnh ref profile ở lượt màu là chuẩn identity và màu riêng (da, mắt, tóc,
+  trang phục); không ghi "ignore color" như lượt nét. Ánh sáng và cách tô của
+  ảnh ref bị bỏ, rendering theo khối STYLE màu.
 - Mỗi nhân vật có profile một cụm gán vị trí trong Image 1 (trang, vị trí,
   hành động, ví dụ "the young monk digging, left page"), lấy từ brief; không
   mô tả mặt hay đặc điểm nhận diện trong cụm này.

@@ -35,7 +35,8 @@ dùng. Quy tắc viết nằm ở `prompt-template.md`; checklist chỉ đối c
 - [ ] Khối STYLE màu chép nguyên; theo mẫu lượt màu.
 - [ ] Outline chỉ tham khảo scene và chữ; nhân vật theo profile gốc. Chỉ khóa
       nét khi người dùng yêu cầu riêng.
-- [ ] Ảnh ref profile ghi "identity and colors", không có "ignore color".
+- [ ] Ảnh ref profile ghi "identity and local colors" và bỏ "lighting and
+      rendering"; không có "ignore color".
 - [ ] Mỗi nhân vật có profile có cụm gán vị trí/hành động trong Image 1, khớp
       brief, không mô tả mặt.
 - [ ] Có câu ưu tiên profile khi Image 1 khác profile.
