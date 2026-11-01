@@ -86,7 +86,7 @@ ENGLISH TEXT (copy exactly):
 ```text
 <khối STYLE màu>
 
-Color Image 1, the line art of pages <trái>–<phải>, in the ttpq comic light style above. Use it for the scene and text; characters must match their profile images exactly. Image <N> = <TÊN>: identity only; ignore pose, background and color.
+Color Image 1, the line art of pages <trái>–<phải>, in the ttpq comic light style above. Use it for the scene and text; characters must match their profile images exactly. Image <N> = <TÊN>: identity and colors (skin, eyes, hair, clothing); ignore pose and background. <TÊN> = <vị trí/hành động trong Image 1>. Where a face or costume in Image 1 differs from a profile image, follow the profile image.
 
 INTENT: <cảm xúc>; <thời điểm, nguồn sáng, bảng màu theo truyện>, keeping the soft 2D rendering of ttpq comic light. Calm light background behind the text.
 
@@ -95,17 +95,31 @@ TEXT: keep every word, line break and wrap from Image 1; crisp near-black, no bo
 DO NOT: <điều cấm truyện/era>; no new or colored text.
 ```
 
+- Ảnh ref profile ở lượt màu là chuẩn cả identity lẫn màu (da, mắt, tóc,
+  trang phục); không ghi "ignore color" như lượt nét.
+- Mỗi nhân vật có profile một cụm gán vị trí trong Image 1 (trang, vị trí,
+  hành động, ví dụ "the young monk digging, left page"), lấy từ brief; không
+  mô tả mặt hay đặc điểm nhận diện trong cụm này.
+- Giữ nguyên câu ưu tiên profile khi Image 1 khác profile.
+
 ## Prompt chỉnh outline
 
 Dùng khi người dùng gửi comment sửa outline (`SKIPPED_BY_USER` ngày
-2026-11-01). Đính kèm: Image 1 = outline đích; ảnh ref profile của nhân vật
-xuất hiện. Được ghi luật vá theo comment.
+2026-11-01). Viết từ khối "Chỉnh outline active" trong `record.md` (base,
+thứ tự ảnh, CHANGE tích lũy), không từ prompt chỉnh lượt trước. Đính kèm:
+Image 1 = base; ảnh ref profile của nhân vật xuất hiện, đúng thứ tự đã ghi
+trong khối. Được ghi luật vá theo comment.
+
+- CHANGE chép đủ danh sách tích lũy, không chỉ comment mới.
+- Không mô tả mặt, biểu cảm, ánh mắt, miệng hay đặc điểm nhận diện của nhân
+  vật có profile, kể cả nhân vật đang được sửa. Chỉ ghi khi comment yêu cầu
+  đúng điều đó, và chỉ ghi phần comment nêu.
 
 ```text
 Edit Image 1, the clean outline of pages <trái>–<phải>; keep the same clean black line art, no color. Image <N> = <TÊN>: identity only; ignore pose, background and color.
 
 CHANGE:
-- <mỗi comment một dòng, cụ thể vị trí/chủ thể>
+- <mỗi comment trong danh sách tích lũy một dòng, cụ thể vị trí/chủ thể>
 
 KEEP: everything not listed above, including every word, font size, line breaks and text wrap.
 

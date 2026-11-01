@@ -130,12 +130,32 @@ dùng style ttpq comic light để dàn trang màu, outline chỉ dùng để th
 
 ## 5. Sửa, tạo lại và lên màu
 
-- Chỉnh outline: sửa trực tiếp trên outline đích (đính kèm làm Image 1),
-  không áp quy tắc cấm output cũ và cấm luật vá (`SKIPPED_BY_USER` theo
-  contract ngày 2026-11-01). Xác định phần đổi, phần giữ và version đích; viết
-  prompt theo [mẫu chỉnh outline](prompt-template.md#prompt-chỉnh-outline);
-  xem lại profile gốc của nhân vật bị chỉnh. Tạo lại outline: xuất phát từ
-  nguồn gốc và phương án mới, không dùng outline bị bỏ làm chuẩn identity.
+- Chỉnh outline: sửa trực tiếp trên base (đính kèm làm Image 1), không áp
+  quy tắc cấm output cũ và cấm luật vá (`SKIPPED_BY_USER` theo contract ngày
+  2026-11-01). Viết prompt theo
+  [mẫu chỉnh outline](prompt-template.md#prompt-chỉnh-outline); xem lại
+  profile gốc của nhân vật bị chỉnh. Trạng thái chuỗi sửa nằm trong khối
+  "Chỉnh outline active" ở đầu `record.md`, ghi đè mỗi lượt:
+  - **Base:** outline đích cố định của chuỗi sửa. Không bao giờ tự lấy bản
+    vừa sửa ra làm base cho lượt sau.
+  - **Thứ tự ảnh:** Image 1 = base, Image 2… = ảnh ref profile theo thứ tự
+    nhân vật, ghi một lần khi mở chuỗi, mọi lượt dùng đúng thứ tự đó.
+  - **CHANGE tích lũy:** mỗi comment một dòng; comment mới thêm vào, comment
+    mới về cùng chủ thể và cùng khía cạnh thay dòng cũ.
+- Xác định base mỗi lượt:
+  - **Người dùng đính kèm outline trong lệnh sửa:** ảnh đó là base mới. Đối
+    chiếu với `outputs/` để ghi version; không khớp thì lưu thành file mới.
+    CHANGE làm lại chỉ gồm comment lượt này. Ghi lại thứ tự ảnh.
+  - **Người dùng chốt rõ một bản** (ví dụ “chốt v010 làm base”): bản đó là
+    base mới, CHANGE về rỗng.
+  - **Không có hai trường hợp trên:** dùng base trong khối; chưa có khối thì
+    base là outline vừa tạo từ layout/profile mà người dùng yêu cầu sửa.
+  - Hỏi lại khi ảnh đính kèm không phải outline (bản màu, ảnh ý tưởng) hoặc
+    có nhiều ảnh mà không rõ ảnh nào là base.
+  - Base đã lệch profile: báo người dùng, vẫn dùng theo lựa chọn của họ.
+- Tạo lại outline: xuất phát từ nguồn gốc và phương án mới, không dùng
+  outline bị bỏ làm chuẩn identity; xóa khối "Chỉnh outline active" và chuyển
+  nguyên văn sang lịch sử trong `record.md`.
 - Lệnh màu trực tiếp cho phép thực hiện, không cần hỏi lại “đã duyệt chưa”.
   Resolve đúng outline người dùng muốn dùng; chỉ hỏi nếu có nhiều bản mà chưa
   rõ bản nào. Không tự tạo màu chỉ vì người dùng nói outline đẹp/ổn.

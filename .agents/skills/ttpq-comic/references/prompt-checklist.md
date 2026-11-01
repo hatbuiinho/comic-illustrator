@@ -35,11 +35,21 @@ dùng. Quy tắc viết nằm ở `prompt-template.md`; checklist chỉ đối c
 - [ ] Khối STYLE màu chép nguyên; theo mẫu lượt màu.
 - [ ] Outline chỉ tham khảo scene và chữ; nhân vật theo profile gốc. Chỉ khóa
       nét khi người dùng yêu cầu riêng.
+- [ ] Ảnh ref profile ghi "identity and colors", không có "ignore color".
+- [ ] Mỗi nhân vật có profile có cụm gán vị trí/hành động trong Image 1, khớp
+      brief, không mô tả mặt.
+- [ ] Có câu ưu tiên profile khi Image 1 khác profile.
 
 ## Chỉnh outline / chỉnh màu
 
-- [ ] Chỉnh outline: Image 1 là đúng outline đích; CHANGE ghi đủ comment, KEEP
-      giữ chữ; ảnh ref profile của nhân vật xuất hiện có đính kèm.
+- [ ] Chỉnh outline: Image 1 là base trong khối "Chỉnh outline active", không
+      phải bản vừa sửa ra (trừ khi người dùng đính kèm/chốt base mới).
+- [ ] Thứ tự ảnh ref profile đúng như khối đã ghi; prompt gọi tên Image <N>
+      khớp ảnh đính kèm thật.
+- [ ] CHANGE chép đủ danh sách tích lũy; KEEP giữ chữ; ảnh ref profile của
+      nhân vật xuất hiện có đính kèm.
+- [ ] Không mô tả mặt/biểu cảm/đặc điểm nhận diện của nhân vật có profile,
+      trừ phần comment yêu cầu đúng điều đó.
 - [ ] Chỉnh màu: Image 1 là outline được chọn, không đính kèm ảnh màu đã tạo;
       comment nằm ở dòng CHANGE.
 

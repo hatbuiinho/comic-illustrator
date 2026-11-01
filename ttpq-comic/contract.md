@@ -43,7 +43,10 @@
   người dùng:
   - **Chỉnh outline:** không áp quy tắc cấm output cũ và cấm luật vá. Sửa trực
     tiếp trên outline đích, prompt ghi phần đổi theo comment và phần giữ; nhân
-    vật vẫn đối chiếu profile gốc.
+    vật vẫn đối chiếu profile gốc. Outline đích là **base** đã neo, không phải
+    bản vừa sửa ra: mọi lượt sửa xuất phát từ base, comment được tích lũy vào
+    một danh sách CHANGE, thứ tự ảnh đính kèm cố định trong suốt chuỗi sửa.
+    Chỉ đổi base khi người dùng đính kèm outline làm base hoặc chốt rõ một bản.
   - **Chỉnh màu:** không sửa trên ảnh màu đã tạo. Vẽ lại từ outline được chọn
     và profile gốc làm chuẩn, kèm comment của người dùng.
 - Style: [ttpq comic light](../docs/style-ttpq-comic-light.md). Bối cảnh mặc định:
