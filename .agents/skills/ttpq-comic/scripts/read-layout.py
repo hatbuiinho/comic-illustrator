@@ -39,6 +39,8 @@ def color_name(color):
     """Tên màu đánh dấu của ký tự; None nếu là chữ đen/xám thường."""
     if not color:
         return None
+    if isinstance(color, (int, float)):
+        color = (color,)
     c = tuple(round(float(v), 2) for v in color)
     if len(c) == 4 and c[:3] == (0, 0, 0) or len(c) in (1, 3) and max(c) == min(c):
         return None
