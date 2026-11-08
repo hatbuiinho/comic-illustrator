@@ -64,15 +64,18 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Godatta | Tôn giả trẻ, thần thông đào móng | S12–S14 | APPROVED v001 (`characters/godatta/`) | "vị sa môn trẻ", mắt tĩnh lặng (L179); xưa là lái buôn xe bò (L607) |
 | ~20 tỳ kheo | Khất thực, thọ thực | S11–S14 | — | Y nâu, bình bát |
 | Lão đạo trưởng + 5 đạo sĩ | Ngoại đạo | S16, (S48) | Gã xoa sườn: APPROVED v002 (`characters/dao-si-om-man-suon/`); đạo trưởng, gã cao to, người gần cửa, người thì thào dụ dỗ đệ tử: APPROVED v001 (`characters/nhom-dao-si/`); trẻ gầy da xám: — | Trẻ gầy da xám; gã xoa sườn; gã to cao thô kệch; người ngồi gần cửa |
-| Anh thợ trẻ | Bị rắn cắn | S18 | chưa | Hai chấm máu ở cổ tay |
-| Thầy thuốc | | S18 | — | |
-| Cittahattha | Tôn giả, hàng xóm Nalini | S18–S19 | chưa | Ngồi bất động giữa náo loạn |
+| Anh thợ trẻ | Bị rắn cắn | S18 | APPROVED v001 (`characters/tho-tre-bi-ran-can/`) | Hai chấm máu ở cổ tay |
+| Thầy thuốc | | S18 | APPROVED v001 (`characters/thay-thuoc/`) | |
+| Cittahattha | Tôn giả, hàng xóm Nalini | S18–S19 | kiếp hiện tại: chưa; tiền kiếp thời Phật Ca Diếp: APPROVED v001 (`characters/cittahattha-tien-kiep/`) | Ngồi bất động giữa náo loạn |
 | Sariputta | Tôn giả | S20 | chưa | Chăm bệnh, nhìn bình đẳng |
 | Tỳ kheo bệnh | | S20 | — | Nhợt nhạt, mắt an hòa |
+| Huynh đệ thoái thất | Tỳ kheo đồng tu với tiền kiếp Cittahattha, thời Phật Ca Diếp | S20 (lồng) | APPROVED v001 (`characters/huynh-de-thoai-that/`) | Chán nản, muốn hoàn tục (Ch4 L313–317) |
+| Hành giả định vô sắc | Hành giả xa xưa, đọa dã can | S20 (lồng) | APPROVED v001 (`characters/hanh-gia-dinh-vo-sac/`) | Tà kiến trong định (Ch4 L328–342); y cam giữ theo ảnh ref (`SKIPPED_BY_USER`) |
+| Trưởng lão thời Phật Ca Diếp | Đọa thân chồn | S20 (lồng) | APPROVED v001 (`characters/truong-lao-doa-lam-chon/`) | Trả lời "không bị" nghiệp chi phối (Ch4 L346) |
 | Vua Pasenadi | Vua Kosala | S22 | chưa | Bụng phình to (L412); tháo gươm, mũ miện ngoài cổng |
-| Thị vệ trẻ, thị vệ già | | S22–S23 | — | |
+| Thị vệ trẻ, thị vệ kỳ cựu | | Thị vệ trẻ: S22–S23; thị vệ kỳ cựu: S23 | Thị vệ kỳ cựu: APPROVED v002 (`characters/thi-ve-ky-cuu/`); thị vệ trẻ: APPROVED v001 (`characters/thi-ve-tre/`) | Thị vệ trẻ quỳ bên hiên (L415–423). Thị vệ kỳ cựu là "đồng đội dạn dày kinh nghiệm" (L429), không phải già |
 | Đức Phật | | S22, S24, S37 | chưa | Ngồi ghế tre ở hiên/hương thất |
-| Ananda | Tôn giả | S24 | chưa | Tưới hoa dưới tán sa la |
+| Ananda | Tôn giả | S24 | APPROVED v001 (`characters/ananda/`) | Tưới hoa dưới tán sa la |
 | Kirana | Trưởng lão lớn tuổi nhất | S24 | — | |
 | 60 tỳ kheo | Về từ Matika | S24 | — | Y sờn bạc, mặt sạm nắng |
 | Pavina | Tỳ kheo, nhân vật chính Ch6–8 | S24–S31, S33–S37, S39–S41 | chưa | Bình bát + túi vải trên vai; có chứng khó tiêu |

@@ -177,7 +177,7 @@
 ### S23 — Hai thị vệ bàn về nợ tiền kiếp · Ch5 L429–474 · DRAFT
 - **Thời điểm/ánh sáng:** ban ngày; bóng xe vua in dài trên đường (chiều, suy ra).
 - **Nơi:** đường về cùng đoàn tùy tùng.
-- **Nhân vật:** thị vệ trẻ (cợt nhả → nổi da gà), thị vệ già dạn dày (mắt nhìn thẳng, cười hiếm hoi).
+- **Nhân vật:** thị vệ trẻ (cợt nhả → nổi da gà), thị vệ kỳ cựu dạn dày kinh nghiệm, không phải già (L429; mắt nhìn thẳng, cười hiếm hoi).
 - **Cấm:** giáp trụ kiểu trung cổ châu Âu.
 
 ## Chương 6 — Người đi tìm chính mình
