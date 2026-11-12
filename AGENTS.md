@@ -29,6 +29,9 @@ sao chép các chi tiết đó vào đây khi cập nhật workflow.
 | Image Playground | Ảnh tự do, concept, poster, thử pose/cảnh ngoài minh họa tập | `comic-image-playground` | [docs/studio-contract.md](docs/studio-contract.md) |
 | TTPQ Comic | Viết prompt ChatGPT Image cho spread truyện cuộc đời Đức Phật (tranh + chữ VI/EN) | `ttpq-comic` | [ttpq-comic/contract.md](ttpq-comic/contract.md) |
 
+- Skill `comic-character-signature` (đề xuất, đối chiếu, soát nét riêng nhân
+  vật) chỉ chạy khi người dùng gọi đích danh; không là bước mặc định của
+  workflow nào.
 - Yêu cầu gọi rõ một workflow/skill được ưu tiên. Trước khi làm, đọc contract
   của workflow đã chọn.
 - Chỉ đọc skill và reference cần cho deliverable. Việc bảo trì project hoặc

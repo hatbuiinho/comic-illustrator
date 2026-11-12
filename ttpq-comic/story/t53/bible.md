@@ -62,7 +62,7 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Người chiên đà la | Gánh chất thải | S09 | APPROVED v001 (`characters/nguoi-chien-da-la/`) | Lưng còng dưới đôi quang gánh, rảo bước về hàng cây (L129) |
 | Tỳ kheo ni | Thăm công trường | S08 | — | Nhóm nhỏ |
 | Godatta | Tôn giả trẻ, thần thông đào móng | S12–S14 | APPROVED v001 (`characters/godatta/`) | "vị sa môn trẻ", mắt tĩnh lặng (L179); xưa là lái buôn xe bò (L607) |
-| ~20 tỳ kheo | Khất thực, thọ thực | S11–S14 | — | Y nâu, bình bát |
+| ~20 tỳ kheo | Khất thực, thọ thực | S11–S14 | APPROVED v002 (`characters/nhom-ty-kheo/`), profile nhóm | Y nâu, bình bát |
 | Lão đạo trưởng + 5 đạo sĩ | Ngoại đạo | S16, (S48) | Gã xoa sườn: APPROVED v002 (`characters/dao-si-om-man-suon/`); đạo trưởng, gã cao to, người gần cửa, người thì thào dụ dỗ đệ tử: APPROVED v001 (`characters/nhom-dao-si/`); trẻ gầy da xám: — | Trẻ gầy da xám; gã xoa sườn; gã to cao thô kệch; người ngồi gần cửa |
 | Anh thợ trẻ | Bị rắn cắn | S18 | APPROVED v001 (`characters/tho-tre-bi-ran-can/`) | Hai chấm máu ở cổ tay |
 | Thầy thuốc | | S18 | APPROVED v001 (`characters/thay-thuoc/`) | |
@@ -74,10 +74,10 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Trưởng lão thời Phật Ca Diếp | Đọa thân chồn | S20 (lồng) | APPROVED v001 (`characters/truong-lao-doa-lam-chon/`) | Trả lời "không bị" nghiệp chi phối (Ch4 L346) |
 | Vua Pasenadi | Vua Kosala | S22 | chưa | Bụng phình to (L412); tháo gươm, mũ miện ngoài cổng |
 | Thị vệ trẻ, thị vệ kỳ cựu | | Thị vệ trẻ: S22–S23; thị vệ kỳ cựu: S23 | Thị vệ kỳ cựu: APPROVED v002 (`characters/thi-ve-ky-cuu/`); thị vệ trẻ: APPROVED v001 (`characters/thi-ve-tre/`) | Thị vệ trẻ quỳ bên hiên (L415–423). Thị vệ kỳ cựu là "đồng đội dạn dày kinh nghiệm" (L429), không phải già |
-| Đức Phật | | S22, S24, S37 | chưa | Ngồi ghế tre ở hiên/hương thất |
+| Đức Phật | | S22, S24, S37 | APPROVED v001 (`characters/duc-phat/`, 3 ảnh ref: ngồi thiền, thuyết Pháp, đi đứng) | Ngồi ghế tre ở hiên/hương thất |
 | Ananda | Tôn giả | S24 | APPROVED v001 (`characters/ananda/`) | Tưới hoa dưới tán sa la |
 | Kirana | Trưởng lão lớn tuổi nhất | S24 | — | |
-| 60 tỳ kheo | Về từ Matika | S24 | — | Y sờn bạc, mặt sạm nắng |
+| 60 tỳ kheo | Về từ Matika | S24 | APPROVED v002 (`characters/nhom-ty-kheo/`), profile nhóm | Y sờn bạc, mặt sạm nắng |
 | Pavina | Tỳ kheo, nhân vật chính Ch6–8 | S24–S31, S33–S37, S39–S41 | chưa | Bình bát + túi vải trên vai; có chứng khó tiêu |
 | Gavampati | Tôn giả | S25 | chưa | |
 | Bà Matika | Cư sĩ A na hàm | S29, S39, S42–S44 | chưa | Lớn tuổi, phúc hậu, dáng khoan thai |

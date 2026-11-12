@@ -18,6 +18,7 @@ Chỉ dẫn chung, routing workflow và khóa phong cách nằm trong `AGENTS.md
 - `.claude/skills` là symlink tới `.agents/skills/`; chỉ sửa skill tại `.agents/skills/`.
 - Gọi skill bằng `/<ten-skill>` (ví dụ `/comic-page-guide`). `comic-production`
   chỉ dùng khi người dùng gọi đích danh, theo `comic-illustrator/contract.md`.
+  `comic-character-signature` cũng chỉ dùng khi được gọi đích danh.
 - `agents/openai.yaml` trong mỗi skill là cấu hình riêng của Codex; Claude bỏ qua.
 
 ## Cấu trúc project

@@ -98,12 +98,14 @@
 - **Cấm:** dép, ô dù, y cam sáng.
 
 ### S12 — Chư tăng đến công trường, thọ thực trong chòi · Ch2 L164–166 · DRAFT
+- **Duyệt theo phạm vi:** APPROVED — phần bối cảnh trang 36–37 (PDF 17, part 1), người dùng duyệt 2026-11-12. Các phần ngoài spread này giữ DRAFT.
 - **Thời điểm/ánh sáng:** N2 trưa đứng bóng, nắng gắt.
 - **Nơi:** công trường; hàng y nâu xuất hiện từ rặng cây; chòi lá.
 - **Nhân vật:** Nalini (tay lấm bùn, chạy ra xá chào); Visakha, Punna xuống xe ngựa; gia nhân gánh thúng thức ăn ủ kín; 20 tỳ kheo ngồi một hàng ngang trong chòi; hai vợ chồng xớt thức ăn vào bát.
 - **Cấm:** bàn ghế cao, bát đĩa sứ.
 
 ### S13 — Godatta hỏi việc, ra khu hố móng · Ch2 L167–187 · DRAFT
+- **Duyệt theo phạm vi:** APPROVED — phần bối cảnh trang 36–37 (PDF 17, part 1), người dùng duyệt 2026-11-12. Các phần ngoài spread này giữ DRAFT.
 - **Thời điểm/ánh sáng:** N2 đầu chiều, nắng chang chang.
 - **Nơi:** chòi (rửa tay trong chậu nước) → khu đất ngổn ngang gỗ đá → khu cọc đánh dấu hàng lối ngang dọc; đất cứng như đá tảng.
 - **Nhân vật:** Godatta (sa môn trẻ, mắt tĩnh lặng), Punna (bê chậu nước, lúng túng), Nalini (quệt mồ hôi), Visakha, các tôn giả.

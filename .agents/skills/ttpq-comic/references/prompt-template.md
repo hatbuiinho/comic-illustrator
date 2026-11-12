@@ -86,7 +86,7 @@ ENGLISH TEXT (copy exactly):
 ```text
 <khối STYLE màu>
 
-Color Image 1, the line art of pages <trái>–<phải>, in the ttpq comic light style above. Use it for the scene and text; characters must match their profile images exactly. Image <N> = <TÊN>: identity and local colors (skin tone, eye, hair and clothing colors); ignore pose, background, lighting and rendering, and paint in the ttpq comic light style above. <TÊN> = <vị trí/hành động trong Image 1>. Where a face or costume in Image 1 differs from a profile image, follow the profile image.
+Color Image 1, the line art of pages <trái>–<phải>, in the ttpq comic light style above. Use it for the scene and text; characters must match their profile images exactly. Image <N> = <TÊN>: identity and local colors (skin tone, eye, hair and clothing colors); ignore pose, background, lighting and rendering, and paint in the ttpq comic light style above. <TÊN> = <vị trí/hành động trong Image 1>; <biểu cảm>, looking at <đích nhìn>. Where facial identity or costume in Image 1 differs from a profile image, follow the profile image; take each character's expression and gaze from this prompt and Image 1, not from the profile image.
 
 INTENT: <cảm xúc>; <thời điểm, nguồn sáng, bảng màu theo truyện>, keeping the soft 2D rendering of ttpq comic light. Calm light background behind the text.
 
@@ -100,8 +100,19 @@ DO NOT: <điều cấm truyện/era>; no new or colored text.
   ảnh ref bị bỏ, rendering theo khối STYLE màu.
 - Mỗi nhân vật có profile một cụm gán vị trí trong Image 1 (trang, vị trí,
   hành động, ví dụ "the young monk digging, left page"), lấy từ brief; không
-  mô tả mặt hay đặc điểm nhận diện trong cụm này.
-- Giữ nguyên câu ưu tiên profile khi Image 1 khác profile.
+  mô tả identity (hình mặt, ngũ quan, tuổi, đặc điểm nhận diện) trong cụm này.
+- Biểu cảm và hướng nhìn (người dùng chốt 2026-11-04): identity theo profile,
+  nhưng biểu cảm thuộc khoảnh khắc. Nhân vật chính hoặc có biểu cảm quan trọng
+  thêm một cụm biểu cảm và hướng nhìn, khoảng 12 từ trở xuống, ví dụ
+  `a rare small smile, looking at Lady Visakha`.
+  - **Nguồn, theo thứ tự:** phương án active trong `brief.md` → chữ của
+    spread (ví dụ "nụ cười hiếm hoi") → Image 1 khi outline đã đúng. Các nguồn
+    mâu thuẫn thì hỏi người dùng.
+  - **Chỉ tả:** cảm xúc, khẩu hình (cười, mím, hé miệng), độ nhướng mày, hướng
+    nhìn. Không tả hình mặt, ngũ quan, tuổi hay dấu nhận diện.
+  - Nhân vật không có biểu cảm đáng kể thì bỏ phần biểu cảm trong mẫu.
+- Giữ nguyên câu ưu tiên profile khi Image 1 khác profile; câu này chỉ áp cho
+  identity và trang phục, kèm vế lấy biểu cảm và hướng nhìn từ prompt và Image 1.
 
 ## Prompt chỉnh outline
 
@@ -131,7 +142,9 @@ DO NOT: <điều cấm truyện/era liên quan phần sửa>.
 
 Không có mẫu riêng: viết lại prompt lượt màu với Image 1 = outline được chọn
 (hoặc outline mới vừa chỉnh), ảnh ref profile, thêm sau INTENT một dòng
-`CHANGE: <comment của người dùng>`. Không đính kèm ảnh màu đã tạo.
+`CHANGE: <comment của người dùng>`. Không đính kèm ảnh màu đã tạo. Comment về
+biểu cảm hoặc hướng nhìn được ghi vào CHANGE (ví dụ `Nalini: a rare small
+smile`), vẫn không tả identity.
 
 ## Mode frame
 

@@ -82,12 +82,18 @@ Chỉnh phương án đang active theo comment mình gửi kèm. Cập nhật br
 dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page này ở dạng clean outline, chữ sẽ hòa với hình nhưng giữ nguyên khổ chữ, giữ nguyên vị trí dòng đầu tiên, chữ có thể được reflow để ôm hình 1 cách sống động, phần chữ bên phải là tiếng anh, bên trái là tiếng việt, truyện này là truyện về cuộc đời Đức Phật nên nhân vật sẽ là người Ấn Độ thời đó ạ
 ```
 
+- Câu trên là lệnh của người dùng, không phải prompt gửi ImageGen; không gửi
+  nguyên văn câu này. Lệnh “Chọn phương án N … tạo clean outline” ở mục 2 kích
+  hoạt đúng mục này dù không chứa câu trên.
+- Mode mặc định `spread` khi `brief.md` chưa ghi mode; chỉ dùng `frame` khi
+  người dùng yêu cầu rõ.
 - Context và phương án active quyết định nội dung/scene. Layout xác định
   canvas, nội dung chữ và typography; cho phép reflow để ôm hình, không tự
   giảm khổ chữ. Đây là outline đen trắng theo ngôn ngữ nét của ttpq comic light,
   chưa áp màu hay render bóng thành phẩm.
-- Dùng layout và profile gốc với vai trò rõ; nguồn EN theo contract, không
-  tự dịch. Không giả vờ có font/khổ chữ chính xác nếu chỉ có ảnh raster; báo
+- Dùng layout và profile gốc với vai trò rõ. Nguồn EN theo SKILL bước 2: ưu
+  tiên bản người dùng/bản có sẵn; chưa có thì tự dịch, lưu `text-en.md`, không
+  dừng hỏi. Không giả vờ có font/khổ chữ chính xác nếu chỉ có ảnh raster; báo
   giới hạn quan sát được. Chữ trong ảnh vẫn là tham khảo dàn trang.
 - Prompt ImageGen do agent viết (lưu trong `prompts/`) theo
   [mẫu prompt gọn](prompt-template.md#prompt-lượt-nét), chỉ từ khối active
@@ -161,8 +167,10 @@ dùng style ttpq comic light để dàn trang màu, outline chỉ dùng để th
   rõ bản nào. Không tự tạo màu chỉ vì người dùng nói outline đẹp/ổn.
 - “Không ref lại output cũ”: không dùng ảnh màu cũ, outline lỗi hoặc output
   khác làm chuẩn nhân vật/style. Ngoại lệ: outline được chọn để tham khảo
-  scene và chữ ở lượt màu, outline đích khi chỉnh outline; profile gốc quyết định mặt, tóc, trang phục,
-  tỷ lệ và dấu nhận diện. Đọc và xem lại profile gốc mỗi lượt có nhân vật.
+  scene và chữ ở lượt màu, outline đích khi chỉnh outline; profile gốc quyết định nhận diện mặt, tóc,
+  trang phục, tỷ lệ và dấu nhận diện. Biểu cảm và hướng nhìn theo khoảnh khắc
+  trong phương án/chữ, giữ như Image 1 khi outline đã đúng (người dùng chốt
+  2026-11-04, xem mẫu prompt lượt màu). Đọc và xem lại profile gốc mỗi lượt có nhân vật.
 - Không dùng khối KEEP EXACTLY mọi outlines trong mẫu prompt màu cũ. Cho phép
   vẽ lại nhân vật đúng profile trong scene đã chọn, không tự đổi moment hay
   ý đồ. Giữ chữ và cách ôm đã chọn trừ yêu cầu đổi rõ; kiểm thực tế và báo nếu

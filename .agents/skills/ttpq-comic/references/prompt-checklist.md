@@ -38,8 +38,10 @@ dùng. Quy tắc viết nằm ở `prompt-template.md`; checklist chỉ đối c
 - [ ] Ảnh ref profile ghi "identity and local colors" và bỏ "lighting and
       rendering"; không có "ignore color".
 - [ ] Mỗi nhân vật có profile có cụm gán vị trí/hành động trong Image 1, khớp
-      brief, không mô tả mặt.
-- [ ] Có câu ưu tiên profile khi Image 1 khác profile.
+      brief, không mô tả identity. Nhân vật chính có thêm cụm biểu cảm và
+      hướng nhìn lấy từ phương án, chữ hoặc Image 1, khoảng 12 từ trở xuống.
+- [ ] Câu ưu tiên profile chỉ áp cho identity và trang phục; có vế lấy biểu
+      cảm và hướng nhìn từ prompt và Image 1.
 
 ## Chỉnh outline / chỉnh màu
 
