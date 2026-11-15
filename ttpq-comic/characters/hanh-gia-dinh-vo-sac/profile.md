@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet "Hành giả đắc định vô sắc giới" từ `local/Hành giả đắc định vô sắc giới.png`, 1536×1024, giữ nguyên pixel).
+- Tên trong prompt: the formless-absorption ascetic
+- Ref prompt: ref-v001.png
+- Dòng prompt: tall gaunt old man, long chest-length white beard, bushy white brows, bright orange robe
 - Vai trò trong truyện: "hành giả xa xưa" nhập định vô sắc giới, khởi tà kiến cho rằng nhân quả không còn chi phối; sinh cõi vô sắc, hết phước đọa làm dã can (Ch4 L328–342). Minh họa lồng lời kể (S20).
 
 ## Mô tả (tiếng Việt, để duyệt)

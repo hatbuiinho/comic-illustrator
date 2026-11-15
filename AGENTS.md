@@ -55,7 +55,9 @@ Một override rõ của người dùng phải được ghi là `SKIPPED_BY_USER
 
 ## Phong cách và nhân vật
 
-- Style duy nhất cho mọi workflow là **ttpq comic light**, thuần 2D, theo
+- Style mặc định cho mọi workflow là **ttpq comic light**, thuần 2D (riêng
+  TTPQ Comic có thêm style tùy chọn `ttpq comic soft` và style test
+  `ttpq comic blend` khi được gọi tên), theo
   [định nghĩa độc lập](docs/style-ttpq-comic-light.md) và
   [policy phong cách](docs/project-style-policy.md). Đọc trước thiết kế hình,
   viết prompt, tạo ảnh hoặc visual QA. Chỉ khi ảnh cần vẽ tu sĩ mới đọc và

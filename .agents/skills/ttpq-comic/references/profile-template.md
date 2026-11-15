@@ -2,7 +2,8 @@
 
 Lưu tại `ttpq-comic/characters/<slug>/profile.md`. Viết từ ảnh ref đã xem trực
 tiếp; chỉ mô tả điều thấy được hoặc người dùng cung cấp, không đoán. Ảnh ref
-được đính kèm khi chạy prompt, nên phần mô tả dùng để duyệt và tự kiểm.
+được đính kèm khi chạy prompt; `build-prompt.py` đọc 3 trường `Tên trong prompt`,
+`Ref prompt`, `Dòng prompt`. Phần mô tả còn lại dùng để duyệt.
 
 ~~~markdown
 # <Tên nhân vật>
@@ -10,6 +11,9 @@ tiếp; chỉ mô tả điều thấy được hoặc người dùng cung cấp,
 - Trạng thái: DRAFT | APPROVED
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png
+- Tên trong prompt: <tên tiếng Anh dùng trong prompt, ví dụ Punna, the monks>
+- Ref prompt: <ảnh ref mặc định đính kèm, ví dụ ref-v001.png>
+- Dòng prompt: <12–15 từ tiếng Anh: tuổi/vai và 2–3 dấu hiệu bắt buộc; không tả tư thế>
 - Vai trò trong truyện: <ví dụ: tỳ kheo, thợ xây, thầy thuốc>
 
 ## Mô tả (tiếng Việt, để duyệt)
@@ -30,14 +34,6 @@ tiếp; chỉ mô tả điều thấy được hoặc người dùng cung cấp,
 ## Không được nhầm
 
 Đặc điểm dễ lẫn với nhân vật khác hoặc dễ bị vẽ sai (tuổi, màu y, phụ kiện).
-
-## Dòng nhận diện (tiếng Anh, ≤ 45 từ; chép vào prompt cạnh "Image N = <tên>")
-
-Ảnh ref được đính kèm khi chạy nên chỉ nhắc dấu hiệu bắt buộc và điều dễ sai.
-
-```text
-<NAME> (Image <N>): keep exactly <dấu hiệu bắt buộc>. <điều dễ sai>.
-```
 
 ## Lịch sử
 

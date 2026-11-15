@@ -28,7 +28,9 @@ Giá trị đo từ layout mẫu (InDesign, Minion Pro). Mỗi spread luôn đ�
 ChatGPT Image tạo 1536×1024 (ngang), 1024×1536 (dọc) hoặc 1024×1024.
 
 - **Mode spread:** canvas 1536×1024. Spread chiếm 1443 px giữa; dư 47 px mỗi bên
-  là bleed chỉ có nền, sẽ cắt sau. Gáy tại x = 768 px. Chữ 12 pt ≈ 21 px,
+  là bleed chỉ có nền, sẽ cắt sau. Ảnh layout đính kèm phải cùng khổ này
+  (`layout-ref-canvas.png`); nếu đưa ảnh tỷ lệ 1.409, GPT kéo giãn layout ra
+  đầy 1536 px và chữ lệch khỏi tọa độ. Gáy tại x = 768 px. Chữ 12 pt ≈ 21 px,
   leading 17 pt ≈ 30 px (tỉ lệ 1024/575.43).
 - **Mode frame:** canvas theo tỉ lệ vùng của Hình (xem SKILL), chọn khổ gần nhất
   trong ba khổ trên; quy đổi cỡ chữ theo cùng tỉ lệ pt → px của vùng đó.
@@ -38,8 +40,9 @@ ChatGPT Image tạo 1536×1024 (ngang), 1024×1536 (dọc) hoặc 1024×1024.
 Chữ trong ảnh ChatGPT/Codex chỉ để tham khảo dàn trang; chữ in cuối cùng dàn
 trong InDesign theo cùng quy tắc này.
 
-- **Giữ nguyên:** nội dung, thứ tự đoạn, font, cỡ, leading, ngôn ngữ từng trang
-  (VI trái, EN phải). Không tóm tắt, không thêm chữ.
+- **Giữ nguyên:** nội dung, thứ tự đoạn, font, cỡ, leading của chữ VI trang
+  trái. Trang phải trong ảnh là chữ tiếng Anh giữ chỗ cùng độ dài; chữ EN thật
+  chỉ dàn trong InDesign.
 - **Được đổi:** độ dài từng dòng và đường biên khối chữ để ôm theo đường viền
   tranh (reflow). Tổng số dòng có thể tăng/giảm khoảng ±15% so với layout.
 - **Vị trí:** chữ nằm trong trang của nó, cách gáy ≥ 30 pt, giữ lề trên và lề

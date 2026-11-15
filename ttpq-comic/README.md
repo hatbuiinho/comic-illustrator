@@ -7,10 +7,14 @@ style `ttpq-comic`. Flow độc lập với `comic-illustrator/` và hai studio:
 Flow nghiên cứu kịch bản cả tập thành story bible và timeline cảnh, rồi dừng
 ở **gói prompt**: đọc layout, cảnh tương ứng, nhân vật, bối cảnh và contract rồi viết prompt hai lượt:
 
-1. **Lượt nét** (ChatGPT Image): clean outline đen trắng của cả spread, chữ
-   VI/EN ôm hình. Đính kèm `layout-ref.png` và ảnh ref profile nhân vật.
-2. **Lượt màu** (Codex hoặc ChatGPT Image): tô màu style ttpq-comic từ ảnh nét
-   đã chọn, nhân vật đúng profile, giữ nguyên chữ đã ôm hình từ ảnh nét.
+1. **Lượt nét:** clean outline đen trắng của cả spread, chữ VI trái và chữ
+   tiếng Anh giữ chỗ bên phải, ôm hình. Đính kèm `layout-ref.png` và ảnh ref.
+2. **Lượt màu:** vẽ màu style ttpq comic light (mặc định), ttpq comic soft hoặc
+   ttpq comic blend (khi gọi tên) từ outline đã chọn, nhân vật
+   đúng profile, giữ chữ đã ôm hình.
+
+Prompt ảnh do `build-prompt.py` ghép: khối STYLE, ảnh ref theo dòng
+**Profile:** của cảnh và điều cấm được chèn tự động.
 
 Ảnh tạo ra là nháp; chữ trong ảnh chỉ để tham khảo, chữ in dàn trong InDesign.
 
@@ -26,6 +30,8 @@ ttpq-comic/
   book-spec.md                Khổ spread, chữ VI/EN, quy tắc chữ ôm hình
   style/
     ttpq-comic.md             Định nghĩa style, khối prompt, điều cấm
+    ttpq-comic-soft.md        Style tùy chọn soft: khối STYLE và LINE ART STAGE
+    ttpq-comic-blend.md       Style test blend (50 comic/25 flat/25 storybook)
     era-ancient-india.md      Trang phục, kiến trúc, cảnh vật thời Đức Phật
     refs/                     Ảnh mẫu style (bổ sung sau)
   story/<tập>/
@@ -38,8 +44,9 @@ ttpq-comic/
   spreads/<layout-slug>/p<trái>-<phải>/
     layout.json, layout.png   Dữ liệu và ảnh chụp spread trích từ PDF
     brief.md                  Mode, bối cảnh truyện và ý đồ điện ảnh đã chọn
-    prompts/vNNN-*.md         Gói prompt lượt nét + lượt màu để copy
-    record.md                 Nguồn đã dùng, quyết định, kết quả tự kiểm
+    prompts/vNNN-*            Khối bối cảnh, body và prompt đã ghép
+    outputs/                  Ảnh outline/màu theo version
+    record.md                 Prompt, ảnh đính kèm, comment từng lượt
 ```
 
-Skill: `.agents/skills/ttpq-comic/` (SKILL.md, mẫu và script `read-layout.py`).
+Skill: `.agents/skills/ttpq-comic/` (SKILL.md, mẫu, `read-layout.py`, `build-prompt.py`).

@@ -67,24 +67,24 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Anh thợ trẻ | Bị rắn cắn | S18 | APPROVED v001 (`characters/tho-tre-bi-ran-can/`) | Hai chấm máu ở cổ tay |
 | Thầy thuốc | | S18 | APPROVED v001 (`characters/thay-thuoc/`) | |
 | Cittahattha | Tôn giả, hàng xóm Nalini | S18–S19 | kiếp hiện tại: chưa; tiền kiếp thời Phật Ca Diếp: APPROVED v001 (`characters/cittahattha-tien-kiep/`) | Ngồi bất động giữa náo loạn |
-| Sariputta | Tôn giả | S20 | chưa | Chăm bệnh, nhìn bình đẳng |
+| Sariputta | Tôn giả | S20 | APPROVED v001 (`characters/sariputta/`) | Chăm bệnh, nhìn bình đẳng |
 | Tỳ kheo bệnh | | S20 | — | Nhợt nhạt, mắt an hòa |
 | Huynh đệ thoái thất | Tỳ kheo đồng tu với tiền kiếp Cittahattha, thời Phật Ca Diếp | S20 (lồng) | APPROVED v001 (`characters/huynh-de-thoai-that/`) | Chán nản, muốn hoàn tục (Ch4 L313–317) |
 | Hành giả định vô sắc | Hành giả xa xưa, đọa dã can | S20 (lồng) | APPROVED v001 (`characters/hanh-gia-dinh-vo-sac/`) | Tà kiến trong định (Ch4 L328–342); y cam giữ theo ảnh ref (`SKIPPED_BY_USER`) |
 | Trưởng lão thời Phật Ca Diếp | Đọa thân chồn | S20 (lồng) | APPROVED v001 (`characters/truong-lao-doa-lam-chon/`) | Trả lời "không bị" nghiệp chi phối (Ch4 L346) |
-| Vua Pasenadi | Vua Kosala | S22 | chưa | Bụng phình to (L412); tháo gươm, mũ miện ngoài cổng |
+| Vua Pasenadi | Vua Kosala | S22 | APPROVED v001 (`characters/vua-pasenadi/`) | Bụng phình to (L412); tháo gươm, mũ miện ngoài cổng |
 | Thị vệ trẻ, thị vệ kỳ cựu | | Thị vệ trẻ: S22–S23; thị vệ kỳ cựu: S23 | Thị vệ kỳ cựu: APPROVED v002 (`characters/thi-ve-ky-cuu/`); thị vệ trẻ: APPROVED v001 (`characters/thi-ve-tre/`) | Thị vệ trẻ quỳ bên hiên (L415–423). Thị vệ kỳ cựu là "đồng đội dạn dày kinh nghiệm" (L429), không phải già |
 | Đức Phật | | S22, S24, S37 | APPROVED v001 (`characters/duc-phat/`, 3 ảnh ref: ngồi thiền, thuyết Pháp, đi đứng) | Ngồi ghế tre ở hiên/hương thất |
 | Ananda | Tôn giả | S24 | APPROVED v001 (`characters/ananda/`) | Tưới hoa dưới tán sa la |
 | Kirana | Trưởng lão lớn tuổi nhất | S24 | — | |
 | 60 tỳ kheo | Về từ Matika | S24 | APPROVED v002 (`characters/nhom-ty-kheo/`), profile nhóm | Y sờn bạc, mặt sạm nắng |
-| Pavina | Tỳ kheo, nhân vật chính Ch6–8 | S24–S31, S33–S37, S39–S41 | chưa | Bình bát + túi vải trên vai; có chứng khó tiêu |
+| Pavina | Tỳ kheo, nhân vật chính Ch6–8 | S24–S31, S33–S37, S39–S41 | APPROVED v001 (`characters/pavina/`) | Bình bát + túi vải trên vai; có chứng khó tiêu |
 | Gavampati | Tôn giả | S25 | chưa | |
-| Bà Matika | Cư sĩ A na hàm | S29, S39, S42–S44 | chưa | Lớn tuổi, phúc hậu, dáng khoan thai |
-| Gia nhân của Matika | | S28–S33 | — | Thanh niên nhanh nhẹn |
+| Bà Matika | Cư sĩ A na hàm | S29, S39, S42–S44 | APPROVED v001 (`characters/ba-matika/`) | Lớn tuổi, phúc hậu, dáng khoan thai |
+| Gia nhân của Matika | | S28–S33 | APPROVED v001 (`characters/gia-nhan-nha-matika/`), ref một thanh niên; gia nhân khác tả bằng chữ | Thanh niên nhanh nhẹn |
 | Bà cụ gánh nước | | S27 | — | |
-| Gã buôn tung tin | | S35 | — | Ngoài 40, áo vải thô, mặt lọc lõi |
-| Bà bán vải, bà bán gạo, bà bán gia vị | | S35–S36 | — | |
+| Gã buôn tung tin | | S35 | APPROVED v001 (`characters/ga-buon-tung-tin/`) | Ngoài 40, áo vải thô, mặt lọc lõi |
+| Bà bán vải, bà bán gạo, bà bán gia vị | | S35–S36 | APPROVED v001 (`characters/ba-ba-ban-hang/`), profile nhóm | |
 | Moggallana | Tôn giả thần thông | S38, S45–S46 | APPROVED v001 (`characters/moggallana/`) | |
 | Tiền kiếp Pavina/Matika | | S40 | — | Kiếp 9: thương nhân, tiểu thư, quan huyện; kiếp 10: cô gái, người lính; kiếp 11: chàng trai, cô gái |
 | Nalini lúc bé, cha Nalini | Hồi ức | S06, S10 | — | |
@@ -175,6 +175,37 @@ Uttar Pradesh), **chưa tra nguồn có trích dẫn**; đánh dấu "(chưa ki�
 - Thần thông vẽ tiết chế: đất/gỗ bay lơ lửng, không tia sáng, hào quang kiểu
   game hay hiệu ứng phép thuật (suy ra từ giọng kể trầm lặng).
 - Không chữ, ký hiệu hay bảng hiệu trong tranh.
+
+## Avoid trong prompt
+
+Bản tiếng Anh ngắn của "Điều cấm chung", `build-prompt.py` chép vào dòng Avoid
+của mọi lượt nét/màu. Dòng có tiền tố `[khi: từ khóa, …]` chỉ được chèn khi cảnh chứa
+một trong các từ khóa. Sửa điều cấm chung thì sửa cả mục này.
+
+- [khi: công trường, xây, móng, giàn] buildings finished ahead of the construction stage of the scene
+- bright orange or saffron monk robes, unless a profile sheet shows it
+- glowing rays, halos or game-like magic effects
+- signs, symbols or any written text inside the picture
+- modern objects, furniture or tools
+
+## Cặp dễ nhầm
+
+Khi cả hai cùng có mặt trong một cảnh, `build-prompt.py` tự thêm câu tương
+phản tiếng Anh dưới đây. Dạng dòng: `- slug-a + slug-b: <câu>`.
+
+- punna-vaddhana + bac-nalini: Punna is younger with no chin beard, a light-blue top and gold jewelry; Nalini is older with a salt-and-pepper chin beard, a cream top and no jewelry.
+- godatta + moggallana: Godatta is younger with a smooth beardless face and normal earlobes; Moggallana has a high broad forehead, long earlobes and a thin short beard along the jaw.
+- ananda + godatta: Ananda is taller with a slimmer, longer face and long earlobes; Godatta has normal earlobes.
+- ananda + moggallana: Ananda has a younger slim beardless face; Moggallana has a high broad forehead and a thin short beard along the jaw.
+- cittahattha-tien-kiep + huynh-de-thoai-that: Cittahattha has a square face and jaw; the backsliding monk has a slim oval face, pointed chin and long earlobes.
+- hanh-gia-dinh-vo-sac + truong-lao-doa-lam-chon: the ascetic has a long chest-length white beard and an orange robe; the elder has a short trimmed white beard and a very dark reddish-brown robe.
+- thi-ve-tre + thi-ve-ky-cuu: the young guard is beardless with a brown breastplate and white lower wrap; the veteran has a trimmed black beard, an olive breastplate and a saffron shawl.
+- thay-thuoc + thi-ve-ky-cuu: the physician wears no armor, no sword and a plain brick-red turban.
+- duc-phat + nhom-ty-kheo: only the Buddha has snail-shell curls, an ushnisha and an urna; the monks have shaved heads.
+- duc-phat + ananda: only the Buddha has snail-shell curls, an ushnisha and an urna; Ananda has a shaved head.
+- nhom-dao-si + dao-si-om-man-suon: the rib-holding ascetic has a thick moustache without a chin beard and cream-and-ochre wraps.
+- gia-nhan-nha-visakha + tho-thuyen-phu-ta: servants wear matching clean ivory and earth-brown clothes; workers wear mixed colors and carry tools.
+- ba-lao-vai-ao-va + nguoi-dan-cong-qua: only the old woman has white hair and the square patch on her left shoulder.
 
 ## Cần quyết
 

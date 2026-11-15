@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng gửi ảnh và yêu cầu "Thêm nhân vật: Nhóm người dân đến công quả" ngày 2026-10-31; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet 5 người đứng chính diện người dùng gửi ngày 2026-10-31, 1536×1024, chuyển từ webp sang png, giữ nguyên pixel).
+- Tên trong prompt: volunteer villagers
+- Ref prompt: ref-v001.png
+- Dòng prompt: poor but dignified villagers of mixed ages in dark muted homespun wraps, barefoot, no jewelry
 - Vai trò trong truyện: dân nghèo tự nguyện đến công trường tinh xá Pubbarama chấp tác, "không giao ước, không tiền công" (Ch1 L13–26); đào đất, gánh đất đá cùng thợ (L27), ngồi ăn bánh với thợ cũ (L45). Xuất hiện ở S02, S03, S05.
 - Đây là profile nhóm: giữ tạo hình và bảng màu nhất quán cho đám đông dân công quả; số người, tuổi và việc đang làm theo chữ của cảnh.
 

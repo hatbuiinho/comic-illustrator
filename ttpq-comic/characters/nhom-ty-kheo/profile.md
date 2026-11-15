@@ -2,6 +2,9 @@
 
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm 2 profile của nhóm/đoàn Tỳ Kheo ở trong folder local, dùng cho trường hợp nhóm Tỳ Kheo nhiều vị" ngày 2026-11-12; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v002
+- Tên trong prompt: the monks
+- Ref prompt: ref-v002-nhom-chinh-dien.png
+- Dòng prompt: bhikkhus of mixed ages, each face distinct, shaved heads, plain deep earth-brown robes over both shoulders
 - Ảnh ref (cả hai cùng là chuẩn của nhóm; chọn theo cảnh, có thể đính kèm cả hai):
   - `ref-v002-nhom-chinh-dien.png` — 6 vị đứng chụm chính diện, nhiều lứa tuổi, 3 vị ôm bát. Dùng cho nhóm đứng/ngồi, cận và trung cảnh. Từ `local/Nhóm Tỳ Kheo đã chỉnh màu.png`, 1024×1536.
   - `ref-v002-doan-di.png` — đoàn khoảng 18 vị đi một hàng chân trần, nhìn 3/4 nghiêng, xa dần về phải; một sa di nhỏ đi thứ hai; nhiều vị mang bát trong túi y bên hông. Dùng cho đoàn khất thực, đoàn đi đường, toàn cảnh. Từ `local/Đoàn Tỳ Kheo đã chỉnh màu y.png`, 1774×887.
@@ -29,7 +32,7 @@
 
 - Không lẫn với Đức Phật (`duc-phat`): tỳ kheo đầu cạo, không tóc xoăn ốc, không nhục kế, không bạch hào, dái tai bình thường.
 - Không lẫn với tỳ kheo có profile riêng (Ananda, Moggallana, Godatta…): khi các vị này có mặt, đính kèm profile riêng và không để vị nào trong nhóm mượn dấu hiệu của họ (vd. dái tai dài, mặt trẻ thon của Ananda).
-- Không y cam sáng hiện đại, không y vàng nghệ, không đỏ gạch tươi, không viền/hoa văn; màu y theo `docs/monastic-robes.md`.
+- Không y cam sáng hiện đại, không y vàng nghệ, không đỏ gạch tươi, không viền/hoa văn; màu y và cách quấn y theo ảnh ref của profile này, không áp `docs/monastic-robes.md`.
 - Sa di chỉ đưa vào khi cảnh có; mặc định nhóm là tỳ kheo trưởng thành.
 - Trạng thái theo cảnh được mô tả thêm bằng chữ, ví dụ 60 tỳ kheo về từ Matika: y sờn bạc, mặt sạm nắng (bible S24).
 - Ảnh đoàn đi chỉ cho tạo hình; bố cục, hướng đi và số lượng theo layout của spread.
@@ -45,3 +48,4 @@ MONK GROUP (Image <N>): unnamed bhikkhus of mixed ages, each face distinct, shav
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v002 | 2026-11-12 | Tiếp nhận 2 ảnh đã chỉnh màu y (nâu đất trầm) từ `local/`, lưu `ref-v002-*.png` và ghi nhận diện; bỏ bản v001 theo yêu cầu | Người dùng chỉ định ảnh làm profile |
+| v002 | 2026-11-13 | Màu y/cách quấn y theo ảnh ref của profile, bỏ dẫn chiếu `docs/monastic-robes.md` | Người dùng yêu cầu gỡ quy chuẩn y chung khỏi ttpq-comic |

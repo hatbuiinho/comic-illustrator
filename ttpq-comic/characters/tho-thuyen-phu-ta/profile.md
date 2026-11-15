@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng gửi ảnh và yêu cầu "Thêm nhân vật: Thợ thuyền, phụ tá xây dựng" ngày 2026-10-31; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet 4 người thợ kèm dụng cụ người dùng gửi ngày 2026-10-31, 1536×1024, chuyển từ webp sang png, giữ nguyên pixel).
+- Tên trong prompt: the workers
+- Ref prompt: ref-v001.png
+- Dòng prompt: sturdy barefoot laborers, each with a different turban color, knee-length wraps, simple wooden tools
 - Vai trò trong truyện: phụ tá và cánh thợ của Nalini trên công trường Pubbarama — đào móng, chuyền gỗ, gánh đất đá (L27, L45), dựng cột, kéo dây, lắp cấu kiện (L612–627), làm giàn giáo (L729). Xuất hiện ở các cảnh công trường như S03, S05, S09, S32, S38.
 - Đây là profile nhóm: giữ tạo hình và trang phục nhất quán cho thợ; số người, vai thợ hay phụ tá và việc đang làm theo chữ của cảnh. Sheet không phân biệt ai là thợ, ai là phụ tá.
 

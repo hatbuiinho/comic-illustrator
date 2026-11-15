@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng gửi ảnh và yêu cầu "thêm nhân vật Tôn giả Godatta" ngày 2026-10-31; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (ảnh chân dung + toàn thân người dùng gửi ngày 2026-10-31, 1920×1889, chuyển từ webp sang png, giữ nguyên pixel).
+- Tên trong prompt: Godatta
+- Ref prompt: ref-v001.png
+- Dòng prompt: young monk, shaved head, smooth oval face, thick dark brows, calm eyes, normal earlobes
 - Vai trò trong truyện: tôn giả trẻ, dùng thần thông đào móng tinh xá (S12–S14); xưa là lái buôn xe bò (script L607).
 
 ## Mô tả (tiếng Việt, để duyệt)
@@ -28,7 +31,7 @@
 - Vải quanh tay là mép vải quấn gom nếp, không phải ống tay may; vải quanh cổ là lớp quấn mềm, không cổ áo may hay cổ đứng.
 - Không trần một vai, không thêm trang sức, chuỗi hạt hay hào quang.
 - Không vẽ già đi; quá khứ lái buôn chỉ là chuyện kể, không đưa vào trang phục.
-- Màu y theo `docs/monastic-robes.md`; không đẩy sang cam tươi hoặc nâu vàng.
+- Màu y và cách quấn y theo ảnh ref của profile này, không áp `docs/monastic-robes.md`; không đẩy sang cam tươi hoặc nâu vàng.
 
 ## Dòng nhận diện (tiếng Anh, ≤ 45 từ; chép vào prompt cạnh "Image N = <tên>")
 
@@ -41,3 +44,4 @@ GODATTA (Image <N>): young monk, shaved head, no beard, thick dark brows, calm b
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-10-31 | Tiếp nhận ảnh gốc, lưu `ref-v001.png` và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
+| v001 | 2026-11-13 | Màu y/cách quấn y theo ảnh ref của profile, bỏ dẫn chiếu `docs/monastic-robes.md` | Người dùng yêu cầu gỡ quy chuẩn y chung khỏi ttpq-comic |

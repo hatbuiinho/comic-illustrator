@@ -1,200 +1,194 @@
-# Mẫu prompt gọn
+# Mẫu prompt
 
-Dùng cho cả prompt ImageGen nội bộ của flow tương tác và nhánh gói prompt.
-Khối bối cảnh riêng viết tiếng Việt; khối STYLE và chữ EN chép nguyên văn.
-Thay mọi `<...>` bằng giá trị thật, xóa phần không áp dụng. File lưu gồm metadata và từng prompt trong code
-block riêng.
+Prompt ảnh do `scripts/build-prompt.py` ghép. Agent chỉ viết **file body**: vài
+câu tiếng Anh tự nhiên, không nhãn viết hoa, không luật vá. Script ghép theo
+thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → STYLE → trang sách
+(lề, bleed, gáy) → chữ → Avoid. Script tự thêm:
 
-~~~markdown
-# Prompt <vNNN> — <layout-slug> p<trái>-<phải> — <spread | Hình N>
+- khối STYLE theo `--style` (mặc định `light`; `soft`/`blend` chỉ khi người dùng gọi
+  tên). Light: cả hai lượt chép định nghĩa chuẩn `docs/style-ttpq-comic-light.md`,
+  lượt nét bỏ đoạn `Color:` rồi thêm khối LINE ART STAGE của
+  `ttpq-comic/style/ttpq-comic.md` (mật độ nét, tóc, nếp y, nền, tỷ lệ người thật).
+  Soft: hai khối trong `ttpq-comic/style/ttpq-comic-soft.md`, lượt nét bỏ đoạn
+  `Color and light:`. Blend: hai khối trong `ttpq-comic/style/ttpq-comic-blend.md`,
+  lượt nét bỏ đoạn `Color and light:`;
+- câu mở lượt nét gọi tên style ("ttpq comic light"/"ttpq comic soft"/"ttpq comic blend" refined
+  editorial comic line art), không viết "clean black line art" vì GPT hiểu thành
+  trang tô màu;
+- câu mở lượt màu: light là mảng màu phẳng, 2–3 tông cel-shading ranh giới rõ,
+  nền vài mảng phẳng; soft là ánh sáng có hướng, 3–4 tông bóng chuyển mềm,
+  gradient nhẹ, nền có lớp xa gần; blend là mảng phẳng, 2–3 tông cel mép hơi dịu,
+  tiền/trung cảnh phẳng (trung cảnh chuyển sắc dịu), viễn cảnh/trời vẽ dịu với gradient nhẹ, không gradient trên nhân vật. Cả ba giữ nét đen; tông xám trong Image 1
+  không phải ánh sáng;
+- câu về layout, ô hình placeholder và dải bleed xám hai bên (lấy từ `layout.json`);
+- lượt nét: tự tạo `layout-ref-canvas-v003.png` 1536×1024 (spread ở giữa, dải
+  bleed xám trơn 47 px mỗi bên, để trống; hậu kỳ nối nền bằng Photoshop/AI)
+  cùng khổ ảnh ra; prompt giữ mặt, tay và hành động chính lùi vào trong trang,
+  xa dải xám; thân, y và nền được chạy tới mép xén và bị cắt ở đó, để GPT không kéo giãn layout; đính kèm file
+  này làm Image 1 thay `layout-ref.png`;
+- dòng `Image N = <tên>: <dòng prompt>` cho từng nhân vật, lấy từ dòng
+  **Profile:** của cảnh hoặc `--cast`, cùng câu tương phản cho cặp dễ nhầm.
+  Không có `--cast` mà cast của cảnh quá 3 ảnh ref thì script dừng; có
+  `--cast` mà quá 3 ảnh thì cảnh báo;
+- câu chữ: mở bằng mục tiêu chữ và tranh đan vào nhau; chỉ khóa **cỡ chữ/giãn
+  dòng** (số đo từ `sizePx`, `leadingPx`) và **vị trí dòng đầu** mỗi cột (theo
+  Image 1, không ghi tọa độ % vì GPT không đo pixel); độ dài dòng, ngắt dòng, số
+  dòng và dáng khối để tự do, cột có thể dài xuống; VI trái, EN giữ chỗ bên phải; chữ đen, không
+  khung, giữ nguyên highlight màu của layout theo dòng đã reflow, không đè mặt, gáy để trống. Không khóa thêm số dòng, dáng khối
+  hay khoảng cách đoạn: các khóa đó làm tranh né vùng chữ;
+- câu gáy (cả ba lượt): gáy ở x 50%, nền vẽ liền qua gáy; nhân vật (thân, y, đạo cụ
+  cầm tay) nằm trọn một trang, được vẽ sát gáy từ phía mình; mặt và bàn tay làm
+  hành động chính ngoài 7% giữa chiều ngang (30 pt mỗi bên gáy). Chỉ giữ hai con
+  số: gáy x 50% và 7%. Vật cần đi liền qua gáy (thanh gỗ nhiều người khiêng…)
+  dùng `--across`. Spread
+  hai cảnh dùng `--two-scenes`: nền hai cảnh nối qua gáy bằng vùng chuyển tiếp,
+  không dải giấy trắng; nhân vật mỗi cảnh ở trang của mình. Lượt màu tô liền qua
+  gáy, chỉ hai dải bleed xám để trống; spread hai tranh tách nhau có dải giấy
+  trắng ở gáy (theo brief/outline) thì dùng `--split` ở cả ba lượt: lượt nét
+  đổi câu gáy thành hai tranh riêng, dải giấy trắng 7% giữa; lượt màu giữ dải trắng;
+- dòng Avoid: "Avoid" (tiếng Anh) của cảnh, "Avoid trong prompt" của bible (dòng
+  `[khi: …]` chỉ chèn khi cảnh chứa từ khóa); cảnh chỉ có "Cấm" tiếng Việt thì
+  script bỏ qua và cảnh báo; cộng `--avoid`. Áp cho cả lượt nét, màu và chỉnh.
+  GPT không có negative prompt thật, mỗi từ trong Avoid vẫn gợi ra thứ đó: điều
+  muốn có viết thành câu khẳng định trong body; Avoid chỉ giữ lỗi model hay mắc
+  thật; quá 7 mục thì script cảnh báo;
+- lượt màu: ánh sáng lấy từ `--light` (tiếng Anh, ưu tiên), nếu không thì từ
+  "Thời điểm/ánh sáng" của cảnh; trường này là tiếng Việt thì script bỏ qua và
+  cảnh báo. Spread hồi tưởng hoặc khác thời điểm với cảnh luôn dùng `--light`;
+  giữ highlight màu sau chữ như Image 1;
+- lượt màu: bỏ dòng `Text wrap:` của body; cảnh báo nếu body còn chỉ dẫn góc máy;
+- lượt chỉnh: mở bằng "chỉ đổi điều liệt kê, giữ nguyên phần còn lại", thêm
+  một dòng khóa style nét. Nhân vật khớp sheet ở mặt, tóc, trang phục; tỷ lệ cơ
+  thể theo dòng prompt, không theo tư thế sheet. Giữ chữ, cỡ chữ, dòng đầu; chỉ
+  các dòng cạnh vùng sửa được reflow ôm hình mới;
+- body ghi `{slug}` (ví dụ `{moggallana}`) khi cần trỏ tới ảnh ref; script thay
+  bằng `Image N` đúng theo cast, dừng nếu slug không có trong cast, cảnh báo nếu
+  body ghi cứng `Image N`.
 
-- Mode: spread | frame
-- Canvas: <1536x1024 | 1024x1536 | 1024x1024>
-- Nguồn: layout.json (+ spread liền kề), profile <slug@vNNN>, brief.md, text-en.md
-- Thay đổi so với version trước: <...>
+Lệnh chung (đường dẫn `--body`/`--out` tính theo thư mục spread):
 
-## Lượt nét — ChatGPT Image
-
-Đính kèm ở tin 2: Image 1 = `layout-ref.png`; Image 2 = `<ref profile>`; …
-
-### Tin 1 — style
-
-```text
-<khối STYLE clean outline>
+```bash
+scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/build-prompt.py \
+  --spread ttpq-comic/spreads/<layout-slug>/p<trái>-<phải> --scenes <Snn> [<Snn>] \
+  --pass <outline|color|edit> --body prompts/vNNN-<pass>.body.txt \
+  [--cast <slug> …] [--no-ref <slug> …] [--avoid "<không vẽ, tiếng Anh>"] \
+  --out prompts/vNNN-<pass>.txt
 ```
 
-### Tin 2 — yêu cầu
+- `--cast`: người thật sự có mặt trong spread (thường khác dòng Profile của cả cảnh); slug
+  có thể kèm ảnh, ví dụ `duc-phat:ref-v001-ngoi-thien.png`.
+- `--no-ref`: nhân vật ở xa, nhỏ hoặc nhóm quần chúng; chỉ tả bằng chữ.
+- `--avoid`: mục "Không vẽ" của brief, dịch ngắn sang tiếng Anh.
+- `--light`: ánh sáng tiếng Anh của spread cho lượt màu, ví dụ
+  `"bright midday sun in a dry forest; the ravine floor in cool shade"`.
+- `--two-scenes`: spread có hai cảnh tách, nối nền qua gáy bằng vùng chuyển tiếp.
+- `--across "<vật>"`: ngoại lệ của câu gáy cho một vật đi liền qua gáy (ví dụ
+  `"the long wooden beam"` khi nhiều người khiêng từ trang này sang trang kia).
+  Người vẫn nằm trọn trang của mình; trong 7% giữa vật chỉ là một đoạn trơn,
+  không tay, dây buộc, mối nối hay mặt. Truyền ở cả ba lượt; không dùng với `--split`.
+- `--no-text`: Hình không có chữ (mode frame).
+- Script in danh sách ảnh đính kèm theo thứ tự Image; gửi đúng thứ tự đó.
+
+## Body lượt nét
+
+Lấy từ phương án active, viết văn xuôi, theo thứ tự:
+
+- **STORY (bắt buộc):** một câu mở đầu nêu ai, ở đâu, lúc nào, chuyện gì vừa
+  xảy ra hoặc chưa xảy ra. Đây là phần GPT không tự biết.
+- **Từng trang/scene:** góc máy, cỡ cảnh, focus (một chủ thể, một hành động),
+  vai phụ phản ứng ra sao. Tư thế và đạo cụ chép đúng brief.
+- **Biểu cảm (bắt buộc):** mọi nhân vật có tên có một cụm biểu cảm và hướng
+  nhìn, khoảng 12 từ trở xuống, ví dụ `a slight gentle smile, looking at Punna's spoon`.
+  Thiếu cụm này, GPT tự vẽ nụ cười tươi mặc định. Không tả mặt, tuổi hay màu.
+- **Text wrap (bắt buộc):** từ mục "Chữ ôm hình" của brief: phần tranh nào
+  (đầu gậy, tán cây, mép vách…) vươn vào cạnh những dòng nào của cột nào.
+  Không nhắc cỡ chữ, dòng đầu, ngôn ngữ, màu chữ hay độ rộng dòng: script đã lo
+  và câu lặp dễ mâu thuẫn. Thiếu câu này, tranh nằm yên dưới chữ.
+- **Mood:** một câu cảm xúc của spread.
+
+Mỗi lượt nét viết body mới từ brief, kể cả khi chỉ cập nhật phương án; không
+sửa chồng lên body/prompt trước. Lưu body vào `prompts/vNNN-outline.body.txt`
+để truy được prompt đã lấy gì từ brief.
+
+Gọi nhân vật bằng `Tên trong prompt` trong profile. Quần chúng không có profile
+thì tả số lượng và hành động ngay trong câu. Lỗi từng gặp của spread đưa vào
+"Không vẽ" của brief (đi qua `--avoid`), không viết câu vá vào body.
 
 ```text
-<PROMPT LƯỢT NÉT>
+<STORY: một câu>.
+Left page (main): <góc máy, cỡ cảnh>; <chủ thể> <một hành động>, <biểu cảm, hướng nhìn>; <vai phụ: hành động, biểu cảm, hướng nhìn>.
+Right page (secondary): <góc máy>; <focus, biểu cảm, hướng nhìn>.
+Text wrap: <phần tranh> rises beside the <lower/middle> <left/right> lines.
+Mood: <một câu>.
 ```
 
-## Lượt màu — Codex hoặc ChatGPT Image
+## Body lượt màu
 
-Đính kèm: Image 1 = ảnh nét đã chọn; Image 2 = `<ref profile>`; …
-
-```text
-<PROMPT LƯỢT MÀU>
-```
-~~~
-
-## Quy tắc viết (nguồn duy nhất)
-
-- Viết mới từ mẫu mỗi version, chỉ từ `brief.md` (phương án active) và
-  context active; không sửa từ prompt version trước.
-- Chỉ dùng đúng các khối trong mẫu, không thêm khối khác. INTENT mỗi
-  trang/scene 1–2 câu.
-- Nhân vật có profile: không mô tả lại identity bằng chữ (ảnh ref lo phần
-  này); chỉ thêm một cụm cho chi tiết hay bị vẽ sai (ví dụ "robe covers both
-  shoulders"). Nhân vật chưa có profile: một câu nhận diện. Nhóm quần chúng có
-  profile: đính kèm ảnh ref nhóm, thêm một câu về vai trò, số lượng, hành động
-  theo cảnh.
-- Không thêm luật vá từ ảnh trước ("heads below y…", "reduce scale",
-  "keep feet visible", "do not invent a different composition"…). Lỗi bố cục
-  sửa ở brief. Ngoại lệ: prompt chỉnh outline.
-- Không đính kèm, nhắc tới hay mô tả theo output cũ. Ngoại lệ: ảnh nét đã chọn
-  ở lượt màu của chính spread, outline đích khi chỉnh outline, hoặc người dùng
-  override rõ (`SKIPPED_BY_USER`).
-- DO NOT một dòng: beat "Không vẽ" và điều cấm truyện/era liên quan cảnh.
-
-## Prompt lượt nét
-
-Tin 1 là khối STYLE clean outline chép nguyên từ `style/ttpq-comic.md`. Khi
-gọi ImageGen một lượt, đặt khối STYLE ngay trước tin 2.
+Không chép body lượt nét: góc máy và Text wrap khiến GPT dựng lại bố cục. Chỉ
+gồm STORY, màu/ánh sáng từng trang và Mood; ánh sáng chung đi qua `--light`.
 
 ```text
-Draw pages <trái>–<phải> of a picture book about the life of the Buddha (ancient northern India) as one <W>x<H> spread.
-Image 1 = the page layout. Image <N> = <TÊN>: use only for identity (face, hair, clothing, accessories); ignore pose, background and color.
-
-STORY: <1–2 câu: ai, ở đâu, chuyện gì vừa/chưa xảy ra>.
-
-INTENT: <cảm xúc>.
-- <Trang/scene chính>, <góc máy, cỡ cảnh>: <focus — một chủ thể, một hành động>. <vai phụ chỉ phản ứng/nhìn>.
-- <Trang/scene phụ nếu có>, <góc máy, cỡ cảnh khác scene chính>: <...>.
-- Center fold: quiet background only.
-
-TEXT: Left page Vietnamese exactly as in Image 1; right page the English below. Keep the font size and each page's first line exactly where Image 1 has them; lines may reflow downward and wrap around <phần tranh vươn vào vùng chữ> inside the column. Black text, no boxes.<Có chữ tô màu/ô màu: Colored text and <màu> areas are editor's marks only.>
-
-DO NOT: <không vẽ + điều cấm truyện/era>.
-
-ENGLISH TEXT (copy exactly):
-<chữ EN>
+<STORY: một câu>.
+Left page: <tông chủ đạo, ai/vật gì trong sáng hay bóng, điểm nhấn ở focus>.
+Right page: <như trên>.
+Mood: <một câu>.
 ```
 
-## Prompt lượt màu
+## Body chỉnh outline
+
+Chỉ ghi điều cần đổi: dịch comment của người dùng sang tiếng Anh, mỗi comment
+một dòng `Change:`, gọi rõ vị trí và chủ thể. Không chép lại `Left/Right page:`
+của lượt nét (GPT sẽ vẽ lại cả trang). `--cast` chỉ gồm nhân vật bị sửa. Image 1
+là outline người dùng đang comment.
 
 ```text
-<khối STYLE màu>
-
-Color Image 1, the line art of pages <trái>–<phải>, in the ttpq comic light style above. Use it for the scene and text; characters must match their profile images exactly. Image <N> = <TÊN>: identity and local colors (skin tone, eye, hair and clothing colors); ignore pose, background, lighting and rendering, and paint in the ttpq comic light style above. <TÊN> = <vị trí/hành động trong Image 1>; <biểu cảm>, looking at <đích nhìn>. Where facial identity or costume in Image 1 differs from a profile image, follow the profile image; take each character's expression and gaze from this prompt and Image 1, not from the profile image.
-
-INTENT: <cảm xúc>; <thời điểm, nguồn sáng, bảng màu theo truyện>, keeping the soft 2D rendering of ttpq comic light. Calm light background behind the text.
-
-TEXT: keep every word, line break and wrap from Image 1; crisp near-black, no boxes.
-
-DO NOT: <điều cấm truyện/era>; no new or colored text.
-```
-
-- Ảnh ref profile ở lượt màu là chuẩn identity và màu riêng (da, mắt, tóc,
-  trang phục); không ghi "ignore color" như lượt nét. Ánh sáng và cách tô của
-  ảnh ref bị bỏ, rendering theo khối STYLE màu.
-- Mỗi nhân vật có profile một cụm gán vị trí trong Image 1 (trang, vị trí,
-  hành động, ví dụ "the young monk digging, left page"), lấy từ brief; không
-  mô tả identity (hình mặt, ngũ quan, tuổi, đặc điểm nhận diện) trong cụm này.
-- Biểu cảm và hướng nhìn (người dùng chốt 2026-11-04): identity theo profile,
-  nhưng biểu cảm thuộc khoảnh khắc. Nhân vật chính hoặc có biểu cảm quan trọng
-  thêm một cụm biểu cảm và hướng nhìn, khoảng 12 từ trở xuống, ví dụ
-  `a rare small smile, looking at Lady Visakha`.
-  - **Nguồn, theo thứ tự:** phương án active trong `brief.md` → chữ của
-    spread (ví dụ "nụ cười hiếm hoi") → Image 1 khi outline đã đúng. Các nguồn
-    mâu thuẫn thì hỏi người dùng.
-  - **Chỉ tả:** cảm xúc, khẩu hình (cười, mím, hé miệng), độ nhướng mày, hướng
-    nhìn. Không tả hình mặt, ngũ quan, tuổi hay dấu nhận diện.
-  - Nhân vật không có biểu cảm đáng kể thì bỏ phần biểu cảm trong mẫu.
-- Giữ nguyên câu ưu tiên profile khi Image 1 khác profile; câu này chỉ áp cho
-  identity và trang phục, kèm vế lấy biểu cảm và hướng nhìn từ prompt và Image 1.
-
-## Prompt chỉnh outline
-
-Dùng khi người dùng gửi comment sửa outline (`SKIPPED_BY_USER` ngày
-2026-11-01). Viết từ khối "Chỉnh outline active" trong `record.md` (base,
-thứ tự ảnh, CHANGE tích lũy), không từ prompt chỉnh lượt trước. Đính kèm:
-Image 1 = base; ảnh ref profile của nhân vật xuất hiện, đúng thứ tự đã ghi
-trong khối. Được ghi luật vá theo comment.
-
-- CHANGE chép đủ danh sách tích lũy, không chỉ comment mới.
-- Không mô tả mặt, biểu cảm, ánh mắt, miệng hay đặc điểm nhận diện của nhân
-  vật có profile, kể cả nhân vật đang được sửa. Chỉ ghi khi comment yêu cầu
-  đúng điều đó, và chỉ ghi phần comment nêu.
-
-```text
-Edit Image 1, the clean outline of pages <trái>–<phải>; keep the same clean black line art, no color. Image <N> = <TÊN>: identity only; ignore pose, background and color.
-
-CHANGE:
-- <mỗi comment trong danh sách tích lũy một dòng, cụ thể vị trí/chủ thể>
-
-KEEP: everything not listed above, including every word, font size, line breaks and text wrap.
-
-DO NOT: <điều cấm truyện/era liên quan phần sửa>.
+Change: <chủ thể, trang/vị trí>: <thay đổi>.
 ```
 
 ## Chỉnh màu
 
-Không có mẫu riêng: viết lại prompt lượt màu với Image 1 = outline được chọn
-(hoặc outline mới vừa chỉnh), ảnh ref profile, thêm sau INTENT một dòng
-`CHANGE: <comment của người dùng>`. Không đính kèm ảnh màu đã tạo. Comment về
-biểu cảm hoặc hướng nhìn được ghi vào CHANGE (ví dụ `Nalini: a rare small
-smile`), vẫn không tả identity.
-
-## Mode frame
-
-Canvas và vị trí % theo vùng của Hình. Hình không gắn chữ: bỏ phần chữ ở cả
-hai lượt, thêm `No text of any kind in the image.`
+Chạy lại lượt màu từ outline được chọn, thêm comment của người dùng vào cuối
+body. Không đính kèm ảnh màu đã tạo.
 
 ## Khối bối cảnh
 
-Deliverable mặc định (xem SKILL). Viết tiếng Việt, chỉ lấy dữ kiện từ scene
-sheet, bible và profile; không đưa chữ VI/EN, bố cục hay khối STYLE. File lưu
-`prompts/vNNN-context.md` gồm metadata và khối trong một code block.
+Deliverable mặc định. Viết tiếng Việt, chỉ lấy dữ kiện từ scene sheet, bible và
+profile; không đưa chữ, bố cục hay khối STYLE. File `prompts/vNNN-context.md`
+gồm metadata và khối trong một code block.
 
 ~~~markdown
 # Prompt <vNNN> — <layout-slug> p<trái>-<phải> — khối bối cảnh
 
-- Dùng: gửi context trước để đọc hiểu cùng ảnh layout và ảnh profile
-  (<Image N = TÊN>); sau đó gửi yêu cầu minh họa riêng. Có thể dùng trong Codex
-  hoặc ChatGPT.
-- Nguồn: `story/<tập>/scenes.md` <Snn> (<trạng thái>), `story/<tập>/bible.md`
-  (<mục>), profile <slug@vNNN>.
-- Quyết định áp dụng: <ví dụ: không vẽ đồi; SKIPPED_BY_USER …>
+- Nguồn: `story/<tập>/scenes.md` <Snn> (<trạng thái>), `bible.md` (<mục>),
+  profile <slug@vNNN>.
 - Hình layout: [layout-ref.png](../layout-ref.png)
 - Profile liên quan:
-  - Ảnh <N> — <TÊN>: [profile.md](../../../../characters/<slug>/profile.md)
-    (<trạng thái> <vNNN>), ảnh ref [<ref-vNNN.png>](../../../../characters/<slug>/<ref-vNNN.png>)
-  - <Nhân vật chưa có profile>: chưa có profile, mô tả trong khối.
+  - Ảnh <N> — <TÊN>: [profile.md](../../../../characters/<slug>/profile.md),
+    ảnh ref [<ref>](../../../../characters/<slug>/<ref>)
 
 ```text
 BỐI CẢNH CẢNH — trang <trái>–<phải>, truyện cuộc đời Đức Phật, miền Bắc Ấn Độ, khoảng thế kỷ 5 trước Công nguyên.
 
 CHUYỆN TRƯỚC ĐÓ
-<1–3 câu: cảnh liền trước>
+<1–3 câu>
 
 DIỄN BIẾN TRONG CHỮ (để hiểu, không vẽ hết)
-<các beat trên spread theo thứ tự, mỗi beat một dòng ngắn, theo chữ và scene sheet>
-Hình chỉ vẽ một khoảnh khắc với một hành động focus, chọn ở bước phương án; các beat còn lại chỉ nằm trong chữ.
+<mỗi beat một dòng ngắn>
+Hình chỉ vẽ một khoảnh khắc với một hành động focus; các beat còn lại nằm trong chữ.
 
 KHOẢNH KHẮC ĐƯỢC VẼ
-<Khi đã có phương án active: chép 5 mục từ brief.md. Chưa có phương án: "Chưa chọn; chờ phương án.">
+<5 mục của phương án active, hoặc "Chưa chọn; chờ phương án.">
 
 THỜI ĐIỂM & ÁNH SÁNG
-<thời điểm, nguồn sáng, sương/bóng đổ>
+<thời điểm; cường độ đúng chữ nguồn; hướng sáng; bóng đổ chính>
 
 NƠI CHỐN
-<địa hình, tiến độ công trình, vật dụng, chân trời>
+<địa hình, tiến độ công trình, vật dụng>
 
 CON NGƯỜI
-<nhóm người, dấu hiệu nhận diện tĩnh (tuổi, dáng, tóc, trang phục theo era); dòng nhận diện nhân vật có profile và ảnh số mấy, bỏ qua nền và tư thế của ảnh. Hành động theo chữ để ở DIỄN BIẾN, không gắn vào nhận diện.>
+<nhóm người, nhận diện tĩnh; nhân vật có profile ghi số ảnh>
 
 KHÔNG ĐƯỢC
-<việc chưa/không xảy ra, đạo cụ dễ hiểu sai, ngoại lệ profile, niên đại liên quan>
+<việc chưa/không xảy ra, đạo cụ dễ hiểu sai, niên đại liên quan>
 ```
 ~~~

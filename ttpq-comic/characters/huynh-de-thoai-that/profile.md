@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet "Huynh đệ thoái thất" từ `local/Huynh đệ thoái thất.png`, 1536×1024, giữ nguyên pixel).
+- Tên trong prompt: the backsliding monk
+- Ref prompt: ref-v001.png
+- Dòng prompt: young monk, slim long oval face, pointed chin, long earlobes, quiet unsmiling look
 - Vai trò trong truyện: tỳ kheo đồng tu với tiền kiếp Cittahattha thời Đức Phật Ca Diếp; chán nản, mất lý tưởng, muốn hoàn tục mà không được khuyên can (Ch4 L313–317). Dùng trong minh họa lồng lời kể (S20).
 
 ## Mô tả (tiếng Việt, để duyệt)

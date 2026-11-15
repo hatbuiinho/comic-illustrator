@@ -6,7 +6,8 @@ Mỗi nhân vật một thư mục `characters/<slug>/`:
 - `profile.md` — mô tả theo mẫu
   `.agents/skills/ttpq-comic/references/profile-template.md`.
 
-Khi chạy prompt, người dùng đính kèm `ref-vNNN.png` và prompt ghi "Image N =
-<tên>"; `profile.md` giữ dòng nhận diện ngắn để nhắc các dấu hiệu bắt buộc.
+`build-prompt.py` đọc 3 trường `Tên trong prompt`, `Ref prompt`, `Dòng prompt`
+trong `profile.md` và tự ghi "Image N = <tên>: <dòng prompt>" theo dòng
+**Profile:** của cảnh trong `scenes.md`. Mục "Dòng nhận diện" cũ chỉ để tham khảo.
 
 Chỉ profile có `Trạng thái: APPROVED` được đưa vào prompt.

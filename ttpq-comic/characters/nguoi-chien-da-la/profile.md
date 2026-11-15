@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng gửi ảnh và yêu cầu "thêm nhân vật: Người đàn ông chiên đà la" ngày 2026-10-31; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (ảnh chân dung + toàn thân kèm quang gánh người dùng gửi ngày 2026-10-31, 1536×1024, chuyển từ webp sang png, giữ nguyên pixel).
+- Tên trong prompt: the candala man
+- Ref prompt: ref-v001.png
+- Dòng prompt: thin dark-skinned man, hollow cheeks, short black beard, plain dark-brown turban, worn brown-gray wraps
 - Vai trò trong truyện: người gom chất thải đi khuất về phía hàng cây ở cuối công trường (S09, script L127–129); trở lại trong ký ức Punna (S21, S38).
 
 ## Mô tả (tiếng Việt, để duyệt)

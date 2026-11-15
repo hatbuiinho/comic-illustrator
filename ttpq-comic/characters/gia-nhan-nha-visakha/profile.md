@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng gửi ảnh và yêu cầu "Thêm profile nhân vật: Nhóm gia nhân nhà Visakha" ngày 2026-10-31; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet 5 người đứng chính diện người dùng gửi ngày 2026-10-31, 1536×1024, chuyển từ webp sang png, giữ nguyên pixel).
+- Tên trong prompt: Visakha's servants
+- Ref prompt: ref-v001.png
+- Dòng prompt: modest household servants, men in ivory tops and earth-brown wraps with colored turbans, women in muted brown wraps, barefoot, no jewelry
 - Vai trò trong truyện: gia nhân của gia đình Visakha – Punna; bưng thúng bánh trái, nước uống (S05, L45), gánh thúng thức ăn ủ kín theo xe ngựa (S12, L165), mang vật dụng về thành (S15, L192), theo Visakha ra về (S21, L377).
 - Đây là profile nhóm: dùng để giữ trang phục và tạo hình nhất quán cho gia nhân; số người trong cảnh theo chữ, không bắt buộc đủ 5 người.
 

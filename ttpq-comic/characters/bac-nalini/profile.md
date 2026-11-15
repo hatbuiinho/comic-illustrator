@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (chép từ `comic-illustrator/Tap 53/characters/approved/Bác Nalini.png` theo chỉ định của người dùng, 2026-10-28)
+- Tên trong prompt: Nalini
+- Ref prompt: ref-v001.png
+- Dòng prompt: master builder in his 40s, saffron turban with gold boss, salt-and-pepper chin beard, cream top, no jewelry
 - Vai trò trong truyện: thợ cả thiết kế và thi công tinh xá Đông Phương; tầng lớp Vaishya (Vệ-xá)
 
 ## Mô tả (tiếng Việt, để duyệt)

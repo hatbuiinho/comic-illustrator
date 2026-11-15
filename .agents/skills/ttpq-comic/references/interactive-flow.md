@@ -1,186 +1,103 @@
 # Flow tương tác và menu lệnh
 
-Áp dụng theo yêu cầu người dùng ngày 2026-10-30. Context vẫn là deliverable mặc
-định. Các bước sau chỉ chạy khi người dùng yêu cầu; không thêm gate của workflow
-khác. Đây là menu câu lệnh trong phản hồi, không phải dropdown hay tính năng UI
-mới của app.
+Context là deliverable mặc định. Mỗi bước sau chỉ chạy khi người dùng yêu cầu.
+Menu là các câu trả lời mẫu trong phản hồi: mỗi câu một code block riêng, không
+thêm số hay bullet vào câu. Thay placeholder bằng đường dẫn/version thực.
 
-## Cách trình menu
+## 1. Sau context: chọn cách có phương án
 
-- Hiện 2–3 lựa chọn đúng bước, đánh số và đặt tên rõ. Mỗi câu có thể copy nằm
-  trong code block riêng; không thêm số/bullet vào nội dung câu.
-- Với bước chỉ có một hành động tiếp theo thích hợp, chỉ đưa một block.
-- Có thể dùng `:codex-followup` cho lựa chọn ngắn khi app hỗ trợ; hai prompt
-  cố định vẫn phải hiện nguyên văn trong code block để người dùng copy được.
-- Trước khi trình, thay placeholder bằng đường dẫn/version thực của spread.
-  Lệnh ngắn được resolve theo spread/record đang active; nhiều bản thì hỏi
-  đúng bản còn mơ hồ, không tự chọn bản khác.
-- Lựa chọn menu không tự thực thi; chỉ làm bước người dùng đã yêu cầu. Giữ
-  nguyên hai prompt cố định bên dưới; thông tin thực thi bổ sung lưu riêng,
-  không sửa câu người dùng thành phiên bản khác.
-
-## 1. Sau khi trả context: luôn đề xuất câu đọc hiểu
-
-Sau khối context, layout và profile, thêm “Bước tiếp theo — đọc context, chưa
-tạo ảnh” cùng câu này. Trong phản hồi, dẫn link bản context cụ thể ngay trước
-block để “bản context này” không mơ hồ.
+Agent đã đọc context khi viết nó, nên đi thẳng tới phương án:
 
 ```text
-Hãy đọc bản context này cùng layout và profile được dẫn chiếu. Chưa tạo ảnh.
+Đề xuất 2–3 phương án minh họa thật sự điện ảnh, khác nhau rõ ràng cho spread này. Chưa tạo ảnh.
 ```
-
-Khi nhận lệnh: mở đúng bản context, record, layout và profile được dẫn chiếu;
-không chỉ dựa vào trí nhớ hội thoại. Báo ngắn tình huống/ý chính, thời điểm,
-nhân vật và điều cấm; nêu xung đột hoặc nguồn thiếu thực sự liên quan. Không
-tạo ảnh. Ghi context version đang active vào record; không coi bước này là
-đã nạp một session riêng cho ImageGen.
-Sau khi đọc xong, cuối phản hồi trình hai lựa chọn ở mục 2: yêu cầu agent đề
-xuất phương án hoặc người dùng đưa phương án có sẵn. Chưa tự đề xuất phương
-án và chưa chuyển sang chờ lệnh tạo outline khi người dùng chưa chọn hướng.
-
-## 2. Sau đọc context: hai cách có phương án
-
-**1. Đề xuất phương án minh họa thật sự điện ảnh**
 
 ```text
-Dựa trên context và layout vừa đọc, hãy đề xuất 2–3 phương án minh họa thật sự điện ảnh, khác nhau rõ ràng cho spread này. Chưa tạo ảnh.
+Mình gửi phương án có sẵn. Tóm tắt cách bạn hiểu và chỉ ra điểm xung đột nếu có. Chưa tạo ảnh.
 ```
 
-Đề xuất phải thể hiện ý đồ điện ảnh qua lựa chọn khoảnh khắc, cỡ cảnh, góc máy,
-chiều sâu, hướng nhìn và nhịp kể; không chỉ đổi vị trí nhân vật hoặc gắn nhãn
-“điện ảnh”. Khi có nhiều scene, làm rõ nhịp chuyển và quan hệ giữa các scene.
-Mỗi phương án dùng đúng 5 mục ở bước 5 của SKILL, theo nguyên tắc một khoảnh
-khắc – một focus; các phương án khác nhau ở khoảnh khắc/focus hoặc góc máy.
-Không tự chạy nhánh gói prompt hai lượt. Cuối phản hồi, mỗi phương án một block:
+- **Đề xuất:** các phương án khác nhau ở khoảnh khắc, focus hoặc góc máy; mỗi
+  phương án dùng đúng 5 mục ở SKILL bước 4. Cuối phản hồi, mỗi phương án một block:
 
-```text
-Chọn phương án N — <tên phương án>. Ghi vào brief và tạo clean outline theo phương án này.
-```
+  ```text
+  Chọn phương án N — <tên>. Ghi vào brief và tạo clean outline.
+  ```
 
-Người dùng chọn thì ghi đè khối active trong brief rồi tạo outline (mục 3).
+- **Phương án của người dùng:** điền 5 mục theo ý họ, không tự đổi khoảnh
+  khắc. Nếu phương án gom nhiều hành động cùng cần focus thì chỉ ra, chưa tự
+  sửa. Ghi vào brief rồi đưa lệnh outline.
 
-**2. Dùng phương án có sẵn**
+## 2. Tạo clean outline
 
-```text
-Mình sẽ gửi phương án minh họa có sẵn. Hãy đọc cùng context và layout đang dùng, tóm tắt cách bạn hiểu ý đồ của mình và chỉ ra điểm xung đột nếu có. Chưa tạo ảnh.
-```
-
-Người dùng có thể gửi phương án ngay cùng lệnh. Không tự thay bằng phương án
-khác. Chỉ hỏi phần thiếu gây thay đổi đáng kể ý đồ; không buộc chọn option do
-agent đề xuất. Tóm tắt bằng đúng 5 mục ở bước 5 của SKILL theo cách hiểu
-phương án của người dùng; nếu phương án gom nhiều hành động cùng cần focus,
-chỉ ra và gợi ý hành động nào làm focus, chưa tự sửa. Ghi đè khối active trong
-brief, rồi cuối phản hồi luôn trình lệnh outline (mục 3) và block chỉnh:
-
-```text
-Chỉnh phương án đang active theo comment mình gửi kèm. Cập nhật brief, chưa tạo ảnh.
-```
-
-## 3. Tạo clean outline: prompt cố định nguyên văn
+Lệnh cố định của người dùng (không gửi nguyên câu này cho model ảnh):
 
 ```text
 dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page này ở dạng clean outline, chữ sẽ hòa với hình nhưng giữ nguyên khổ chữ, giữ nguyên vị trí dòng đầu tiên, chữ có thể được reflow để ôm hình 1 cách sống động, phần chữ bên phải là tiếng anh, bên trái là tiếng việt, truyện này là truyện về cuộc đời Đức Phật nên nhân vật sẽ là người Ấn Độ thời đó ạ
 ```
 
-- Câu trên là lệnh của người dùng, không phải prompt gửi ImageGen; không gửi
-  nguyên văn câu này. Lệnh “Chọn phương án N … tạo clean outline” ở mục 2 kích
-  hoạt đúng mục này dù không chứa câu trên.
-- Mode mặc định `spread` khi `brief.md` chưa ghi mode; chỉ dùng `frame` khi
-  người dùng yêu cầu rõ.
-- Context và phương án active quyết định nội dung/scene. Layout xác định
-  canvas, nội dung chữ và typography; cho phép reflow để ôm hình, không tự
-  giảm khổ chữ. Đây là outline đen trắng theo ngôn ngữ nét của ttpq comic light,
-  chưa áp màu hay render bóng thành phẩm.
-- Dùng layout và profile gốc với vai trò rõ. Nguồn EN theo SKILL bước 2: ưu
-  tiên bản người dùng/bản có sẵn; chưa có thì tự dịch, lưu `text-en.md`, không
-  dừng hỏi. Không giả vờ có font/khổ chữ chính xác nếu chỉ có ảnh raster; báo
-  giới hạn quan sát được. Chữ trong ảnh vẫn là tham khảo dàn trang.
-- Prompt ImageGen do agent viết (lưu trong `prompts/`) theo
-  [mẫu prompt gọn](prompt-template.md#prompt-lượt-nét), chỉ từ khối active
-  của `brief.md`.
-- Trước tạo ảnh: đọc các hướng dẫn style/era/toolchain áp dụng và skill
-  `imagegen`. Dùng ImageGen trực tiếp, không gọi chuỗi page-guide/studio.
-- Lưu ảnh thật `outputs/outline-vNNN.png` cùng prompt/nguồn/kết quả kiểm trong
-  record; không ghi đè, không chỉ để bản cache. Xem ảnh toàn spread và vùng
-  quan trọng trước khi nhận xét: focus (một điểm hút mắt, vai phụ không có
-  hành động riêng), scene, profile, anatomy, gáy, nét, chữ VI/EN,
-  khổ chữ và đường ôm. Báo lỗi thấy được, không ghi PASS khi chưa xem.
-- Mỗi yêu cầu tạo/chỉnh mặc định một candidate rồi trình để người dùng comment;
-  không tự tạo lặp nhiều bản. Nếu công cụ lỗi, báo lỗi, không tuyên bố đã có ảnh.
+- Lệnh "Chọn phương án N … tạo clean outline" cũng kích hoạt bước này.
+- Lệnh ghi `ttpq comic soft` hoặc `ttpq comic blend` thay cho `ttpq comic light`
+  thì chạy script với `--style soft` hoặc `--style blend`; không ghi thì là light.
+- Viết body từ phương án active, chạy `build-prompt.py --pass outline`, rồi gọi
+  ImageGen với prompt và ảnh đính kèm theo thứ tự script in ra.
+- Chữ trang phải là tiếng Anh giữ chỗ do model tự sinh; không dịch.
+- Image 1 là `layout-ref-canvas-v003.png` script tạo, cùng khổ 1536×1024 với
+  ảnh ra; hai dải bleed xám để trống, hậu kỳ nối nền.
+- Mỗi lệnh tạo một ảnh. Hiển thị và kiểm tra ảnh theo mục «Viết và chạy prompt
+  ảnh» trong `SKILL.md`, rồi lưu vào `outputs/outline-vNNN.png`. Nếu công cụ
+  lỗi thì báo lỗi.
 
-## 4. Sau outline: menu sửa / tạo lại / màu
+### Cập nhật phương án rồi tạo lại outline
 
-Sau mỗi lần tạo hoặc chỉnh outline thành công, luôn trình đủ ba lựa chọn
-ở mục này, gồm lựa chọn dàn trang màu với prompt cố định nguyên văn.
-Không thay menu bằng một câu hỏi góp ý chung hoặc chỉ đưa lựa chọn sửa.
-Câu sửa và tạo lại cần nội dung người dùng điền; khi trình
-menu dùng hướng dẫn một dòng bên ngoài block để người dùng bổ sung comment.
+Khi người dùng sửa phương án (đổi dáng, góc máy, focus…) rồi xin outline mới:
 
-**1. Chỉnh outline**
+1. Sửa thẳng 5 mục trong `brief.md`, thêm ngày cập nhật; xóa các dòng
+   `SKIPPED_BY_USER` chỉ áp cho lượt cũ.
+2. Viết body **mới từ brief** theo mẫu body lượt nét (STORY, từng trang kèm
+   hành động chính và biểu cảm, Mood). Không lấy body hay prompt cũ ra vá, không
+   viết câu sửa lỗi của bản trước vào body; lỗi cũ đi vào `--avoid`.
+3. Đối chiếu trước khi chạy: hành động chính (động từ), góc máy và chữ ôm hình
+   của từng trang trong brief đều có trong body; không câu nào trái brief.
+4. Lưu body thành `prompts/vNNN-outline.body.txt` cùng version với prompt.
 
-```text
-Chỉnh outline vừa tạo theo các comment mình gửi kèm. Giữ phần không được yêu cầu đổi; chưa tạo bản màu.
-```
+## 3. Sau outline
 
-**2. Tạo outline khác**
-
-```text
-Tạo lại một outline khác từ context, layout và profile gốc, theo hướng mình gửi kèm. Chưa tạo bản màu.
-```
-
-**3. Tạo minh họa màu — prompt cố định nguyên văn**
+Người dùng comment tự do để sửa, hoặc nói "tạo outline khác theo hướng …".
+Luôn đưa lệnh màu cố định:
 
 ```text
 dùng style ttpq comic light để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
 ```
 
-## 5. Sửa, tạo lại và lên màu
+Nếu người dùng muốn bản soft, đưa thêm lệnh song song (script `--style soft`;
+outline light vẫn dùng được):
 
-- Chỉnh outline: sửa trực tiếp trên base (đính kèm làm Image 1), không áp
-  quy tắc cấm output cũ và cấm luật vá (`SKIPPED_BY_USER` theo contract ngày
-  2026-11-01). Viết prompt theo
-  [mẫu chỉnh outline](prompt-template.md#prompt-chỉnh-outline); xem lại
-  profile gốc của nhân vật bị chỉnh. Trạng thái chuỗi sửa nằm trong khối
-  "Chỉnh outline active" ở đầu `record.md`, ghi đè mỗi lượt:
-  - **Base:** outline đích cố định của chuỗi sửa. Không bao giờ tự lấy bản
-    vừa sửa ra làm base cho lượt sau.
-  - **Thứ tự ảnh:** Image 1 = base, Image 2… = ảnh ref profile theo thứ tự
-    nhân vật, ghi một lần khi mở chuỗi, mọi lượt dùng đúng thứ tự đó.
-  - **CHANGE tích lũy:** mỗi comment một dòng; comment mới thêm vào, comment
-    mới về cùng chủ thể và cùng khía cạnh thay dòng cũ.
-- Xác định base mỗi lượt:
-  - **Người dùng đính kèm outline trong lệnh sửa:** ảnh đó là base mới. Đối
-    chiếu với `outputs/` để ghi version; không khớp thì lưu thành file mới.
-    CHANGE làm lại chỉ gồm comment lượt này. Ghi lại thứ tự ảnh.
-  - **Người dùng chốt rõ một bản** (ví dụ “chốt v010 làm base”): bản đó là
-    base mới, CHANGE về rỗng.
-  - **Không có hai trường hợp trên:** dùng base trong khối; chưa có khối thì
-    base là outline vừa tạo từ layout/profile mà người dùng yêu cầu sửa.
-  - Hỏi lại khi ảnh đính kèm không phải outline (bản màu, ảnh ý tưởng) hoặc
-    có nhiều ảnh mà không rõ ảnh nào là base.
-  - Base đã lệch profile: báo người dùng, vẫn dùng theo lựa chọn của họ.
-- Tạo lại outline: xuất phát từ nguồn gốc và phương án mới, không dùng
-  outline bị bỏ làm chuẩn identity; xóa khối "Chỉnh outline active" và chuyển
-  nguyên văn sang lịch sử trong `record.md`.
-- Lệnh màu trực tiếp cho phép thực hiện, không cần hỏi lại “đã duyệt chưa”.
-  Resolve đúng outline người dùng muốn dùng; chỉ hỏi nếu có nhiều bản mà chưa
-  rõ bản nào. Không tự tạo màu chỉ vì người dùng nói outline đẹp/ổn.
-- “Không ref lại output cũ”: không dùng ảnh màu cũ, outline lỗi hoặc output
-  khác làm chuẩn nhân vật/style. Ngoại lệ: outline được chọn để tham khảo
-  scene và chữ ở lượt màu, outline đích khi chỉnh outline; profile gốc quyết định nhận diện mặt, tóc,
-  trang phục, tỷ lệ và dấu nhận diện. Biểu cảm và hướng nhìn theo khoảnh khắc
-  trong phương án/chữ, giữ như Image 1 khi outline đã đúng (người dùng chốt
-  2026-11-04, xem mẫu prompt lượt màu). Đọc và xem lại profile gốc mỗi lượt có nhân vật.
-- Không dùng khối KEEP EXACTLY mọi outlines trong mẫu prompt màu cũ. Cho phép
-  vẽ lại nhân vật đúng profile trong scene đã chọn, không tự đổi moment hay
-  ý đồ. Giữ chữ và cách ôm đã chọn trừ yêu cầu đổi rõ; kiểm thực tế và báo nếu
-  việc sửa silhouette gây xung đột với chữ. Không hứa khóa pixel.
-- Ghi override `SKIPPED_BY_USER` toàn flow theo contract ngày 2026-10-30 đối
-  với khóa contour/identity theo output; không bỏ các kiểm nội dung/profile.
-- Lưu `outputs/color-vNNN.png` hoặc outline version mới, có record trỏ context,
-  phương án, outline scene và profile version thực dùng. Trình ảnh bản lưu
-  trong spread cùng kết quả kiểm ngắn. Không tự phê duyệt bản cuối.
-- Sau màu, menu chỉ cần “Chỉnh màu/minh họa” hoặc “Tạo bản màu khác”. Chỉnh
-  màu là vẽ lại từ outline được chọn và profile gốc làm chuẩn, thêm comment
-  của người dùng; không đính kèm hay sửa trên ảnh màu đã tạo. Nếu người dùng
-  yêu cầu rõ edit trên ảnh màu trước, ghi override đúng phạm vi lượt đó.
+```text
+dùng style ttpq comic soft để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
+```
+
+Nếu người dùng muốn test bản blend (script `--style blend`):
+
+```text
+dùng style ttpq comic blend để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
+```
+
+## 4. Sửa outline
+
+- Image 1 là outline người dùng đang comment: bản vừa tạo, hoặc bản họ đính
+  kèm hay gọi tên. Có nhiều bản mà không rõ bản nào thì hỏi.
+- Dịch comment thành body chỉnh, chạy `build-prompt.py --pass edit` với
+  `--cast` gồm nhân vật bị sửa.
+- Đổi dáng lớn (thêm/bớt người, đổi tư thế gốc, đổi góc máy) vẫn sửa trên ảnh
+  như yêu cầu. Nếu kết quả méo tỷ lệ, người dùng có thể xin tạo outline mới;
+  khi đó cập nhật brief theo comment rồi chạy lại lượt nét.
+
+## 5. Lên màu và chỉnh màu
+
+- Image 1 là outline người dùng chọn. Lệnh màu đã là sự cho phép, không hỏi
+  lại. Không tự lên màu chỉ vì người dùng khen outline.
+- Viết body màu, chạy `build-prompt.py --pass color`, gọi ImageGen, lưu
+  `outputs/color-vNNN.png`.
+- Chỉnh màu: chạy lại lượt màu từ outline được chọn, thêm comment vào body.
+  Không đính kèm ảnh màu cũ, trừ khi người dùng yêu cầu rõ.
+- Không tự phê duyệt bản cuối.

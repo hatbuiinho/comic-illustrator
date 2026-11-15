@@ -18,6 +18,19 @@ màu y và cách quấn y theo mục có điều kiện bên dưới.
 layout, version hoặc cổng duyệt. Giữ nguyên tài sản và record cũ; khi tiếp tục
 một tác vụ, dùng style mới cho version mới, không hồi tố QA.
 
+## Ngoại lệ: TTPQ Comic có thêm ttpq comic soft và blend
+
+Từ 2026-11-15, riêng flow TTPQ Comic được dùng thêm style tùy chọn
+[ttpq comic soft](../ttpq-comic/style/ttpq-comic-soft.md) khi người dùng gọi
+tên cho lượt/spread đang làm. Mặc định vẫn là ttpq comic light. Các workflow
+khác không dùng soft. Lượt dùng soft QA theo định nghĩa soft (cho phép bóng
+mềm và gradient nhẹ), ghi tên style trong record.
+
+Cũng từ 2026-11-15, TTPQ Comic có style test
+[ttpq comic blend](../ttpq-comic/style/ttpq-comic-blend.md) (50% comic + 25% flat
++ 25% nền storybook), cùng điều kiện: chỉ khi được gọi tên, chỉ trong TTPQ
+Comic, QA theo định nghĩa blend và ghi tên style trong record.
+
 ## Chỉ khi ảnh cần vẽ tu sĩ
 
 Chỉ khi ảnh thực sự có tu sĩ, đọc và áp dụng

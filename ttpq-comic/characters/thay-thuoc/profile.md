@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet "Người thầy thuốc" từ `local/Người thầy thuốc.png`, 1672×941, giữ nguyên pixel).
+- Tên trong prompt: the physician
+- Ref prompt: ref-v001.png
+- Dòng prompt: lean man, brick-red turban, long wavy hair, neat jaw beard, ivory tunic, cloth bag
 - Vai trò trong truyện: thầy thuốc hớt hải chạy đến sau, nắn cổ tay, xem da, bắt mạch, cau mày lắc đầu (S18, Ch4 L251–259).
 
 ## Mô tả (tiếng Việt, để duyệt)

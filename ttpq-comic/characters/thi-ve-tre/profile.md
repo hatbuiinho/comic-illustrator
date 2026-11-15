@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng gửi ảnh "người thị vệ trẻ" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (ảnh chân dung + toàn thân người dùng gửi ngày 2026-11-08, 1254×1254, chuyển từ webp sang png, giữ nguyên pixel; ảnh không có chữ).
+- Tên trong prompt: the young guard
+- Ref prompt: ref-v001.png
+- Dòng prompt: tall beardless youth, long wavy hair, red-orange beaded turban, brown studded breastplate
 - Vai trò trong truyện: thị vệ trẻ của vua Pasenadi. Được vua gọi, quỳ một chân bên hiên hương thất, thấy vua cúi đầu trước Đức Phật và thấy khó hiểu (S22, Ch5 L415–423). Trên đường về hỏi người đồng đội kỳ cựu, cợt nhả rồi nổi da gà (S23, Ch5 L429–474).
 
 ## Mô tả (tiếng Việt, để duyệt)

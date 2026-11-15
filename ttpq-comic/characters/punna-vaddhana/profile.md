@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (chép từ `comic-illustrator/Tap 53/characters/approved/Trưởng giả Punna.png` theo chỉ định của người dùng, 2026-10-29)
+- Tên trong prompt: Punna
+- Ref prompt: ref-v001.png
+- Dòng prompt: young nobleman, orange-red turban with ruby pin, thick mustache without beard, light-blue top, gold jewelry
 - Vai trò trong truyện: trưởng giả, chồng Visakha, cùng xây tinh xá Pubbarama; ban đầu tin vào giai cấp, dần day dứt
 
 ## Mô tả (tiếng Việt, để duyệt)

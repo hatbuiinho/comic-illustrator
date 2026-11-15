@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng yêu cầu "update nhân vật: đạo sĩ ôm mạn sườn" kèm sheet mới ngày 2026-10-31. Mô tả ghi nhận từ ảnh v002.
 - Version mô tả: v002
 - Ảnh ref: ref-v002.png (sheet bán thân + toàn thân, nhãn "Đạo sĩ hãm hại Tôn giả Mục Kiền Liên", người dùng gửi ngày 2026-10-31, 1335×1178, chuyển từ webp sang png, giữ nguyên pixel). `ref-v001.png` giữ làm lịch sử, không dùng cho prompt mới.
+- Tên trong prompt: the rib-holding ascetic
+- Ref prompt: ref-v002.png
+- Dòng prompt: long angular face, thick moustache without chin beard, high black topknot, cream and ochre wraps
 - Vai trò: đạo sĩ kể chuyện tấn công Moggallana trong trang 48–49; cùng một người ở cảnh giơ gậy và dưới vực.
 
 ## Mô tả

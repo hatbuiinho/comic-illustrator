@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet "Tôn giả Anan (Ananda)" từ `local/Tôn giả Anan.png`, 1536×1024, giữ nguyên pixel).
+- Tên trong prompt: Ananda
+- Ref prompt: ref-v001.png
+- Dòng prompt: tall slender monk, shaved head, slim oval face, straight thick brows, long earlobes, faint smile
 - Vai trò trong truyện: tôn giả thị giả của Đức Phật tại Jetavana; tưới hoa dưới tán sa la rồi ra đón 60 tỳ kheo (S24, Ch6 L476–477).
 
 ## Mô tả (tiếng Việt, để duyệt)
@@ -28,7 +31,7 @@
 - Không lẫn với Godatta: Ananda cao hơn, mặt thon dài hơn, dái tai dài; Godatta tai cỡ vừa.
 - Không lẫn với Moggallana: Ananda không có sắc râu quanh miệng, trán không cao rộng như Moggallana.
 - Không vẽ già hoặc thêm nếp nhăn; không thêm trang sức, chuỗi hạt, hào quang.
-- Chữ trên sheet không đưa vào minh họa. Màu y theo `docs/monastic-robes.md`.
+- Chữ trên sheet không đưa vào minh họa. Màu y và cách quấn y theo ảnh ref của profile này, không áp `docs/monastic-robes.md`.
 
 ## Dòng nhận diện (tiếng Anh, ≤ 45 từ; chép vào prompt cạnh "Image N = <tên>")
 
@@ -41,3 +44,4 @@ ANANDA (Image <N>): tall slender monk about 42, shaved head, no beard, slim oval
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-11-08 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
+| v001 | 2026-11-13 | Màu y/cách quấn y theo ảnh ref của profile, bỏ dẫn chiếu `docs/monastic-robes.md` | Người dùng yêu cầu gỡ quy chuẩn y chung khỏi ttpq-comic |

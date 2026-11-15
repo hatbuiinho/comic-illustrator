@@ -1,0 +1,421 @@
+#!/usr/bin/env python3
+"""Ghép prompt ttpq-comic: tự chèn khối STYLE, ảnh ref theo scene và điều cấm.
+
+Agent chỉ viết phần cảnh (2–4 câu tiếng Anh) vào --body. Script lo phần
+không được sai:
+  - khối STYLE nguyên văn theo --style: light (mặc định; định nghĩa ở
+    docs/style-ttpq-comic-light.md, khối nét ở style/ttpq-comic.md), soft
+    (cả hai khối ở style/ttpq-comic-soft.md) hoặc blend (cả hai khối ở
+    style/ttpq-comic-blend.md);
+  - danh sách nhân vật lấy từ dòng **Profile:** của các cảnh Snn trong
+    story/<tập>/scenes.md, mỗi người một dòng Image N kèm dòng prompt trong
+    profile.md; số Image cố định theo thứ tự cast;
+  - câu tương phản khi hai nhân vật trong "Cặp dễ nhầm" của bible.md cùng có mặt;
+  - dòng Avoid từ "Cấm" của cảnh và "Avoid trong prompt" của bible.md, cộng thêm
+    --avoid của lượt;
+  - lượt màu thêm ánh sáng của cảnh từ "Thời điểm/ánh sáng" hoặc --light;
+  - body ghi {slug} để script thay bằng số Image đúng theo cast.
+
+Thứ tự prompt: việc cần làm → cảnh (body) → nhân vật → STYLE → trang sách
+(bleed, gáy; --across cho một vật đi liền qua gáy) → chữ → Avoid.
+Body lượt màu bỏ dòng Text wrap; body lượt chỉnh
+là các dòng "Change: …".
+
+Ví dụ:
+  python3 build-prompt.py --spread ttpq-comic/spreads/t53-part-1/p036-037 \\
+      --scenes S12 S13 --pass outline --body prompts/v025-outline.body.txt \\
+      --cast punna-vaddhana visakha godatta --no-ref gia-nhan-nha-visakha \\
+      --out prompts/v025-outline.txt
+
+Đường dẫn --body/--out tương đối được hiểu theo thư mục spread.
+In danh sách ảnh cần đính kèm và cảnh báo; thoát 1 khi thiếu dữ kiện bắt buộc.
+"""
+import argparse
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[4]
+FLOW = ROOT / "ttpq-comic"
+# Mỗi style: (file định nghĩa, thứ tự khối text), (file LINE ART STAGE, thứ tự khối), câu mở lượt màu.
+STYLES = {
+    "light": {
+        "name": "ttpq comic light",
+        "def": (ROOT / "docs" / "style-ttpq-comic-light.md", 0),
+        "line": (FLOW / "style" / "ttpq-comic.md", 0),
+        "color_drop": "Color:",
+        "color_open": "clean flat color shapes with 2–3 hard-edged cel-shading tones on skin and clothing; "
+                      "keep every black outline crisp and visible; background in a few flat color planes.",
+    },
+    "soft": {
+        "name": "ttpq comic soft",
+        "def": (FLOW / "style" / "ttpq-comic-soft.md", 0),
+        "line": (FLOW / "style" / "ttpq-comic-soft.md", 1),
+        "color_drop": "Color and light:",
+        "color_open": "a clear soft directional light with 3–4 gently blended shading tones on skin and clothing "
+                      "and subtle gradients on sky and large surfaces; keep every black outline crisp and visible; "
+                      "background in soft layered atmospheric depth, with characters crisper than the background.",
+    },
+    "blend": {
+        "name": "ttpq comic blend",
+        "def": (FLOW / "style" / "ttpq-comic-blend.md", 0),
+        "line": (FLOW / "style" / "ttpq-comic-blend.md", 1),
+        "color_drop": "Color and light:",
+        "color_open": "clean flat color shapes with 2–3 slightly softened cel-shading tones on skin and clothing, "
+                      "under a gentle warm directional light; keep every black outline crisp and visible; "
+                      "foreground and middle ground in flat color planes with only gentle color transitions, "
+                      "distance and sky softly painted with subtle gradients and layered atmospheric depth, "
+                      "never gradients on characters.",
+    },
+}
+
+
+def rel(p):
+    try:
+        return Path(p).relative_to(ROOT)
+    except ValueError:
+        return p
+
+
+def die(msg):
+    print(f"LỖI: {msg}", file=sys.stderr)
+    sys.exit(1)
+
+
+def canvas_ref(spread, layout):
+    """layout-ref-canvas.png: layout-ref đặt giữa canvas đúng khổ ảnh ra, hai bên là dải bleed xám nhạt.
+
+    GPT trả ảnh 1536x1024 (tỷ lệ 1.5) trong khi spread có tỷ lệ 1.409; đưa ảnh
+    layout cùng khổ để model không tự kéo giãn và tọa độ % khớp ảnh.
+    """
+    out = spread / "layout-ref-canvas-v003.png"  # v003: dải bleed xám trơn đậm, để trống; hậu kỳ tự nối nền
+    if out.exists():
+        return out
+    from PIL import Image
+    c = layout["canvas"]
+    src = Image.open(spread / "layout-ref.png").convert("RGB")
+    canvas = Image.new("RGB", (c["width"], c["height"]), (128, 128, 128))
+    canvas.paste(src.resize((c["spreadWidthPx"], c["height"]), Image.LANCZOS), (c["trimEachSidePx"], 0))
+    canvas.save(out)
+    return out
+
+
+def line_style(st):
+    """Định nghĩa chuẩn bỏ đoạn màu (lượt nét chưa tô màu), rồi khối LINE ART STAGE."""
+    paras = [x for x in re.split(r"\n\s*\n", text_block(*st["def"])) if not x.lstrip().startswith(st["color_drop"])]
+    return "\n\n".join(paras + [text_block(*st["line"])])
+
+
+def text_block(path, index=0):
+    blocks = re.findall(r"```text\n(.*?)```", path.read_text(encoding="utf-8"), re.S)
+    if len(blocks) <= index:
+        die(f"không thấy khối ```text thứ {index + 1} trong {rel(path)}")
+    return blocks[index].strip()
+
+
+def field(text, label):
+    m = re.search(rf"^- {re.escape(label)}:\s*(.+)$", text, re.M)
+    return m.group(1).strip() if m else None
+
+
+def load_profile(token, warnings):
+    slug, _, ref_override = token.partition(":")
+    d = FLOW / "characters" / slug
+    p = d / "profile.md"
+    if not p.exists():
+        die(f"không có profile {p.relative_to(ROOT)}")
+    t = p.read_text(encoding="utf-8")
+    status = field(t, "Trạng thái") or ""
+    if not status.startswith("APPROVED"):
+        warnings.append(f"{slug}: profile chưa APPROVED, cần người dùng duyệt.")
+    name = field(t, "Tên trong prompt")
+    line = field(t, "Dòng prompt")
+    ref = ref_override or field(t, "Ref prompt")
+    if not name or not line:
+        die(f"{slug}: profile.md thiếu 'Tên trong prompt' hoặc 'Dòng prompt'")
+    if not ref:
+        refs = sorted(d.glob("ref-*.png"))
+        if not refs:
+            die(f"{slug}: không có ảnh ref")
+        ref = refs[-1].name
+    if not (d / ref).exists():
+        die(f"{slug}: không có ảnh {ref}")
+    return {"slug": slug, "name": name, "line": line.rstrip("."),
+            "ref": (d / ref).relative_to(ROOT)}
+
+
+def load_scenes(story, ids, warnings):
+    text = (story / "scenes.md").read_text(encoding="utf-8")
+    out = []
+    for sid in ids:
+        m = re.search(rf"^### {sid} — (.*?)$(.*?)(?=^### S|\Z)", text, re.M | re.S)
+        if not m:
+            die(f"không thấy cảnh {sid} trong scenes.md")
+        head, body = m.group(1), m.group(2)
+        if "APPROVED" not in head and "**Duyệt theo phạm vi:** APPROVED" not in body:
+            warnings.append(f"{sid} còn DRAFT; dùng khi người dùng đã duyệt cho spread này.")
+        get = lambda k: (re.search(rf"^- \*\*{k}:\*\*\s*(.+)$", body, re.M) or [None, None])[1]
+        prof = get("Profile")
+        if prof is None:
+            warnings.append(f"{sid} chưa có dòng **Profile:**; dùng --cast.")
+        ban = get("Avoid")
+        if ban is None and get("Cấm"):
+            warnings.append(f"{sid} chỉ có **Cấm:** tiếng Việt, không chép vào prompt; thêm **Avoid:** tiếng Anh hoặc dùng --avoid nếu cần.")
+        out.append({"id": sid, "light": get("Thời điểm/ánh sáng"), "ban": ban, "text": (head + body).lower(),
+                    "cast": [s.strip() for s in (prof or "").split(",")
+                             if s.strip() and s.strip() != "—"]})
+    return out
+
+
+def bible_parts(story):
+    p = story / "bible.md"
+    if not p.exists():
+        return [], {}
+    t = p.read_text(encoding="utf-8")
+
+    def section(title):
+        m = re.search(rf"^## {title}\n(.*?)(?=^## |\Z)", t, re.M | re.S)
+        return m.group(1) if m else ""
+
+    # Dòng có tiền tố "[khi: từ khóa, …]" chỉ chèn khi cảnh chứa một trong các từ khóa.
+    bans = []
+    for line in re.findall(r"^- (.+)$", section("Avoid trong prompt"), re.M):
+        m = re.match(r"\[khi:\s*([^\]]+)\]\s*(.+)$", line)
+        bans.append(([k.strip().lower() for k in m.group(1).split(",") if k.strip()], m.group(2)) if m else ([], line))
+    pairs = {}
+    for a, b, s in re.findall(r"^- `?([\w-]+)`? \+ `?([\w-]+)`?:\s*(.+)$", section("Cặp dễ nhầm"), re.M):
+        pairs[frozenset((a, b))] = s.strip()
+    return bans, pairs
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--spread", required=True)
+    ap.add_argument("--scenes", nargs="+", required=True)
+    ap.add_argument("--pass", dest="kind", choices=["outline", "color", "edit"], required=True)
+    ap.add_argument("--body", required=True, help="file chứa phần cảnh/comment agent viết")
+    ap.add_argument("--style", choices=sorted(STYLES), default="light", help="style của lượt; mặc định light")
+    ap.add_argument("--story", help="mặc định ttpq-comic/story/<tiền tố layout-slug>")
+    ap.add_argument("--cast", nargs="+", help="thay danh sách Profile của cảnh (slug hoặc slug:ref.png)")
+    ap.add_argument("--no-ref", nargs="+", default=[], help="nhân vật chỉ tả bằng chữ (xa, nhỏ)")
+    ap.add_argument("--avoid", default="", help="điều cấm thêm của lượt (Không vẽ trong brief)")
+    ap.add_argument("--light", help="ánh sáng riêng của spread (tiếng Anh), thay ánh sáng của cảnh ở lượt màu")
+    ap.add_argument("--two-scenes", action="store_true", help="spread hai cảnh: nối nền qua gáy bằng vùng chuyển tiếp")
+    ap.add_argument("--split", action="store_true", help="spread hai tranh tách nhau, giữa là dải giấy trắng ở gáy (cả ba lượt)")
+    ap.add_argument("--across", help="vật (tiếng Anh) được vẽ liền qua gáy, ví dụ \"the long wooden beam\"; người vẫn ở trang của mình")
+    ap.add_argument("--no-text", action="store_true", help="hình không có chữ")
+    ap.add_argument("--out", required=True)
+    a = ap.parse_args()
+
+    across = (a.across or "").strip().rstrip(".").strip()
+    if across and a.split:
+        die("--across không dùng chung với --split (dải giấy trắng ở gáy không cho vật nào đi qua)")
+    st = STYLES[a.style]
+    spread = (ROOT / a.spread).resolve()
+    layout = json.loads((spread / "layout.json").read_text(encoding="utf-8"))
+    story = ROOT / a.story if a.story else FLOW / "story" / spread.parent.name.split("-")[0]
+    warnings = []
+    scenes = load_scenes(story, a.scenes, warnings)
+    bans, pairs = bible_parts(story)
+
+    tokens = a.cast or list(dict.fromkeys(s for sc in scenes for s in sc["cast"]))
+    if not tokens and a.kind != "edit":
+        warnings.append("Không có nhân vật có profile trong cảnh.")
+    no_ref = set(a.no_ref)
+    cast = [load_profile(t, warnings) for t in tokens]
+    with_ref = [c for c in cast if c["slug"] not in no_ref]
+    text_only = [c for c in cast if c["slug"] in no_ref]
+    # Cast của cả cảnh thường rộng hơn người có mặt trong spread; GPT cố đưa mọi ref vào hình.
+    if not a.cast:
+        if len(with_ref) > 3:
+            die(f"cast lấy từ cả cảnh có {len(with_ref)} ảnh ref ({', '.join(c['slug'] for c in with_ref)}); "
+                "chỉ định --cast đúng nhân vật có mặt trong spread")
+        if tokens:
+            warnings.append(f"Không có --cast; dùng cast của cảnh: {', '.join(tokens)}. Kiểm tra đúng người có mặt trong spread.")
+    elif len(with_ref) > 3:
+        warnings.append(f"{len(with_ref)} ảnh ref: GPT dễ lẫn nhân vật; nhân vật xa, nhỏ nên dùng --no-ref.")
+
+    has_marks = any(par.get("marks") for pg in layout["pages"].values()
+                    for b in pg.get("blocks", []) for par in b.get("paragraphs", []))
+    def column(side, label):
+        pg = layout["pages"].get(side) or {}
+        box = pg.get("textBoxPt")
+        if not box or not pg.get("lineCount"):
+            return None
+        c = layout["canvas"]
+        s = c["spreadWidthPx"] / layout["spread"]["widthPt"]
+        x0 = (c["trimEachSidePx"] + box[0] * s) / c["width"] * 100
+        x1 = (c["trimEachSidePx"] + box[2] * s) / c["width"] * 100
+        y0 = box[1] * s / c["height"] * 100
+        return f"{label} column x {x0:.1f}–{x1:.1f}%, first line top at y {y0:.1f}%"
+
+    cols = [x for x in (column("left", "left"), column("right", "right")) if x]
+    # Lệnh cố định của người dùng chỉ khóa cỡ chữ và vị trí dòng đầu; mọi thứ khác
+    # (độ dài dòng, ngắt dòng, số dòng, dáng khối) phải tự do để chữ ôm hình.
+    # Chỉ giữ số đo cỡ chữ (nói "giữ cỡ chữ" thì GPT vẫn co chữ nhường chỗ tranh);
+    # vị trí cột và dòng đầu để GPT bám Image 1, vì nó không đo tọa độ %.
+    position = ""
+    pgs = [p for p in layout["pages"].values() if p.get("sizePx") and p.get("leadingPx")]
+    if cols:
+        H = layout["canvas"]["height"]
+        size = (f"letters about {max(p['sizePx'] for p in pgs) / H * 100:.1f}% of the image height, "
+                f"one line every {max(p['leadingPx'] for p in pgs) / H * 100:.1f}%") if pgs else "as in Image 1"
+        position = ("Text and picture interweave like an editorial illustrated book: parts of the picture rise into the text columns "
+                    "and the lines reflow closely around them; the text is not an area the picture must avoid. "
+                    "Only two things are fixed: the type size (" + size + ") and where the first line of each column starts, exactly as in Image 1. "
+                    "Line length, line breaks and the number of lines follow the shapes of the picture, and a column may run longer downward. ")
+    c_ = layout["canvas"]
+    sc = c_["spreadWidthPx"] / layout["spread"]["widthPt"]
+    left = layout["pages"]["left"]["folio"]["text"]
+    right = layout["pages"]["right"]["folio"]["text"]
+    w, h = layout["canvas"]["width"], layout["canvas"]["height"]
+    pages = f"pages {left}–{right}"
+    # Gáy: nền đi liền qua gáy; nhân vật không vượt gáy; mặt và tay chính cách gáy 30 pt (book-spec, phần cong vào gáy).
+    g = c_["gutterXPx"] / w * 100
+    gz = 30 * sc / w * 100
+    mid = f"the middle {2 * gz:.0f}% of the width"
+    body = (spread / a.body if not Path(a.body).is_absolute() else Path(a.body)).read_text(encoding="utf-8").strip()
+
+    n0 = 2  # Image 1 luôn là layout / line art / outline
+    # Body ghi {slug}; script thay bằng số Image đúng theo cast, tránh trỏ nhầm ảnh khi đổi thứ tự.
+    ref_of = {c["slug"]: f"Image {n0 + i}" for i, c in enumerate(with_ref)}
+    ref_of.update({c["slug"]: c["name"] for c in text_only})
+    unknown = sorted(set(re.findall(r"\{([a-z0-9-]+)\}", body)) - set(ref_of))
+    if unknown:
+        die(f"body nhắc {', '.join('{' + u + '}' for u in unknown)} nhưng không có trong cast")
+    if re.search(r"\bImage [2-9]\b", body):
+        warnings.append("Body ghi cứng 'Image N'; dùng {slug} để script tự đánh số theo cast.")
+    body = re.sub(r"\{([a-z0-9-]+)\}", lambda m: ref_of[m.group(1)], body)
+
+    if a.kind == "outline":
+        if not re.search(r"^Mood:", body, re.M):
+            warnings.append("Body lượt nét thiếu dòng 'Mood:' (template: STORY, từng trang kèm biểu cảm, Mood).")
+        wrap = re.search(r"^Text wrap:(.*)$", body, re.M)
+        if not a.no_text and not wrap:
+            warnings.append("Body lượt nét thiếu dòng 'Text wrap:' (phần tranh nào vươn vào cột chữ, cạnh dòng nào).")
+        if wrap and re.search(r"font|type size|first[- ]line|vietnamese|english|wide|plain black|highlight", wrap.group(1), re.I):
+            warnings.append("Dòng 'Text wrap:' chỉ nói phần hình nào vươn vào cạnh dòng nào; cỡ chữ, dòng đầu, ngôn ngữ, màu chữ do script lo.")
+        if len(body.splitlines()) < 3:
+            warnings.append("Body lượt nét quá ngắn: cần câu STORY mở đầu và mỗi trang một câu có hành động chính, biểu cảm, hướng nhìn.")
+    elif a.kind == "color":
+        # Lượt màu không dựng lại bố cục: bỏ dòng Text wrap, nhắc nếu còn chỉ dẫn góc máy.
+        body = "\n".join(l for l in body.splitlines() if not l.startswith("Text wrap:")).strip()
+        if re.search(r"eye-level|worm's-eye|bird's-eye|\blens\b|wide-angle|close-up|low angle|high angle", body, re.I):
+            warnings.append("Body lượt màu còn chỉ dẫn góc máy; lượt màu chỉ cần STORY, màu/ánh sáng từng trang và Mood.")
+    else:
+        if not re.search(r"^Change:", body, re.M):
+            warnings.append("Body lượt chỉnh nên là các dòng 'Change: …' (chỉ điều cần đổi), không chép lại cả cảnh.")
+        if re.search(r"^(Left|Right) page:", body, re.M):
+            warnings.append("Body lượt chỉnh có 'Left/Right page:' như lượt nét; GPT sẽ vẽ lại cả trang. Chỉ ghi điều cần đổi.")
+
+    img = [f"Image {n0 + i} = {c['name']}: {c['line']}." for i, c in enumerate(with_ref)]
+    txt = [f"{c['name'][0].upper()}{c['name'][1:]} (no reference image; same realistic human proportions as the other characters): {c['line']}." for c in text_only]
+    present = {c["slug"] for c in cast}
+    contrast = [s[0].upper() + s[1:] for k, s in pairs.items() if k <= present]
+
+    scene_text = " ".join(sc["text"] for sc in scenes)
+    bible_bans = [b for keys, b in bans if not keys or any(k in scene_text for k in keys)]
+    avoid = [x.strip().rstrip(".;") for x in [a.avoid] + [sc["ban"] or "" for sc in scenes] + bible_bans]
+    avoid = list(dict.fromkeys(x for x in avoid if x))
+    avoid_line = "Avoid: " + "; ".join(avoid) + "." if avoid else ""
+    # GPT không có negative prompt thật: mỗi từ trong Avoid vẫn gợi ra đúng thứ đó.
+    if len(avoid) > 7:
+        warnings.append(f"Avoid có {len(avoid)} mục; điều muốn có nên viết thành câu khẳng định trong body, Avoid chỉ giữ lỗi model hay mắc thật.")
+
+    parts = []
+    # Thứ tự theo cách GPT đọc: việc cần làm và cảnh trước, rồi nhân vật, style, trang sách, chữ, Avoid.
+    fold = (f"The center fold (book gutter) runs down the middle of the spread at x {g:.0f}%. The background continues across it,"
+            " but each character stays wholly on its own page and may come close to the fold from its own side;"
+            f" keep faces and the hands doing the key action out of {mid}.")
+    if across:
+        # Ngoại lệ theo spread: một vật (ví dụ thanh gỗ nhiều người khiêng) đi liền qua gáy; người vẫn không vượt gáy.
+        fold = (f"The center fold (book gutter) runs down the middle of the spread at x {g:.0f}%. The background and {across} continue across it;"
+                " each person stays wholly on their own page and may come close to the fold from their own side."
+                f" Inside {mid}, {across} is a plain unbroken stretch: no hands, ropes, joints or faces there.")
+    if a.split:
+        fold = (f"The center fold (book gutter) runs down the middle of the spread at x {g:.0f}%. This spread holds two separate pictures,"
+                f" one per page, with no frame lines: {mid} is a blank white paper band from top to bottom, and no background,"
+                " body, robe or prop enters it.")
+    if a.kind == "outline":
+        parts.append(f"Draw {pages} of an illustrated graphic novel about the life of the Buddha (ancient northern India) for adult and family readers as one {w}x{h} spread "
+                     f"in \"{st['name']}\" refined editorial comic line art. Image 1 is the page layout.")
+        parts.append(body)
+        if img or txt:
+            parts.append("\n".join(["Characters: match faces, hair and clothing to their profile sheets; body height and proportions follow the character lines below; ignore the sheets' poses, backgrounds and labels."] + img + txt + contrast))
+        parts.append(line_style(st))
+        frame = layout.get("frames") or []
+        lay = "Page: keep the margins of Image 1."
+        if any(f.get("fill") for f in frame):
+            lay += " Its colored block only marks roughly where the picture goes, not its border; the picture may rise around the text."
+        lay += (" The flat gray bands at the left and right edges of Image 1 are bleed: leave them completely empty, plain gray as in Image 1;"
+                " the illustration stops at their inner edge, without a border line."
+                " Keep faces, hands and the key action well inside the page, away from the gray bands;"
+                " bodies, robes and background may run to the inner edge of the gray bands and be cut off there, like a full-bleed book page. "
+                + fold)
+        if a.two_scenes:
+            lay += " The left and right settings blend into each other across the fold through a soft transition, with no white strip or border."
+        parts.append(lay)
+        if a.no_text:
+            parts.append("No text of any kind in the image.")
+        else:
+            parts.append(position
+                         + "Left page uses the Vietnamese words of Image 1; right page is English placeholder text of similar length. "
+                         + "Black text, no boxes; keep any colored highlight behind the text as in Image 1, following the reflowed lines; never over faces; no text on the center fold."
+                         + (" Colored text in Image 1 is editor's marks only; draw it black." if has_marks else ""))
+    elif a.kind == "color":
+        parts.append(f"Color Image 1, the line art of {pages}, in the style below: {st['color_open']} Any gray tones in Image 1 are not lighting; ignore them. Keep its composition and text.")
+        if a.light:
+            light_line = f"Light: {a.light.strip().rstrip('.')}."
+        else:
+            light = " ".join(f"{sc['id']}: {sc['light']}" for sc in scenes if sc["light"])
+            light_line = f"Scene light from the script: {light}" if light else ""
+            if light and re.search(r"[À-ỹ]", light):
+                warnings.append("Ánh sáng của cảnh là tiếng Việt nên không chèn; ghi ánh sáng tiếng Anh của spread bằng --light "
+                                "(nhất là khi spread là hồi tưởng khác thời điểm cảnh).")
+                light_line = ""
+        parts.append(body + (f"\n{light_line}" if light_line else ""))
+        if img or txt:
+            parts.append("\n".join(["Characters must match their profile sheets in face, hair and clothing colors; where Image 1 differs, follow the sheet. Expressions follow the moment, not the sheets. Ignore the sheets' poses, lighting and labels."] + img + txt + contrast))
+        parts.append(text_block(*st["def"]))
+        if a.split:
+            parts.append("Image 1 has two separate pictures with a blank white paper band between them at the center fold: keep that band "
+                         "plain white paper, unpainted, with no frame lines; the gray bleed bands at the outer edges also stay empty. "
+                         "Each character stays in its own picture as in Image 1.")
+        else:
+            parts.append("Paint across the center fold, transition included; only the gray bleed bands at the outer edges stay empty. "
+                         "Each character stays on its own side of the fold as in Image 1."
+                         + (f" {across[0].upper()}{across[1:]} runs unbroken across the fold as in Image 1." if across else ""))
+        parts.append("No text of any kind in the image." if a.no_text else "Text: keep every word and line break of Image 1, crisp near-black; no new or colored text; keep any colored highlight behind the text as in Image 1. No text on the center fold.")
+    else:
+        parts.append(f"Edit Image 1, the clean outline of {pages}. Change only what is listed below and keep everything else in Image 1 unchanged.")
+        parts.append(body)
+        if img:
+            parts.append("\n".join(["Edited characters must match their profile sheets in face, hair and clothing; body proportions follow the character lines below, not the sheets' poses. Ignore the sheets' poses, framing and labels."] + img + contrast))
+        parts.append(f"Style: the same \"{st['name']}\" line art as Image 1: clean black outlines with natural line weight; no color, no gray, no shading, no hatching, no sketchy lines.")
+        if img:
+            parts.append(f"Edited characters stay on their own page, with faces and key hands out of {mid} around the center fold.")
+        if across:
+            parts.append(f"{across[0].upper()}{across[1:]} may run unbroken across the center fold; no hands, ropes or joints on it within {mid}.")
+        parts.append("Keep all text words, type size and first-line positions; only the lines beside the edited area may reflow to wrap around the new shapes, keeping any colored highlight behind them.")
+    if avoid_line:
+        parts.append(avoid_line)
+
+    out = spread / a.out if not Path(a.out).is_absolute() else Path(a.out)
+    if out.exists():
+        die(f"{rel(out)} đã có; dùng version mới")
+    out.write_text("\n\n".join(parts) + "\n", encoding="utf-8")
+
+    first = {"outline": canvas_ref(spread, layout) if a.kind == "outline" else None, "color": "<outline được chọn>", "edit": "<outline đang sửa>"}[a.kind]
+    first = rel(first) if isinstance(first, Path) else first
+    print(f"Đã ghi {rel(out)} ({len(' '.join(parts).split())} từ, style {st['name']})")
+    print("Đính kèm:")
+    print(f"  Image 1 = {first}")
+    for i, c in enumerate(with_ref):
+        print(f"  Image {n0 + i} = {c['ref']}  ({c['name']})")
+    for wmsg in warnings:
+        print(f"CẢNH BÁO: {wmsg}")
+
+
+if __name__ == "__main__":
+    main()

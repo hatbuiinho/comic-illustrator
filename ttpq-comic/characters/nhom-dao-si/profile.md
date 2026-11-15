@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng gửi sheet và yêu cầu "Thêm nhân vật: Nhóm đạo sĩ" ngày 2026-10-31; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet 4 nhân vật có nhãn, mỗi người một ảnh bán thân và một ảnh toàn thân, người dùng gửi ngày 2026-10-31, 1486×1268, chuyển từ webp sang png, giữ nguyên pixel).
+- Tên trong prompt: the ascetics
+- Ref prompt: ref-v001.png
+- Dòng prompt: four distinct ascetics with topknots and beards: gaunt goatee, sly full beard, white-bearded elder with staff, burly brute
 - Vai trò trong truyện: nhóm đạo sĩ ngồi thành vòng tròn trong đền đá cổ giữa rừng, bàn mưu chống Đức Phật (S16, Ch3 L214–242; xuất hiện lại S48). Gã xoa sườn có profile riêng `dao-si-om-man-suon`.
 - Profile gồm 4 cá nhân, gọi theo nhãn trên sheet. Mỗi người là một nhân vật riêng; khi đính kèm, ghi rõ người nào trong sheet.
 

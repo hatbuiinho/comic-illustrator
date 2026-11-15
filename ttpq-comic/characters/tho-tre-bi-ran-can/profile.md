@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (sheet "Người Thợ Trẻ Bị rắn cắn" từ `local/Người thợ trẻ bị rắn cắn.png`, 1536×1024, giữ nguyên pixel).
+- Tên trong prompt: the young mason
+- Ref prompt: ref-v001.png
+- Dòng prompt: tall muscular beardless youth, dark green turban, sleeveless moss-gray top, steel-blue sash
 - Vai trò trong truyện: thợ xây trẻ ở công trường, bị rắn lục cắn cổ tay, được Cittahattha ngồi bên làm dịu (S18, Ch4 L247–262).
 
 ## Mô tả (tiếng Việt, để duyệt)

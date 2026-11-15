@@ -3,187 +3,121 @@ name: ttpq-comic
 description: Chuẩn bị context truyện và menu lệnh cho spread trong ttpq-comic; đọc context, đề xuất hoặc tiếp nhận phương án minh họa, tạo/chỉnh clean outline và ảnh màu theo từng yêu cầu trực tiếp. Mặc định chỉ xuất context; hỗ trợ gói prompt khi được yêu cầu. Độc lập với comic-illustrator và hai studio.
 ---
 
-# TTPQ Comic — gói prompt cho spread
+# TTPQ Comic
 
 Đọc trước mỗi phiên: [contract](../../../ttpq-comic/contract.md),
 [book-spec](../../../ttpq-comic/book-spec.md),
-[style](../../../ttpq-comic/style/ttpq-comic.md),
-[era guide](../../../ttpq-comic/style/era-ancient-india.md).
-Không đọc hoặc gọi tài liệu, skill của `comic-illustrator/`, hai studio hay
-các style cũ. Riêng style dùng chung toàn dự án là `ttpq comic light` theo
-`docs/project-style-policy.md`; chỉ khi có tu sĩ mới đọc `docs/monastic-robes.md`.
+[style](../../../ttpq-comic/style/ttpq-comic.md) (chỉ đọc
+[style soft](../../../ttpq-comic/style/ttpq-comic-soft.md) khi người dùng gọi
+`ttpq comic soft`; chỉ đọc
+[style blend](../../../ttpq-comic/style/ttpq-comic-blend.md) khi người dùng gọi
+`ttpq comic blend`),
+[era guide](../../../ttpq-comic/style/era-ancient-india.md). Không đọc tài liệu
+hay skill của `comic-illustrator/`, hai studio hay `docs/monastic-robes.md`.
 
-Giá trị của flow là phần ChatGPT không tự biết: **bối cảnh truyện** và **ý đồ
-điện ảnh**. Ảnh layout và ảnh profile lo phần chữ và nhận diện; prompt giữ ngắn
-và đặt bố cục lên trước.
+Giá trị của flow là phần GPT không tự biết: **bối cảnh truyện**, **ý đồ điện
+ảnh** và **đúng profile theo cảnh**. Style, ảnh ref và điều cấm do
+`scripts/build-prompt.py` ghép tự động. Agent chỉ viết vài câu tả cảnh, giữ
+prompt ngắn và tự nhiên như văn xuôi.
 
-## Deliverable mặc định: khối bối cảnh
+## Đọc tiết kiệm
 
-Hiện tại flow chỉ xuất **khối bối cảnh truyện** cho spread; người dùng tự ghép
-với yêu cầu, style và ảnh layout trên ChatGPT.
-
-- Chạy bước 0–3, rồi viết khối theo
-  [mẫu khối bối cảnh](references/prompt-template.md#khối-bối-cảnh), lưu
-  `prompts/vNNN-context.md`, tự kiểm theo mục "Khối bối cảnh" của
-  [checklist](references/prompt-checklist.md), ghi `record.md`.
-- Bỏ bước 4–6 (mode, ý đồ điện ảnh, gói prompt hai lượt). Không cần chữ VI/EN
-  và không dừng khi trang phải chưa có chữ EN.
-- Khi trình, trả đủ ba phần:
-  1. **Khối bối cảnh** trọn trong một code block.
-  2. **Hình layout của spread:** link `layout-ref.png` trong thư mục spread.
-  3. **Profile nhân vật liên quan:** mỗi nhân vật có profile một dòng gồm số
-     ảnh trong khối bối cảnh, link `profile.md` (trạng thái, version) và link
-     ảnh ref. Nhân vật chưa có profile: ghi "chưa có profile, mô tả trong
-     khối".
-- Chỉ làm gói prompt hai lượt (bước 4–7) khi người dùng yêu cầu rõ.
+- `prompt-template.md`: chỉ đọc mục của lượt đang làm.
+- `record.md` của spread: chỉ đọc file chính. Khi file vượt khoảng 15 KB,
+  chuyển các lượt cũ sang cuối `record-archive.md`.
 
 ## Hội thoại
 
-- Flow tương tác context → đọc hiểu → phương án → outline → revision → màu:
-  đọc [menu lệnh và tạo ảnh](references/interactive-flow.md) khi trình context
-  hoặc xử lý một bước của flow này. Cuối phản hồi context luôn đề xuất nguyên
-  câu đọc context trong reference, sau ba phần deliverable; không chèn vào
-  khối bối cảnh. Chỉ hiện menu phù hợp bước hiện tại, không đổ toàn bộ menu.
-  Sau khi đọc hiểu context, trình hai lựa chọn về phương án theo reference;
-  chưa tự tạo phương án hoặc chuyển thẳng sang bước tạo ảnh.
-  Sau mỗi bản outline mới hoặc chỉnh sửa, trình đủ menu sửa / tạo lại / dàn
-  trang màu trong reference; luôn có prompt dàn trang màu nguyên văn.
-- Mặc định vẫn dừng sau context. Lệnh tạo outline/màu là yêu cầu tạo ảnh trực
-  tiếp trong chính flow này; không route sang workflow page hay studio và
-  không hỏi lại quyền tạo ảnh. Prompt cố định của người dùng giữ nguyên văn.
-- Mỗi lượt hỏi một quyết định chính; tự đọc dữ kiện có sẵn, không hỏi lại điều
-  đã chốt trong `record.md`/`brief.md` còn hiệu lực.
-- Khi chờ người dùng chọn, đưa mỗi câu trả lời mẫu trong một code block riêng.
-- Mỗi prompt hoàn chỉnh nằm trọn trong một code block để copy.
+- Menu từng bước theo [interactive-flow](references/interactive-flow.md). Chỉ
+  hiện menu đúng bước hiện tại, mỗi câu trả lời mẫu trong một code block riêng.
+- Lệnh tạo outline/màu là yêu cầu tạo ảnh trực tiếp; không hỏi lại quyền tạo
+  ảnh, không route sang workflow khác. Prompt cố định của người dùng giữ nguyên.
+- Mỗi lượt hỏi một quyết định chính; không hỏi lại điều đã chốt trong
+  `brief.md`/`record.md`.
 
 ## 0. Story bible (một lần cho mỗi tập)
 
-Khi người dùng đưa kịch bản tập, hoặc `story/<tập>/` chưa có `bible.md`/`scenes.md`:
+Khi người dùng đưa kịch bản, hoặc `story/<tập>/` chưa có `bible.md`/`scenes.md`:
 
 1. Chép nguyên văn vào `ttpq-comic/story/<tập>/script.md`.
-2. Viết `bible.md` theo [mẫu story](references/story-template.md): nhân vật
-   (vai trò, chương xuất hiện, profile có chưa), địa điểm và vùng, tiến độ/trạng
-   thái thay đổi theo thời gian, đạo cụ xuyên suốt, điều cấm chung, **Cần quyết**
-   (mâu thuẫn kịch bản–lịch sử, kịch bản tự mâu thuẫn).
-3. Viết `scenes.md`: mỗi cảnh một mục `Snn` theo mẫu, trạng thái `DRAFT`.
-4. Trình tóm tắt và các điểm Cần quyết; người dùng duyệt từng phần → `APPROVED`.
+2. Viết `bible.md` và `scenes.md` theo [mẫu story](references/story-template.md),
+   gồm dòng **Profile:** cho mỗi cảnh, mục "Avoid trong prompt" và "Cặp dễ nhầm".
+3. Trình tóm tắt và các điểm Cần quyết để người dùng duyệt.
 
-Dữ kiện phải có nguồn (chương, câu mở đầu đoạn); suy luận ghi rõ "suy ra".
-Khi kịch bản đổi, tăng version và ghi lại cảnh bị ảnh hưởng.
+## 1. Xác định spread và đọc layout
 
-## 1. Xác định spread
-
-Khóa file layout trong `ttpq-comic/layouts/` và spread (số trang sách, ví dụ
-54–55, hoặc số trang PDF). Thư mục làm việc:
-`ttpq-comic/spreads/<layout-slug>/p<trái>-<phải>/` (số trang 3 chữ số).
-
-## 2. Đọc layout và bối cảnh truyện
+Thư mục làm việc: `ttpq-comic/spreads/<layout-slug>/p<trái>-<phải>/` (số trang
+3 chữ số).
 
 ```bash
 scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/read-layout.py "ttpq-comic/layouts/<file>.pdf" --folio <số trang trái> --out "ttpq-comic/spreads/<layout-slug>/p<trái>-<phải>"
 ```
 
-Dùng `--page <n>` thay `--folio` nếu biết số trang PDF. Ánh xạ chữ của spread
-vào cảnh `Snn` trong `scenes.md` (ghi vào `brief.md`). Đã có story bible thì
-bible và scene sheet đủ bối cảnh. Chỉ đọc thêm một spread trước và một spread
-sau khi chưa có bible, hoặc khi chữ của spread không ánh xạ chắc vào một `Snn`
-(bỏ `--out`, script in JSON ra stdout).
+Dùng `--page <n>` nếu biết số trang PDF. Ánh xạ chữ của spread vào cảnh `Snn`
+và ghi vào `brief.md`. Chỉ đọc spread liền kề khi chưa có bible hoặc chữ không
+ánh xạ chắc vào một cảnh. Cụm chữ tô màu trong `marks` là dấu biên tập; nếu
+nghĩa của màu chưa có trong record, hỏi một lần.
 
-Trình snapshot ngắn:
+## 2. Nhân vật
 
-- **Chữ:** mỗi trang — ngôn ngữ, số dòng, số đoạn.
-- **Hình:** từng "Hình N" — trang, vị trí (%), ghi chú vẽ; không có ghi chú thì
-  suy khoảnh khắc từ chữ.
-- **Chữ tô màu:** cụm trong `marks` là dấu biên tập; nếu ý nghĩa màu chưa ghi
-  trong `record.md` của layout này, hỏi người dùng một lần.
-- **Bối cảnh truyện:** cảnh `Snn` tương ứng và trạng thái (`APPROVED`/`DRAFT`);
-  thời điểm, nơi chốn, được phép, bị cấm, continuity lấy từ scene sheet. Cảnh
-  còn `DRAFT` thì trình phần liên quan để người dùng duyệt trước khi viết prompt.
-- **Cảnh báo:** từ script.
+- Lấy nhân vật từ dòng **Profile:** của cảnh. Cảnh chưa có dòng này thì thêm
+  vào `scenes.md` trước.
+- Profile cần 3 trường `Tên trong prompt`, `Ref prompt`, `Dòng prompt` theo
+  [mẫu profile](references/profile-template.md).
+- Chưa có profile: xin ảnh ref, chép vào `characters/<slug>/ref-v001.png`, viết
+  profile `DRAFT`, chờ duyệt. Quần chúng không có profile: tả bằng chữ trong
+  phần cảnh.
+- Đính kèm ảnh ref cho mọi nhân vật có tên **thấy rõ mặt**. Chỉ người ở xa,
+  nhỏ hoặc nhóm quần chúng mới tả bằng chữ (`--no-ref`).
 
-Khi cần chữ EN cho trang phải, ưu tiên bản người dùng cung cấp, rồi bản EN
-đã có trong layout hoặc `text-en.md` của spread. Nếu chưa có, tự dịch toàn bộ
-chữ VI của đúng spread sang tiếng Anh, không dừng để hỏi hoặc yêu cầu duyệt
-riêng bản dịch. Giữ đủ nội dung, thứ tự đoạn, lời thoại, tên riêng và nghĩa
-thuật ngữ Phật giáo; không dịch ghi chú Hình hoặc dấu biên tập thành chữ in.
-Tự soát đối chiếu VI–EN, lưu bản dịch vào `text-en.md` (nếu đã có file thì tạo
-`text-en-vNNN.md`, không ghi đè), ghi rõ agent dịch từ nguồn nào trong
-`record.md` và metadata prompt. Chép nguyên bản EN đã chọn vào prompt; bản
-người dùng cung cấp sau đó được ưu tiên ở version mới. Khối bối cảnh mặc định
-vẫn không cần dịch EN.
+## 3. Khối bối cảnh (deliverable mặc định)
 
-## 3. Nhân vật và bối cảnh
+Viết theo [mẫu khối bối cảnh](references/prompt-template.md#khối-bối-cảnh), lưu
+`prompts/vNNN-context.md`, ghi `record.md`. Khi trình:
 
-Liệt kê nhân vật/bối cảnh xuất hiện; tìm `ttpq-comic/characters/<slug>/profile.md`
-và `ttpq-comic/settings/<slug>/setting.md`.
+1. **Khối bối cảnh** trọn trong một code block.
+2. **Layout:** link `layout-ref.png` của spread.
+3. **Profile liên quan:** mỗi nhân vật một dòng gồm số ảnh, link `profile.md`
+   và link ảnh ref; nhân vật chưa có profile ghi "mô tả trong khối".
 
-- Có bản `APPROVED`: dùng ảnh ref (người dùng đính kèm khi chạy) và dòng nhận
-  diện ngắn. Profile cũ chỉ có khối prompt dài: rút dòng nhận diện từ mục "Dấu
-  hiệu bắt buộc".
-- Chưa có: xin người dùng ảnh ref, chép vào thư mục đó (`ref-v001.png`), viết
-  mô tả theo [mẫu profile](references/profile-template.md) /
-  [mẫu setting](references/setting-template.md) ở trạng thái `DRAFT`, chờ duyệt.
-- Nhân vật quần chúng: có profile nhóm `APPROVED` thì dùng ảnh ref nhóm kết hợp
-  mô tả chữ theo cảnh; chưa có thì mô tả ngắn theo chữ của truyện và era guide.
+Cuối phản hồi trình menu sau context (interactive-flow mục 1).
 
-## 4. Chọn mode
+## 4. Phương án điện ảnh
 
-Hỏi người dùng (ghi `brief.md`):
+**Một khoảnh khắc – một focus.** Mỗi scene là một tích tắc. Trong scene chỉ có
+một hành động chính, các nhân vật khác phối hợp với hành động đó. Spread có
+nhiều scene thì ghi rõ scene nào là chính; scene còn lại hạ một bậc.
 
-- **spread:** một gói prompt cho cả spread; các Hình gộp thành một tranh liền.
-- **frame:** mỗi "Hình N" một gói prompt; chữ mỗi trang gắn với Hình lớn nhất
-  trên trang đó (Hình vắt qua gáy mang chữ cả hai trang).
+Mỗi phương án gồm đúng 5 mục, mỗi mục 1–2 câu:
 
-## 5. Ý đồ điện ảnh
-
-Đưa 2–3 phương án (hoặc dựng từ ảnh ý tưởng nếu người dùng gửi).
-
-**Nguyên tắc một khoảnh khắc – một focus.** Một scene là một tích tắc, không
-phải tóm tắt cả đoạn chữ. Chữ đã kể các beat còn lại, nên hình chỉ chọn một
-beat. Trong scene chỉ có **một** hành động chính; mọi nhân vật khác phối hợp
-với hành động đó, không làm việc riêng. Spread có nhiều scene: mỗi scene một
-focus và chỉ rõ scene nào là chính; scene còn lại hạ một bậc (nhỏ hơn, ít chi
-tiết hơn).
-
-Mỗi phương án gồm đúng 5 mục, mỗi mục 1–2 câu, tách đầu dòng:
-
-- **Cảm xúc:** người xem cần cảm thấy gì khi lật tới spread.
-- **Khoảnh khắc & focus:** một tích tắc, một chủ thể + một hành động; vai phụ
-  chỉ nhìn về focus, phản ứng, làm khung hoặc nền.
-- **Góc máy & cỡ cảnh:** cho từng trang/scene, kèm lý do cảm xúc. Nhiều scene:
-  ghi scene chính, các scene khác nhau về cỡ cảnh hoặc góc máy.
+- **Cảm xúc:** người xem cần cảm thấy gì.
+- **Khoảnh khắc & focus:** một chủ thể và một hành động; vai phụ chỉ phản ứng.
+- **Góc máy & cỡ cảnh:** cho từng trang/scene, kèm lý do cảm xúc.
 - **Không vẽ:** beat chỉ có trong chữ.
 - **Chữ ôm hình:** phần tranh nào vươn vào vùng chữ.
 
-Phương án agent đề xuất thêm một dòng **Đánh đổi**. Không thêm mục khác (vị trí
-%, đường mắt, ánh sáng…); chi tiết cần thiết gộp vào câu góc máy.
+Phương án agent đề xuất có thêm một dòng **Đánh đổi**. `brief.md` chỉ giữ khối
+"Phương án active" khoảng 10 dòng (context, cast, 5 mục). Đổi phương án thì
+chuyển bản cũ sang "Lịch sử phương án" trong `record.md`.
 
-### brief.md chỉ giữ phương án active
+Mode mặc định là spread: một tranh liền cho cả spread. Chỉ dùng mode frame
+(mỗi Hình một ảnh) khi người dùng yêu cầu.
 
-`brief.md` là nguồn duy nhất để viết prompt, gồm một khối "Phương án active"
-khoảng 10 dòng: context active, mode, profile dùng, 5 mục trên và
-`SKIPPED_BY_USER` nếu có. Chọn, chỉnh hoặc reset phương án thì ghi đè khối
-này; bản cũ chuyển nguyên văn sang mục "Lịch sử phương án" của `record.md`.
-Không ghi quan sát chi tiết của ảnh ý tưởng vào brief. Phương án người dùng tự
-đưa: agent điền 5 mục theo ý của họ và nêu ra để xác nhận, không tự đổi
-khoảnh khắc.
+## 5. Viết và chạy prompt ảnh
 
-## 6. Viết gói prompt
+Theo [mẫu prompt](references/prompt-template.md): agent viết file body (2–4 câu
+tiếng Anh) rồi chạy `build-prompt.py` để ghép prompt. Script in danh sách ảnh
+cần đính kèm theo đúng thứ tự Image. Gửi đúng file prompt script ghi ra, kèm
+các ảnh đó. Trước khi gửi tạo ảnh, tự kiểm prompt theo
+[checklist](references/prompt-checklist.md).
 
-Mục này là nhánh xuất gói prompt theo yêu cầu, không tự áp thay cho flow tương
-tác. Khi người dùng dùng prompt cố định outline/màu, ưu tiên reference
-`interactive-flow.md`; đặc biệt lượt màu không khóa nét/identity theo outline.
+- Hiển thị ảnh ngay khi công cụ trả kết quả. Sau khi đã hiển thị, tự động
+  kiểm tra ảnh theo prompt, layout và profile liên quan. Lưu phiên bản mới,
+  ghi kết quả kiểm tra vào `record.md` và báo ngắn các điểm lệch nếu có.
 
-Viết theo [mẫu prompt](references/prompt-template.md); mẫu là nguồn duy nhất
-cho cấu trúc và quy tắc viết prompt (khối được dùng, luật vá, ref output cũ).
-Lượt nét: tin 1 khối STYLE, tin 2 phần còn lại; đính kèm `layout-ref.png` và
-ảnh ref profile. Lượt màu: một prompt, đính kèm ảnh nét đã chọn và ảnh ref.
+Ảnh lượt nét có hai dải bleed xám trống (47 px mỗi bên). Khi đưa vào InDesign:
+nối nền vào hai dải bằng Photoshop/AI, đặt ảnh để phần spread 1443 px khớp
+khổ spread, bleed 0.3 cm lấy từ phần đã nối.
 
-Lưu `prompts/vNNN-spread.md` hoặc `prompts/vNNN-hinh-N.md`.
-
-## 7. Tự kiểm và trình
-
-Kiểm theo [checklist](references/prompt-checklist.md), sửa đến khi đạt. Ghi
-`record.md`: nguồn đã đọc, mode, profile/setting và version, lựa chọn, kết quả
-kiểm, `SKIPPED_BY_USER` nếu có. Trình gói prompt (mỗi tin một code block), ghi
-rõ ảnh cần đính kèm ở mỗi lượt và rủi ro còn lại.
+Khi người dùng xin "gói prompt" để tự chạy: dùng cùng script, trình mỗi prompt
+trong một code block kèm danh sách ảnh đính kèm.

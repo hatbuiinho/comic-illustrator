@@ -35,6 +35,13 @@ Lưu tại `ttpq-comic/story/<tập>/`. Mọi dữ kiện ghi nguồn `Ch<n> L<d
 ## Điều cấm chung của tập
 - <cấm>: <lý do>
 
+## Avoid trong prompt
+- <điều cấm chung, tiếng Anh ngắn, dùng cho mọi prompt ảnh>
+- [khi: <từ khóa tiếng Việt có trong cảnh>, …] <điều cấm chỉ áp cho cảnh có các từ khóa đó>
+
+## Cặp dễ nhầm
+- <slug-a> + <slug-b>: <một câu tiếng Anh nêu điểm khác nhau>
+
 ## Cần quyết
 | # | Chi tiết trong kịch bản | Vấn đề | Đề xuất | Quyết định |
 ~~~
@@ -46,8 +53,10 @@ Lưu tại `ttpq-comic/story/<tập>/`. Mọi dữ kiện ghi nguồn `Ch<n> L<d
 - **Thời điểm/ánh sáng:** <ngày thứ mấy, giờ, thời tiết, nguồn sáng>
 - **Nơi:** <địa điểm, khu>
 - **Nhân vật:** <ai, trạng thái, đạo cụ cầm>
+- **Profile:** <slug, slug:ref-khác.png, … hoặc —>
 - **Diễn biến:** <hành động chính, khoảnh khắc có thể vẽ>
 - **Được phép:** <bối cảnh, đạo cụ, quần chúng hợp cảnh>
 - **Cấm:** <việc chưa/không xảy ra, sai niên đại liên quan>
+- **Avoid:** <bản tiếng Anh ngắn của Cấm, dùng cho prompt; không có thì script dùng Cấm>
 - **Continuity:** <phải khớp với cảnh trước/sau>
 ~~~

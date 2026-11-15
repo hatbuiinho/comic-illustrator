@@ -1,87 +1,40 @@
-# Checklist tự kiểm gói prompt
+# Checklist nhanh trước khi gửi
 
-Ghi kết quả từng mục (ĐẠT / SỬA / N/A) vào `record.md`.
-Áp cho prompt ImageGen agent viết, không áp lên câu lệnh cố định của người
-dùng. Quy tắc viết nằm ở `prompt-template.md`; checklist chỉ đối chiếu.
+Tự kiểm trong đầu, không cần ghi từng mục vào `record.md`.
 
-## Nguồn
+## Mọi lượt ảnh
 
-- [ ] `layout.json` đúng file và đúng spread; cảnh báo của script đã xử lý.
-- [ ] Bối cảnh truyện trong prompt khớp chữ và scene sheet (thời điểm, nơi
-      chốn, đạo cụ, việc đã/chưa xảy ra). Đọc spread liền kề khi chưa có story
-      bible, hoặc khi chữ của spread không ánh xạ chắc vào một `Snn`.
-- [ ] Nhân vật có tên dùng profile `APPROVED`, ghi version; ảnh ref tương ứng
-      được liệt kê để đính kèm.
-- [ ] Không có output cũ (ảnh nét/màu version trước, spread khác) trong danh
-      sách đính kèm hoặc lời prompt; chỉ ngoại lệ ảnh nét đã chọn ở lượt màu
-      và outline đích khi chỉnh outline.
-- [ ] Prompt viết từ khối active của `brief.md` (5 mục), không từ lịch sử.
-
-## Lượt nét
-
-- [ ] Khối STYLE clean outline chép nguyên ở đầu.
-- [ ] Chỉ có các khối của mẫu: Image, STORY, INTENT, TEXT, DO NOT, chữ EN.
-- [ ] INTENT: cảm xúc + mỗi trang/scene một focus và góc máy; scene chính ghi rõ.
-- [ ] TEXT giữ khổ chữ và vị trí dòng đầu, reflow ôm hình trong cột; VI trái,
-      EN phải.
-- [ ] Chữ EN chép nguyên văn từ bản được chọn; ưu tiên bản người dùng cung cấp.
-      Nếu chưa có EN: đã tự dịch đủ chữ VI, soát đối chiếu nội dung/thứ tự đoạn/
-      tên riêng/thuật ngữ, lưu file EN có version và ghi nguồn agent dịch.
-- [ ] Không luật vá, không mô tả lại identity của nhân vật có profile, không
-      nhắc output cũ.
+- [ ] Prompt do `build-prompt.py` ghép, không có cảnh báo chưa xử lý (cảnh
+      DRAFT chưa duyệt, profile chưa APPROVED, thiếu dòng Profile).
+- [ ] Luôn truyền `--cast` đúng người có mặt trong spread; người ở xa hoặc
+      quần chúng dùng `--no-ref`; tối đa 3 ảnh ref.
+- [ ] Body trỏ tới ảnh ref bằng `{slug}`, không ghi cứng `Image N`.
+- [ ] Ảnh đính kèm đúng thứ tự Image script in ra; không có output cũ ngoài
+      outline được chọn hoặc outline đang sửa.
+- [ ] Body ngắn, là văn xuôi, một focus mỗi scene, không tả lại mặt hay màu
+      của nhân vật có ref.
+- [ ] "Không vẽ" của brief đã đưa vào `--avoid`.
+- [ ] Lượt nét: body có STORY, Mood và biểu cảm từng nhân vật; hành động chính
+      và góc máy của mỗi trang khớp brief; body đã lưu `.body.txt`.
+- [ ] Lượt nét: body có dòng `Text wrap:` theo "Chữ ôm hình" của brief; đoạn
+      Text chỉ khóa cỡ chữ và vị trí dòng đầu, không khóa số dòng/dáng khối.
+      `Text wrap:` không nhắc cỡ chữ, dòng đầu, ngôn ngữ, màu chữ.
+- [ ] Điều muốn có viết thành câu khẳng định trong body; Avoid chỉ giữ lỗi model
+      hay mắc thật.
 
 ## Lượt màu
 
-- [ ] Khối STYLE màu chép nguyên; theo mẫu lượt màu.
-- [ ] Outline chỉ tham khảo scene và chữ; nhân vật theo profile gốc. Chỉ khóa
-      nét khi người dùng yêu cầu riêng.
-- [ ] Ảnh ref profile ghi "identity and local colors" và bỏ "lighting and
-      rendering"; không có "ignore color".
-- [ ] Mỗi nhân vật có profile có cụm gán vị trí/hành động trong Image 1, khớp
-      brief, không mô tả identity. Nhân vật chính có thêm cụm biểu cảm và
-      hướng nhìn lấy từ phương án, chữ hoặc Image 1, khoảng 12 từ trở xuống.
-- [ ] Câu ưu tiên profile chỉ áp cho identity và trang phục; có vế lấy biểu
-      cảm và hướng nhìn từ prompt và Image 1.
+- [ ] Ánh sáng trong body khớp cường độ của chữ nguồn (nắng gắt vẫn là gắt).
+- [ ] Body màu chỉ có STORY, màu/ánh sáng từng trang, Mood; không góc máy.
 
-## Chỉnh outline / chỉnh màu
+## Lượt chỉnh
 
-- [ ] Chỉnh outline: Image 1 là base trong khối "Chỉnh outline active", không
-      phải bản vừa sửa ra (trừ khi người dùng đính kèm/chốt base mới).
-- [ ] Thứ tự ảnh ref profile đúng như khối đã ghi; prompt gọi tên Image <N>
-      khớp ảnh đính kèm thật.
-- [ ] CHANGE chép đủ danh sách tích lũy; KEEP giữ chữ; ảnh ref profile của
-      nhân vật xuất hiện có đính kèm.
-- [ ] Không mô tả mặt/biểu cảm/đặc điểm nhận diện của nhân vật có profile,
-      trừ phần comment yêu cầu đúng điều đó.
-- [ ] Chỉnh màu: Image 1 là outline được chọn, không đính kèm ảnh màu đã tạo;
-      comment nằm ở dòng CHANGE.
-
-## Điều cấm
-
-- [ ] Cả hai lượt có điều cấm áp dụng: style, era liên quan, theo bối cảnh truyện
-      (việc chưa xảy ra, đạo cụ dễ hiểu sai), gáy, chữ đè mặt/tay.
-- [ ] Ngoại lệ profile (ví dụ áo may của nhân vật) không bị cấm nhầm.
-- [ ] Không có từ kéo về 3D/ảnh thật (octane, unreal, photoreal, volumetric, bokeh…).
-
-## Định dạng
-
-- [ ] Mỗi prompt trọn trong một code block; không còn `<...>` chưa thay.
-- [ ] Canvas đúng mode.
+- [ ] Body chỉ gồm các dòng `Change:`; không chép `Left/Right page:` của lượt nét.
 
 ## Khối bối cảnh
 
-- [ ] Cảnh `Snn` đúng spread; ghi trạng thái (DRAFT dùng theo yêu cầu người dùng).
-- [ ] Khớp cảnh trước/sau: việc đã xảy ra, chưa xảy ra; tiến độ công trình
-      theo bible.
-- [ ] Quyết định trong `bible.md`/`record.md` (Cần quyết, SKIPPED_BY_USER) đã áp.
-- [ ] DIỄN BIẾN TRONG CHỮ tách beat từng dòng, có câu "chỉ vẽ một khoảnh
-      khắc"; KHOẢNH KHẮC ĐƯỢC VẼ chép 5 mục của phương án
-      active, hoặc "Chưa chọn" khi chưa có. CON NGƯỜI chỉ có nhận diện tĩnh.
-- [ ] Nhân vật có profile `APPROVED`: ghi số ảnh, chỉ dùng để nhận diện.
-- [ ] Mục KHÔNG ĐƯỢC có điều cấm truyện và niên đại liên quan; không cấm nhầm
-      ngoại lệ profile.
-- [ ] Viết tiếng Việt, trọn một code block, không còn `<...>`.
-- [ ] Trình kèm link `layout-ref.png` của spread và link profile + ảnh ref của
-      từng nhân vật liên quan; số ảnh khớp với khối.
-- [ ] Cuối phản hồi có câu đọc context nguyên văn trong `interactive-flow.md`,
-      dẫn đúng version context; chưa tự tạo ảnh.
+- [ ] Cảnh `Snn` đúng spread; việc đã/chưa xảy ra khớp cảnh trước và sau.
+- [ ] THỜI ĐIỂM & ÁNH SÁNG giữ đúng cường độ của chữ nguồn.
+- [ ] KHÔNG ĐƯỢC có điều cấm truyện và niên đại liên quan; không cấm nhầm
+      ngoại lệ của profile.
+- [ ] Trọn một code block, không còn `<...>`; trình kèm link layout và profile.

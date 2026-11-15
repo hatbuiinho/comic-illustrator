@@ -3,89 +3,53 @@
 ## Phạm vi
 
 - Flow độc lập. Không đọc hoặc áp quy tắc workflow, profile hay skill của
-  `comic-illustrator/`, Character Studio, Image Playground, st01–st03 hoặc
-  các style cũ. Style dùng chung là `ttpq comic light` theo
-  `../docs/project-style-policy.md`; chỉ khi có tu sĩ mới đọc
-  `../docs/monastic-robes.md`. Từ root áp các quy tắc chung của
-  `AGENTS.md` (ngôn ngữ, điều cấm trong prompt, version, đường dẫn tương đối).
-- Deliverable mặc định là context; có thể xuất gói prompt khi được yêu cầu.
-  Flow hỗ trợ tạo/chỉnh ảnh khi người dùng yêu cầu trực tiếp ở bước outline
-  hoặc màu; không tự tạo ảnh ngay sau context. Ảnh là bản minh họa nháp, chưa
-  phải production. Menu và cách thực hiện thuộc skill `ttpq-comic`.
-- Mặc định hiện tại chỉ xuất **khối bối cảnh truyện** (tiếng Việt) cho spread;
-  gói prompt hai lượt chỉ làm khi người dùng yêu cầu rõ (xem SKILL).
+  `comic-illustrator/`, Character Studio, Image Playground hay các style cũ.
+  Style mặc định là `ttpq comic light` theo `../docs/project-style-policy.md`;
+  riêng flow này được dùng thêm `ttpq comic soft` (`style/ttpq-comic-soft.md`)
+  và style test `ttpq comic blend` (`style/ttpq-comic-blend.md`) khi người dùng gọi tên, ghi tên style đã dùng trong `record.md`.
+  Không áp `../docs/monastic-robes.md`; màu y và cách quấn y lấy theo profile
+  và ảnh ref của từng nhân vật. Từ root chỉ áp quy tắc chung của `AGENTS.md`
+  (ngôn ngữ, điều cấm trong prompt, version, đường dẫn tương đối).
+- Deliverable mặc định là **khối bối cảnh** tiếng Việt của spread. Flow tạo
+  hoặc chỉnh ảnh khi người dùng yêu cầu trực tiếp. Ảnh là bản nháp để dàn trang,
+  chưa phải production. Menu và cách làm thuộc skill `ttpq-comic`.
 - Pipeline hai lượt:
-  1. **Lượt nét (ChatGPT Image):** ảnh clean outline đen trắng của cả spread,
-     có chữ VI/EN ôm hình. Chữ trong ảnh chỉ để tham khảo dàn trang.
-  2. **Lượt màu (Codex hoặc ChatGPT Image):** tạo minh họa màu theo style ttpq
-     comic light. Theo lựa chọn người dùng ngày 2026-10-30, outline được chọn
-     chỉ tham khảo scene; nhân vật lấy chuẩn từ profile gốc, không lấy identity
-     từ output cũ. `SKIPPED_BY_USER` toàn flow đối với khóa mọi nét/contour và
-     dùng output cũ làm chuẩn nhân vật. Giữ chữ đã ôm hình (nội dung, khổ chữ,
-     vị trí, ngắt dòng, đường ôm), trừ yêu cầu đổi rõ của người dùng; không hứa
-     pixel-lock khi công cụ không chứng minh được.
-  Chữ trong ảnh ở cả hai lượt chỉ để tham khảo; chữ in cuối cùng do người dùng
-  dàn trong InDesign, không thuộc flow.
-- Ảnh được đính kèm khi chạy prompt:
-  - Lượt nét: `layout-ref.png` của spread và ảnh ref profile của từng nhân vật
-    có profile xuất hiện trong spread.
-  - Lượt màu: ảnh nét người dùng chọn và ảnh ref profile như trên.
-  - Chỉnh outline: outline đích của lượt đó và ảnh ref profile như trên.
-  Prompt ghi rõ ảnh số mấy là gì. Nhóm quần chúng có profile: đính kèm ảnh ref
-  nhóm và mô tả thêm bằng chữ (vai trò, số lượng, hành động theo cảnh). Người
-  không có profile và ảnh ý tưởng của người dùng được mô tả bằng chữ.
-- Cấm dùng output cũ làm ref khi tạo hình mới: không đính kèm, không nhắc tới
-  và không mô tả theo ảnh nét/màu đã tạo trước (version cũ của spread, spread
-  khác, ảnh trong `prompts/` hay thư mục output). Nhận diện chỉ lấy từ ảnh ref
-  profile/setting gốc. Ngoại lệ: lượt màu dùng ảnh nét người dùng chọn của chính
-  lượt đó; lượt chỉnh outline dùng outline đích (mục dưới).
-- `SKIPPED_BY_USER` — từ 2026-11-01, toàn flow TTPQ Comic, theo quyết định của
-  người dùng:
-  - **Chỉnh outline:** không áp quy tắc cấm output cũ và cấm luật vá. Sửa trực
-    tiếp trên outline đích, prompt ghi phần đổi theo comment và phần giữ; nhân
-    vật vẫn đối chiếu profile gốc. Outline đích là **base** đã neo, không phải
-    bản vừa sửa ra: mọi lượt sửa xuất phát từ base, comment được tích lũy vào
-    một danh sách CHANGE, thứ tự ảnh đính kèm cố định trong suốt chuỗi sửa.
-    Chỉ đổi base khi người dùng đính kèm outline làm base hoặc chốt rõ một bản.
-  - **Chỉnh màu:** không sửa trên ảnh màu đã tạo. Vẽ lại từ outline được chọn
-    và profile gốc làm chuẩn, kèm comment của người dùng.
-- Style: [ttpq comic light](../docs/style-ttpq-comic-light.md). Bối cảnh mặc định:
-  [Ấn Độ thời Đức Phật](style/era-ancient-india.md).
+  1. **Lượt nét:** clean outline đen trắng cả spread, chữ ôm hình.
+  2. **Lượt màu:** vẽ màu theo style từ outline người dùng chọn. Outline dùng
+     cho scene và chữ; nhận diện nhân vật theo profile gốc.
+- Chữ trong ảnh chỉ để dàn trang tương đối, sẽ bị bỏ trước khi đưa vào
+  InDesign. Trang trái giữ chữ VI của layout; trang phải là chữ tiếng Anh giữ
+  chỗ cùng độ dài, do model tự sinh. Không dịch và không lưu bản EN.
+- Chỉnh ảnh theo cách tự nhiên: đính kèm ảnh người dùng đang comment và ghi
+  comment đó. Lượt màu sửa bằng cách vẽ lại từ outline được chọn, không sửa
+  trên ảnh màu, trừ khi người dùng yêu cầu rõ.
+- Không dùng output cũ làm chuẩn nhân vật. Nhận diện chỉ lấy từ ảnh ref
+  profile/setting. Ảnh được phép đính kèm: layout (lượt nét), outline được
+  chọn (lượt màu), outline đang sửa (chỉnh outline) và ảnh ref profile.
 
 ## Nguồn
 
-- Layout: PDF trong `layouts/`. Mỗi trang PDF là một spread; trang trái tiếng
-  Việt, trang phải tiếng Anh. Luôn đọc bằng `read-layout.py`, không chép tay.
-- Kịch bản: `story/<tập>/script.md`, toàn văn do người dùng cung cấp, chép
-  nguyên văn. Từ kịch bản, flow dựng `bible.md` (nhân vật, địa điểm, tiến độ,
-  đạo cụ, điểm cần quyết) và `scenes.md` (timeline cảnh: thời điểm, ánh sáng,
-  nơi chốn, nhân vật, được phép, bị cấm, continuity). Mỗi dữ kiện ghi nguồn
-  (chương, đoạn). Bối cảnh trong prompt chỉ lấy từ cảnh `APPROVED`; cảnh còn
-  `DRAFT` thì trình người dùng duyệt trước.
-- Chưa có kịch bản: dùng chữ của spread và các spread liền kề trong cùng PDF.
-- Mâu thuẫn giữa kịch bản và lịch sử/era guide (ví dụ cây trồng châu Mỹ): ghi
-  vào mục "Cần quyết" của `bible.md`; mặc định theo kịch bản cho tới khi người
-  dùng quyết.
-- Ghi chú "Hình N" trong layout là chỉ dẫn vẽ, không phải chữ in.
-- Chữ EN: ưu tiên bản người dùng cung cấp, rồi bản có sẵn trong layout hoặc
-  file chữ EN của spread. Nếu chưa có, agent tự dịch toàn bộ chữ VI của đúng
-  spread, tự soát và lưu bản dịch có nguồn/version theo skill; không dừng hỏi
-  hoặc yêu cầu duyệt riêng bản dịch. Không ghi đè bản EN hiện có. Khối bối cảnh
-  mặc định không cần dịch EN.
-- `SKIPPED_BY_USER` — từ 2026-10-29, phạm vi workflow TTPQ Comic: thay quy tắc
-  cũ “không tự dịch, dừng hỏi nguồn EN” bằng tự dịch khi chưa có bản EN.
-- Nhân vật và bối cảnh chỉ lấy từ `characters/` và `settings/` của flow. Ảnh ref
-  do người dùng chỉ định được chép vào đó trước khi mô tả.
-- Chỉ dùng `profile.md`/`setting.md` có trạng thái `APPROVED`. Bản `DRAFT` phải
-  được người dùng duyệt trước khi đưa vào prompt.
+- Layout: PDF trong `layouts/`, mỗi trang PDF là một spread. Luôn đọc bằng
+  `read-layout.py`, không chép tay. Ghi chú "Hình N" là chỉ dẫn vẽ, không
+  phải chữ in.
+- Kịch bản: `story/<tập>/script.md`, chép nguyên văn. Từ kịch bản dựng
+  `bible.md` và `scenes.md`. Mỗi dữ kiện ghi nguồn (chương, dòng).
+- Mỗi cảnh `Snn` có dòng **Profile:** liệt kê slug nhân vật có profile. Đây là
+  nguồn để script ghép prompt tự lấy ảnh ref. `bible.md` có mục "Avoid trong
+  prompt" và "Cặp dễ nhầm" cho script dùng.
+- Chưa có kịch bản: dùng chữ của spread và các spread liền kề.
+- Mâu thuẫn giữa kịch bản và lịch sử/era guide: ghi vào "Cần quyết" của
+  `bible.md`; mặc định theo kịch bản cho tới khi người dùng quyết.
+- Nhân vật và bối cảnh chỉ lấy từ `characters/` và `settings/`. Chỉ dùng
+  profile/setting `APPROVED`; bản `DRAFT` phải được duyệt trước.
 
 ## Thứ tự ưu tiên
 
 1. Yêu cầu trực tiếp mới nhất của người dùng.
 2. Layout của đúng spread (chữ, khổ, ghi chú Hình).
-3. Scene sheet `APPROVED` và quyết định trong `bible.md`.
-4. Profile/setting đã duyệt và ảnh ref của chúng.
-5. [book-spec.md](book-spec.md), style và era guide của flow.
+3. Cảnh trong `scenes.md` và quyết định trong `bible.md`.
+4. Profile/setting đã duyệt và ảnh ref.
+5. [book-spec.md](book-spec.md), style và era guide.
 6. Giả định sáng tạo của agent.
 
 Override rõ của người dùng ghi `SKIPPED_BY_USER` kèm phạm vi trong `record.md`.
@@ -93,12 +57,9 @@ Override rõ của người dùng ghi `SKIPPED_BY_USER` kèm phạm vi trong `re
 ## Version và lưu
 
 - Mỗi spread một thư mục `spreads/<layout-slug>/p<trái>-<phải>/`.
-- Gói prompt lưu `prompts/vNNN-spread.md` hoặc `prompts/vNNN-hinh-N.md`, gồm
-  prompt lượt nét và lượt màu; khối bối cảnh lưu `prompts/vNNN-context.md`;
-  không ghi đè version cũ.
-- Ảnh tạo trực tiếp lưu trong `outputs/` của spread, có version mới cho từng
-  outline/màu/revision; prompt, vai trò reference và kết quả kiểm ghi trong
-  record của lượt. Không tự chuyển vào approved hoặc profile.
-- `record.md` ghi mỗi lượt: nguồn đã đọc (đường dẫn, trang), mode, profile/
-  setting và version dùng, lựa chọn của người dùng, kết quả tự kiểm.
-- Sửa profile/setting thì tăng version mô tả và ghi lý do; prompt cũ giữ nguyên.
+- Khối bối cảnh lưu `prompts/vNNN-context.md`; prompt ảnh lưu
+  `prompts/vNNN-<outline|color|edit>.txt`; ảnh lưu `outputs/` với version mới.
+  Không ghi đè.
+- `record.md` ghi ngắn mỗi lượt: file prompt, ảnh đính kèm, file ảnh ra và
+  comment của người dùng. Không tự chuyển ảnh vào approved hoặc profile.
+- Sửa profile/setting thì tăng version mô tả và ghi lý do.

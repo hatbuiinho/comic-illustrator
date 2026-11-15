@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
 - Version mô tả: v002
 - Ảnh ref: ref-v002.png (ảnh chân dung + toàn thân người dùng gửi ngày 2026-11-08 để "update lại thị vệ kỳ cựu", 1254×1254, chuyển từ webp sang png, giữ nguyên pixel; ảnh không có chữ). Khác v001: bỏ khuyên tai vàng. `ref-v001.png` giữ lại làm lịch sử, không dùng làm chuẩn.
+- Tên trong prompt: the veteran guard
+- Ref prompt: ref-v002.png
+- Dòng prompt: burly middle-aged guard, trimmed black beard, red beaded turban, olive studded breastplate, saffron shawl
 - Vai trò trong truyện: "người đồng đội dạn dày kinh nghiệm" của thị vệ trẻ (Ch5 L429), "cận vệ hoàng gia nhiều năm vào sinh ra tử" (L460); đi trong đoàn tùy tùng vua Pasenadi, bàn về nợ tiền kiếp, mắt nhìn thẳng, cười hiếm hoi (S23, Ch5 L429–474).
 - "Kỳ cựu" nghĩa là nhiều kinh nghiệm, không phải già (người dùng xác nhận 2026-11-08): trung niên, râu tóc đen, sung sức.
 

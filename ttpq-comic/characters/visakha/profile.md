@@ -3,6 +3,9 @@
 - Trạng thái: APPROVED
 - Version mô tả: v001
 - Ảnh ref: ref-v001.png (chép từ `comic-illustrator/Tap 53/characters/approved/Tín nữ Visakha.png` theo chỉ định của người dùng, 2026-10-29)
+- Tên trong prompt: Visakha
+- Ref prompt: ref-v001.png
+- Dòng prompt: young noblewoman, emerald-green gold-bordered sari over her head, deep-blue blouse, gold-emerald jewelry
 - Vai trò trong truyện: nữ đại thí chủ, cùng chồng (Punna Vaddhana) xây tinh xá Pubbarama dâng Đức Phật
 
 ## Mô tả (tiếng Việt, để duyệt)
