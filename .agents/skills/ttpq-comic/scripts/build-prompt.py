@@ -61,9 +61,12 @@ STYLES = {
         "name": "ttpq comic blend",
         "def": (FLOW / "style" / "ttpq-comic-blend.md", 0),
         "line": (FLOW / "style" / "ttpq-comic-blend.md", 1),
-        "color_drop": "Color and light:",
+        "color_drop": ("Color and light:", "Value and contrast:"),
         "color_open": "clean flat color shapes with 2–3 slightly softened cel-shading tones on skin and clothing, "
-                      "under a gentle warm directional light; keep every black outline crisp and visible; "
+                      "under natural light suited to the scene's time and setting with a clear direction, no overall warm or golden cast unless the scene calls for it, cast shadows on the ground, deep colored shadow masses "
+                      "in the environment and focal characters separated from their background by value; "
+                      "keep every line clear and in place but recolor it: outer contours a very dark warm brown close to black at medium-light weight, never heavy pure black, "
+                      "interior and background lines tinted a clearly darker shade of the color they sit on and still readable; "
                       "foreground and middle ground in flat color planes with only gentle color transitions, "
                       "distance and sky softly painted with subtle gradients and layered atmospheric depth, "
                       "never gradients on characters.",
@@ -201,7 +204,7 @@ def main():
     ap.add_argument("--no-ref", nargs="+", default=[], help="nhân vật chỉ tả bằng chữ (xa, nhỏ)")
     ap.add_argument("--avoid", default="", help="điều cấm thêm của lượt (Không vẽ trong brief)")
     ap.add_argument("--light", help="ánh sáng riêng của spread (tiếng Anh), thay ánh sáng của cảnh ở lượt màu")
-    ap.add_argument("--two-scenes", action="store_true", help="spread hai cảnh: nối nền qua gáy bằng vùng chuyển tiếp")
+    ap.add_argument("--two-scenes", action="store_true", help="spread hai cảnh riêng: mỗi cảnh vẽ trọn trang mình tới gáy, không hòa, không dải trắng")
     ap.add_argument("--split", action="store_true", help="spread hai tranh tách nhau, giữa là dải giấy trắng ở gáy (cả ba lượt)")
     ap.add_argument("--across", help="vật (tiếng Anh) được vẽ liền qua gáy, ví dụ \"the long wooden beam\"; người vẫn ở trang của mình")
     ap.add_argument("--no-text", action="store_true", help="hình không có chữ")
@@ -211,6 +214,8 @@ def main():
     across = (a.across or "").strip().rstrip(".").strip()
     if across and a.split:
         die("--across không dùng chung với --split (dải giấy trắng ở gáy không cho vật nào đi qua)")
+    if a.two_scenes and (across or a.split):
+        die("--two-scenes không dùng chung với --across hoặc --split")
     st = STYLES[a.style]
     spread = (ROOT / a.spread).resolve()
     layout = json.loads((spread / "layout.json").read_text(encoding="utf-8"))
@@ -337,6 +342,12 @@ def main():
         fold = (f"The center fold (book gutter) runs down the middle of the spread at x {g:.0f}%. This spread holds two separate pictures,"
                 f" one per page, with no frame lines: {mid} is a blank white paper band from top to bottom, and no background,"
                 " body, robe or prop enters it.")
+    if a.two_scenes:
+        # Gáy bị đóng sách che: hai cảnh riêng không cần hòa; mỗi cảnh vẽ trọn trang mình tới sát gáy.
+        fold = (f"The center fold (book gutter) runs down the middle of the spread at x {g:.0f}%. This spread holds two separate scenes,"
+                " one per page: each scene's background fills its own page right up to the fold and stops there;"
+                " the two backgrounds do not blend or continue into each other, and there is no white strip, gap or border at the fold."
+                f" Each character stays wholly on its own page; keep faces and the hands doing the key action out of {mid}.")
     if a.kind == "outline":
         parts.append(f"Draw {pages} of an illustrated graphic novel about the life of the Buddha (ancient northern India) for adult and family readers as one {w}x{h} spread "
                      f"in \"{st['name']}\" refined editorial comic line art. Image 1 is the page layout.")
@@ -353,8 +364,6 @@ def main():
                 " Keep faces, hands and the key action well inside the page, away from the gray bands;"
                 " bodies, robes and background may run to the inner edge of the gray bands and be cut off there, like a full-bleed book page. "
                 + fold)
-        if a.two_scenes:
-            lay += " The left and right settings blend into each other across the fold through a soft transition, with no white strip or border."
         parts.append(lay)
         if a.no_text:
             parts.append("No text of any kind in the image.")
@@ -382,6 +391,10 @@ def main():
             parts.append("Image 1 has two separate pictures with a blank white paper band between them at the center fold: keep that band "
                          "plain white paper, unpainted, with no frame lines; the gray bleed bands at the outer edges also stay empty. "
                          "Each character stays in its own picture as in Image 1.")
+        elif a.two_scenes:
+            parts.append("Image 1 has two separate scenes, one per page. Paint each scene on its own page right up to the center fold;"
+                         " the two backgrounds meet at the fold without blending into each other, with no white strip, gap or border there;"
+                         " only the gray bleed bands at the outer edges stay empty. Each character stays on its own page as in Image 1.")
         else:
             parts.append("Paint across the center fold, transition included; only the gray bleed bands at the outer edges stay empty. "
                          "Each character stays on its own side of the fold as in Image 1."

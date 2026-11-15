@@ -41,9 +41,12 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
   hành động chính ngoài 7% giữa chiều ngang (30 pt mỗi bên gáy). Chỉ giữ hai con
   số: gáy x 50% và 7%. Vật cần đi liền qua gáy (thanh gỗ nhiều người khiêng…)
   dùng `--across`. Spread
-  hai cảnh dùng `--two-scenes`: nền hai cảnh nối qua gáy bằng vùng chuyển tiếp,
-  không dải giấy trắng; nhân vật mỗi cảnh ở trang của mình. Lượt màu tô liền qua
-  gáy, chỉ hai dải bleed xám để trống; spread hai tranh tách nhau có dải giấy
+  hai cảnh riêng dùng `--two-scenes` ở cả ba lượt: gáy bị đóng sách che nên
+  không hòa hai cảnh; mỗi cảnh vẽ/tô trọn trang mình tới sát gáy rồi dừng, không
+  vùng chuyển tiếp, không dải trắng; nhân vật mỗi cảnh ở trang của mình. Không
+  dùng chung với `--across`/`--split`. Spread một cảnh: lượt màu tô liền qua gáy,
+  chỉ hai dải bleed xám để trống;
+  không thay câu gáy bằng câu nền/vignette riêng; spread hai tranh tách nhau có dải giấy
   trắng ở gáy (theo brief/outline) thì dùng `--split` ở cả ba lượt: lượt nét
   đổi câu gáy thành hai tranh riêng, dải giấy trắng 7% giữa; lượt màu giữ dải trắng;
 - dòng Avoid: "Avoid" (tiếng Anh) của cảnh, "Avoid trong prompt" của bible (dòng
@@ -81,7 +84,7 @@ scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/build-pro
 - `--avoid`: mục "Không vẽ" của brief, dịch ngắn sang tiếng Anh.
 - `--light`: ánh sáng tiếng Anh của spread cho lượt màu, ví dụ
   `"bright midday sun in a dry forest; the ravine floor in cool shade"`.
-- `--two-scenes`: spread có hai cảnh tách, nối nền qua gáy bằng vùng chuyển tiếp.
+- `--two-scenes`: spread có hai cảnh riêng, mỗi cảnh vẽ trọn trang mình tới gáy, không hòa, không dải trắng.
 - `--across "<vật>"`: ngoại lệ của câu gáy cho một vật đi liền qua gáy (ví dụ
   `"the long wooden beam"` khi nhiều người khiêng từ trang này sang trang kia).
   Người vẫn nằm trọn trang của mình; trong 7% giữa vật chỉ là một đoạn trơn,
