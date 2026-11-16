@@ -1,6 +1,7 @@
 # Style TTPQ Comic hiện hành
 
-Mặc định dùng **[ttpq comic light](../../docs/style-ttpq-comic-light.md)**.
+Mặc định dùng **[ttpq comic light](../../docs/style-ttpq-comic-light.md)**;
+riêng lượt màu mặc định [ttpq comic blend](ttpq-comic-blend.md) từ 2026-11-16.
 Riêng flow này có thêm style tùy chọn **[ttpq comic soft](ttpq-comic-soft.md)**
 (ánh sáng có hướng, bóng mềm, gradient nhẹ, nền có chiều sâu), chỉ dùng khi
 người dùng gọi tên cho lượt hoặc spread đang làm (`build-prompt.py --style soft`),

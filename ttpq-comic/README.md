@@ -9,8 +9,8 @@ Flow nghiên cứu kịch bản cả tập thành story bible và timeline cản
 
 1. **Lượt nét:** clean outline đen trắng của cả spread, chữ VI trái và chữ
    tiếng Anh giữ chỗ bên phải, ôm hình. Đính kèm `layout-ref.png` và ảnh ref.
-2. **Lượt màu:** vẽ màu style ttpq comic light (mặc định), ttpq comic soft hoặc
-   ttpq comic blend (khi gọi tên) từ outline đã chọn, nhân vật
+2. **Lượt màu:** vẽ màu style ttpq comic blend (mặc định khi lên màu), ttpq
+   comic light hoặc ttpq comic soft (khi gọi tên) từ outline đã chọn, nhân vật
    đúng profile, giữ chữ đã ôm hình.
 
 Prompt ảnh do `build-prompt.py` ghép: khối STYLE, ảnh ref theo dòng

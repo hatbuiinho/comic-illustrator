@@ -37,7 +37,8 @@ dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page
 
 - Lệnh "Chọn phương án N … tạo clean outline" cũng kích hoạt bước này.
 - Lệnh ghi `ttpq comic soft` hoặc `ttpq comic blend` thay cho `ttpq comic light`
-  thì chạy script với `--style soft` hoặc `--style blend`; không ghi thì là light.
+  thì chạy script với `--style soft` hoặc `--style blend`; không ghi thì lượt
+  nét là light, lượt màu là blend.
 - Viết body từ phương án active, chạy `build-prompt.py --pass outline`, rồi gọi
   ImageGen với prompt và ảnh đính kèm theo thứ tự script in ra.
 - Chữ trang phải là tiếng Anh giữ chỗ do model tự sinh; không dịch.
@@ -66,6 +67,12 @@ Người dùng comment tự do để sửa, hoặc nói "tạo outline khác the
 Luôn đưa lệnh màu cố định:
 
 ```text
+dùng style ttpq comic blend để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
+```
+
+Nếu người dùng muốn bản light (script `--style light`):
+
+```text
 dùng style ttpq comic light để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
 ```
 
@@ -74,12 +81,6 @@ outline light vẫn dùng được):
 
 ```text
 dùng style ttpq comic soft để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
-```
-
-Nếu người dùng muốn test bản blend (script `--style blend`):
-
-```text
-dùng style ttpq comic blend để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
 ```
 
 ## 4. Sửa outline

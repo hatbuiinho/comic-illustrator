@@ -1,9 +1,8 @@
 # ttpq comic blend
 
-Style tùy chọn để test, chỉ dùng trong flow TTPQ Comic, do người dùng yêu cầu
-ngày 2026-11-15. Chạy song song với `ttpq comic light` và `ttpq comic soft`;
-**mặc định vẫn là light**. Chỉ dùng blend khi người dùng gọi tên style này cho
-lượt hoặc spread đang làm.
+Style chỉ dùng trong flow TTPQ Comic, tạo ngày 2026-11-15. Từ 2026-11-16 là
+**style mặc định của lượt màu** (kể cả `color-edit`); lượt nét và chỉnh outline
+vẫn mặc định light. Lượt màu dùng light hoặc soft khi người dùng gọi tên.
 
 Hướng: đứng chính giữa light và soft. Nhân vật vẫn là comic sạch nét, mảng
 màu phẳng với cel-shading mép hơi dịu; tiền cảnh giữ mảng phẳng, trung cảnh
@@ -59,8 +58,8 @@ chiều sâu.
 
 ## Áp dụng
 
-- Gọi bằng `build-prompt.py --style blend` cho cả lượt nét, màu và chỉnh;
-  không ghi `--style` thì là light.
+- Lượt màu và `color-edit` không ghi `--style` là blend. Lượt nét và chỉnh
+  outline muốn dùng blend thì ghi `--style blend`; không ghi là light.
 - Lượt màu blend có thể tô từ outline light hoặc soft đã chọn; không bắt buộc
   vẽ lại nét.
 - Ánh sáng theo cảnh (`Thời điểm/ánh sáng` hoặc `--light`), không mặc định ấm

@@ -1,7 +1,8 @@
 # ttpq comic soft
 
 Style tùy chọn, chỉ dùng trong flow TTPQ Comic, do người dùng chốt ngày
-2026-11-15. Chạy song song với `ttpq comic light`; **mặc định vẫn là light**.
+2026-11-15. Chạy song song với `ttpq comic light`; mặc định là light cho lượt
+nét và blend cho lượt màu.
 Chỉ dùng soft khi người dùng gọi tên style này cho lượt hoặc spread đang làm.
 
 Hướng: giữ nhân vật comic sạch nét như light, nhưng thêm ánh sáng có hướng,

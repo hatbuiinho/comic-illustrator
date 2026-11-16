@@ -3,7 +3,8 @@
 
 Agent chỉ viết phần cảnh (2–4 câu tiếng Anh) vào --body. Script lo phần
 không được sai:
-  - khối STYLE nguyên văn theo --style: light (mặc định; định nghĩa ở
+  - khối STYLE nguyên văn theo --style (không ghi: blend cho lượt màu và
+    color-edit, light cho lượt nét và chỉnh outline): light (định nghĩa ở
     docs/style-ttpq-comic-light.md, khối nét ở style/ttpq-comic.md), soft
     (cả hai khối ở style/ttpq-comic-soft.md) hoặc blend (cả hai khối ở
     style/ttpq-comic-blend.md);
@@ -212,7 +213,7 @@ def main():
     ap.add_argument("--recast", nargs="+", default=[],
                     help="lượt màu: nhân vật vẽ lại từ profile, outline chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn, đạo cụ")
     ap.add_argument("--body", required=True, help="file chứa phần cảnh/comment agent viết")
-    ap.add_argument("--style", choices=sorted(STYLES), default="light", help="style của lượt; mặc định light")
+    ap.add_argument("--style", choices=sorted(STYLES), help="style của lượt; mặc định blend cho lượt màu/color-edit, light cho lượt nét/chỉnh outline")
     ap.add_argument("--story", help="mặc định ttpq-comic/story/<tiền tố layout-slug>")
     ap.add_argument("--cast", nargs="+", help="thay danh sách Profile của cảnh (slug hoặc slug:ref.png)")
     ap.add_argument("--no-ref", nargs="+", default=[], help="nhân vật chỉ tả bằng chữ (xa, nhỏ)")
@@ -230,6 +231,8 @@ def main():
         die("--across không dùng chung với --split (dải giấy trắng ở gáy không cho vật nào đi qua)")
     if a.two_scenes and (across or a.split):
         die("--two-scenes không dùng chung với --across hoặc --split")
+    # Từ 2026-11-16: lên màu mặc định blend; lượt nét và chỉnh outline mặc định light.
+    a.style = a.style or ("blend" if a.kind in ("color", "color-edit") else "light")
     st = STYLES[a.style]
     spread = (ROOT / a.spread).resolve()
     layout = json.loads((spread / "layout.json").read_text(encoding="utf-8"))

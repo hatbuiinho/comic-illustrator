@@ -5,8 +5,8 @@ câu tiếng Anh tự nhiên, không nhãn viết hoa, không luật vá. Script
 thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → STYLE → trang sách
 (lề, bleed, gáy) → chữ → Avoid. Script tự thêm:
 
-- khối STYLE theo `--style` (mặc định `light`; `soft`/`blend` chỉ khi người dùng gọi
-  tên). Light: cả hai lượt chép định nghĩa chuẩn `docs/style-ttpq-comic-light.md`,
+- khối STYLE theo `--style` (không ghi: `blend` cho lượt màu và `color-edit`,
+  `light` cho lượt nét và chỉnh outline; style khác chỉ khi người dùng gọi tên). Light: cả hai lượt chép định nghĩa chuẩn `docs/style-ttpq-comic-light.md`,
   lượt nét bỏ đoạn `Color:` rồi thêm khối LINE ART STAGE của
   `ttpq-comic/style/ttpq-comic.md` (mật độ nét, tóc, nếp y, nền, tỷ lệ người thật).
   Soft: hai khối trong `ttpq-comic/style/ttpq-comic-soft.md`, lượt nét bỏ đoạn

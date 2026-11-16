@@ -28,8 +28,9 @@ mềm và gradient nhẹ), ghi tên style trong record.
 
 Cũng từ 2026-11-15, TTPQ Comic có style test
 [ttpq comic blend](../ttpq-comic/style/ttpq-comic-blend.md) (50% comic + 25% flat
-+ 25% nền storybook), cùng điều kiện: chỉ khi được gọi tên, chỉ trong TTPQ
-Comic, QA theo định nghĩa blend và ghi tên style trong record.
++ 25% nền storybook). Từ 2026-11-16 blend là style mặc định của lượt màu
+trong TTPQ Comic (lượt nét vẫn mặc định light); chỉ dùng trong TTPQ Comic, QA
+theo định nghĩa blend và ghi tên style trong record.
 
 ## Chỉ khi ảnh cần vẽ tu sĩ
 
