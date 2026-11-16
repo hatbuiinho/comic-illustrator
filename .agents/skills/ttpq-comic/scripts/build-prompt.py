@@ -18,7 +18,10 @@ không được sai:
   - body ghi {slug} để script thay bằng số Image đúng theo cast;
   - lượt màu/color-edit dùng "Dòng nhận diện tiếng Anh" đầy đủ của profile;
     "Nét mặt cố định" (tiếng Anh) giữ biểu cảm theo sheet ở mọi lượt;
-  - --recast (lượt màu): nhân vật vẽ lại từ profile, outline chỉ chỉ dẫn diễn;
+  - "Nét vẽ line art" (tiếng Anh, tùy chọn) chỉ chèn ở lượt nét và chỉnh outline:
+    cách thể hiện dấu hiệu dễ sai khi chuyển sheet màu sang nét đen (râu, cổ y…);
+  - --recast (lượt màu và chỉnh outline; chỉnh outline thêm câu chốt cuối prompt): nhân vật vẽ lại từ profile, ảnh
+    nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn;
   - --pass color-edit: sửa một nhân vật trên ảnh màu, giữ nguyên phần còn lại.
 
 Thứ tự prompt: việc cần làm → cảnh (body) → nhân vật → STYLE → trang sách
@@ -156,7 +159,11 @@ def load_profile(token, warnings):
     if face and re.search(r"[À-ỹ]", face):
         warnings.append(f"{slug}: 'Nét mặt cố định' phải viết tiếng Anh; bỏ qua.")
         face = None
-    return {"slug": slug, "name": name, "line": line.rstrip("."), "id": idline, "face": face,
+    lineart = (field(t, "Nét vẽ line art") or "").rstrip(".") or None
+    if lineart and re.search(r"[À-ỹ]", lineart):
+        warnings.append(f"{slug}: 'Nét vẽ line art' phải viết tiếng Anh; bỏ qua.")
+        lineart = None
+    return {"slug": slug, "name": name, "line": line.rstrip("."), "id": idline, "face": face, "lineart": lineart,
             "ref": (d / ref).relative_to(ROOT)}
 
 
@@ -211,7 +218,7 @@ def main():
     ap.add_argument("--pass", dest="kind", choices=["outline", "color", "edit", "color-edit"], required=True,
                     help="edit = chỉnh outline; color-edit = chỉnh nhân vật trên ảnh màu đã có")
     ap.add_argument("--recast", nargs="+", default=[],
-                    help="lượt màu: nhân vật vẽ lại từ profile, outline chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn, đạo cụ")
+                    help="lượt màu hoặc chỉnh outline (--pass edit): nhân vật vẽ lại từ profile, ảnh nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn, đạo cụ")
     ap.add_argument("--body", required=True, help="file chứa phần cảnh/comment agent viết")
     ap.add_argument("--style", choices=sorted(STYLES), help="style của lượt; mặc định blend cho lượt màu/color-edit, light cho lượt nét/chỉnh outline")
     ap.add_argument("--story", help="mặc định ttpq-comic/story/<tiền tố layout-slug>")
@@ -259,8 +266,8 @@ def main():
         warnings.append(f"{len(with_ref)} ảnh ref: GPT dễ lẫn nhân vật; nhân vật xa, nhỏ nên dùng --no-ref.")
 
     recast = list(dict.fromkeys(a.recast))
-    if recast and a.kind != "color":
-        die("--recast chỉ dùng cho --pass color; chỉnh từng nhân vật trên ảnh màu dùng --pass color-edit")
+    if recast and a.kind not in ("color", "edit"):
+        die("--recast chỉ dùng cho --pass color hoặc --pass edit; chỉnh từng nhân vật trên ảnh màu dùng --pass color-edit")
     bad = [s for s in recast if s not in {c["slug"] for c in with_ref}]
     if bad:
         die(f"--recast {', '.join(bad)} không có trong cast có ảnh ref")
@@ -353,6 +360,9 @@ def main():
     def desc(c):
         # Lượt màu dùng dòng nhận diện đầy đủ (có màu da, trang phục); lượt nét dùng dòng ngắn.
         s = (c["id"] if full_id and c["id"] else c["line"]) + "."
+        # Lượt edit recast nhắc "In line art" ở câu chốt cuối prompt; không lặp ở dòng Image N.
+        if not full_id and c["lineart"] and not (a.kind == "edit" and c["slug"] in recast):
+            s += f" In line art: {c['lineart']}."
         return s + (f" Fixed face in every moment: {c['face']}." if c["face"] else "")
 
     img = [f"Image {n0 + i} = {c['name']}: {desc(c)}" for i, c in enumerate(with_ref)]
@@ -367,6 +377,14 @@ def main():
     recasts = [f"Recast {c['name']} (Image {n0 + i}): ignore the face, head, ears, hair, beard, body proportions and costume lines drawn in Image 1. "
                f"Keep from Image 1 only {keep_act}; take {take_sheet} from the sheet. {regrow}"
                for i, c in enumerate(with_ref) if c["slug"] in recast]
+    # Lượt chỉnh outline: lệnh "giữ mọi thứ" của edit làm GPT chỉ sửa nhẹ mặt cũ; phải bảo xóa và vẽ lại cả đầu.
+    keep_line = "where the head sits, the head turn, the gaze direction, the pose and gestures, any held prop and the overlap with others"
+    recasts_line = [f"Recast {c['name']} (Image {n0 + i}): erase and redraw the whole head, face, ears, hair or beard and neckline from the sheet; "
+                    f"ignore the face, head shape, ears, beard, body proportions and robe lines drawn in Image 1. "
+                    f"Keep from Image 1 only {keep_line}; take the face, head shape, ears, hair and beard, body build and proportions, and the costume lines from the sheet, drawn as clean black line art. "
+                    "If the sheet's build is taller or broader than the figure in Image 1, draw the sheet's build with the feet on the same ground line "
+                    "and redraw the background lines around the new silhouette."
+                    for i, c in enumerate(with_ref) if c["slug"] in recast]
     present = {c["slug"] for c in cast}
     contrast = [s[0].upper() + s[1:] for k, s in pairs.items() if k <= present]
 
@@ -474,10 +492,15 @@ def main():
         parts.append(f"The character stays on its own page, with face and key hands out of {mid} around the center fold.")
         parts.append("No text of any kind in the image." if a.no_text else "Keep all text, folios and any highlight behind the text exactly as in Image 1; do not redraw any letters.")
     else:
-        parts.append(f"Edit Image 1, the clean outline of {pages}. Change only what is listed below and keep everything else in Image 1 unchanged.")
+        if recasts_line:
+            parts.append(f"Edit Image 1, the clean outline of {pages}. Redraw the recast characters below and change what is listed; keep everything else in Image 1 unchanged.")
+            if re.search(r"exactly the existing|same (location and )?\S*-?facing angle|only .{0,30}identity features", body, re.I):
+                warnings.append("Body lượt chỉnh khóa cứng đầu/góc mặt ('exactly the existing', 'same angle', 'only identity features'); bỏ để --recast vẽ lại được cả đầu.")
+        else:
+            parts.append(f"Edit Image 1, the clean outline of {pages}. Change only what is listed below and keep everything else in Image 1 unchanged.")
         parts.append(body)
         if img:
-            parts.append("\n".join(["Edited characters must match their profile sheets in face, hair and clothing; body proportions follow the character lines below, not the sheets' poses. Ignore the sheets' poses, framing and labels."] + img + contrast))
+            parts.append("\n".join(["Edited characters must match their profile sheets in face, hair and clothing; body proportions follow the character lines below, not the sheets' poses. Ignore the sheets' poses, framing and labels."] + img + recasts_line + contrast))
         parts.append(f"Style: the same \"{st['name']}\" line art as Image 1: clean black outlines with natural line weight; no color, no gray, no shading, no hatching, no sketchy lines.")
         if img:
             parts.append(f"Edited characters stay on their own page, with faces and key hands out of {mid} around the center fold.")
@@ -486,6 +509,21 @@ def main():
         parts.append("Keep all text words, type size and first-line positions; only the lines beside the edited area may reflow to wrap around the new shapes, keeping any colored highlight behind them.")
     if avoid_line:
         parts.append(avoid_line)
+    if a.kind == "edit" and recasts_line:
+        # Đặt cuối prompt: lượt edit của GPT bám ảnh nguồn rất chặt, câu Recast ở giữa prompt
+        # chỉ làm mặt cũ dịu đi (p206–207 v004). Câu chốt ở cuối đã đổi được cả đầu (v005).
+        # Chi tiết riêng (râu, cổ áo…) lấy từ "Nét vẽ line art" của profile, không viết cứng ở đây.
+        for i, c in enumerate(with_ref):
+            if c["slug"] not in recast:
+                continue
+            final = (f"Final check for {c['name']} (Image {n0 + i}): this is a full replacement of the head and neckline, not a retouch. "
+                     "The head, face, beard and collar lines drawn in Image 1 are wrong: erase them completely and draw a recognizably new head from the sheet, "
+                     "even if the head silhouette changes, at the same place, head turn and gaze, with the same gestures. "
+                     "Erase the old collar lines as well and draw the neckline and the robe or clothing edge at the neck as the sheet shows it, not as in Image 1.")
+            if c["lineart"]:
+                final += f" In line art: {c['lineart']}."
+            final += " Keep every other person, all lettering and the scenery as they are."
+            parts.append(final)
 
     out = spread / a.out if not Path(a.out).is_absolute() else Path(a.out)
     if out.exists():

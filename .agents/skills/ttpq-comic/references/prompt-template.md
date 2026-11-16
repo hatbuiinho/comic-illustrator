@@ -67,12 +67,27 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
 - nhân vật: lượt nét và chỉnh outline dùng `Dòng prompt` ngắn; lượt màu và
   `color-edit` dùng khối `Dòng nhận diện tiếng Anh` đầy đủ của profile (thiếu
   thì cảnh báo, dùng dòng ngắn). Profile có `Nét mặt cố định` thì mọi lượt giữ
-  nét mặt đó, thay cho "biểu cảm theo khoảnh khắc";
+  nét mặt đó, thay cho "biểu cảm theo khoảnh khắc". Profile có `Nét vẽ line art`
+  thì lượt nét và chỉnh outline thêm câu "In line art: …" (cách vẽ nét cho dấu
+  hiệu dễ sai khi chuyển sheet màu sang nét đen, ví dụ râu mờ thành ria và chòm
+  râu có viền);
 - lượt màu `--recast <slug> …`: nhân vật vẽ lại từ profile, outline chỉ giữ vị
   trí, dáng, cử chỉ, hướng nhìn, hành động, đạo cụ và thứ tự chồng; mặt, đầu,
   tai, tóc/râu, da, vóc dáng, trang phục lấy từ sheet; vóc dáng khác outline
   thì giữ chân trên cùng mặt đất và vẽ lại nền quanh dáng mới. Dùng cho outline
   chưa đúng profile; nền và chữ vẫn tô theo nét. Tối đa 2 người mỗi lượt;
+- lượt chỉnh outline `--pass edit --recast <slug>`: xóa và vẽ lại cả đầu, mặt,
+  tai, tóc/râu, cổ áo của nhân vật theo sheet, bỏ qua mặt đã vẽ trong Image 1;
+  chỉ giữ vị trí đầu, hướng quay đầu, hướng nhìn, tư thế, cử chỉ, đạo cụ, thứ
+  tự chồng. Body không được khóa cứng đầu ("exactly the existing", "same angle",
+  "only identity features") vì lệnh giữ nguyên của edit khiến GPT chỉ sửa nhẹ
+  mặt cũ; script cảnh báo khi gặp. Cast nên gồm cả người đứng cạnh (có thể
+  `--no-ref`) để có câu tương phản trong "Cặp dễ nhầm";
+  script thêm câu chốt "Final check…" ở cuối prompt (sau Avoid) cho từng nhân
+  vật recast: thay toàn bộ đầu và cổ áo, mặt cũ là sai, được đổi silhouette
+  đầu, giữ vị trí/hướng quay/cử chỉ, nhắc lại `Nét vẽ line art`. Chi tiết đếm
+  được (số nét râu, số nếp cổ áo) viết trong profile, không thêm tay vào prompt.
+  Câu mạnh làm nền và chữ dễ đổi theo: soát chữ và nền sau mỗi lượt;
 - lượt `color-edit`: Image 1 là ảnh màu đang sửa; chỉ sửa nhân vật trong
   `--cast` (mỗi lượt một người), giữ nguyên người khác, nền, ánh sáng, màu, nét
   và chữ; phần giữ từ Image 1 và phần lấy từ sheet như `--recast`. Body có thể
@@ -169,7 +184,8 @@ body. Không đính kèm ảnh màu đã tạo, trừ lượt `color-edit`.
 Nhân vật lệch profile:
 
 - Outline vẽ sai mặt, tai, chiều cao hoặc trang phục: chạy lại lượt màu với
-  `--recast <slug>` thay vì sửa outline trước.
+  `--recast <slug>`, hoặc sửa outline bằng `--pass edit --recast <slug>` khi
+  cần outline đúng trước khi lên màu.
 - Ảnh màu đã ổn, chỉ một nhân vật còn sai: `--pass color-edit --cast <slug>`
   với Image 1 là ảnh màu đó; body trống hoặc vài dòng `Change:` cho lỗi cụ thể.
 

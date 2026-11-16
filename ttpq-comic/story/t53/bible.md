@@ -197,6 +197,8 @@ phản tiếng Anh dưới đây. Dạng dòng: `- slug-a + slug-b: <câu>`.
 - godatta + moggallana: Godatta is younger with a smooth beardless face and normal earlobes; Moggallana has a high broad forehead, long earlobes and a thin short beard along the jaw.
 - ananda + godatta: Ananda is taller with a slimmer, longer face and long earlobes; Godatta has normal earlobes.
 - ananda + moggallana: Ananda has a younger slim beardless face; Moggallana has a high broad forehead and a thin short beard along the jaw.
+- moggallana + bac-nalini: Moggallana has a shaved head, a smooth moderately full oval face with soft cheekbones, a calm unfurrowed face and only a thin close beard; Nalini wears a saffron turban over long curly hair, has a lean face with defined cheekbones, a thick moustache and a salt-and-pepper chin beard. They never mirror each other's gesture.
+- moggallana + sariputta: Moggallana has a smooth moderately full oval face, soft cheekbones and a thin close beard along the jaw; Sariputta is beardless with an angular face, high cheekbones and straight sharp brows.
 - cittahattha-tien-kiep + huynh-de-thoai-that: Cittahattha has a square face and jaw; the backsliding monk has a slim oval face, pointed chin and long earlobes.
 - hanh-gia-dinh-vo-sac + truong-lao-doa-lam-chon: the ascetic has a long chest-length white beard and an orange robe; the elder has a short trimmed white beard and a very dark reddish-brown robe.
 - thi-ve-tre + thi-ve-ky-cuu: the young guard is beardless with a brown breastplate and white lower wrap; the veteran has a trimmed black beard, an olive breastplate and a saffron shawl.

@@ -1,7 +1,7 @@
 # Ananda — Tôn giả Anan
 
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
+- Version mô tả: v002
 - Ảnh ref: ref-v001.png (sheet "Tôn giả Anan (Ananda)" từ `local/Tôn giả Anan.png`, 1536×1024, giữ nguyên pixel).
 - Tên trong prompt: Ananda
 - Ref prompt: ref-v001.png
@@ -29,7 +29,7 @@
 ## Không được nhầm
 
 - Không lẫn với Godatta: Ananda cao hơn, mặt thon dài hơn, dái tai dài; Godatta tai cỡ vừa.
-- Không lẫn với Moggallana: Ananda không có sắc râu quanh miệng, trán không cao rộng như Moggallana.
+- Không lẫn với Moggallana: Ananda không râu, mặt thon; Moggallana có râu quai nón mỏng ngắn sát dọc hàm, ria mép mỏng, râu cằm ngắn, trán cao rộng.
 - Không vẽ già hoặc thêm nếp nhăn; không thêm trang sức, chuỗi hạt, hào quang.
 - Chữ trên sheet không đưa vào minh họa. Màu y và cách quấn y theo ảnh ref của profile này, không áp `docs/monastic-robes.md`.
 
@@ -45,3 +45,4 @@ ANANDA (Image <N>): tall slender monk about 42, shaved head, no beard, slim oval
 | --- | --- | --- | --- |
 | v001 | 2026-11-08 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
 | v001 | 2026-11-13 | Màu y/cách quấn y theo ảnh ref của profile, bỏ dẫn chiếu `docs/monastic-robes.md` | Người dùng yêu cầu gỡ quy chuẩn y chung khỏi ttpq-comic |
+| v002 | 2026-11-16 | Cập nhật dòng phân biệt với Moggallana theo profile Moggallana v003+ (râu quai nón mỏng thay cho "sắc râu") | Người dùng yêu cầu |

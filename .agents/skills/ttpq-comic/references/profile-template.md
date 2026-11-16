@@ -5,7 +5,8 @@ tiếp; chỉ mô tả điều thấy được hoặc người dùng cung cấp,
 được đính kèm khi chạy prompt; `build-prompt.py` đọc 3 trường `Tên trong prompt`,
 `Ref prompt`, `Dòng prompt`; lượt màu và `color-edit` đọc thêm khối
 `Dòng nhận diện tiếng Anh` (mặt, da, màu trang phục) và trường tùy chọn
-`Nét mặt cố định`. Phần mô tả còn lại dùng để duyệt.
+`Nét mặt cố định`; lượt nét và chỉnh outline đọc thêm trường tùy chọn
+`Nét vẽ line art`. Phần mô tả còn lại dùng để duyệt.
 
 ~~~markdown
 # <Tên nhân vật>
@@ -17,6 +18,7 @@ tiếp; chỉ mô tả điều thấy được hoặc người dùng cung cấp,
 - Ref prompt: <ảnh ref mặc định đính kèm, ví dụ ref-v001.png>
 - Dòng prompt: <12–15 từ tiếng Anh: tuổi/vai và 2–3 dấu hiệu bắt buộc; không tả tư thế>
 - Nét mặt cố định: <tùy chọn, tiếng Anh; chỉ khi người dùng muốn giữ nét mặt của sheet ở mọi cảnh, ví dụ calm composed face, relaxed brows, closed lips. Bỏ trống thì biểu cảm theo khoảnh khắc>
+- Nét vẽ line art: <tùy chọn, tiếng Anh; cách vẽ nét đen cho dấu hiệu dễ sai khi chuyển sheet màu sang line art, ví dụ beard only as faint sparse stubble marks, never a drawn moustache or goatee. Bỏ trống nếu không cần>
 - Vai trò trong truyện: <ví dụ: tỳ kheo, thợ xây, thầy thuốc>
 
 ## Mô tả (tiếng Việt, để duyệt)
