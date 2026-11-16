@@ -14,7 +14,11 @@ không được sai:
   - dòng Avoid từ "Cấm" của cảnh và "Avoid trong prompt" của bible.md, cộng thêm
     --avoid của lượt;
   - lượt màu thêm ánh sáng của cảnh từ "Thời điểm/ánh sáng" hoặc --light;
-  - body ghi {slug} để script thay bằng số Image đúng theo cast.
+  - body ghi {slug} để script thay bằng số Image đúng theo cast;
+  - lượt màu/color-edit dùng "Dòng nhận diện tiếng Anh" đầy đủ của profile;
+    "Nét mặt cố định" (tiếng Anh) giữ biểu cảm theo sheet ở mọi lượt;
+  - --recast (lượt màu): nhân vật vẽ lại từ profile, outline chỉ chỉ dẫn diễn;
+  - --pass color-edit: sửa một nhân vật trên ảnh màu, giữ nguyên phần còn lại.
 
 Thứ tự prompt: việc cần làm → cảnh (body) → nhân vật → STYLE → trang sách
 (bleed, gáy; --across cho một vật đi liền qua gáy) → chữ → Avoid.
@@ -144,7 +148,14 @@ def load_profile(token, warnings):
         ref = refs[-1].name
     if not (d / ref).exists():
         die(f"{slug}: không có ảnh {ref}")
-    return {"slug": slug, "name": name, "line": line.rstrip("."),
+    # Dòng nhận diện tiếng Anh đầy đủ (mặt, da, màu trang phục) cho lượt màu; bỏ tiền tố "Tên (Image <N>):".
+    idm = re.search(r"^## Dòng nhận diện tiếng Anh\s*\n+(?:```|~~~)text\n(.*?)(?:```|~~~)", t, re.M | re.S)
+    idline = re.sub(r"^[^:;\n]{1,60}:\s*", "", idm.group(1).strip()).rstrip(".") if idm else None
+    face = (field(t, "Nét mặt cố định") or "").rstrip(".") or None
+    if face and re.search(r"[À-ỹ]", face):
+        warnings.append(f"{slug}: 'Nét mặt cố định' phải viết tiếng Anh; bỏ qua.")
+        face = None
+    return {"slug": slug, "name": name, "line": line.rstrip("."), "id": idline, "face": face,
             "ref": (d / ref).relative_to(ROOT)}
 
 
@@ -196,7 +207,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--spread", required=True)
     ap.add_argument("--scenes", nargs="+", required=True)
-    ap.add_argument("--pass", dest="kind", choices=["outline", "color", "edit"], required=True)
+    ap.add_argument("--pass", dest="kind", choices=["outline", "color", "edit", "color-edit"], required=True,
+                    help="edit = chỉnh outline; color-edit = chỉnh nhân vật trên ảnh màu đã có")
+    ap.add_argument("--recast", nargs="+", default=[],
+                    help="lượt màu: nhân vật vẽ lại từ profile, outline chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn, đạo cụ")
     ap.add_argument("--body", required=True, help="file chứa phần cảnh/comment agent viết")
     ap.add_argument("--style", choices=sorted(STYLES), default="light", help="style của lượt; mặc định light")
     ap.add_argument("--story", help="mặc định ttpq-comic/story/<tiền tố layout-slug>")
@@ -225,7 +239,7 @@ def main():
     bans, pairs = bible_parts(story)
 
     tokens = a.cast or list(dict.fromkeys(s for sc in scenes for s in sc["cast"]))
-    if not tokens and a.kind != "edit":
+    if not tokens and a.kind not in ("edit", "color-edit"):
         warnings.append("Không có nhân vật có profile trong cảnh.")
     no_ref = set(a.no_ref)
     cast = [load_profile(t, warnings) for t in tokens]
@@ -240,6 +254,25 @@ def main():
             warnings.append(f"Không có --cast; dùng cast của cảnh: {', '.join(tokens)}. Kiểm tra đúng người có mặt trong spread.")
     elif len(with_ref) > 3:
         warnings.append(f"{len(with_ref)} ảnh ref: GPT dễ lẫn nhân vật; nhân vật xa, nhỏ nên dùng --no-ref.")
+
+    recast = list(dict.fromkeys(a.recast))
+    if recast and a.kind != "color":
+        die("--recast chỉ dùng cho --pass color; chỉnh từng nhân vật trên ảnh màu dùng --pass color-edit")
+    bad = [s for s in recast if s not in {c["slug"] for c in with_ref}]
+    if bad:
+        die(f"--recast {', '.join(bad)} không có trong cast có ảnh ref")
+    if len(recast) > 2:
+        warnings.append(f"--recast {len(recast)} nhân vật: GPT dễ lẫn; nhân vật còn sai thì sửa từng người bằng --pass color-edit.")
+    if a.kind == "color-edit":
+        if not with_ref:
+            die("--pass color-edit cần --cast gồm nhân vật bị sửa (có ảnh ref)")
+        if len(with_ref) > 1:
+            warnings.append(f"color-edit sửa {len(with_ref)} nhân vật một lượt; mỗi lượt một nhân vật giữ profile chắc hơn.")
+    full_id = a.kind in ("color", "color-edit")
+    if full_id:
+        for c in with_ref:
+            if not c["id"]:
+                warnings.append(f"{c['slug']}: profile thiếu khối 'Dòng nhận diện tiếng Anh'; dùng Dòng prompt ngắn.")
 
     has_marks = any(par.get("marks") for pg in layout["pages"].values()
                     for b in pg.get("blocks", []) for par in b.get("paragraphs", []))
@@ -308,14 +341,29 @@ def main():
         body = "\n".join(l for l in body.splitlines() if not l.startswith("Text wrap:")).strip()
         if re.search(r"eye-level|worm's-eye|bird's-eye|\blens\b|wide-angle|close-up|low angle|high angle", body, re.I):
             warnings.append("Body lượt màu còn chỉ dẫn góc máy; lượt màu chỉ cần STORY, màu/ánh sáng từng trang và Mood.")
-    else:
+    elif a.kind == "edit":
         if not re.search(r"^Change:", body, re.M):
             warnings.append("Body lượt chỉnh nên là các dòng 'Change: …' (chỉ điều cần đổi), không chép lại cả cảnh.")
         if re.search(r"^(Left|Right) page:", body, re.M):
             warnings.append("Body lượt chỉnh có 'Left/Right page:' như lượt nét; GPT sẽ vẽ lại cả trang. Chỉ ghi điều cần đổi.")
 
-    img = [f"Image {n0 + i} = {c['name']}: {c['line']}." for i, c in enumerate(with_ref)]
-    txt = [f"{c['name'][0].upper()}{c['name'][1:]} (no reference image; same realistic human proportions as the other characters): {c['line']}." for c in text_only]
+    def desc(c):
+        # Lượt màu dùng dòng nhận diện đầy đủ (có màu da, trang phục); lượt nét dùng dòng ngắn.
+        s = (c["id"] if full_id and c["id"] else c["line"]) + "."
+        return s + (f" Fixed face in every moment: {c['face']}." if c["face"] else "")
+
+    img = [f"Image {n0 + i} = {c['name']}: {desc(c)}" for i, c in enumerate(with_ref)]
+    txt = [f"{c['name'][0].upper()}{c['name'][1:]} (no reference image; same realistic human proportions as the other characters): {desc(c)}" for c in text_only]
+    fixed = any(c["face"] for c in cast)
+    expr = ("Expressions follow the moment, not the sheets, except a fixed face given below."
+            if fixed else "Expressions follow the moment, not the sheets.")
+    keep_act = "where the character stands, the pose and gesture, the gaze direction, the action, any held prop and the overlap with others"
+    take_sheet = "the face, head shape, ears, hair and beard, skin tone, body build and proportions, and the costume with its colors"
+    regrow = ("If the sheet's build is taller, broader or slimmer than the figure in Image 1, draw the sheet's build with the feet on the same ground line, "
+              "and paint the background around the new silhouette to match its surroundings in Image 1.")
+    recasts = [f"Recast {c['name']} (Image {n0 + i}): ignore the face, head, ears, hair, beard, body proportions and costume lines drawn in Image 1. "
+               f"Keep from Image 1 only {keep_act}; take {take_sheet} from the sheet. {regrow}"
+               for i, c in enumerate(with_ref) if c["slug"] in recast]
     present = {c["slug"] for c in cast}
     contrast = [s[0].upper() + s[1:] for k, s in pairs.items() if k <= present]
 
@@ -373,7 +421,13 @@ def main():
                          + "Black text, no boxes; keep any colored highlight behind the text as in Image 1, following the reflowed lines; never over faces; no text on the center fold."
                          + (" Colored text in Image 1 is editor's marks only; draw it black." if has_marks else ""))
     elif a.kind == "color":
-        parts.append(f"Color Image 1, the line art of {pages}, in the style below: {st['color_open']} Any gray tones in Image 1 are not lighting; ignore them. Keep its composition and text.")
+        open_ = f"Color Image 1, the line art of {pages}, in the style below: {st['color_open']} Any gray tones in Image 1 are not lighting; ignore them. Keep its composition, background and text."
+        if recast:
+            names = [c["name"] for c in with_ref if c["slug"] in recast]
+            who = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+            open_ += (f" Exception: {who} {'is' if len(names) == 1 else 'are'} recast from the profile sheets. For recast characters, Image 1 only directs the acting"
+                      " (position, pose, gesture, gaze, action, props); faces, bodies and costumes are drawn fresh from the sheets, not from Image 1's lines.")
+        parts.append(open_)
         if a.light:
             light_line = f"Light: {a.light.strip().rstrip('.')}."
         else:
@@ -385,7 +439,7 @@ def main():
                 light_line = ""
         parts.append(body + (f"\n{light_line}" if light_line else ""))
         if img or txt:
-            parts.append("\n".join(["Characters must match their profile sheets in face, hair and clothing colors; where Image 1 differs, follow the sheet. Expressions follow the moment, not the sheets. Ignore the sheets' poses, lighting and labels."] + img + txt + contrast))
+            parts.append("\n".join([f"Characters must match their profile sheets in face, hair and clothing colors; where Image 1 differs, follow the sheet. {expr} Ignore the sheets' poses, lighting and labels."] + img + txt + recasts + contrast))
         parts.append(text_block(*st["def"]))
         if a.split:
             parts.append("Image 1 has two separate pictures with a blank white paper band between them at the center fold: keep that band "
@@ -400,6 +454,22 @@ def main():
                          "Each character stays on its own side of the fold as in Image 1."
                          + (f" {across[0].upper()}{across[1:]} runs unbroken across the fold as in Image 1." if across else ""))
         parts.append("No text of any kind in the image." if a.no_text else "Text: keep every word and line break of Image 1, crisp near-black; no new or colored text; keep any colored highlight behind the text as in Image 1. No text on the center fold.")
+    elif a.kind == "color-edit":
+        names = [c["name"] for c in with_ref]
+        who = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+        parts.append(f"Edit Image 1, the finished color illustration of {pages}. Correct only {who} and anything listed below; keep every other person, "
+                     "the background, light, colors, line treatment and all text of Image 1 exactly as they are.")
+        if body:
+            parts.append(body)
+        parts.append("\n".join([f"Redraw the corrected character to match the profile sheet; ignore the sheet's pose, lighting and labels. {expr}"]
+                               + img
+                               + [f"For {c['name']} (Image {n0 + i}): keep from Image 1 {keep_act}; take {take_sheet} from the sheet. {regrow}"
+                                  for i, c in enumerate(with_ref)]
+                               + contrast))
+        parts.append(f"Style: paint the corrected character in the same \"{st['name']}\" finish as the rest of Image 1: the same outline color and weight, "
+                     "cel-shading tones, light direction and shadow color; strictly 2D, no gradients or texture on the character.")
+        parts.append(f"The character stays on its own page, with face and key hands out of {mid} around the center fold.")
+        parts.append("No text of any kind in the image." if a.no_text else "Keep all text, folios and any highlight behind the text exactly as in Image 1; do not redraw any letters.")
     else:
         parts.append(f"Edit Image 1, the clean outline of {pages}. Change only what is listed below and keep everything else in Image 1 unchanged.")
         parts.append(body)
@@ -419,7 +489,8 @@ def main():
         die(f"{rel(out)} đã có; dùng version mới")
     out.write_text("\n\n".join(parts) + "\n", encoding="utf-8")
 
-    first = {"outline": canvas_ref(spread, layout) if a.kind == "outline" else None, "color": "<outline được chọn>", "edit": "<outline đang sửa>"}[a.kind]
+    first = {"outline": canvas_ref(spread, layout) if a.kind == "outline" else None, "color": "<outline được chọn>", "edit": "<outline đang sửa>",
+             "color-edit": "<ảnh màu đang sửa>"}[a.kind]
     first = rel(first) if isinstance(first, Path) else first
     print(f"Đã ghi {rel(out)} ({len(' '.join(parts).split())} từ, style {st['name']})")
     print("Đính kèm:")

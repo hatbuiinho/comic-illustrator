@@ -99,5 +99,9 @@ dùng style ttpq comic blend để dàn trang màu, outline chỉ dùng để th
 - Viết body màu, chạy `build-prompt.py --pass color`, gọi ImageGen, lưu
   `outputs/color-vNNN.png`.
 - Chỉnh màu: chạy lại lượt màu từ outline được chọn, thêm comment vào body.
-  Không đính kèm ảnh màu cũ, trừ khi người dùng yêu cầu rõ.
+  Không đính kèm ảnh màu cũ, trừ khi người dùng yêu cầu rõ hoặc dùng `color-edit`.
+- Nhân vật lệch profile vì outline sai (mặt, tai, chiều cao, trang phục): chạy
+  lại lượt màu với `--recast <slug>` cho nhân vật đó, không bắt buộc sửa outline.
+- Ảnh màu ổn nhưng một nhân vật còn sai: `--pass color-edit --cast <slug>`,
+  Image 1 là ảnh màu đó, mỗi lượt một nhân vật; lưu thành `color-vNNN.png` mới.
 - Không tự phê duyệt bản cuối.

@@ -64,6 +64,19 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
   một dòng khóa style nét. Nhân vật khớp sheet ở mặt, tóc, trang phục; tỷ lệ cơ
   thể theo dòng prompt, không theo tư thế sheet. Giữ chữ, cỡ chữ, dòng đầu; chỉ
   các dòng cạnh vùng sửa được reflow ôm hình mới;
+- nhân vật: lượt nét và chỉnh outline dùng `Dòng prompt` ngắn; lượt màu và
+  `color-edit` dùng khối `Dòng nhận diện tiếng Anh` đầy đủ của profile (thiếu
+  thì cảnh báo, dùng dòng ngắn). Profile có `Nét mặt cố định` thì mọi lượt giữ
+  nét mặt đó, thay cho "biểu cảm theo khoảnh khắc";
+- lượt màu `--recast <slug> …`: nhân vật vẽ lại từ profile, outline chỉ giữ vị
+  trí, dáng, cử chỉ, hướng nhìn, hành động, đạo cụ và thứ tự chồng; mặt, đầu,
+  tai, tóc/râu, da, vóc dáng, trang phục lấy từ sheet; vóc dáng khác outline
+  thì giữ chân trên cùng mặt đất và vẽ lại nền quanh dáng mới. Dùng cho outline
+  chưa đúng profile; nền và chữ vẫn tô theo nét. Tối đa 2 người mỗi lượt;
+- lượt `color-edit`: Image 1 là ảnh màu đang sửa; chỉ sửa nhân vật trong
+  `--cast` (mỗi lượt một người), giữ nguyên người khác, nền, ánh sáng, màu, nét
+  và chữ; phần giữ từ Image 1 và phần lấy từ sheet như `--recast`. Body có thể
+  trống hoặc thêm dòng `Change:`;
 - body ghi `{slug}` (ví dụ `{moggallana}`) khi cần trỏ tới ảnh ref; script thay
   bằng `Image N` đúng theo cast, dừng nếu slug không có trong cast, cảnh báo nếu
   body ghi cứng `Image N`.
@@ -73,8 +86,8 @@ Lệnh chung (đường dẫn `--body`/`--out` tính theo thư mục spread):
 ```bash
 scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/build-prompt.py \
   --spread ttpq-comic/spreads/<layout-slug>/p<trái>-<phải> --scenes <Snn> [<Snn>] \
-  --pass <outline|color|edit> --body prompts/vNNN-<pass>.body.txt \
-  [--cast <slug> …] [--no-ref <slug> …] [--avoid "<không vẽ, tiếng Anh>"] \
+  --pass <outline|color|edit|color-edit> --body prompts/vNNN-<pass>.body.txt \
+  [--cast <slug> …] [--no-ref <slug> …] [--recast <slug> …] [--avoid "<không vẽ, tiếng Anh>"] \
   --out prompts/vNNN-<pass>.txt
 ```
 
@@ -151,7 +164,14 @@ Change: <chủ thể, trang/vị trí>: <thay đổi>.
 ## Chỉnh màu
 
 Chạy lại lượt màu từ outline được chọn, thêm comment của người dùng vào cuối
-body. Không đính kèm ảnh màu đã tạo.
+body. Không đính kèm ảnh màu đã tạo, trừ lượt `color-edit`.
+
+Nhân vật lệch profile:
+
+- Outline vẽ sai mặt, tai, chiều cao hoặc trang phục: chạy lại lượt màu với
+  `--recast <slug>` thay vì sửa outline trước.
+- Ảnh màu đã ổn, chỉ một nhân vật còn sai: `--pass color-edit --cast <slug>`
+  với Image 1 là ảnh màu đó; body trống hoặc vài dòng `Change:` cho lỗi cụ thể.
 
 ## Khối bối cảnh
 

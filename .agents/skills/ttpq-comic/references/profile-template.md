@@ -3,7 +3,9 @@
 Lưu tại `ttpq-comic/characters/<slug>/profile.md`. Viết từ ảnh ref đã xem trực
 tiếp; chỉ mô tả điều thấy được hoặc người dùng cung cấp, không đoán. Ảnh ref
 được đính kèm khi chạy prompt; `build-prompt.py` đọc 3 trường `Tên trong prompt`,
-`Ref prompt`, `Dòng prompt`. Phần mô tả còn lại dùng để duyệt.
+`Ref prompt`, `Dòng prompt`; lượt màu và `color-edit` đọc thêm khối
+`Dòng nhận diện tiếng Anh` (mặt, da, màu trang phục) và trường tùy chọn
+`Nét mặt cố định`. Phần mô tả còn lại dùng để duyệt.
 
 ~~~markdown
 # <Tên nhân vật>
@@ -14,6 +16,7 @@ tiếp; chỉ mô tả điều thấy được hoặc người dùng cung cấp,
 - Tên trong prompt: <tên tiếng Anh dùng trong prompt, ví dụ Punna, the monks>
 - Ref prompt: <ảnh ref mặc định đính kèm, ví dụ ref-v001.png>
 - Dòng prompt: <12–15 từ tiếng Anh: tuổi/vai và 2–3 dấu hiệu bắt buộc; không tả tư thế>
+- Nét mặt cố định: <tùy chọn, tiếng Anh; chỉ khi người dùng muốn giữ nét mặt của sheet ở mọi cảnh, ví dụ calm composed face, relaxed brows, closed lips. Bỏ trống thì biểu cảm theo khoảnh khắc>
 - Vai trò trong truyện: <ví dụ: tỳ kheo, thợ xây, thầy thuốc>
 
 ## Mô tả (tiếng Việt, để duyệt)
@@ -34,6 +37,12 @@ tiếp; chỉ mô tả điều thấy được hoặc người dùng cung cấp,
 ## Không được nhầm
 
 Đặc điểm dễ lẫn với nhân vật khác hoặc dễ bị vẽ sai (tuổi, màu y, phụ kiện).
+
+## Dòng nhận diện tiếng Anh
+
+```text
+<Tên>: <mặt, tóc/râu, da, vóc dáng, từng lớp trang phục kèm màu, phụ kiện; không tả tư thế>
+```
 
 ## Lịch sử
 

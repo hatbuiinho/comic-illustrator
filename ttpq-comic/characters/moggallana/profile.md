@@ -1,11 +1,12 @@
 # Moggallana — Ngài Mục Kiền Liên
 
 - Trạng thái: APPROVED — ảnh do người dùng chỉ định làm profile ngày 2026-10-31; mô tả dưới đây ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v003
+- Version mô tả: v004
 - Ảnh ref: ref-v001.png (sheet "Ngài Mục Kiền Liên" người dùng gửi ngày 2026-10-31, 1587×991, chuyển từ webp sang png, giữ nguyên pixel).
 - Tên trong prompt: Moggallana
 - Ref prompt: ref-v001.png
 - Dòng prompt: tall long-limbed monk about 8 heads tall, broad shoulders, high broad forehead, long earlobes, thin short beard along the jaw
+- Nét mặt cố định: serene composed face as in the sheet, relaxed level brows, calm steady eyes, closed lips, no smile and no frown
 - Vai trò: tôn giả, đệ tử Đức Phật; xuất hiện trong hồi tưởng trang 48–49.
 
 ## Mô tả
@@ -50,4 +51,5 @@ Moggallana: match the supplied original sheet; tall long-limbed build about 8 he
 | v001 | 2026-10-31 | Tiếp nhận sheet gốc và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
 | v001 | 2026-10-31 | Lưu file `ref-v001.png` từ sheet người dùng gửi; mô tả giữ nguyên vì khớp ảnh | Người dùng yêu cầu lưu profile |
 | v002 | 2026-11-15 | Bổ sung vóc dáng cao lớn, khoảng 8 đầu, vai rộng vào Vóc dáng, Dòng prompt, Dấu hiệu và dòng nhận diện EN, vì ref chỉ có tư thế ngồi khiến AI vẽ ngài lùn | Người dùng yêu cầu |
+| v004 | 2026-11-16 | Thêm trường `Nét mặt cố định` (giữ mặt điềm tĩnh như sheet ở mọi cảnh, theo yêu cầu "giữ mặt điềm tĩnh như profile") | Người dùng yêu cầu |
 | v003 | 2026-11-15 | Sửa Tóc/râu: ghi nhận râu quai nón mỏng ngắn sát, ria mép mỏng, râu cằm ngắn như trong sheet (bản cũ ghi là sắc xám nhẹ, không phải râu); thêm vào Dòng prompt, Dấu hiệu, Không được nhầm và dòng nhận diện EN | Người dùng yêu cầu |
