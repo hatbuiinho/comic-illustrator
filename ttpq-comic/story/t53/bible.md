@@ -180,9 +180,16 @@ Uttar Pradesh), **chưa tra nguồn có trích dẫn**; đánh dấu "(chưa ki�
 
 Bản tiếng Anh ngắn của "Điều cấm chung", `build-prompt.py` chép vào dòng Avoid
 của mọi lượt nét/màu. Dòng có tiền tố `[khi: từ khóa, …]` chỉ được chèn khi cảnh chứa
-một trong các từ khóa. Sửa điều cấm chung thì sửa cả mục này.
+một trong các từ khóa; thêm `; trừ: từ khóa, …` để bỏ qua khi cảnh chứa từ khóa loại
+trừ. Sửa điều cấm chung thì sửa cả mục này.
+
+Dòng chân trời lấy từ mục Địa hình: vùng Savatthi phẳng, áp cho cảnh quanh thành,
+Jetavana và Pubbarama; trừ cảnh ở nhà Matika (bible cần đồi thấp/rặng núi phía tây).
+Đồi tự nhiên Pubbarama (quyết định #13) là ngoại lệ trong khu đất, không phải dãy đồi
+ở chân trời, nên không bị dòng này cấm.
 
 - [khi: công trường, xây, móng, giàn] buildings finished ahead of the construction stage of the scene
+- [khi: savatthi, pubbarama, jetavana, công trường, cổng thành, hố móng, bãi tập kết, bãi gỗ, tịnh thất, hương thất, chòi, nalini, tùy tùng; trừ: nhà matika] hills, ridges or mountain ranges on the horizon
 - bright orange or saffron monk robes, unless a profile sheet shows it
 - glowing rays, halos or game-like magic effects
 - signs, symbols or any written text inside the picture

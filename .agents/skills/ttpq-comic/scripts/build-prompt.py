@@ -125,6 +125,35 @@ def text_block(path, index=0):
     return blocks[index].strip()
 
 
+def join_names(xs):
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+
+
+STOP = {"a", "an", "the", "or", "and", "of", "on", "in", "at", "to", "any", "no", "with", "unless", "it", "its", "as", "from", "inside"}
+
+
+def content_words(s):
+    return [w for w in re.findall(r"[a-z]+", s.lower()) if w not in STOP]
+
+
+def clean_avoid(raw, warnings):
+    """Tách từng mục theo ';', bỏ trùng (không phân biệt hoa thường), bỏ mục nằm trọn trong mục khác,
+    cảnh báo cặp mục gần trùng (chung cụm hai từ hoặc chung từ đầu) để người viết gộp lại."""
+    items = [p.strip().rstrip(".;").strip() for x in raw for p in (x or "").split(";")]
+    items = list({p.lower(): p for p in reversed([p for p in items if p])}.values())[::-1]
+    norm = lambda s: " ".join(re.findall(r"[a-z0-9]+", s.lower()))
+    items = [p for p in items
+             if not any(q is not p and len(norm(q)) > len(norm(p)) and re.search(rf"\b{re.escape(norm(p))}\b", norm(q)) for q in items)]
+    for i, p in enumerate(items):
+        wp = content_words(p)
+        for q in items[i + 1:]:
+            wq = content_words(q)
+            bigram = set(zip(wp, wp[1:])) & set(zip(wq, wq[1:]))
+            if bigram or (wp and wq and wp[0] == wq[0]):
+                warnings.append(f"Avoid có hai mục gần trùng: '{p}' ~ '{q}'; gộp thành một mục (sửa --avoid, Avoid của cảnh hoặc bible).")
+    return items
+
+
 def field(text, label):
     m = re.search(rf"^- {re.escape(label)}:\s*(.+)$", text, re.M)
     return m.group(1).strip() if m else None
@@ -200,11 +229,13 @@ def bible_parts(story):
         m = re.search(rf"^## {title}\n(.*?)(?=^## |\Z)", t, re.M | re.S)
         return m.group(1) if m else ""
 
-    # Dòng có tiền tố "[khi: từ khóa, …]" chỉ chèn khi cảnh chứa một trong các từ khóa.
+    # Dòng có tiền tố "[khi: từ khóa, …]" chỉ chèn khi cảnh chứa một trong các từ khóa;
+    # thêm "; trừ: từ khóa, …" để bỏ qua khi cảnh chứa một trong các từ khóa loại trừ.
+    split = lambda s: [k.strip().lower() for k in s.split(",") if k.strip()]
     bans = []
     for line in re.findall(r"^- (.+)$", section("Avoid trong prompt"), re.M):
-        m = re.match(r"\[khi:\s*([^\]]+)\]\s*(.+)$", line)
-        bans.append(([k.strip().lower() for k in m.group(1).split(",") if k.strip()], m.group(2)) if m else ([], line))
+        m = re.match(r"\[khi:\s*([^\];]+)(?:;\s*trừ:\s*([^\]]+))?\]\s*(.+)$", line)
+        bans.append((split(m.group(1)), split(m.group(2) or ""), m.group(3)) if m else ([], [], line))
     pairs = {}
     for a, b, s in re.findall(r"^- `?([\w-]+)`? \+ `?([\w-]+)`?:\s*(.+)$", section("Cặp dễ nhầm"), re.M):
         pairs[frozenset((a, b))] = s.strip()
@@ -336,6 +367,22 @@ def main():
         warnings.append("Body ghi cứng 'Image N'; dùng {slug} để script tự đánh số theo cast.")
     body = re.sub(r"\{([a-z0-9-]+)\}", lambda m: ref_of[m.group(1)], body)
 
+    # Lượt chỉnh: phần đổi (Change:) và phần giữ (Keep:) tách khối riêng, theo guide GPT Image.
+    keep_block = ""
+    if a.kind in ("edit", "color-edit"):
+        keeps = [m.strip().rstrip(".;") for m in re.findall(r"^Keep:\s*(.+)$", body, re.M)]
+        body = "\n".join(l for l in body.splitlines() if not l.startswith("Keep:")).strip()
+        if keeps:
+            keep_block = "Keep unchanged: " + "; ".join(keeps) + "."
+        changes = re.findall(r"^Change:(.*)$", body, re.M)
+        if any(re.search(r"[.;]\s+(Preserve|Keep|Retain)\b", c) for c in changes):
+            warnings.append("Dòng Change có câu giữ nguyên ('Preserve/Keep …'); tách thành dòng 'Keep: …' riêng.")
+        if len(changes) >= 3:
+            warnings.append(f"Lượt chỉnh có {len(changes)} dòng Change; mỗi lượt 1–2 thay đổi rồi soát ảnh sẽ chắc hơn.")
+    if a.kind == "color-edit" and re.search(r"render the (whole |entire )?(illustration|image|picture)|\brestyle\b|in ttpq comic (blend|light|soft)", body, re.I):
+        warnings.append("Body color-edit đòi vẽ lại style cả tranh, mâu thuẫn với 'giữ nguyên phần còn lại'; bỏ dòng đó "
+                        "(script đã khóa finish theo Image 1). Muốn đổi style cả tranh thì chạy lại lượt màu.")
+
     if a.kind == "outline":
         if not re.search(r"^Mood:", body, re.M):
             warnings.append("Body lượt nét thiếu dòng 'Mood:' (template: STORY, từng trang kèm biểu cảm, Mood).")
@@ -370,28 +417,31 @@ def main():
     fixed = any(c["face"] for c in cast)
     expr = ("Expressions follow the moment, not the sheets, except a fixed face given below."
             if fixed else "Expressions follow the moment, not the sheets.")
-    keep_act = "where the character stands, the pose and gesture, the gaze direction, the action, any held prop and the overlap with others"
+    keep_act = "where each character stands, the pose and gesture, the gaze direction, the action, any held prop and the overlap with others"
     take_sheet = "the face, head shape, ears, hair and beard, skin tone, body build and proportions, and the costume with its colors"
     regrow = ("If the sheet's build is taller, broader or slimmer than the figure in Image 1, draw the sheet's build with the feet on the same ground line, "
               "and paint the background around the new silhouette to match its surroundings in Image 1.")
-    recasts = [f"Recast {c['name']} (Image {n0 + i}): ignore the face, head, ears, hair, beard, body proportions and costume lines drawn in Image 1. "
-               f"Keep from Image 1 only {keep_act}; take {take_sheet} from the sheet. {regrow}"
-               for i, c in enumerate(with_ref) if c["slug"] in recast]
+    # Một đoạn chung cho mọi nhân vật recast/sửa, không lặp nguyên văn từng người.
+    def tagged(cs):
+        return join_names([f"{c['name']} (Image {n0 + with_ref.index(c)})" for c in cs])
+    rc = [c for c in with_ref if c["slug"] in recast]
+    sheet = "the sheet" if len(rc) == 1 else "each sheet"
+    recasts = [f"Recast {tagged(rc)}: ignore the face, head, ears, hair, beard, body proportions and costume lines drawn in Image 1. "
+               f"Keep from Image 1 only {keep_act}; take {take_sheet} from {sheet}. {regrow}"] if rc else []
     # Lượt chỉnh outline: lệnh "giữ mọi thứ" của edit làm GPT chỉ sửa nhẹ mặt cũ; phải bảo xóa và vẽ lại cả đầu.
     keep_line = "where the head sits, the head turn, the gaze direction, the pose and gestures, any held prop and the overlap with others"
-    recasts_line = [f"Recast {c['name']} (Image {n0 + i}): erase and redraw the whole head, face, ears, hair or beard and neckline from the sheet; "
+    recasts_line = [f"Recast {tagged(rc)}: erase and redraw the whole head, face, ears, hair or beard and neckline from {sheet}; "
                     f"ignore the face, head shape, ears, beard, body proportions and robe lines drawn in Image 1. "
-                    f"Keep from Image 1 only {keep_line}; take the face, head shape, ears, hair and beard, body build and proportions, and the costume lines from the sheet, drawn as clean black line art. "
+                    f"Keep from Image 1 only {keep_line}; take the face, head shape, ears, hair and beard, body build and proportions, and the costume lines from {sheet}, drawn as clean black line art. "
                     "If the sheet's build is taller or broader than the figure in Image 1, draw the sheet's build with the feet on the same ground line "
-                    "and redraw the background lines around the new silhouette."
-                    for i, c in enumerate(with_ref) if c["slug"] in recast]
+                    "and redraw the background lines around the new silhouette."] if rc else []
     present = {c["slug"] for c in cast}
     contrast = [s[0].upper() + s[1:] for k, s in pairs.items() if k <= present]
 
     scene_text = " ".join(sc["text"] for sc in scenes)
-    bible_bans = [b for keys, b in bans if not keys or any(k in scene_text for k in keys)]
-    avoid = [x.strip().rstrip(".;") for x in [a.avoid] + [sc["ban"] or "" for sc in scenes] + bible_bans]
-    avoid = list(dict.fromkeys(x for x in avoid if x))
+    bible_bans = [b for keys, skip, b in bans
+                  if (not keys or any(k in scene_text for k in keys)) and not any(k in scene_text for k in skip)]
+    avoid = clean_avoid([a.avoid] + [sc["ban"] or "" for sc in scenes] + bible_bans, warnings)
     avoid_line = "Avoid: " + "; ".join(avoid) + "." if avoid else ""
     # GPT không có negative prompt thật: mỗi từ trong Avoid vẫn gợi ra đúng thứ đó.
     if len(avoid) > 7:
@@ -443,11 +493,16 @@ def main():
                          + (" Colored text in Image 1 is editor's marks only; draw it black." if has_marks else ""))
     elif a.kind == "color":
         open_ = f"Color Image 1, the line art of {pages}, in the style below: {st['color_open']} Any gray tones in Image 1 are not lighting; ignore them. Keep its composition, background and text."
+        # Thêm 2026-11-17: lượt màu vẽ lại hình nên nhân vật hay lùn/hoạt hình hơn outline; khóa tỷ lệ theo nét.
+        # Chỉ khóa tỷ lệ, không khóa cách tô ("color inside the lines / do not stylize" làm ảnh nhạt, mất bóng đổ).
+        open_ += (" Keep every figure's height, head size, head-to-body ratio, face shape, eye size and turban or headdress size"
+                  " as drawn in Image 1; do not enlarge heads or make figures cartoonish.")
         if recast:
             names = [c["name"] for c in with_ref if c["slug"] in recast]
             who = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
             open_ += (f" Exception: {who} {'is' if len(names) == 1 else 'are'} recast from the profile sheets. For recast characters, Image 1 only directs the acting"
-                      " (position, pose, gesture, gaze, action, props); faces, bodies and costumes are drawn fresh from the sheets, not from Image 1's lines.")
+                      " (position, pose, gesture, gaze, action, props); faces, bodies and costumes are drawn fresh from the sheets, not from Image 1's lines,"
+                      " still with realistic adult proportions (about 7 to 7.5 heads tall, natural head and eye size).")
         parts.append(open_)
         if a.light:
             light_line = f"Light: {a.light.strip().rstrip('.')}."
@@ -482,10 +537,13 @@ def main():
                      "the background, light, colors, line treatment and all text of Image 1 exactly as they are.")
         if body:
             parts.append(body)
-        parts.append("\n".join([f"Redraw the corrected character to match the profile sheet; ignore the sheet's pose, lighting and labels. {expr}"]
+        if keep_block:
+            parts.append(keep_block)
+        one = len(with_ref) == 1
+        parts.append("\n".join([f"Redraw the corrected {'character' if one else 'characters'} to match {'the profile sheet' if one else 'their profile sheets'}; "
+                                f"ignore the sheets' poses, lighting and labels. {expr}"]
                                + img
-                               + [f"For {c['name']} (Image {n0 + i}): keep from Image 1 {keep_act}; take {take_sheet} from the sheet. {regrow}"
-                                  for i, c in enumerate(with_ref)]
+                               + [f"For {tagged(with_ref)}: keep from Image 1 {keep_act}; take {take_sheet} from {'the sheet' if one else 'each sheet'}. {regrow}"]
                                + contrast))
         parts.append(f"Style: paint the corrected character in the same \"{st['name']}\" finish as the rest of Image 1: the same outline color and weight, "
                      "cel-shading tones, light direction and shadow color; strictly 2D, no gradients or texture on the character.")
@@ -499,6 +557,8 @@ def main():
         else:
             parts.append(f"Edit Image 1, the clean outline of {pages}. Change only what is listed below and keep everything else in Image 1 unchanged.")
         parts.append(body)
+        if keep_block:
+            parts.append(keep_block)
         if img:
             parts.append("\n".join(["Edited characters must match their profile sheets in face, hair and clothing; body proportions follow the character lines below, not the sheets' poses. Ignore the sheets' poses, framing and labels."] + img + recasts_line + contrast))
         parts.append(f"Style: the same \"{st['name']}\" line art as Image 1: clean black outlines with natural line weight; no color, no gray, no shading, no hatching, no sketchy lines.")

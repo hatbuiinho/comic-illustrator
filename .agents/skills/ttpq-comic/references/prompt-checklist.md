@@ -21,6 +21,9 @@ Tự kiểm trong đầu, không cần ghi từng mục vào `record.md`.
       `Text wrap:` không nhắc cỡ chữ, dòng đầu, ngôn ngữ, màu chữ.
 - [ ] Điều muốn có viết thành câu khẳng định trong body; Avoid chỉ giữ lỗi model
       hay mắc thật.
+- [ ] Cảnh có đám đông: body ghi số người và họ trải từ đâu tới đâu (tiền/
+      trung/viễn cảnh). Soát outline: người cùng tầm chân có cỡ tương đương, cỡ
+      người nhỏ dần đều theo xa gần; lệch thì sửa ở outline vì lượt màu giữ nguyên.
 
 ## Lượt màu
 
@@ -29,7 +32,7 @@ Tự kiểm trong đầu, không cần ghi từng mục vào `record.md`.
 
 ## Lượt chỉnh
 
-- [ ] Body chỉ gồm các dòng `Change:`; không chép `Left/Right page:` của lượt nét.
+- [ ] Body chỉ gồm các dòng `Change:` (1–2 dòng mỗi lượt) và `Keep:`; không chép `Left/Right page:` của lượt nét.
 
 ## Khối bối cảnh
 
@@ -37,4 +40,6 @@ Tự kiểm trong đầu, không cần ghi từng mục vào `record.md`.
 - [ ] THỜI ĐIỂM & ÁNH SÁNG giữ đúng cường độ của chữ nguồn.
 - [ ] KHÔNG ĐƯỢC có điều cấm truyện và niên đại liên quan; không cấm nhầm
       ngoại lệ của profile.
+- [ ] NƠI CHỐN và KHÔNG ĐƯỢC khớp mục Địa hình của bible (chân trời, đồi núi);
+      luật địa hình cần vào prompt phải có dòng tương ứng trong "Avoid trong prompt".
 - [ ] Trọn một code block, không còn `<...>`; trình kèm link layout và profile.

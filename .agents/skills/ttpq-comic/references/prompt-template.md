@@ -19,7 +19,11 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
   nền vài mảng phẳng; soft là ánh sáng có hướng, 3–4 tông bóng chuyển mềm,
   gradient nhẹ, nền có lớp xa gần; blend là mảng phẳng, 2–3 tông cel mép hơi dịu,
   tiền/trung cảnh phẳng (trung cảnh chuyển sắc dịu), viễn cảnh/trời vẽ dịu với gradient nhẹ, không gradient trên nhân vật. Cả ba giữ nét đen; tông xám trong Image 1
-  không phải ánh sáng;
+  không phải ánh sáng; sau đó luôn có câu khóa tỷ lệ (giữ chiều cao, cỡ đầu,
+  tỷ lệ đầu/thân, mặt, cỡ mắt, khăn/mũ như Image 1; không phóng to đầu hay vẽ
+  hoạt hình; thêm 2026-11-17). Câu này chỉ khóa tỷ lệ, không ghi "color inside
+  the lines"/"do not stylize" vì làm ảnh nhạt, mất bóng đổ. Nhân vật `--recast`
+  vẽ lại theo sheet nhưng vẫn tỷ lệ người thật 7–7.5 đầu, cỡ đầu và mắt tự nhiên;
 - câu về layout, ô hình placeholder và dải bleed xám hai bên (lấy từ `layout.json`);
 - lượt nét: tự tạo `layout-ref-canvas-v003.png` 1536×1024 (spread ở giữa, dải
   bleed xám trơn 47 px mỗi bên, để trống; hậu kỳ nối nền bằng Photoshop/AI)
@@ -52,6 +56,9 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
 - dòng Avoid: "Avoid" (tiếng Anh) của cảnh, "Avoid trong prompt" của bible (dòng
   `[khi: …]` chỉ chèn khi cảnh chứa từ khóa); cảnh chỉ có "Cấm" tiếng Việt thì
   script bỏ qua và cảnh báo; cộng `--avoid`. Áp cho cả lượt nét, màu và chỉnh.
+  Script tách mục theo `;`, bỏ mục trùng hoặc nằm trọn trong mục khác, và cảnh
+  báo cặp mục gần trùng (ví dụ "modern objects or…" và "modern objects, furniture…")
+  để gộp tại nguồn;
   GPT không có negative prompt thật, mỗi từ trong Avoid vẫn gợi ra thứ đó: điều
   muốn có viết thành câu khẳng định trong body; Avoid chỉ giữ lỗi model hay mắc
   thật; quá 7 mục thì script cảnh báo;
@@ -91,7 +98,10 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
 - lượt `color-edit`: Image 1 là ảnh màu đang sửa; chỉ sửa nhân vật trong
   `--cast` (mỗi lượt một người), giữ nguyên người khác, nền, ánh sáng, màu, nét
   và chữ; phần giữ từ Image 1 và phần lấy từ sheet như `--recast`. Body có thể
-  trống hoặc thêm dòng `Change:`;
+  trống hoặc thêm dòng `Change:`/`Keep:`. Không thêm khối STYLE hay dòng đòi vẽ
+  lại style cả tranh (script cảnh báo): muốn đổi style thì chạy lại lượt màu;
+- nhiều nhân vật recast hoặc color-edit: script gộp phần giữ/lấy từ sheet thành
+  một đoạn chung, không lặp từng người;
 - body ghi `{slug}` (ví dụ `{moggallana}`) khi cần trỏ tới ảnh ref; script thay
   bằng `Image N` đúng theo cast, dừng nếu slug không có trong cast, cảnh báo nếu
   body ghi cứng `Image N`.
@@ -172,8 +182,14 @@ một dòng `Change:`, gọi rõ vị trí và chủ thể. Không chép lại `
 của lượt nét (GPT sẽ vẽ lại cả trang). `--cast` chỉ gồm nhân vật bị sửa. Image 1
 là outline người dùng đang comment.
 
+Phần cần giữ nguyên ngoài câu mở chung (nền, nhóm người, đạo cụ dễ bị đổi theo)
+ghi thành dòng `Keep:` riêng, không viết nối vào cuối dòng `Change:`; script gom
+thành khối "Keep unchanged:" ngay sau các dòng Change. Mỗi lượt 1–2 dòng Change
+rồi soát ảnh; từ 3 dòng script cảnh báo.
+
 ```text
 Change: <chủ thể, trang/vị trí>: <thay đổi>.
+Keep: <phần phải giữ nguyên>.
 ```
 
 ## Chỉnh màu

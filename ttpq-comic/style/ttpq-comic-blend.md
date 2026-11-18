@@ -31,7 +31,7 @@ Core mix: 50% Refined 2D Comic Illustration + 25% Flat Illustration + 25% Soft S
 
 Line art: precise, clean, confident hand-drawn lines, medium-light weight, clearly readable but not bold; in the finished color illustration, outer contours of characters are a very dark warm brown close to black, never heavy pure black, and slightly thicker than interior lines; fine facial, hand, hair and fabric interior lines are color-tinted, a clearly darker shade of the color area they sit on (deep dark reddish brown on skin and robes, dark green on foliage); background lines are thinner and color-tinted but still visible, fading toward the distance; no cross-hatching on skin.
 
-Characters: believable anatomy, individual expressive faces, accurate natural proportions, and culturally appropriate South Asian features where applicable; beautiful but not excessively idealized.
+Characters: believable anatomy, individual expressive faces, realistic adult proportions with an average adult about 7 to 7.5 heads tall, heads in natural size relative to the body, normal-sized eyes and adult facial bone structure (children and elders age-accurate), and culturally appropriate South Asian features where applicable; beautiful but not excessively idealized.
 
 Color and light: clean solid flat color shapes for characters, clothing, and foreground, with harmonious, gently muted rich colors and natural skin tones; soft natural light with a clear direction, its color temperature set by the scene's time and setting (warm only for early morning, late afternoon, firelight or lamplight; neutral for full daylight; cooler in deep shade, overcast and night), so every form has a lit side and a shadow side; 2–3 controlled cel-shading tones on skin and clothing with slightly softened edges, the darkest tone clearly darker than the base color; subtle gradients on the sky and distant background layers, only very subtle color transitions on large middle-ground masses, never on characters; all line work is recolored into very dark warm brown contours and clearly darker color-tinted interior lines, with no heavy pure black outlines and no thick uniform contours.
 
@@ -43,7 +43,7 @@ Details: elegant simplified clothing folds, clear hair masses, crisp character s
 
 Composition: cinematic visual storytelling, clean hierarchy, and sophisticated integrated editorial/book illustration, including safe gutters and calm, low-detail areas behind text when laying out spreads.
 
-Exclusions: no anime, 3D/CGI, photorealism, glossy airbrushed skin, painterly brush texture on characters, heavy cross-hatching, excessive gradients, crude black shading, neon colors, strong bloom or glow.
+Exclusions: no anime, 3D/CGI, photorealism, glossy airbrushed skin, painterly brush texture on characters, heavy cross-hatching, excessive gradients, crude black shading, neon colors, strong bloom or glow, chibi or cartoon proportions, oversized heads or eyes, rounded baby faces, simplified cartoon figures.
 ```
 
 ## Khối LINE ART STAGE (blend)
@@ -53,7 +53,7 @@ như light ở tiền/trung cảnh, thêm một lớp viễn cảnh nhẹ để 
 chiều sâu.
 
 ```text
-"ttpq comic blend" LINE ART STAGE: draw only the black line art of the style above; color and cel shading come in the next stage. Most of the line work goes to the characters. Robes have about 6 to 10 main simplified folds. Hair, beards and moustaches are outlined masses left white, with a few flow lines. Background is simple in clear depth layers: the foreground is a few large simple shapes (a cliff or rock is a few contour lines with few cracks, a tree is one crown shape with a few leaf clusters, ground is a few lines), the middle ground has the main shapes of rocks, trees and buildings with a little more detail, and the distance is a few light outlines of hills or trees; sky is empty white; lines get fewer and thinner toward the distance, and areas behind text stay calm with few lines. Realistic human proportions: heads in natural size relative to the body, normal-sized eyes and adult facial bone structure. An average adult stands about 7 to 7.5 heads tall; a character whose line gives another height or build (for example taller, shorter, heavier or slighter) follows that line; children and elders have age-accurate proportions. Lines are pure black on plain white, with closed contours on characters and key props for coloring; no gray, no tone, no fill.
+"ttpq comic blend" LINE ART STAGE: draw only the black line art of the style above; color and cel shading come in the next stage. Most of the line work goes to the characters. Robes have about 6 to 10 main simplified folds. Hair, beards and moustaches are outlined masses left white, with a few flow lines. Background is simple in clear depth layers: the foreground is a few large simple shapes (a cliff or rock is a few contour lines with few cracks, a tree is one crown shape with a few leaf clusters, ground is a few lines), the middle ground has the main shapes of rocks, trees and buildings with a little more detail, and the distance is a few light outlines of hills or trees; sky is empty white; lines get fewer and thinner toward the distance, and areas behind text stay calm with few lines. Realistic human proportions: heads in natural size relative to the body, normal-sized eyes and adult facial bone structure. An average adult stands about 7 to 7.5 heads tall; a character whose line gives another height or build (for example taller, shorter, heavier or slighter) follows that line; children and elders have age-accurate proportions. All figures stand on one consistent ground plane seen from one eye level: a figure's size follows where its feet touch the ground, so people at the same distance are the same size, and size decreases smoothly with distance, with no sudden jumps between neighboring figures or groups. Lines are pure black on plain white, with closed contours on characters and key props for coloring; no gray, no tone, no fill.
 ```
 
 ## Áp dụng
@@ -81,6 +81,20 @@ chiều sâu.
   đậm gần đen, nét vừa; nét trong và nét nền ngả theo màu mảng nhưng đậm hơn
   mảng rõ. QA: viền nhân vật đọc rõ ở ảnh thu nhỏ, nét trong không chìm vào
   màu; không có viền đen đặc nặng hay viền dày đều.
+- Tỷ lệ người thật (thêm ngày 2026-11-17 sau góp ý "lên màu nhân vật lùn,
+  hoạt hình hơn"): dòng `Characters:` của khối STYLE ghi rõ 7–7.5 đầu, đầu cỡ
+  tự nhiên, mắt cỡ thường, xương mặt người lớn; `Exclusions:` cấm tỷ lệ chibi/
+  hoạt hình, đầu hoặc mắt quá to, mặt tròn kiểu em bé, nhân vật hoạt hình
+  giản lược (không dùng chữ "picture-book": nghi gợi giấy ngả vàng, cả tranh
+  ấm lên, 2026-11-18). Script thêm câu khóa tỷ lệ theo nét ở mọi lượt màu,
+  chỉ khóa tỷ lệ chứ không khóa cách tô; nhân vật `--recast` lấy tỷ lệ người
+  thật và cỡ đầu, mắt tự nhiên. QA: so ảnh màu với outline, cỡ
+  đầu, khăn/mũ và chiều cao nhân vật không đổi.
+- Tỷ lệ xa gần (thêm ngày 2026-11-17 sau góp ý "nhóm người gần nhau mà
+  người lớn, người rất bé"): khối LINE ART STAGE của cả ba style có câu một
+  mặt đất, một tầm mắt; cỡ người theo vị trí chân, cùng khoảng cách thì cùng
+  cỡ, nhỏ dần đều theo xa gần. Lượt màu giữ chiều cao theo nét nên lỗi phải
+  sửa ở outline.
 - Ghi `Style: ttpq comic blend` trong `record.md` cho lượt dùng blend.
 - Đây là style test; sửa style blend chỉ sửa file này, script đọc hai khối
   `text` theo thứ tự trên.
