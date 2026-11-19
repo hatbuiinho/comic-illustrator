@@ -127,6 +127,16 @@ scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/build-pro
   `"the long wooden beam"` khi nhiều người khiêng từ trang này sang trang kia).
   Người vẫn nằm trọn trang của mình; trong 7% giữa vật chỉ là một đoạn trơn,
   không tay, dây buộc, mối nối hay mặt. Truyền ở cả ba lượt; không dùng với `--split`.
+- `--effect "<hiệu ứng>"`: ngoại lệ cho vùng hiệu ứng thần thông ở lượt `color` và
+  `color-edit` (tiếng Anh, nêu màu và vị trí, ví dụ
+  `"the jade-green psychic force swirling around the floating beams and earth slab"`).
+  Script thêm đoạn `Supernatural effect` sau khối STYLE (gradient trong suốt từ lõi sáng,
+  bloom mềm ở mép, sương sáng, hạt sáng nhiều độ sâu, ánh phản nhẹ lên vật gần; không
+  che mặt/tay, không đổi màu da/y, không hào quang sau đầu), sửa `Exclusions:` thành
+  chỉ cấm gradient/glow ngoài vùng hiệu ứng, và bỏ khỏi Avoid mục có glow, bloom,
+  gradient, magic effect, light rays (có cảnh báo; mục "halo" vẫn giữ). `color-edit`
+  thêm câu giữ nguyên hiệu ứng của Image 1. Lượt nét không nhận cờ này: vùng hiệu ứng
+  vẽ bằng vài nét mảnh trong body. Không ghi cờ thì style giữ nguyên.
 - `--no-text`: Hình không có chữ (mode frame).
 - Script in danh sách ảnh đính kèm theo thứ tự Image; gửi đúng thứ tự đó.
 

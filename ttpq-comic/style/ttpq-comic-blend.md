@@ -95,6 +95,15 @@ chiều sâu.
   mặt đất, một tầm mắt; cỡ người theo vị trí chân, cùng khoảng cách thì cùng
   cỡ, nhỏ dần đều theo xa gần. Lượt màu giữ chiều cao theo nét nên lỗi phải
   sửa ở outline.
+- Hiệu ứng thần thông (thêm ngày 2026-11-18 sau góp ý "giới hạn gradient
+  làm hiệu ứng đơn điệu"; test Mục Kiền Liên v002 chỉ ra một dải phẳng, v003
+  có ngoại lệ thì nhiều lớp hơn): khối STYLE giữ nguyên; lượt màu có hiệu ứng
+  dùng `--effect "<hiệu ứng>"` của `build-prompt.py`. Cờ này nới gradient, bloom
+  mềm, sương sáng và hạt sáng chỉ trong vùng hiệu ứng, sửa `Exclusions:` cho lượt
+  đó và bỏ mục Avoid cấm glow. QA: hiệu ứng có lõi sáng, chuyển trong suốt và hạt
+  nhiều độ sâu; nhân vật vẫn mảng cel không gradient; không che mặt/tay, không đổi
+  màu da/y, không hào quang sau đầu, không neon/lóa ống kính. Ghi
+  `Effect: <hiệu ứng>` trong `record.md`.
 - Ghi `Style: ttpq comic blend` trong `record.md` cho lượt dùng blend.
 - Đây là style test; sửa style blend chỉ sửa file này, script đọc hai khối
   `text` theo thứ tự trên.

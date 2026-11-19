@@ -22,10 +22,14 @@ không được sai:
     cách thể hiện dấu hiệu dễ sai khi chuyển sheet màu sang nét đen (râu, cổ y…);
   - --recast (lượt màu và chỉnh outline; chỉnh outline thêm câu chốt cuối prompt): nhân vật vẽ lại từ profile, ảnh
     nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn;
-  - --pass color-edit: sửa một nhân vật trên ảnh màu, giữ nguyên phần còn lại.
+  - --pass color-edit: sửa một nhân vật trên ảnh màu, giữ nguyên phần còn lại;
+  - --effect (lượt màu và color-edit): ngoại lệ cho vùng hiệu ứng thần thông,
+    nới gradient/glow chỉ trong vùng đó, sửa Exclusions và bỏ mục Avoid cấm
+    glow/magic effect cho lượt này; không ghi thì style giữ nguyên.
 
 Thứ tự prompt: việc cần làm → cảnh (body) → nhân vật → STYLE → trang sách
 (bleed, gáy; --across cho một vật đi liền qua gáy) → chữ → Avoid.
+Với --effect, đoạn Supernatural effect đứng ngay sau STYLE.
 Body lượt màu bỏ dòng Text wrap; body lượt chỉnh
 là các dòng "Change: …".
 
@@ -123,6 +127,34 @@ def text_block(path, index=0):
     if len(blocks) <= index:
         die(f"không thấy khối ```text thứ {index + 1} trong {rel(path)}")
     return blocks[index].strip()
+
+
+# Thêm 2026-11-18: style chặn gradient/glow làm hiệu ứng thần thông bị tô phẳng một dải (test Mục Kiền Liên v002);
+# --effect nới riêng vùng hiệu ứng, phần còn lại giữ style. Câu khẳng định, không liệt kê thêm điều cấm.
+EFFECT_BAN = re.compile(r"\bglow|\bbloom|\bgradient|magic effect|light rays", re.I)
+
+
+def effect_def(text):
+    """Khối STYLE cho lượt có --effect: Exclusions chỉ cấm gradient/glow ngoài vùng hiệu ứng."""
+    out = "outside the supernatural effect"
+    def fix(m):
+        line = m.group(0)
+        line = line.replace("excessive gradients", f"excessive gradients {out}")
+        line = line.replace("strong bloom or glow", f"bloom or glow {out}")
+        return line
+    return re.sub(r"^Exclusions:.*$", fix, text, flags=re.M)
+
+
+def effect_para(effect):
+    return (f"Supernatural effect, the one exception to the gradient and glow limits above: {effect}. "
+            "Paint it as luminous translucent light in the same 2D book-illustration finish: soft transparent gradients "
+            "from a bright near-white core out to its own color, a gentle soft bloom only at its edges, a thin layer of luminous mist, "
+            "and fine light particles at several depths, crisp near the viewer and softer farther away; "
+            "it may tint nearby ground, objects and robe edges with a faint reflected light of its color. "
+            "The effect is the brightest part of the picture and stays inside its own area, framed by mid and deep tones; "
+            "it never covers faces or key hands and never changes skin, hair or robe colors; "
+            "it is painted light, not neon, photographic, lens-flare or video-game spell light, with no halo behind any head. "
+            "Everything else, characters included, keeps the style above: flat cel-shaded color with no gradients on skin or clothing.")
 
 
 def join_names(xs):
@@ -260,6 +292,8 @@ def main():
     ap.add_argument("--two-scenes", action="store_true", help="spread hai cảnh riêng: mỗi cảnh vẽ trọn trang mình tới gáy, không hòa, không dải trắng")
     ap.add_argument("--split", action="store_true", help="spread hai tranh tách nhau, giữa là dải giấy trắng ở gáy (cả ba lượt)")
     ap.add_argument("--across", help="vật (tiếng Anh) được vẽ liền qua gáy, ví dụ \"the long wooden beam\"; người vẫn ở trang của mình")
+    ap.add_argument("--effect", help="hiệu ứng thần thông (tiếng Anh) được nới gradient/glow ở lượt màu và color-edit, "
+                    "ví dụ \"the jade-green psychic force swirling around the floating beams and earth slab\"")
     ap.add_argument("--no-text", action="store_true", help="hình không có chữ")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
@@ -269,6 +303,9 @@ def main():
         die("--across không dùng chung với --split (dải giấy trắng ở gáy không cho vật nào đi qua)")
     if a.two_scenes and (across or a.split):
         die("--two-scenes không dùng chung với --across hoặc --split")
+    effect = (a.effect or "").strip().rstrip(".").strip()
+    if effect and a.kind not in ("color", "color-edit"):
+        die("--effect chỉ dùng ở lượt color và color-edit; lượt nét vẽ vùng hiệu ứng bằng vài nét mảnh trong body")
     # Từ 2026-11-16: lên màu mặc định blend; lượt nét và chỉnh outline mặc định light.
     a.style = a.style or ("blend" if a.kind in ("color", "color-edit") else "light")
     st = STYLES[a.style]
@@ -442,6 +479,12 @@ def main():
     bible_bans = [b for keys, skip, b in bans
                   if (not keys or any(k in scene_text for k in keys)) and not any(k in scene_text for k in skip)]
     avoid = clean_avoid([a.avoid] + [sc["ban"] or "" for sc in scenes] + bible_bans, warnings)
+    if effect:
+        dropped = [x for x in avoid if EFFECT_BAN.search(x)]
+        avoid = [x for x in avoid if x not in dropped]
+        if dropped:
+            warnings.append("--effect bỏ khỏi Avoid các mục cấm hiệu ứng sáng: " + "; ".join(dropped)
+                            + ". Hào quang sau đầu vẫn bị chặn trong đoạn Supernatural effect.")
     avoid_line = "Avoid: " + "; ".join(avoid) + "." if avoid else ""
     # GPT không có negative prompt thật: mỗi từ trong Avoid vẫn gợi ra đúng thứ đó.
     if len(avoid) > 7:
@@ -493,6 +536,8 @@ def main():
                          + (" Colored text in Image 1 is editor's marks only; draw it black." if has_marks else ""))
     elif a.kind == "color":
         open_ = f"Color Image 1, the line art of {pages}, in the style below: {st['color_open']} Any gray tones in Image 1 are not lighting; ignore them. Keep its composition, background and text."
+        if effect:
+            open_ += f" The one exception is the supernatural effect ({effect}), painted with translucent gradients and soft glow as described after the style."
         # Thêm 2026-11-17: lượt màu vẽ lại hình nên nhân vật hay lùn/hoạt hình hơn outline; khóa tỷ lệ theo nét.
         # Chỉ khóa tỷ lệ, không khóa cách tô ("color inside the lines / do not stylize" làm ảnh nhạt, mất bóng đổ).
         open_ += (" Keep every figure's height, head size, head-to-body ratio, face shape, eye size and turban or headdress size"
@@ -516,7 +561,9 @@ def main():
         parts.append(body + (f"\n{light_line}" if light_line else ""))
         if img or txt:
             parts.append("\n".join([f"Characters must match their profile sheets in face, hair and clothing colors; where Image 1 differs, follow the sheet. {expr} Ignore the sheets' poses, lighting and labels."] + img + txt + recasts + contrast))
-        parts.append(text_block(*st["def"]))
+        parts.append(effect_def(text_block(*st["def"])) if effect else text_block(*st["def"]))
+        if effect:
+            parts.append(effect_para(effect))
         if a.split:
             parts.append("Image 1 has two separate pictures with a blank white paper band between them at the center fold: keep that band "
                          "plain white paper, unpainted, with no frame lines; the gray bleed bands at the outer edges also stay empty. "
@@ -546,7 +593,9 @@ def main():
                                + [f"For {tagged(with_ref)}: keep from Image 1 {keep_act}; take {take_sheet} from {'the sheet' if one else 'each sheet'}. {regrow}"]
                                + contrast))
         parts.append(f"Style: paint the corrected character in the same \"{st['name']}\" finish as the rest of Image 1: the same outline color and weight, "
-                     "cel-shading tones, light direction and shadow color; strictly 2D, no gradients or texture on the character.")
+                     "cel-shading tones, light direction and shadow color; strictly 2D, no gradients or texture on the character."
+                     + (f" Keep the supernatural effect of Image 1 ({effect}) with its translucent gradients, soft glow and light particles exactly as it is;"
+                        " where it lit the old character, light the corrected one the same way." if effect else ""))
         parts.append(f"The character stays on its own page, with face and key hands out of {mid} around the center fold.")
         parts.append("No text of any kind in the image." if a.no_text else "Keep all text, folios and any highlight behind the text exactly as in Image 1; do not redraw any letters.")
     else:
