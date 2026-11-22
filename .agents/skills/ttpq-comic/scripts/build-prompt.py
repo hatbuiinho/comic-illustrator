@@ -4,7 +4,8 @@
 Agent chỉ viết phần cảnh (2–4 câu tiếng Anh) vào --body. Script lo phần
 không được sai:
   - khối STYLE nguyên văn theo --style (không ghi: blend cho lượt màu và
-    color-edit, light cho lượt nét và chỉnh outline): light (định nghĩa ở
+    color-edit, light cho chỉnh outline; lượt nét không chèn khối STYLE, chỉ gọi
+    tên Semi-Realistic Storybook Illustration ở câu mở): light (định nghĩa ở
     docs/style-ttpq-comic-light.md, khối nét ở style/ttpq-comic.md), soft
     (cả hai khối ở style/ttpq-comic-soft.md) hoặc blend (cả hai khối ở
     style/ttpq-comic-blend.md);
@@ -18,7 +19,9 @@ không được sai:
   - body ghi {slug} để script thay bằng số Image đúng theo cast;
   - lượt màu/color-edit dùng "Dòng nhận diện tiếng Anh" đầy đủ của profile;
     "Nét mặt cố định" (tiếng Anh) giữ biểu cảm theo sheet ở mọi lượt;
-  - "Nét vẽ line art" (tiếng Anh, tùy chọn) chỉ chèn ở lượt nét và chỉnh outline:
+  - lượt nét (từ 2026-11-22) lọc cụm "about N heads tall" khỏi dòng prompt và
+    bỏ câu tỷ lệ chung; không chèn "Nét vẽ line art";
+  - "Nét vẽ line art" (tiếng Anh, tùy chọn) chỉ chèn ở chỉnh outline:
     cách thể hiện dấu hiệu dễ sai khi chuyển sheet màu sang nét đen (râu, cổ y…);
   - --recast (lượt màu và chỉnh outline; chỉnh outline thêm câu chốt cuối prompt): nhân vật vẽ lại từ profile, ảnh
     nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn;
@@ -50,21 +53,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 FLOW = ROOT / "ttpq-comic"
-# Mỗi style: (file định nghĩa, thứ tự khối text), (file LINE ART STAGE, thứ tự khối), câu mở lượt màu.
+# Lượt nét (từ 2026-11-22): chỉ gọi tên style này ở câu mở, không chèn định nghĩa, không rule head tall/quy định nét.
+OUTLINE_STYLE = "Semi-Realistic Storybook Illustration"
+HEADS_TALL = re.compile(r",?\s*(?:about|around|roughly|nearly)?\s*\d+(?:\.\d+)?(?:\s*(?:to|–|-)\s*\d+(?:\.\d+)?)?\s*heads?\s+(?:tall|high)\b", re.I)
+# Mỗi style: (file định nghĩa, thứ tự khối text), câu mở lượt màu. Lượt nét không chèn khối style (từ 2026-11-19).
 STYLES = {
     "light": {
         "name": "ttpq comic light",
         "def": (ROOT / "docs" / "style-ttpq-comic-light.md", 0),
-        "line": (FLOW / "style" / "ttpq-comic.md", 0),
-        "color_drop": "Color:",
         "color_open": "clean flat color shapes with 2–3 hard-edged cel-shading tones on skin and clothing; "
                       "keep every black outline crisp and visible; background in a few flat color planes.",
     },
     "soft": {
         "name": "ttpq comic soft",
         "def": (FLOW / "style" / "ttpq-comic-soft.md", 0),
-        "line": (FLOW / "style" / "ttpq-comic-soft.md", 1),
-        "color_drop": "Color and light:",
         "color_open": "a clear soft directional light with 3–4 gently blended shading tones on skin and clothing "
                       "and subtle gradients on sky and large surfaces; keep every black outline crisp and visible; "
                       "background in soft layered atmospheric depth, with characters crisper than the background.",
@@ -72,8 +74,6 @@ STYLES = {
     "blend": {
         "name": "ttpq comic blend",
         "def": (FLOW / "style" / "ttpq-comic-blend.md", 0),
-        "line": (FLOW / "style" / "ttpq-comic-blend.md", 1),
-        "color_drop": ("Color and light:", "Value and contrast:"),
         "color_open": "clean flat color shapes with 2–3 slightly softened cel-shading tones on skin and clothing, "
                       "under natural light suited to the scene's time and setting with a clear direction, no overall warm or golden cast unless the scene calls for it, cast shadows on the ground, deep colored shadow masses "
                       "in the environment and focal characters separated from their background by value; "
@@ -114,12 +114,6 @@ def canvas_ref(spread, layout):
     canvas.paste(src.resize((c["spreadWidthPx"], c["height"]), Image.LANCZOS), (c["trimEachSidePx"], 0))
     canvas.save(out)
     return out
-
-
-def line_style(st):
-    """Định nghĩa chuẩn bỏ đoạn màu (lượt nét chưa tô màu), rồi khối LINE ART STAGE."""
-    paras = [x for x in re.split(r"\n\s*\n", text_block(*st["def"])) if not x.lstrip().startswith(st["color_drop"])]
-    return "\n\n".join(paras + [text_block(*st["line"])])
 
 
 def text_block(path, index=0):
@@ -443,14 +437,20 @@ def main():
 
     def desc(c):
         # Lượt màu dùng dòng nhận diện đầy đủ (có màu da, trang phục); lượt nét dùng dòng ngắn.
-        s = (c["id"] if full_id and c["id"] else c["line"]) + "."
+        s = (c["id"] if full_id and c["id"] else c["line"])
+        if a.kind == "outline":
+            # Từ 2026-11-22: lượt nét bỏ rule head tall (lọc "about N heads tall" khỏi dòng profile, profile giữ nguyên).
+            s = HEADS_TALL.sub("", s).strip(" ,;")
+        s += "."
         # Lượt edit recast nhắc "In line art" ở câu chốt cuối prompt; không lặp ở dòng Image N.
-        if not full_id and c["lineart"] and not (a.kind == "edit" and c["slug"] in recast):
+        # Từ 2026-11-22: lượt nét không chèn "In line art" (bỏ quy định nét); chỉnh outline vẫn chèn.
+        if a.kind == "edit" and c["lineart"] and c["slug"] not in recast:
             s += f" In line art: {c['lineart']}."
         return s + (f" Fixed face in every moment: {c['face']}." if c["face"] else "")
 
     img = [f"Image {n0 + i} = {c['name']}: {desc(c)}" for i, c in enumerate(with_ref)]
-    txt = [f"{c['name'][0].upper()}{c['name'][1:]} (no reference image; same realistic human proportions as the other characters): {desc(c)}" for c in text_only]
+    no_ref = "no reference image" if a.kind == "outline" else "no reference image; same realistic human proportions as the other characters"
+    txt = [f"{c['name'][0].upper()}{c['name'][1:]} ({no_ref}): {desc(c)}" for c in text_only]
     fixed = any(c["face"] for c in cast)
     expr = ("Expressions follow the moment, not the sheets, except a fixed face given below."
             if fixed else "Expressions follow the moment, not the sheets.")
@@ -511,12 +511,13 @@ def main():
                 " the two backgrounds do not blend or continue into each other, and there is no white strip, gap or border at the fold."
                 f" Each character stays wholly on its own page; keep faces and the hands doing the key action out of {mid}.")
     if a.kind == "outline":
-        parts.append(f"Draw {pages} of an illustrated graphic novel about the life of the Buddha (ancient northern India) for adult and family readers as one {w}x{h} spread "
-                     f"in \"{st['name']}\" refined editorial comic line art. Image 1 is the page layout.")
+        # Từ 2026-11-19: bỏ khối style (định nghĩa + LINE ART STAGE) khỏi lượt nét theo yêu cầu người dùng.
+        # Từ 2026-11-22: lượt nét gọi tên style Semi-Realistic Storybook Illustration; bỏ rule head tall và quy định nét.
+        parts.append(f"Use case: illustration-story. Create ONE finished black and white outline illustration in a {OUTLINE_STYLE} style, pure white background. "
+                     "Image 1 is the page layout.")
         parts.append(body)
         if img or txt:
-            parts.append("\n".join(["Characters: match faces, hair and clothing to their profile sheets; body height and proportions follow the character lines below; ignore the sheets' poses, backgrounds and labels."] + img + txt + contrast))
-        parts.append(line_style(st))
+            parts.append("\n".join(["Characters: match faces, hair and clothing to their profile sheets; ignore the sheets' poses, backgrounds and labels."] + img + txt + contrast))
         frame = layout.get("frames") or []
         lay = "Page: keep the margins of Image 1."
         if any(f.get("fill") for f in frame):
@@ -642,7 +643,7 @@ def main():
     first = {"outline": canvas_ref(spread, layout) if a.kind == "outline" else None, "color": "<outline được chọn>", "edit": "<outline đang sửa>",
              "color-edit": "<ảnh màu đang sửa>"}[a.kind]
     first = rel(first) if isinstance(first, Path) else first
-    print(f"Đã ghi {rel(out)} ({len(' '.join(parts).split())} từ, style {st['name']})")
+    print(f"Đã ghi {rel(out)} ({len(' '.join(parts).split())} từ, style {OUTLINE_STYLE if a.kind == 'outline' else st['name']})")
     print("Đính kèm:")
     print(f"  Image 1 = {first}")
     for i, c in enumerate(with_ref):

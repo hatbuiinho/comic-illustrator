@@ -2,19 +2,22 @@
 
 Prompt ảnh do `scripts/build-prompt.py` ghép. Agent chỉ viết **file body**: vài
 câu tiếng Anh tự nhiên, không nhãn viết hoa, không luật vá. Script ghép theo
-thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → STYLE → trang sách
+thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → STYLE (trừ lượt nét) → trang sách
 (lề, bleed, gáy) → chữ → Avoid. Script tự thêm:
 
 - khối STYLE theo `--style` (không ghi: `blend` cho lượt màu và `color-edit`,
-  `light` cho lượt nét và chỉnh outline; style khác chỉ khi người dùng gọi tên). Light: cả hai lượt chép định nghĩa chuẩn `docs/style-ttpq-comic-light.md`,
-  lượt nét bỏ đoạn `Color:` rồi thêm khối LINE ART STAGE của
-  `ttpq-comic/style/ttpq-comic.md` (mật độ nét, tóc, nếp y, nền, tỷ lệ người thật).
-  Soft: hai khối trong `ttpq-comic/style/ttpq-comic-soft.md`, lượt nét bỏ đoạn
-  `Color and light:`. Blend: hai khối trong `ttpq-comic/style/ttpq-comic-blend.md`,
-  lượt nét bỏ đoạn `Color and light:`;
-- câu mở lượt nét gọi tên style ("ttpq comic light"/"ttpq comic soft"/"ttpq comic blend" refined
-  editorial comic line art), không viết "clean black line art" vì GPT hiểu thành
-  trang tô màu;
+  `light` cho chỉnh outline; style khác chỉ khi người dùng gọi tên), chép định
+  nghĩa chuẩn của style (light: `docs/style-ttpq-comic-light.md`; soft, blend:
+  khối đầu trong `ttpq-comic/style/`). Từ 2026-11-19 **lượt nét không chèn khối
+  STYLE** (cả định nghĩa lẫn LINE ART STAGE), theo yêu cầu người dùng;
+- câu mở lượt nét cố định, gọi tên style (từ 2026-11-22, theo yêu cầu người
+  dùng; không chèn định nghĩa): "Use case: illustration-story. Create ONE
+  finished black and white outline illustration in a Semi-Realistic Storybook
+  Illustration style, pure white background. Image 1 is the page layout.";
+- lượt nét bỏ rule head tall và quy định nét (từ 2026-11-22): không có câu
+  "body height and proportions follow the character lines below", lọc cụm
+  "about N heads tall" khỏi `Dòng prompt` (profile giữ nguyên), nhân vật không
+  ref không có câu "same realistic human proportions", không chèn "In line art";
 - câu mở lượt màu: light là mảng màu phẳng, 2–3 tông cel-shading ranh giới rõ,
   nền vài mảng phẳng; soft là ánh sáng có hướng, 3–4 tông bóng chuyển mềm,
   gradient nhẹ, nền có lớp xa gần; blend là mảng phẳng, 2–3 tông cel mép hơi dịu,
@@ -75,7 +78,7 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
   `color-edit` dùng khối `Dòng nhận diện tiếng Anh` đầy đủ của profile (thiếu
   thì cảnh báo, dùng dòng ngắn). Profile có `Nét mặt cố định` thì mọi lượt giữ
   nét mặt đó, thay cho "biểu cảm theo khoảnh khắc". Profile có `Nét vẽ line art`
-  thì lượt nét và chỉnh outline thêm câu "In line art: …" (cách vẽ nét cho dấu
+  thì chỉnh outline thêm câu "In line art: …" (cách vẽ nét cho dấu
   hiệu dễ sai khi chuyển sheet màu sang nét đen, ví dụ râu mờ thành ria và chòm
   râu có viền);
 - lượt màu `--recast <slug> …`: nhân vật vẽ lại từ profile, outline chỉ giữ vị
