@@ -1,11 +1,11 @@
 # Moggallana — Ngài Mục Kiền Liên
 
 - Trạng thái: APPROVED — ảnh do người dùng chỉ định làm profile ngày 2026-10-31; mô tả dưới đây ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v008
+- Version mô tả: v010
 - Ảnh ref: ref-v001.png (sheet "Ngài Mục Kiền Liên" người dùng gửi ngày 2026-10-31, 1587×991, chuyển từ webp sang png, giữ nguyên pixel); ref-v002.png (2200×2400, cắt và phóng to từ ref-v001: mặt chính diện, hai đầu ba phần tư, hình ngồi toàn thân; không vẽ thêm nét, đã xóa phần chữ tiêu đề).
 - Tên trong prompt: Moggallana
 - Ref prompt: ref-v002.png
-- Dòng prompt: tall broad-shouldered monk about 8 heads tall, shaved head, smooth full oval face, rounded chin, long earlobes, thin close jaw beard, both-shoulder robe
+- Dòng prompt: tall broad-shouldered monk about 8 heads tall, shaved head, smooth full oval face, rounded chin, long earlobes, faint light stubble, both-shoulder robe
 - Nét mặt cố định: serene composed face as in the sheet, relaxed level brows, calm steady eyes, closed lips, no smile and no frown
 - Nét vẽ line art: beard only as 5–8 tiny short stubble strokes along the jaw and upper lip, with no outlined moustache, no outlined chin tuft and no chin beard wedge; clean medium-weight brows, not bushy; smooth cheeks with no hollow, cheekbone or wrinkle lines; neckline as two or three thin soft folds of cloth draped loosely around the neck and sweeping diagonally down the chest, never stacked concentric rings or a thick rolled collar
 - Vai trò: tôn giả, đệ tử Đức Phật; xuất hiện trong hồi tưởng trang 48–49 và cảnh S46 gác đà (trang 206–207).
@@ -46,7 +46,7 @@
 ## Dòng nhận diện tiếng Anh
 
 ```text
-Moggallana: match the supplied original sheet; tall long-limbed build about 8 heads tall with broad shoulders, shaved scalp, long earlobes, smooth softly defined oval face with moderately full cheeks, soft cheekbones and a rounded chin, no deep wrinkles, dark arched brows, calm almond eyes, straight nose and closed lips, thin close-cropped beard along the jaw with a thin moustache and short chin beard. Preserve warm light skin and both-shoulder reddish-brown wrapped robes with a high neckline of soft gathered folds around the neck, the outer layer falling from his left shoulder. No added jewelry; beard stays thin, never heavy or long; face never gaunt or angular.
+Moggallana: match the supplied original sheet; tall long-limbed build about 8 heads tall with broad shoulders, shaved scalp, long earlobes, smooth softly defined oval face with moderately full cheeks, soft cheekbones and a rounded chin, no deep wrinkles, dark arched brows, calm almond eyes, straight nose and closed lips, only faint light stubble on the jaw, upper lip and chin, no defined moustache or chin beard. Preserve warm light skin and both-shoulder reddish-brown wrapped robes with a high neckline of soft gathered folds around the neck, the outer layer falling from his left shoulder. No added jewelry; stubble stays faint, never a full jaw beard, heavy or long; face never gaunt or angular.
 ```
 
 ## Lịch sử
@@ -62,3 +62,5 @@ Moggallana: match the supplied original sheet; tall long-limbed build about 8 he
 | v006 | 2026-11-16 | Thêm `ref-v002.png` cắt từ ref-v001 với mặt cỡ lớn để giữ đồng nhất khuôn mặt; đổi `Ref prompt` sang ref-v002; mô tả nhận diện giữ nguyên | Người dùng yêu cầu cắt từ sheet cũ |
 | v007 | 2026-11-16 | Thêm trường `Nét vẽ line art`: trên sheet râu chỉ là bóng xám mờ nên khi vẽ nét đen chỉ được là vài chấm lún phún, không vẽ ria/chòm râu có viền (lỗi khiến outline giống Nalini); mày vừa, má mịn, cổ y nếp mỏng | Người dùng chọn phương án sửa script và profile |
 | v008 | 2026-11-16 | `Nét vẽ line art`: râu viết dạng đếm được (5–8 nét lún phún, không ria/chòm/khối râu cằm có viền) theo prompt v005 đã đổi được mặt; cổ y tả cụ thể hai–ba nếp vải rủ chéo, cấm vòng đồng tâm (lỗi còn ở outline v005) | Người dùng yêu cầu triển khai đề xuất |
+| v009 | 2026-11-22 | `Dòng prompt`: đổi `thin close jaw beard` thành `faint light stubble`, vì cụm "jaw beard" khiến outline p048-049 v066/v067 vẽ râu quai nón; mô tả và dòng nhận diện EN giữ nguyên | Người dùng chọn phương án 2 |
+| v010 | 2026-11-22 | Dòng nhận diện EN: đổi râu quai nón/ria/râu cằm thành `only faint light stubble…`, cấm full jaw beard, vì lượt màu p048-049 v068/v069 ra râu rõ và rậm hơn sheet | Người dùng yêu cầu |

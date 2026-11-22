@@ -5,8 +5,9 @@
 - Flow độc lập. Không đọc hoặc áp quy tắc workflow, profile hay skill của
   `comic-illustrator/`, Character Studio, Image Playground hay các style cũ.
   Style mặc định là `ttpq comic light` theo `../docs/project-style-policy.md`,
-  riêng lượt màu (kể cả `color-edit`) mặc định `ttpq comic blend`
-  (`style/ttpq-comic-blend.md`) từ 2026-11-16; lượt màu dùng light hoặc
+  riêng lượt màu mặc định `ttpq comic blend`
+  (`style/ttpq-comic-blend.md`) từ 2026-11-16; `color-edit` và lượt màu có
+  `--recast` mặc định `ttpq real` (`style/ttpq-real.md`) từ 2026-11-22; lượt màu dùng light hoặc
   `ttpq comic soft` (`style/ttpq-comic-soft.md`) khi người dùng gọi tên. Ghi
   tên style đã dùng trong `record.md`.
   Không áp `../docs/monastic-robes.md`; màu y và cách quấn y lấy theo profile

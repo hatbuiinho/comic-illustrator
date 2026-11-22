@@ -39,7 +39,13 @@ dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page
 - Lệnh "Chọn phương án N … tạo clean outline" cũng kích hoạt bước này.
 - Lệnh ghi `ttpq comic soft` hoặc `ttpq comic blend` thay cho `ttpq comic light`
   thì chạy script với `--style soft` hoặc `--style blend`; không ghi thì lượt
-  nét là light, lượt màu là blend.
+  nét là light, lượt màu là blend; `color-edit` và lượt màu có `--recast` là
+  real (từ 2026-11-22).
+- Lượt màu ghi `ttpq storybook` (style test 40% semi-realistic storybook + 35% flat + 25% nền storybook, 2026-11-22) thì
+  chạy `--style storybook`; định nghĩa ở `ttpq-comic/style/ttpq-storybook.md`.
+- `ttpq real` (style test 50% semi-realistic comic + 25% flat + 25% nền storybook, 2026-11-22) là mặc định của
+  `color-edit` và lượt màu có `--recast`; lượt màu thường muốn dùng thì ghi `ttpq real` để
+  chạy `--style real`; định nghĩa ở `ttpq-comic/style/ttpq-real.md`.
 - Viết body từ phương án active, chạy `build-prompt.py --pass outline`, rồi gọi
   ImageGen với prompt và ảnh đính kèm theo thứ tự script in ra.
 - Chữ trang phải là tiếng Anh giữ chỗ do model tự sinh; không dịch.

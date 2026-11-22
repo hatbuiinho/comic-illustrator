@@ -32,6 +32,17 @@ Cũng từ 2026-11-15, TTPQ Comic có style test
 trong TTPQ Comic (lượt nét vẫn mặc định light); chỉ dùng trong TTPQ Comic, QA
 theo định nghĩa blend và ghi tên style trong record.
 
+Từ 2026-11-22, TTPQ Comic có style test
+[ttpq storybook](../ttpq-comic/style/ttpq-storybook.md)
+(40% Semi-Realistic Storybook Illustration + 35% flat + 25% nền storybook),
+chỉ dùng cho lượt màu khi người dùng gọi tên; QA theo định nghĩa của nó.
+
+Cũng từ 2026-11-22, TTPQ Comic có style test
+[ttpq real](../ttpq-comic/style/ttpq-real.md)
+(50% Semi-Realistic Comic Illustration + 25% flat + 25% nền storybook, nhánh
+của blend), là mặc định của `color-edit` và lượt màu có `--recast`; lượt màu
+thường dùng khi người dùng gọi tên; QA theo định nghĩa của nó.
+
 ## Chỉ khi ảnh cần vẽ tu sĩ
 
 Chỉ khi ảnh thực sự có tu sĩ, đọc và áp dụng

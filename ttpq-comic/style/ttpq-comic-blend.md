@@ -1,7 +1,8 @@
 # ttpq comic blend
 
 Style chỉ dùng trong flow TTPQ Comic, tạo ngày 2026-11-15. Từ 2026-11-16 là
-**style mặc định của lượt màu** (kể cả `color-edit`); lượt nét và chỉnh outline
+**style mặc định của lượt màu** (từ 2026-11-22 `color-edit` và lượt màu có
+`--recast` chuyển sang mặc định [ttpq real](ttpq-real.md)); lượt nét và chỉnh outline
 vẫn mặc định light. Lượt màu dùng light hoặc soft khi người dùng gọi tên.
 
 Hướng: đứng chính giữa light và soft. Nhân vật vẫn là comic sạch nét, mảng
@@ -58,7 +59,8 @@ chiều sâu.
 
 ## Áp dụng
 
-- Lượt màu và `color-edit` không ghi `--style` là blend. Lượt nét và chỉnh
+- Lượt màu thường không ghi `--style` là blend; `color-edit` và lượt màu có
+  `--recast` không ghi là real (từ 2026-11-22), muốn blend thì ghi `--style blend`. Lượt nét và chỉnh
   outline muốn dùng blend thì ghi `--style blend`; không ghi là light.
 - Lượt màu blend có thể tô từ outline light hoặc soft đã chọn; không bắt buộc
   vẽ lại nét.

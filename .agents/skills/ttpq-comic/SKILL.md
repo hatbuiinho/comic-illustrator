@@ -12,6 +12,8 @@ description: Chuẩn bị context truyện và menu lệnh cho spread trong ttpq
 định của lượt màu) hoặc khi người dùng gọi `ttpq comic blend` (chỉ đọc
 [style soft](../../../ttpq-comic/style/ttpq-comic-soft.md) khi người dùng gọi
 `ttpq comic soft`),
+[style real](../../../ttpq-comic/style/ttpq-real.md) khi `color-edit` hoặc lượt
+màu có `--recast` (mặc định từ 2026-11-22) hoặc khi người dùng gọi `ttpq real`,
 [era guide](../../../ttpq-comic/style/era-ancient-india.md). Không đọc tài liệu
 hay skill của `comic-illustrator/`, hai studio hay `docs/monastic-robes.md`.
 

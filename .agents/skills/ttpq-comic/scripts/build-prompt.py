@@ -3,8 +3,9 @@
 
 Agent chỉ viết phần cảnh (2–4 câu tiếng Anh) vào --body. Script lo phần
 không được sai:
-  - khối STYLE nguyên văn theo --style (không ghi: blend cho lượt màu và
-    color-edit, light cho chỉnh outline; lượt nét không chèn khối STYLE, chỉ gọi
+  - khối STYLE nguyên văn theo --style (không ghi: real cho color-edit và
+    lượt màu có --recast (từ 2026-11-22), blend cho lượt màu thường, light cho
+    chỉnh outline; lượt nét không chèn khối STYLE, chỉ gọi
     tên Semi-Realistic Storybook Illustration ở câu mở): light (định nghĩa ở
     docs/style-ttpq-comic-light.md, khối nét ở style/ttpq-comic.md), soft
     (cả hai khối ở style/ttpq-comic-soft.md) hoặc blend (cả hai khối ở
@@ -20,8 +21,9 @@ không được sai:
   - lượt màu/color-edit dùng "Dòng nhận diện tiếng Anh" đầy đủ của profile;
     "Nét mặt cố định" (tiếng Anh) giữ biểu cảm theo sheet ở mọi lượt;
   - lượt nét (từ 2026-11-22) lọc cụm "about N heads tall" khỏi dòng prompt và
-    bỏ câu tỷ lệ chung; không chèn "Nét vẽ line art";
-  - "Nét vẽ line art" (tiếng Anh, tùy chọn) chỉ chèn ở chỉnh outline:
+    bỏ câu tỷ lệ chung;
+  - "Nét vẽ line art" (tiếng Anh, tùy chọn) chèn ở lượt nét và chỉnh outline
+    (lượt nét chèn lại từ 2026-11-22, sau lỗi râu quai nón p048-049 v066/v067):
     cách thể hiện dấu hiệu dễ sai khi chuyển sheet màu sang nét đen (râu, cổ y…);
   - --recast (lượt màu và chỉnh outline; chỉnh outline thêm câu chốt cuối prompt): nhân vật vẽ lại từ profile, ảnh
     nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn;
@@ -53,7 +55,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 FLOW = ROOT / "ttpq-comic"
-# Lượt nét (từ 2026-11-22): chỉ gọi tên style này ở câu mở, không chèn định nghĩa, không rule head tall/quy định nét.
+# Lượt nét (từ 2026-11-22): chỉ gọi tên style này ở câu mở, không chèn định nghĩa, không rule head tall; vẫn chèn "Nét vẽ line art" của profile.
 OUTLINE_STYLE = "Semi-Realistic Storybook Illustration"
 PHOTO_WORDS = re.compile(r"\b(?:photo\w*|camera lens|lens(?:es)?|\d+\s?mm|bokeh|depth of field|f-?stop|f/\d+(?:\.\d+)?|shutter|aperture)\b", re.I)
 HEADS_TALL = re.compile(r",?\s*(?:about|around|roughly|nearly)?\s*\d+(?:\.\d+)?(?:\s*(?:to|–|-)\s*\d+(?:\.\d+)?)?\s*heads?\s+(?:tall|high)\b", re.I)
@@ -83,6 +85,35 @@ STYLES = {
                       "foreground and middle ground in flat color planes with only gentle color transitions, "
                       "distance and sky softly painted with subtle gradients and layered atmospheric depth, "
                       "never gradients on characters.",
+    },
+    # Nhánh test 2026-11-22: 40% Semi-Realistic Storybook Illustration + 35% Flat Illustration + 25% nền storybook.
+    "storybook": {
+        "name": "ttpq storybook",
+        "def": (FLOW / "style" / "ttpq-storybook.md", 0),
+        "color_open": "semi-realistic storybook rendering on characters, with gently modeled forms in 3–4 smoothly blended shading tones on skin and clothing "
+                      "and natural matte skin, never glossy or airbrushed, "
+                      "under natural light suited to the scene's time and setting with a clear direction, no overall warm or golden cast unless the scene calls for it, cast shadows on the ground, deep colored shadow masses "
+                      "in the environment and focal characters separated from their background by value; "
+                      "keep every line clear and in place but recolor it: outer contours a very dark warm brown close to black at medium-light weight, never heavy pure black, "
+                      "interior and background lines tinted a clearly darker shade of the color they sit on and still readable; "
+                      "foreground and middle ground in clean flat color planes, "
+                      "distance and sky softly painted in a gouache-like storybook manner with subtle gradients and layered atmospheric depth, "
+                      "restrained paper-like texture in the background only, never on characters.",
+    },
+    # Nhánh test 2026-11-22: blend với 50% comic đổi thành 50% Semi-Realistic Comic Illustration.
+    "real": {
+        "name": "ttpq real",
+        "def": (FLOW / "style" / "ttpq-real.md", 0),
+        "color_open": "semi-realistic comic rendering on characters, with accurate anatomy and real adult bone structure, "
+                      "3 cel-shading tones on skin and clothing that model the form clearly, a crisp main shadow edge and gently softened secondary transitions, "
+                      "natural matte skin, never glossy or airbrushed, "
+                      "under natural light suited to the scene's time and setting with a clear direction, no overall warm or golden cast unless the scene calls for it, cast shadows on the ground, deep colored shadow masses "
+                      "in the environment and focal characters separated from their background by value; "
+                      "keep every line clear and in place but recolor it: outer contours a very dark warm brown close to black at medium-light weight, never heavy pure black, "
+                      "interior and background lines tinted a clearly darker shade of the color they sit on and still readable; "
+                      "foreground and middle ground in flat color planes with only gentle color transitions, "
+                      "distance and sky softly painted with subtle gradients and layered atmospheric depth, "
+                      "never smooth gradients on characters.",
     },
 }
 
@@ -278,7 +309,7 @@ def main():
     ap.add_argument("--recast", nargs="+", default=[],
                     help="lượt màu hoặc chỉnh outline (--pass edit): nhân vật vẽ lại từ profile, ảnh nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn, đạo cụ")
     ap.add_argument("--body", required=True, help="file chứa phần cảnh/comment agent viết")
-    ap.add_argument("--style", choices=sorted(STYLES), help="style của lượt; mặc định blend cho lượt màu/color-edit, light cho lượt nét/chỉnh outline")
+    ap.add_argument("--style", choices=sorted(STYLES), help="style của lượt; mặc định real cho color-edit và lượt màu có --recast, blend cho lượt màu thường, light cho lượt nét/chỉnh outline")
     ap.add_argument("--story", help="mặc định ttpq-comic/story/<tiền tố layout-slug>")
     ap.add_argument("--cast", nargs="+", help="thay danh sách Profile của cảnh (slug hoặc slug:ref.png)")
     ap.add_argument("--no-ref", nargs="+", default=[], help="nhân vật chỉ tả bằng chữ (xa, nhỏ)")
@@ -302,7 +333,12 @@ def main():
     if effect and a.kind not in ("color", "color-edit"):
         die("--effect chỉ dùng ở lượt color và color-edit; lượt nét vẽ vùng hiệu ứng bằng vài nét mảnh trong body")
     # Từ 2026-11-16: lên màu mặc định blend; lượt nét và chỉnh outline mặc định light.
-    a.style = a.style or ("blend" if a.kind in ("color", "color-edit") else "light")
+    # Từ 2026-11-22: color-edit và lượt màu có --recast mặc định real.
+    if not a.style:
+        if a.kind == "color-edit" or (a.kind == "color" and a.recast):
+            a.style = "real"
+        else:
+            a.style = "blend" if a.kind == "color" else "light"
     st = STYLES[a.style]
     spread = (ROOT / a.spread).resolve()
     layout = json.loads((spread / "layout.json").read_text(encoding="utf-8"))
@@ -411,7 +447,7 @@ def main():
             warnings.append("Dòng Change có câu giữ nguyên ('Preserve/Keep …'); tách thành dòng 'Keep: …' riêng.")
         if len(changes) >= 3:
             warnings.append(f"Lượt chỉnh có {len(changes)} dòng Change; mỗi lượt 1–2 thay đổi rồi soát ảnh sẽ chắc hơn.")
-    if a.kind == "color-edit" and re.search(r"render the (whole |entire )?(illustration|image|picture)|\brestyle\b|in ttpq comic (blend|light|soft)", body, re.I):
+    if a.kind == "color-edit" and re.search(r"render the (whole |entire )?(illustration|image|picture)|\brestyle\b|in ttpq (comic )?(blend|light|soft|storybook|real)", body, re.I):
         warnings.append("Body color-edit đòi vẽ lại style cả tranh, mâu thuẫn với 'giữ nguyên phần còn lại'; bỏ dòng đó "
                         "(script đã khóa finish theo Image 1). Muốn đổi style cả tranh thì chạy lại lượt màu.")
 
@@ -449,8 +485,8 @@ def main():
             s = HEADS_TALL.sub("", s).strip(" ,;")
         s += "."
         # Lượt edit recast nhắc "In line art" ở câu chốt cuối prompt; không lặp ở dòng Image N.
-        # Từ 2026-11-22: lượt nét không chèn "In line art" (bỏ quy định nét); chỉnh outline vẫn chèn.
-        if a.kind == "edit" and c["lineart"] and c["slug"] not in recast:
+        # Lượt nét và chỉnh outline chèn "In line art"; thiếu nó lượt nét vẽ râu thành râu quai nón (p048-049 v066).
+        if a.kind in ("outline", "edit") and c["lineart"] and c["slug"] not in recast:
             s += f" In line art: {c['lineart']}."
         return s + (f" Fixed face in every moment: {c['face']}." if c["face"] else "")
 
