@@ -55,6 +55,7 @@ ROOT = Path(__file__).resolve().parents[4]
 FLOW = ROOT / "ttpq-comic"
 # Lượt nét (từ 2026-11-22): chỉ gọi tên style này ở câu mở, không chèn định nghĩa, không rule head tall/quy định nét.
 OUTLINE_STYLE = "Semi-Realistic Storybook Illustration"
+PHOTO_WORDS = re.compile(r"\b(?:photo\w*|camera lens|lens(?:es)?|\d+\s?mm|bokeh|depth of field|f-?stop|f/\d+(?:\.\d+)?|shutter|aperture)\b", re.I)
 HEADS_TALL = re.compile(r",?\s*(?:about|around|roughly|nearly)?\s*\d+(?:\.\d+)?(?:\s*(?:to|–|-)\s*\d+(?:\.\d+)?)?\s*heads?\s+(?:tall|high)\b", re.I)
 # Mỗi style: (file định nghĩa, thứ tự khối text), câu mở lượt màu. Lượt nét không chèn khối style (từ 2026-11-19).
 STYLES = {
@@ -414,6 +415,11 @@ def main():
         warnings.append("Body color-edit đòi vẽ lại style cả tranh, mâu thuẫn với 'giữ nguyên phần còn lại'; bỏ dòng đó "
                         "(script đã khóa finish theo Image 1). Muốn đổi style cả tranh thì chạy lại lượt màu.")
 
+    # Từ 2026-11-22: agent chọn khung hình như nhiếp ảnh gia, nhưng từ nhiếp ảnh trong body làm GPT vẽ ra ảnh chụp thật.
+    photo = sorted({m.group(0).lower() for m in PHOTO_WORDS.finditer(body)})
+    if photo:
+        warnings.append("Body có từ nhiếp ảnh (" + ", ".join(photo) + "); GPT dễ vẽ ra ảnh chụp thật. "
+                        "Viết lại bằng lời bố cục: điểm nhìn, cỡ cảnh, vật tiền cảnh, đường dẫn mắt, khoảng trống.")
     if a.kind == "outline":
         if not re.search(r"^Mood:", body, re.M):
             warnings.append("Body lượt nét thiếu dòng 'Mood:' (template: STORY, từng trang kèm biểu cảm, Mood).")
@@ -513,7 +519,8 @@ def main():
     if a.kind == "outline":
         # Từ 2026-11-19: bỏ khối style (định nghĩa + LINE ART STAGE) khỏi lượt nét theo yêu cầu người dùng.
         # Từ 2026-11-22: lượt nét gọi tên style Semi-Realistic Storybook Illustration; bỏ rule head tall và quy định nét.
-        parts.append(f"Use case: illustration-story. Create ONE finished black and white outline illustration in a {OUTLINE_STYLE} style, pure white background. "
+        # Từ 2026-11-22 (sau): bỏ "ONE finished black and white" khỏi câu mở; cụm này làm GPT đánh bóng xám, nét tối đậm.
+        parts.append(f"Use case: illustration-story. Create an outline illustration in a {OUTLINE_STYLE} style, pure white background. "
                      "Image 1 is the page layout.")
         parts.append(body)
         if img or txt:

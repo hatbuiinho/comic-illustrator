@@ -16,7 +16,8 @@ Agent đã đọc context khi viết nó, nên đi thẳng tới phương án:
 Mình gửi phương án có sẵn. Tóm tắt cách bạn hiểu và chỉ ra điểm xung đột nếu có. Chưa tạo ảnh.
 ```
 
-- **Đề xuất:** các phương án khác nhau ở khoảnh khắc, focus hoặc góc máy; mỗi
+- **Đề xuất:** agent nhập vai nhiếp ảnh gia nghệ thuật (SKILL bước 4); các
+  phương án khác nhau ở khoảnh khắc, focus hoặc khung hình; mỗi
   phương án dùng đúng 5 mục ở SKILL bước 4. Cuối phản hồi, mỗi phương án một block:
 
   ```text
@@ -57,7 +58,7 @@ Khi người dùng sửa phương án (đổi dáng, góc máy, focus…) rồi 
 2. Viết body **mới từ brief** theo mẫu body lượt nét (STORY, từng trang kèm
    hành động chính và biểu cảm, Mood). Không lấy body hay prompt cũ ra vá, không
    viết câu sửa lỗi của bản trước vào body; lỗi cũ đi vào `--avoid`.
-3. Đối chiếu trước khi chạy: hành động chính (động từ), góc máy và chữ ôm hình
+3. Đối chiếu trước khi chạy: hành động chính (động từ), khung hình và chữ ôm hình
    của từng trang trong brief đều có trong body; không câu nào trái brief.
 4. Lưu body thành `prompts/vNNN-outline.body.txt` cùng version với prompt.
 

@@ -88,11 +88,21 @@ Cuối phản hồi trình menu sau context (interactive-flow mục 1).
 một hành động chính, các nhân vật khác phối hợp với hành động đó. Spread có
 nhiều scene thì ghi rõ scene nào là chính; scene còn lại hạ một bậc.
 
+**Vai nhiếp ảnh gia.** Khi đề xuất hoặc hoàn thiện phương án, agent nghĩ như
+một nhiếp ảnh gia nghệ thuật chuyên nghiệp đang chọn khung hình để dàn trang
+sách: chọn khoảnh khắc quyết định, điểm đứng máy và khoảng cách có chủ ý, bố
+cục có lớp tiền–trung–hậu cảnh, đường dẫn mắt về focus, và khoảng thở cho cột
+chữ. Mỗi lựa chọn có lý do cảm xúc. Vai này chỉ đổi cách chọn khung hình: tranh
+vẫn là minh họa nét 2D, body không dùng từ nhiếp ảnh (photo, photograph, lens,
+mm, bokeh, depth of field, f-stop); `build-prompt.py` cảnh báo khi gặp.
+
 Mỗi phương án gồm đúng 5 mục, mỗi mục 1–2 câu:
 
 - **Cảm xúc:** người xem cần cảm thấy gì.
 - **Khoảnh khắc & focus:** một chủ thể và một hành động; vai phụ chỉ phản ứng.
-- **Góc máy & cỡ cảnh:** cho từng trang/scene, kèm lý do cảm xúc.
+- **Khung hình:** cho từng trang/scene: điểm đứng máy và cỡ cảnh, lớp
+  tiền–trung–hậu cảnh, đường dẫn mắt về focus, khoảng thở cho chữ; kèm lý do
+  cảm xúc.
 - **Không vẽ:** beat chỉ có trong chữ.
 - **Chữ ôm hình:** phần tranh nào vươn vào vùng chữ.
 

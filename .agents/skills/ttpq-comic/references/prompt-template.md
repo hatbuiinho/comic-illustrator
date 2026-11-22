@@ -11,9 +11,10 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
   khối đầu trong `ttpq-comic/style/`). Từ 2026-11-19 **lượt nét không chèn khối
   STYLE** (cả định nghĩa lẫn LINE ART STAGE), theo yêu cầu người dùng;
 - câu mở lượt nét cố định, gọi tên style (từ 2026-11-22, theo yêu cầu người
-  dùng; không chèn định nghĩa): "Use case: illustration-story. Create ONE
-  finished black and white outline illustration in a Semi-Realistic Storybook
-  Illustration style, pure white background. Image 1 is the page layout.";
+  dùng; không chèn định nghĩa): "Use case: illustration-story. Create an
+  outline illustration in a Semi-Realistic Storybook Illustration style, pure
+  white background. Image 1 is the page layout."; không ghi "finished" hay
+  "black and white" (làm GPT đánh bóng xám, nét tối đậm);
 - lượt nét bỏ rule head tall và quy định nét (từ 2026-11-22): không có câu
   "body height and proportions follow the character lines below", lọc cụm
   "about N heads tall" khỏi `Dòng prompt` (profile giữ nguyên), nhân vật không
@@ -149,8 +150,12 @@ Lấy từ phương án active, viết văn xuôi, theo thứ tự:
 
 - **STORY (bắt buộc):** một câu mở đầu nêu ai, ở đâu, lúc nào, chuyện gì vừa
   xảy ra hoặc chưa xảy ra. Đây là phần GPT không tự biết.
-- **Từng trang/scene:** góc máy, cỡ cảnh, focus (một chủ thể, một hành động),
-  vai phụ phản ứng ra sao. Tư thế và đạo cụ chép đúng brief.
+- **Từng trang/scene:** từ mục "Khung hình" của brief: điểm nhìn, cỡ cảnh, rồi
+  bố cục (vật tiền cảnh làm khung, đường dẫn mắt về focus, lớp xa gần, khoảng
+  trống phía chữ); focus (một chủ thể, một hành động), vai phụ phản ứng ra sao.
+  Tư thế và đạo cụ chép đúng brief. Viết bằng lời bố cục, không dùng từ nhiếp
+  ảnh (photo, photograph, lens, mm, bokeh, depth of field, f-stop): GPT sẽ vẽ ra
+  ảnh chụp thật; script cảnh báo khi gặp.
 - **Biểu cảm (bắt buộc):** mọi nhân vật có tên có một cụm biểu cảm và hướng
   nhìn, khoảng 12 từ trở xuống, ví dụ `a slight gentle smile, looking at Punna's spoon`.
   Thiếu cụm này, GPT tự vẽ nụ cười tươi mặc định. Không tả mặt, tuổi hay màu.
@@ -170,8 +175,8 @@ thì tả số lượng và hành động ngay trong câu. Lỗi từng gặp c�
 
 ```text
 <STORY: một câu>.
-Left page (main): <góc máy, cỡ cảnh>; <chủ thể> <một hành động>, <biểu cảm, hướng nhìn>; <vai phụ: hành động, biểu cảm, hướng nhìn>.
-Right page (secondary): <góc máy>; <focus, biểu cảm, hướng nhìn>.
+Left page (main): <điểm nhìn, cỡ cảnh>; <bố cục: vật tiền cảnh làm khung, đường dẫn mắt về focus, khoảng trống phía chữ>; <chủ thể> <một hành động>, <biểu cảm, hướng nhìn>; <vai phụ: hành động, biểu cảm, hướng nhìn>.
+Right page (secondary): <điểm nhìn, cỡ cảnh, bố cục>; <focus, biểu cảm, hướng nhìn>.
 Text wrap: <phần tranh> rises beside the <lower/middle> <left/right> lines.
 Mood: <một câu>.
 ```
