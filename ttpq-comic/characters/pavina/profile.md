@@ -1,10 +1,10 @@
 # Pavina — Tỳ kheo Pavina
 
 - Trạng thái: APPROVED — người dùng yêu cầu tạo profile từ ảnh trong `local/` ngày 2026-11-15 và duyệt "Duyệt cả 4" cùng ngày; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (sheet "Tỳ kheo Pavina" từ `local/Tôn giả Pavina`, file PNG không đuôi, 1774×887, giữ nguyên pixel).
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png — Chân dung vẽ lại ngày 2026-11-24 bằng Codex CLI để tỷ lệ đầu/thân khớp hình đứng (bản cũ đầu to hơn); các hình đứng và khối chữ giữ nguyên pixel từ ref-v001.png. `ref-v001.png` giữ làm lịch sử, không dùng cho prompt mới. Nguồn sheet gốc: ref-v001.png (sheet "Tỳ kheo Pavina" từ `local/Tôn giả Pavina`, file PNG không đuôi, 1774×887, giữ nguyên pixel).
 - Tên trong prompt: Pavina
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: monk about 35–40, shaved head, broad oval face, thick straight dark brows, normal earlobes, calm faint smile
 - Vai trò trong truyện: tỳ kheo, nhân vật chính Ch6–8; xuất gia và tu học tại Jetavana; ngồi hàng sau cùng khi 60 tỳ kheo về (S24), lên đường đến Matika (S26), ở am trong vườn nhà Matika (S27–S35), trở về sám hối và chứng quả (S37, S39–S41). Có chứng khó tiêu.
 
@@ -46,3 +46,4 @@ PAVINA (Image <N>): monk about 35–40, shaved head, no beard, broad soft oval f
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-11-15 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng duyệt ("Duyệt cả 4") |
+| v002 | 2026-11-24 | Vẽ lại chân dung từ ngực lên cho khớp tỷ lệ đầu/thân với hình đứng, lưu `ref-v002.png` | Người dùng duyệt |

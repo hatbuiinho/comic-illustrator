@@ -1,10 +1,10 @@
 # Trưởng lão thời Phật Ca Diếp bị đọa làm chồn
 
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (sheet "Trưởng lão thời Phật Ca Diếp đọa làm chồn" từ `local/Trưởng lão bị đọa làm chồn thời Phật Ca Diếp.png`, 1536×1024, giữ nguyên pixel).
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png — Chân dung vẽ lại ngày 2026-11-24 bằng Codex CLI để tỷ lệ đầu/thân khớp hình đứng (bản cũ đầu to hơn); các hình đứng và khối chữ giữ nguyên pixel từ ref-v001.png. `ref-v001.png` giữ làm lịch sử, không dùng cho prompt mới. Nguồn sheet gốc: ref-v001.png (sheet "Trưởng lão thời Phật Ca Diếp đọa làm chồn" từ `local/Trưởng lão bị đọa làm chồn thời Phật Ca Diếp.png`, 1536×1024, giữ nguyên pixel).
 - Tên trong prompt: the elder of Kassapa's era
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: old thin monk, short trimmed white beard, bushy white brows, very dark reddish-brown robe
 - Vai trò trong truyện: tỳ kheo trưởng lão thời Đức Phật Ca Diếp, đắc định sâu nhưng tà kiến phủ nhận nghiệp báo; trả lời tỳ kheo trẻ rằng bậc cao tăng "không bị" nghiệp chi phối, sau khi chết đọa thân chồn (Ch4 L346). Minh họa lồng lời kể (S20).
 
@@ -46,3 +46,4 @@ ELDER OF KASSAPA'S ERA (Image <N>): thin monk aged 60–70, shaved head, long li
 | --- | --- | --- | --- |
 | v001 | 2026-11-08 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
 | v001 | 2026-11-08 | Màu y giữ theo ảnh ref (`SKIPPED_BY_USER`), bỏ ghi chú chờ quyết | Người dùng chọn "Giữ màu ảnh ref" |
+| v002 | 2026-11-24 | Vẽ lại chân dung từ ngực lên cho khớp tỷ lệ đầu/thân với hình đứng, lưu `ref-v002.png` | Người dùng duyệt |

@@ -1,10 +1,10 @@
 # Gia nhân nhà bà Matika
 
 - Trạng thái: APPROVED — người dùng yêu cầu tạo profile từ ảnh trong `local/` ngày 2026-11-15 và duyệt "Duyệt cả 4" cùng ngày; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (sheet "Người gia nhân của bà Matika" từ `local/gia nhân nhà bà Matika.png`, 1536×1024, giữ nguyên pixel).
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png (1255×945) — cắt từ ref-v001.png, bỏ hình sau 3/4 bị sai và khối chữ; còn 1 chân dung từ ngực lên + 2 dáng đứng (trước 3/4, chính diện), giữ nguyên pixel từng hình. ref-v001.png giữ lại làm lịch sử, không dùng làm ref.
 - Tên trong prompt: Matika's young servant
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: young male servant, orange-red turban, shoulder-length black hair, ivory crossover short-sleeve top, saffron knotted lower wrap, barefoot
 - Vai trò trong truyện: gia nhân thanh niên của gia đình thôn trưởng làng Matika (gia đình giàu có); đón và chăm lo Pavina (S28–S33), cúng dường khăn trắng (S39), phục vụ trong các cảnh sau (S42–S45).
 - Sheet chỉ có một người. Khi cảnh có 2–3 gia nhân (S29, S30), người thấy rõ mặt dùng ref này; những người còn lại tả bằng chữ, cùng kiểu trang phục nhưng khác màu khăn và khác mặt.
@@ -19,7 +19,7 @@
 - **Trang phục:** khăn quấn đầu đỏ cam, quấn nhiều vòng tròn to; áo trắng ngà ngắn tay, vạt chéo cổ chữ V sâu; vải quấn dưới vàng nghệ (vàng cam) quấn chéo, thắt nút ở eo trước, một tà dài buông giữa xuống dưới gối, nếp rủ nhiều; dài quá gối tới giữa bắp chân.
 - **Phụ kiện/trang sức, đạo cụ:** không trang sức. Đồ mang theo (khăn, bình nước, lồng tre, bát gỗ, gói lá chuối) chỉ theo cảnh.
 - **Biểu cảm/thần thái mặc định:** nghiêm túc, chân thật; theo bible là nhanh nhẹn, hay chắp tay cười.
-- **Các góc:** chân dung, trước 3/4, sau 3/4, chính diện.
+- **Các góc:** chân dung từ ngực lên, dáng đứng trước 3/4, dáng đứng chính diện. Không có góc sau (sau 3/4 ở v001 bị sai, đã bỏ).
 
 ## Dấu hiệu bắt buộc
 
@@ -45,3 +45,4 @@ MATIKA'S YOUNG SERVANT (Image <N>): beardless young man, slim, warm brown skin, 
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-11-15 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng duyệt ("Duyệt cả 4") |
+| v002 | 2026-11-24 | Bỏ hình sau 3/4 bị sai và khối chữ; thu gọn sheet còn 1 chân dung + 2 dáng đứng, lưu `ref-v002.png` | Người dùng yêu cầu |

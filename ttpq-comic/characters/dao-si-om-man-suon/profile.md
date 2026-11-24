@@ -1,10 +1,10 @@
 # Đạo sĩ ôm mạn sườn
 
 - Trạng thái: APPROVED — người dùng yêu cầu "update nhân vật: đạo sĩ ôm mạn sườn" kèm sheet mới ngày 2026-10-31. Mô tả ghi nhận từ ảnh v002.
-- Version mô tả: v002
-- Ảnh ref: ref-v002.png (sheet bán thân + toàn thân, nhãn "Đạo sĩ hãm hại Tôn giả Mục Kiền Liên", người dùng gửi ngày 2026-10-31, 1335×1178, chuyển từ webp sang png, giữ nguyên pixel). `ref-v001.png` giữ làm lịch sử, không dùng cho prompt mới.
+- Version mô tả: v003
+- Ảnh ref: ref-v003.png — Chân dung vẽ lại ngày 2026-11-24 bằng Codex CLI để tỷ lệ đầu/thân khớp hình đứng (bản cũ đầu to hơn); các hình đứng và khối chữ giữ nguyên pixel từ ref-v002.png. `ref-v002.png` giữ làm lịch sử, không dùng cho prompt mới. Nguồn sheet gốc: ref-v002.png (sheet bán thân + toàn thân, nhãn "Đạo sĩ hãm hại Tôn giả Mục Kiền Liên", người dùng gửi ngày 2026-10-31, 1335×1178, chuyển từ webp sang png, giữ nguyên pixel). `ref-v001.png` giữ làm lịch sử, không dùng cho prompt mới.
 - Tên trong prompt: the rib-holding ascetic
-- Ref prompt: ref-v002.png
+- Ref prompt: ref-v003.png
 - Dòng prompt: long angular face, thick moustache without chin beard, high black topknot, cream and ochre wraps
 - Vai trò: đạo sĩ kể chuyện tấn công Moggallana trong trang 48–49; cùng một người ở cảnh giơ gậy và dưới vực.
 
@@ -50,3 +50,4 @@ Rib-holding ascetic (Image <N>): long angular face, heavy frowning brows, thick 
 | v001 | 2026-10-31 | Tiếp nhận profile gốc người dùng xác định | Người dùng |
 | v001 | 2026-10-31 | Lưu file `ref-v001.png` từ ảnh người dùng gửi; mô tả giữ nguyên vì khớp ảnh | Người dùng yêu cầu lưu profile |
 | v002 | 2026-10-31 | Thay ảnh chuẩn bằng `ref-v002.png` (sheet mới); cập nhật mô tả mặt, trang phục và dòng nhận diện theo sheet | Người dùng yêu cầu update |
+| v003 | 2026-11-24 | Vẽ lại chân dung từ ngực lên cho khớp tỷ lệ đầu/thân với hình đứng, lưu `ref-v003.png` | Người dùng duyệt |
