@@ -1,13 +1,13 @@
 # Tiền kiếp tôn giả Cittahattha
 
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (sheet "Tiền kiếp Cittahattha" từ `local/Tiền kiếp tôn giả Cittahattha.png`, 1728×910, giữ nguyên pixel).
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png (sheet "Tiền kiếp Cittahattha", 1445×910: bản v001 từ `local/Tiền kiếp tôn giả Cittahattha.png` cắt bỏ cột rear 3/4, không vẽ lại). `ref-v001.png` giữ làm lịch sử.
 - Tên trong prompt: Cittahattha (past life)
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: monk with a square face and jaw, very thick straight brows, serious unsmiling look
 - Vai trò trong truyện: Cittahattha ở kiếp tỳ kheo thời Đức Phật Ca Diếp, không cố khuyên can huynh đệ giữ lý tưởng tu hành nên kiếp này hoàn tục sáu lần (Ch4 L313–317); dùng trong minh họa lồng lời kể (S19–S20).
-- Chỉ là tiền kiếp. Cittahattha kiếp hiện tại (S18–S19: nông dân, xuất gia hoàn tục sáu lần, ngồi bất động bên anh thợ) chưa có profile; không tự dùng ảnh này thay.
+- Chỉ là tiền kiếp. Cittahattha kiếp hiện tại (S18–S19) dùng profile `cittahattha`; không dùng ảnh này thay.
 
 ## Mô tả (tiếng Việt, để duyệt)
 
@@ -19,7 +19,7 @@
 - **Trang phục:** y nâu đỏ đất phủ hai vai, quấn mềm quanh cổ; tà dọc buông từ vai trái nhân vật; lớp dưới dài tới mắt cá.
 - **Phụ kiện/trang sức, đạo cụ:** không có.
 - **Biểu cảm/thần thái mặc định:** nghiêm, điềm tĩnh, miệng khép không cười.
-- **Các góc:** chân dung, front 3/4, rear 3/4, chính diện, sau lưng.
+- **Các góc:** chân dung, front 3/4, chính diện, sau lưng.
 
 ## Dấu hiệu bắt buộc
 
@@ -31,7 +31,7 @@
 
 - Không lẫn với huynh đệ thoái thất (`huynh-de-thoai-that`): huynh đệ mặt oval thon, cằm nhọn, dái tai dài, y nâu sẫm hơn.
 - Không lẫn với Godatta/Ananda: Cittahattha tiền kiếp mặt vuông, không cười.
-- Không dùng làm Cittahattha kiếp hiện tại khi chưa được người dùng chỉ định.
+- Không lẫn với Cittahattha kiếp hiện tại (`cittahattha`): kiếp hiện tại tai to dái dài, mày hơi cong, nét mặt hiền; tiền kiếp mặt vuông, mày thẳng, tai cỡ vừa, nghiêm.
 - Chữ trên sheet không đưa vào minh họa. Màu y và cách quấn y theo ảnh ref của profile này, không áp `docs/monastic-robes.md`.
 
 ## Dòng nhận diện (tiếng Anh, ≤ 45 từ; chép vào prompt cạnh "Image N = <tên>")
@@ -46,3 +46,4 @@ CITTAHATTHA, PAST LIFE (Image <N>): adult monk, shaved head, no beard, square fa
 | --- | --- | --- | --- |
 | v001 | 2026-11-08 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
 | v001 | 2026-11-13 | Màu y/cách quấn y theo ảnh ref của profile, bỏ dẫn chiếu `docs/monastic-robes.md` | Người dùng yêu cầu gỡ quy chuẩn y chung khỏi ttpq-comic |
+| v002 | 2026-11-24 | Bỏ góc rear 3/4 khỏi sheet, lưu `ref-v002.png`; trỏ sang profile kiếp hiện tại `cittahattha` | Người dùng yêu cầu "bỏ hình rear 3/4" |

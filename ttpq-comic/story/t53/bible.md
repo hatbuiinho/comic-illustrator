@@ -66,7 +66,7 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Lão đạo trưởng + 5 đạo sĩ | Ngoại đạo | S16, (S48) | Gã xoa sườn: APPROVED v002 (`characters/dao-si-om-man-suon/`); đạo trưởng, gã cao to, người gần cửa, người thì thào dụ dỗ đệ tử: APPROVED v001 (`characters/nhom-dao-si/`); trẻ gầy da xám: — | Trẻ gầy da xám; gã xoa sườn; gã to cao thô kệch; người ngồi gần cửa |
 | Anh thợ trẻ | Bị rắn cắn | S18 | APPROVED v001 (`characters/tho-tre-bi-ran-can/`) | Hai chấm máu ở cổ tay |
 | Thầy thuốc | | S18 | APPROVED v001 (`characters/thay-thuoc/`) | |
-| Cittahattha | Tôn giả, hàng xóm Nalini | S18–S19 | kiếp hiện tại: chưa; tiền kiếp thời Phật Ca Diếp: APPROVED v001 (`characters/cittahattha-tien-kiep/`) | Ngồi bất động giữa náo loạn |
+| Cittahattha | Tôn giả, hàng xóm Nalini | S18–S19 | kiếp hiện tại: APPROVED v001 (`characters/cittahattha/`); tiền kiếp thời Phật Ca Diếp: APPROVED v002 (`characters/cittahattha-tien-kiep/`) | Ngồi bất động giữa náo loạn |
 | Sariputta | Tôn giả | S20 | APPROVED v001 (`characters/sariputta/`) | Chăm bệnh, nhìn bình đẳng |
 | Tỳ kheo bệnh | | S20 | — | Nhợt nhạt, mắt an hòa |
 | Huynh đệ thoái thất | Tỳ kheo đồng tu với tiền kiếp Cittahattha, thời Phật Ca Diếp | S20 (lồng) | APPROVED v001 (`characters/huynh-de-thoai-that/`) | Chán nản, muốn hoàn tục (Ch4 L313–317) |
@@ -76,17 +76,17 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Thị vệ trẻ, thị vệ kỳ cựu | | Thị vệ trẻ: S22–S23; thị vệ kỳ cựu: S23 | Thị vệ kỳ cựu: APPROVED v002 (`characters/thi-ve-ky-cuu/`); thị vệ trẻ: APPROVED v001 (`characters/thi-ve-tre/`) | Thị vệ trẻ quỳ bên hiên (L415–423). Thị vệ kỳ cựu là "đồng đội dạn dày kinh nghiệm" (L429), không phải già |
 | Đức Phật | | S22, S24, S37 | APPROVED v001 (`characters/duc-phat/`, 3 ảnh ref: ngồi thiền, thuyết Pháp, đi đứng) | Ngồi ghế tre ở hiên/hương thất |
 | Ananda | Tôn giả | S24 | APPROVED v001 (`characters/ananda/`) | Tưới hoa dưới tán sa la |
-| Kirana | Trưởng lão lớn tuổi nhất | S24 | — | |
+| Kirana | Trưởng lão lớn tuổi nhất | S24 | APPROVED v001 (`characters/kirana/`) | Gầy, cao, mày xám bạc, mặt nhiều nếp; chắp tay trình bạch |
 | 60 tỳ kheo | Về từ Matika | S24 | APPROVED v002 (`characters/nhom-ty-kheo/`), profile nhóm | Y sờn bạc, mặt sạm nắng |
 | Pavina | Tỳ kheo, nhân vật chính Ch6–8 | S24–S31, S33–S37, S39–S41 | APPROVED v001 (`characters/pavina/`) | Bình bát + túi vải trên vai; có chứng khó tiêu |
-| Gavampati | Tôn giả | S25 | chưa | |
+| Gavampati | Tôn giả | S25 | APPROVED v001 (`characters/gavampati/`) | Trưởng lão 50–60, mày đen dày, tai to |
 | Bà Matika | Cư sĩ A na hàm | S29, S39, S42–S44 | APPROVED v001 (`characters/ba-matika/`) | Lớn tuổi, phúc hậu, dáng khoan thai |
 | Gia nhân của Matika | | S28–S33 | APPROVED v001 (`characters/gia-nhan-nha-matika/`), ref một thanh niên; gia nhân khác tả bằng chữ | Thanh niên nhanh nhẹn |
 | Bà cụ gánh nước | | S27 | — | |
 | Gã buôn tung tin | | S35 | APPROVED v001 (`characters/ga-buon-tung-tin/`) | Ngoài 40, áo vải thô, mặt lọc lõi |
 | Bà bán vải, bà bán gạo, bà bán gia vị | | S35–S36 | APPROVED v001 (`characters/ba-ba-ban-hang/`), profile nhóm | |
 | Moggallana | Tôn giả thần thông | S38, S45–S46 | APPROVED v001 (`characters/moggallana/`) | |
-| Tiền kiếp Pavina/Matika | | S40 | — | Kiếp 9: thương nhân, tiểu thư, quan huyện; kiếp 10: cô gái, người lính; kiếp 11: chàng trai, cô gái |
+| Tiền kiếp Pavina/Matika | | S40 | Pavina kiếp 9: APPROVED v001 (`characters/pavina-kiep-9/`); cô tiểu thư kiếp 9: APPROVED v001 (`characters/co-tieu-thu-kiep-9/`); Pavina kiếp 10: APPROVED v002 (`characters/pavina-kiep-10/`); cô gái kiếp 10: APPROVED v001 (`characters/co-gai-kiep-10/`); Pavina kiếp 11: APPROVED v001 (`characters/pavina-kiep-11/`); cô tiểu thư kiếp 11: APPROVED v001 (`characters/co-tieu-thu-kiep-11/`); còn lại — | Kiếp 9: thương nhân, tiểu thư, quan huyện; kiếp 10: cô gái, người lính; kiếp 11: chàng trai, cô gái |
 | Nalini lúc bé, cha Nalini | Hồi ức | S06, S10 | — | |
 
 ## Địa hình

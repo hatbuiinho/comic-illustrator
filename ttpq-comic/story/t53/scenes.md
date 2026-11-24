@@ -166,7 +166,7 @@
 - **Thời điểm/ánh sáng:** N3 chiều, giờ nghỉ.
 - **Nơi:** đống đất mới đào; đám cỏ.
 - **Nhân vật:** anh thợ trẻ ngã ngửa ôm cổ tay, hai chấm máu, môi tái; vệt rắn lục xanh vọt vào cỏ; Nalini chạy đến; đám đông nhốn nháo; Visakha bước nhanh ra khỏi chòi; Cittahattha đi xuyên đám đông, ngồi xuống bất động; thầy thuốc đến sau.
-- **Profile:** tho-tre-bi-ran-can, bac-nalini, visakha, thay-thuoc, tho-thuyen-phu-ta
+- **Profile:** tho-tre-bi-ran-can, bac-nalini, visakha, thay-thuoc, tho-thuyen-phu-ta, cittahattha
 - **Diễn biến:** ồn ào tắt dần; người thợ thở chậm lại, vai hạ xuống; vết cắn chỉ sưng nhẹ; tôn giả đã lặng lẽ đi về rìa khu đất.
 - **Cấm:** máu me nhiều; rắn hổ mang (kịch bản: rắn lục).
 
@@ -214,14 +214,14 @@
 - **Thời điểm/ánh sáng:** P1 nắng chiều vắt ngang cổng Jetavana.
 - **Nơi:** cổng → sân → hiên vắng trước hương thất; khóm hoa dưới tán sa la (Cần quyết #5).
 - **Nhân vật:** Ananda tưới hoa rồi ra đón; 60 tỳ kheo y sờn bạc, mặt sạm nắng, ngồi hai bên; Đức Phật trên ghế tre; Kirana chắp tay trình bạch; Pavina ngồi hàng sau cùng.
-- **Profile:** ananda, nhom-ty-kheo, duc-phat:ref-v001-ngoi-thien.png, pavina
+- **Profile:** ananda, nhom-ty-kheo, duc-phat:ref-v001-ngoi-thien.png, pavina, kirana
 - **Được phép:** minh họa lồng lời kể: nhà hoang trong rừng, bà mẹ Matika cúng dường, khu nhà sau vườn.
 
 ### S25 — Bên giếng, Gavampati khuyên đi · Ch6 L510–525 · DRAFT
 - **Thời điểm/ánh sáng:** P2 ngày (suy ra).
 - **Nơi:** giếng có ròng rọc, gàu, thùng gỗ; các tỳ kheo đứng dưới bóng cây gần đó; mái hương thất (Cần quyết #6).
 - **Nhân vật:** Pavina (tay cầm gàu, sững lại), Gavampati (tay đặt lên vai, ánh mắt phẳng lặng, ấm).
-- **Profile:** pavina
+- **Profile:** pavina, gavampati
 
 ### S26 — Lên đường đến Matika · Ch6 L526–530 · DRAFT
 - **Thời điểm/ánh sáng:** P3 trời vừa hửng sáng (xin phép Phật) → ngày đi, sương quấn vạt áo; P4 nắng gắt bụi đường; đêm P4 trong nhà hoang.

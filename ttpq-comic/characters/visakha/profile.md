@@ -1,10 +1,10 @@
 # Visakha
 
 - Trạng thái: APPROVED
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (chép từ `comic-illustrator/Tap 53/characters/approved/Tín nữ Visakha.png` theo chỉ định của người dùng, 2026-10-29)
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png — bỏ hình góc nghiêng 90 độ (x 978–1189 của ref-v001), dồn hình sau lưng sang trái; chân dung, hai hình chính diện, hình sau lưng và khối chữ giữ nguyên pixel từ ref-v001.png (1305×1024). `ref-v001.png` giữ làm lịch sử, không dùng cho prompt mới. Nguồn gốc ref-v001.png: chép từ `comic-illustrator/Tap 53/characters/approved/Tín nữ Visakha.png` theo chỉ định của người dùng, 2026-10-29)
 - Tên trong prompt: Visakha
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: young noblewoman, emerald-green gold-bordered sari over her head, deep-blue blouse, gold-emerald jewelry
 - Vai trò trong truyện: nữ đại thí chủ, cùng chồng (Punna Vaddhana) xây tinh xá Pubbarama dâng Đức Phật
 
@@ -28,6 +28,7 @@
   - Mỗi cổ tay một chồng vòng vàng nhiều chiếc.
 - **Biểu cảm/thần thái mặc định:** hiền hậu, điềm tĩnh, mỉm cười nhẹ, ánh mắt
   trìu mến (khớp script).
+- **Các góc:** chân dung, chính diện, chính diện hơi xoay, sau lưng (đã bỏ góc nghiêng 90 độ ở v002).
 
 ## Dấu hiệu bắt buộc
 
@@ -60,3 +61,4 @@ VISAKHA (Image <N>): keep exactly her face, emerald-green gold-bordered sari wit
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-10-29 | Mô tả đầu tiên từ ref-v001.png; giữ áo may và sari như ảnh | Người dùng |
+| v002 | 2026-11-24 | Bỏ hình góc nghiêng 90 độ, lưu `ref-v002.png`; thêm dòng "Các góc" | Người dùng yêu cầu |
