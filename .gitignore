@@ -31,3 +31,4 @@ sentry/queue/
 .tools/state.macos.json
 
 local
+generated_images
