@@ -25,10 +25,14 @@ sentry/queue/
 # Metadata cục bộ của hệ điều hành
 .DS_Store
 
-# Toolchain cục bộ theo máy
+# Toolchain cục bộ theo máy (chỉ track manifest; bin, mamba, state... đều bỏ qua)
+# Thư mục chỉ có trên một máy: thêm vào .git/info/exclude của máy đó,
+# không sửa file này mà không commit để tránh conflict khi pull/stash.
 .venv/
-.tools/state.windows.json
-.tools/state.macos.json
+.tools/*
+!.tools/macos-tools.json
+!.tools/windows-tools.json
 
+# Ảnh sinh tạm của agent
 local
-generated_images
+generated_images/
