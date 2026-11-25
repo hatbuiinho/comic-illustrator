@@ -5,8 +5,8 @@ description: Tạo, phát triển hoặc chỉnh character profile và character
 
 # Character Studio
 
-> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
-> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> Cập nhật người dùng 2026-10-29, 2026-11-25 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic blend** (`docs/style-ttpq-comic-blend.md`,
 > đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
 > override st03 và khối prompt style cũ bên dưới đã được thay thế; không
 > copy các phần đó vào prompt mới. Workflow và identity vẫn giữ; QA cũ đã
@@ -63,7 +63,7 @@ bảo trì skill hoặc nhánh nét/màu rõ ràng vẫn route theo đúng yêu 
 
 - Đọc prompt 2D mặc định trước khi viết prompt cho lượt chuyển style. Giữ khối lõi
   đã chốt; chỉ bổ sung ngắn các dấu riêng và ràng buộc thực sự áp dụng.
-- Rendering mặc định là `ttpq comic light` theo policy toàn dự án;
+- Rendering mặc định là `ttpq comic blend` theo policy toàn dự án;
   override rendering st03 trước đây đã hết hiệu lực. Không dùng khối style
   hoặc ref vật liệu cũ để thay định nghĩa mới.
 - Giữ các rule thiết kế, tỷ lệ, nét cấu trúc, đầu cạo, trang phục nữ, reference,
@@ -111,7 +111,7 @@ bảo trì skill hoặc nhánh nét/màu rõ ràng vẫn route theo đúng yêu 
 
 ## Mục tiêu tạo hình
 
-- Mặc định dùng ttpq comic light với cấu trúc mặt/cơ thể tự nhiên, nhưng rendering
+- Mặc định dùng ttpq comic blend với cấu trúc mặt/cơ thể tự nhiên, nhưng rendering
   theo mục **Prompt mặc định đã chốt**: nét/mảng 2D rõ, màu phẳng sạch không hạt.
 - Không mặc định mắt lớn, mũi nhỏ, cằm ngắn, đầu to hoặc dáng người mẫu.
   Giữ tuổi, thể trạng và nét riêng theo brief.
@@ -264,7 +264,7 @@ Luồng này thay mặc định cũ nét → bảng màu → lên màu; nhánh c
   [qa-checklist.md](references/qa-checklist.md) → trình ảnh, chờ người dùng duyệt → tạo sheet.
   Không tạo nét chì/line art, bảng màu hoặc lượt lên màu tách riêng ở giữa.
 - Truyền ảnh gốc làm reference identity/thiết kế/màu/cấu trúc; dùng reference
-  style hiện hành theo policy và định nghĩa ttpq comic light. Style ref chỉ cung cấp cách
+  style hiện hành theo policy và định nghĩa ttpq comic blend. Style ref chỉ cung cấp cách
   diễn nét/mảng, không cung cấp khuôn mặt, trang phục, màu hoặc bố cục.
   Không mặc định truyền hai user style cũ của nhánh tô màu vào luồng này.
 - Giữ nguyên chi tiết quan sát được: mặt, tuổi, thể trạng, tỷ lệ, tóc/râu,

@@ -11,7 +11,7 @@ identity hoặc diện mạo từ ảnh mẫu.
   nhưng truyền [crop chỉ chứa vải](../.agents/skills/comic-character-studio/assets/mau-y-chuan-crop-v002.png) làm
   reference **chỉ màu y** khi tạo/chỉnh có y, nếu công cụ cho phép;
   ghi input thực tế. Không lấy mặt, da, tuổi, tỷ lệ, cách quấn, bố cục hoặc
-  shading/rendering của mẫu; style tiếp tục theo ttpq comic light hiện hành. Phạm vi và
+  shading/rendering của mẫu; style tiếp tục theo ttpq comic blend hiện hành. Phạm vi và
   provenance tại [record màu y](../.agents/skills/comic-character-studio/assets/mau-y-chuan-v001.md).
 - Crop giữ pixel/màu nguyên trạng từ mẫu đã chọn, không thay chuẩn màu y hoặc
   tạo gate chọn màu mới. Không truyền toàn ảnh ref màu y chứa mặt/da để giảm
@@ -60,7 +60,7 @@ identity hoặc diện mạo từ ảnh mẫu.
   đồng thời chính diện, 3/4, nghiêng và sau lưng trong mẫu.
 - Mẫu này chỉ khóa cách quấn và quan hệ các lớp vải; không sao chép mặt,
   tuổi, tai, màu da, thể trạng hoặc chữ của Gavampati sang nhân vật khác.
-  Màu y tiếp tục theo mục Màu y; style theo policy ttpq comic light hiện hành.
+  Màu y tiếp tục theo mục Màu y; style theo policy ttpq comic blend hiện hành.
 - Đây là mẫu thiết kế được chọn, không phải bằng chứng y phục lịch sử hoặc
   phê duyệt toàn bộ profile Gavampati. Không tự chuyển ảnh vào profiles.
   Nguồn: ảnh người dùng đính kèm trực tiếp; lưu bản gốc không chỉnh sửa.

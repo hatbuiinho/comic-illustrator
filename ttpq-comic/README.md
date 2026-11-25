@@ -10,8 +10,7 @@ Flow nghiên cứu kịch bản cả tập thành story bible và timeline cản
 1. **Lượt nét:** clean outline đen trắng của cả spread, chữ VI trái và chữ
    tiếng Anh giữ chỗ bên phải, ôm hình. Đính kèm `layout-ref.png` và ảnh ref.
 2. **Lượt màu:** vẽ màu style ttpq comic blend (mặc định khi lên màu; sửa ảnh
-   màu `color-edit` và recast nhân vật mặc định ttpq real), ttpq
-   comic light hoặc ttpq comic soft (khi gọi tên) từ outline đã chọn, nhân vật
+   màu `color-edit`/`swap` theo finish của ảnh đang sửa) từ outline đã chọn, nhân vật
    đúng profile, giữ chữ đã ôm hình.
 
 Prompt ảnh do `build-prompt.py` ghép: khối STYLE, ảnh ref theo dòng
@@ -30,9 +29,7 @@ ttpq-comic/
   contract.md                 Quy tắc flow: nguồn, version, duyệt
   book-spec.md                Khổ spread, chữ VI/EN, quy tắc chữ ôm hình
   style/
-    ttpq-comic.md             Định nghĩa style, khối prompt, điều cấm
-    ttpq-comic-soft.md        Style tùy chọn soft: khối STYLE và LINE ART STAGE
-    ttpq-comic-blend.md       Style test blend (50 comic/25 flat/25 storybook)
+    ttpq-comic.md             Style hiện hành của flow (blend ở docs/style-ttpq-comic-blend.md)
     ttpq-storybook.md         Style test (40 semi-realistic storybook/35 flat/25 nền storybook)
     ttpq-real.md              Style test (50 semi-realistic comic/25 flat/25 nền storybook)
     era-ancient-india.md      Trang phục, kiến trúc, cảnh vật thời Đức Phật

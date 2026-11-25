@@ -3,13 +3,12 @@
 
 Agent chỉ viết phần cảnh (2–4 câu tiếng Anh) vào --body. Script lo phần
 không được sai:
-  - khối STYLE nguyên văn theo --style (không ghi: real cho color-edit và
-    lượt màu có --recast (từ 2026-11-22), blend cho lượt màu thường, light cho
-    chỉnh outline; lượt nét không chèn khối STYLE, chỉ gọi
-    tên Semi-Realistic Storybook Illustration ở câu mở): light (định nghĩa ở
-    docs/style-ttpq-comic-light.md, khối nét ở style/ttpq-comic.md), soft
-    (cả hai khối ở style/ttpq-comic-soft.md) hoặc blend (cả hai khối ở
-    style/ttpq-comic-blend.md);
+  - khối STYLE nguyên văn theo --style ở lượt màu (không ghi: blend, kể cả
+    --recast, từ 2026-11-25); lượt nét không chèn khối STYLE, chỉ gọi tên
+    Semi-Realistic Storybook Illustration ở câu mở, chỉnh outline gọi cùng tên
+    đó (từ 2026-11-24); color-edit và swap không gọi tên style, finish theo
+    ảnh đang sửa (từ 2026-11-25); các lượt này bỏ qua --style. Style: blend (docs/style-ttpq-comic-blend.md), storybook hoặc real
+    (style/ttpq-*.md); light và soft đã bỏ từ 2026-11-25;
   - danh sách nhân vật lấy từ dòng **Profile:** của các cảnh Snn trong
     story/<tập>/scenes.md, mỗi người một dòng Image N kèm dòng prompt trong
     profile.md; số Image cố định theo thứ tự cast;
@@ -20,14 +19,23 @@ không được sai:
   - body ghi {slug} để script thay bằng số Image đúng theo cast;
   - lượt màu/color-edit dùng "Dòng nhận diện tiếng Anh" đầy đủ của profile;
     "Nét mặt cố định" (tiếng Anh) giữ biểu cảm theo sheet ở mọi lượt;
-  - lượt nét (từ 2026-11-22) lọc cụm "about N heads tall" khỏi dòng prompt và
-    bỏ câu tỷ lệ chung;
+  - lượt nét (từ 2026-11-22) và chỉnh outline (từ 2026-11-24) lọc cụm
+    "about N heads tall" khỏi dòng prompt và bỏ câu tỷ lệ chung;
   - "Nét vẽ line art" (tiếng Anh, tùy chọn) chèn ở lượt nét và chỉnh outline
     (lượt nét chèn lại từ 2026-11-22, sau lỗi râu quai nón p048-049 v066/v067):
     cách thể hiện dấu hiệu dễ sai khi chuyển sheet màu sang nét đen (râu, cổ y…);
-  - --recast (lượt màu và chỉnh outline; chỉnh outline thêm câu chốt cuối prompt): nhân vật vẽ lại từ profile, ảnh
-    nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn;
-  - --pass color-edit: sửa một nhân vật trên ảnh màu, giữ nguyên phần còn lại;
+  - --recast (chỉ lượt màu; từ 2026-11-25 bỏ ở chỉnh outline, thay bằng swap):
+    nhân vật vẽ lại từ profile, ảnh nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn;
+  - --pass color-edit: chỉ sửa các dòng Change: trên một nhân vật của ảnh màu,
+    sheet là nguồn cho chi tiết được sửa; phần còn lại giữ nguyên (từ 2026-11-25
+    không còn recast cả người; thay cả người dùng swap);
+  - --pass swap (từ 2026-11-24): thay một nhân vật trong ảnh có sẵn bằng nhân vật
+    trong ảnh ref, theo prompt ngắn người dùng kiểm chứng: Image 1 = ref identity,
+    Image 2 = ảnh cảnh; chỉ cần --cast <slug> và --target (người cần thay, tả
+    theo vị trí); không chèn dòng nhận diện, STYLE, Avoid của cảnh; từ 2026-11-25
+    thêm câu SCALE: cỡ mặt người cũ trong Image 2 là mốc scale, thân dựng theo tỷ
+    lệ đầu-thân và vóc dáng của Image 1, khăn/mũ được cao hơn đầu cũ; khối
+    FINISH (từ 2026-11-25): cách vẽ theo Image 2, Image 1 chỉ cho identity;
   - --effect (lượt màu và color-edit): ngoại lệ cho vùng hiệu ứng thần thông,
     nới gradient/glow chỉ trong vùng đó, sửa Exclusions và bỏ mục Avoid cấm
     glow/magic effect cho lượt này; không ghi thì style giữ nguyên.
@@ -56,27 +64,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[4]
 FLOW = ROOT / "ttpq-comic"
 # Lượt nét (từ 2026-11-22): chỉ gọi tên style này ở câu mở, không chèn định nghĩa, không rule head tall; vẫn chèn "Nét vẽ line art" của profile.
+# Chỉnh outline (từ 2026-11-24) gọi cùng tên này để đồng nhất với lượt nét.
 OUTLINE_STYLE = "Semi-Realistic Storybook Illustration"
 PHOTO_WORDS = re.compile(r"\b(?:photo\w*|camera lens|lens(?:es)?|\d+\s?mm|bokeh|depth of field|f-?stop|f/\d+(?:\.\d+)?|shutter|aperture)\b", re.I)
 HEADS_TALL = re.compile(r",?\s*(?:about|around|roughly|nearly)?\s*\d+(?:\.\d+)?(?:\s*(?:to|–|-)\s*\d+(?:\.\d+)?)?\s*heads?\s+(?:tall|high)\b", re.I)
 # Mỗi style: (file định nghĩa, thứ tự khối text), câu mở lượt màu. Lượt nét không chèn khối style (từ 2026-11-19).
 STYLES = {
-    "light": {
-        "name": "ttpq comic light",
-        "def": (ROOT / "docs" / "style-ttpq-comic-light.md", 0),
-        "color_open": "clean flat color shapes with 2–3 hard-edged cel-shading tones on skin and clothing; "
-                      "keep every black outline crisp and visible; background in a few flat color planes.",
-    },
-    "soft": {
-        "name": "ttpq comic soft",
-        "def": (FLOW / "style" / "ttpq-comic-soft.md", 0),
-        "color_open": "a clear soft directional light with 3–4 gently blended shading tones on skin and clothing "
-                      "and subtle gradients on sky and large surfaces; keep every black outline crisp and visible; "
-                      "background in soft layered atmospheric depth, with characters crisper than the background.",
-    },
     "blend": {
         "name": "ttpq comic blend",
-        "def": (FLOW / "style" / "ttpq-comic-blend.md", 0),
+        "def": (ROOT / "docs" / "style-ttpq-comic-blend.md", 0),
         "color_open": "clean flat color shapes with 2–3 slightly softened cel-shading tones on skin and clothing, "
                       "under natural light suited to the scene's time and setting with a clear direction, no overall warm or golden cast unless the scene calls for it, cast shadows on the ground, deep colored shadow masses "
                       "in the environment and focal characters separated from their background by value; "
@@ -153,6 +149,7 @@ def text_block(path, index=0):
     if len(blocks) <= index:
         die(f"không thấy khối ```text thứ {index + 1} trong {rel(path)}")
     return blocks[index].strip()
+
 
 
 # Thêm 2026-11-18: style chặn gradient/glow làm hiệu ứng thần thông bị tô phẳng một dải (test Mục Kiền Liên v002);
@@ -300,16 +297,79 @@ def bible_parts(story):
     return bans, pairs
 
 
+def swap(a):
+    """Thay một nhân vật bằng ảnh ref (từ 2026-11-24, theo prompt người dùng kiểm chứng hiệu quả).
+
+    Cố ý ngắn: không tả lại nhân vật bằng chữ (chữ lệch ảnh làm model trộn hai nguồn),
+    không khối STYLE (finish lấy từ ảnh cảnh), biểu cảm/góc đầu/hướng nhìn lấy từ ảnh cảnh.
+    Câu SCALE (từ 2026-11-25, sau lỗi đầu to khi swap vua Pasenadi): cỡ mặt người cũ là
+    mốc scale, thân dựng theo tỷ lệ đầu-thân và vóc dáng profile, khăn/mũ được cao hơn đầu cũ.
+    """
+    unused = [f for f, v in (("--scenes", a.scenes), ("--body", a.body), ("--recast", a.recast), ("--style", a.style),
+                             ("--no-ref", a.no_ref), ("--light", a.light), ("--effect", a.effect), ("--across", a.across),
+                             ("--split", a.split), ("--two-scenes", a.two_scenes), ("--no-text", a.no_text)) if v]
+    if unused:
+        die(f"--pass swap không dùng {', '.join(unused)}; chỉ cần --cast <slug> và --target")
+    if not a.cast or len(a.cast) != 1:
+        die("--pass swap cần --cast đúng một slug (mỗi lượt thay một người)")
+    target = (a.target or "").strip().rstrip(".").strip()
+    if not target:
+        die("--pass swap cần --target: người cần thay, tả theo vị trí trong ảnh")
+    warnings = []
+    c = load_profile(a.cast[0], warnings)
+    spread = (ROOT / a.spread).resolve()
+    vi = bool(re.search(r"[À-ỹ]", target))
+    if vi:
+        task = f"Thay {target} trong Image 2 bằng nhân vật trong Image 1."
+        keep = "Không thay đổi các chi tiết khác."
+    else:
+        task = f"Replace {target} in Image 2 with the character in Image 1."
+        keep = "Do not change any other details."
+    if re.search(r"\b(face|hair|beard|robe|skin|eyes?)\b|mặt|tóc|râu|da |mắt", target, re.I):
+        warnings.append("--target nên chỉ vị trí/quan hệ của người cần thay; đặc điểm nhận diện đã nằm trong Image 1.")
+    parts = [
+        "Perform identity-preserving character replacement.",
+        "REFERENCE ROLES:\n"
+        f"- Image 1: Source identity and character design reference ({c['name']}); identity and design only, not its drawing style or lighting.\n"
+        "- Image 2: Target scene, pose, facial expression, head angle, gaze direction, and composition reference.",
+        "TASK:\n" + task,
+        "SCALE:\n"
+        "Use the original character's face size in Image 2 as the scale anchor: the new face (brow to chin) "
+        "must be the same size as the face it replaces, so the character stays in scale with the surrounding "
+        "figures. Build the body from that anchor using the head-to-body proportions and build of Image 1. "
+        "Keep the position and pose from Image 2. Headwear may extend above the original head outline.",
+        "FINISH:\n"
+        "Draw the new character in the same finish as the rest of Image 2: the same line color and weight, shading, "
+        "light direction and shadow color, so it reads as part of the original picture.",
+        keep,
+    ]
+    if a.avoid.strip():
+        parts.append("Avoid: " + a.avoid.strip().rstrip(".") + ".")
+    out = spread / a.out if not Path(a.out).is_absolute() else Path(a.out)
+    if out.exists():
+        die(f"{rel(out)} đã có; dùng version mới")
+    out.write_text("\n\n".join(parts) + "\n", encoding="utf-8")
+    print(f"Đã ghi {rel(out)} ({len(' '.join(parts).split())} từ, swap, không khối STYLE)")
+    print("Đính kèm:")
+    print(f"  Image 1 = {c['ref']}  ({c['name']})")
+    print("  Image 2 = <ảnh cần thay nhân vật (ảnh màu hoặc outline)>")
+    for wmsg in warnings:
+        print(f"CẢNH BÁO: {wmsg}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--spread", required=True)
-    ap.add_argument("--scenes", nargs="+", required=True)
-    ap.add_argument("--pass", dest="kind", choices=["outline", "color", "edit", "color-edit"], required=True,
-                    help="edit = chỉnh outline; color-edit = chỉnh nhân vật trên ảnh màu đã có")
+    ap.add_argument("--scenes", nargs="+", default=[], help="bắt buộc trừ --pass swap")
+    ap.add_argument("--pass", dest="kind", choices=["outline", "color", "edit", "color-edit", "swap"], required=True,
+                    help="edit = chỉnh outline; color-edit = sửa chi tiết theo dòng Change: của một nhân vật trên ảnh màu; "
+                         "swap = thay một nhân vật trong ảnh có sẵn bằng ảnh ref (prompt ngắn, giữ mọi chi tiết khác)")
+    ap.add_argument("--target", help="--pass swap: người cần thay trong ảnh, tả theo vị trí/quan hệ, "
+                    "ví dụ \"người đàn ông đứng cạnh cô gái ở tiền cảnh\" hoặc \"the man standing next to the girl in the foreground\"")
     ap.add_argument("--recast", nargs="+", default=[],
-                    help="lượt màu hoặc chỉnh outline (--pass edit): nhân vật vẽ lại từ profile, ảnh nguồn chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn, đạo cụ")
-    ap.add_argument("--body", required=True, help="file chứa phần cảnh/comment agent viết")
-    ap.add_argument("--style", choices=sorted(STYLES), help="style của lượt; mặc định real cho color-edit và lượt màu có --recast, blend cho lượt màu thường, light cho lượt nét/chỉnh outline")
+                    help="chỉ lượt màu: nhân vật vẽ lại từ profile, outline chỉ giữ vị trí, dáng, cử chỉ, hướng nhìn, đạo cụ; thay nhân vật trên ảnh có sẵn dùng --pass swap")
+    ap.add_argument("--body", help="file chứa phần cảnh/comment agent viết (bắt buộc trừ --pass swap)")
+    ap.add_argument("--style", choices=sorted(STYLES), help="style của lượt màu (mặc định blend, kể cả --recast); lượt nét và chỉnh outline gọi Semi-Realistic Storybook Illustration, color-edit và swap theo finish của ảnh đang sửa, các lượt này bỏ qua --style")
     ap.add_argument("--story", help="mặc định ttpq-comic/story/<tiền tố layout-slug>")
     ap.add_argument("--cast", nargs="+", help="thay danh sách Profile của cảnh (slug hoặc slug:ref.png)")
     ap.add_argument("--no-ref", nargs="+", default=[], help="nhân vật chỉ tả bằng chữ (xa, nhỏ)")
@@ -323,6 +383,11 @@ def main():
     ap.add_argument("--no-text", action="store_true", help="hình không có chữ")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
+    if a.kind == "swap":
+        swap(a)
+        return
+    if not a.scenes or not a.body:
+        die("--scenes và --body bắt buộc với lượt này")
 
     across = (a.across or "").strip().rstrip(".").strip()
     if across and a.split:
@@ -332,18 +397,20 @@ def main():
     effect = (a.effect or "").strip().rstrip(".").strip()
     if effect and a.kind not in ("color", "color-edit"):
         die("--effect chỉ dùng ở lượt color và color-edit; lượt nét vẽ vùng hiệu ứng bằng vài nét mảnh trong body")
-    # Từ 2026-11-16: lên màu mặc định blend; lượt nét và chỉnh outline mặc định light.
-    # Từ 2026-11-22: color-edit và lượt màu có --recast mặc định real.
-    if not a.style:
-        if a.kind == "color-edit" or (a.kind == "color" and a.recast):
-            a.style = "real"
-        else:
-            a.style = "blend" if a.kind == "color" else "light"
+    # Từ 2026-11-16: lên màu mặc định blend; từ 2026-11-25 bỏ light/soft, lượt nét và chỉnh outline gán blend (bỏ qua style).
+    # Từ 2026-11-25: lượt màu mặc định blend kể cả --recast (bỏ mặc định real của 2026-11-22);
+    # color-edit không gọi tên style, finish theo Image 1, để không mâu thuẫn với style thật của ảnh.
+    style_given = bool(a.style)
+    a.style = a.style or "blend"
     st = STYLES[a.style]
     spread = (ROOT / a.spread).resolve()
     layout = json.loads((spread / "layout.json").read_text(encoding="utf-8"))
     story = ROOT / a.story if a.story else FLOW / "story" / spread.parent.name.split("-")[0]
     warnings = []
+    if style_given and a.kind in ("outline", "edit"):
+        warnings.append(f"--style {a.style} bị bỏ qua: lượt nét và chỉnh outline luôn gọi style {OUTLINE_STYLE}.")
+    if style_given and a.kind == "color-edit":
+        warnings.append(f"--style {a.style} bị bỏ qua: color-edit vẽ theo finish của Image 1; muốn đổi style thì chạy lại lượt màu.")
     scenes = load_scenes(story, a.scenes, warnings)
     bans, pairs = bible_parts(story)
 
@@ -365,13 +432,13 @@ def main():
         warnings.append(f"{len(with_ref)} ảnh ref: GPT dễ lẫn nhân vật; nhân vật xa, nhỏ nên dùng --no-ref.")
 
     recast = list(dict.fromkeys(a.recast))
-    if recast and a.kind not in ("color", "edit"):
-        die("--recast chỉ dùng cho --pass color hoặc --pass edit; chỉnh từng nhân vật trên ảnh màu dùng --pass color-edit")
+    if recast and a.kind != "color":
+        die("--recast chỉ dùng cho --pass color; thay cả nhân vật trên outline hoặc ảnh màu dùng --pass swap")
     bad = [s for s in recast if s not in {c["slug"] for c in with_ref}]
     if bad:
         die(f"--recast {', '.join(bad)} không có trong cast có ảnh ref")
     if len(recast) > 2:
-        warnings.append(f"--recast {len(recast)} nhân vật: GPT dễ lẫn; nhân vật còn sai thì sửa từng người bằng --pass color-edit.")
+        warnings.append(f"--recast {len(recast)} nhân vật: GPT dễ lẫn; nhân vật còn sai thì thay từng người bằng --pass swap.")
     if a.kind == "color-edit":
         if not with_ref:
             die("--pass color-edit cần --cast gồm nhân vật bị sửa (có ảnh ref)")
@@ -447,7 +514,9 @@ def main():
             warnings.append("Dòng Change có câu giữ nguyên ('Preserve/Keep …'); tách thành dòng 'Keep: …' riêng.")
         if len(changes) >= 3:
             warnings.append(f"Lượt chỉnh có {len(changes)} dòng Change; mỗi lượt 1–2 thay đổi rồi soát ảnh sẽ chắc hơn.")
-    if a.kind == "color-edit" and re.search(r"render the (whole |entire )?(illustration|image|picture)|\brestyle\b|in ttpq (comic )?(blend|light|soft|storybook|real)", body, re.I):
+    if a.kind == "color-edit" and not re.search(r"^Change:", body, re.M):
+        die("--pass color-edit cần body có dòng 'Change: …' (chi tiết cần sửa); thay cả nhân vật dùng --pass swap")
+    if a.kind == "color-edit" and re.search(r"render the (whole |entire )?(illustration|image|picture)|\brestyle\b|in ttpq (comic )?(blend|storybook|real)", body, re.I):
         warnings.append("Body color-edit đòi vẽ lại style cả tranh, mâu thuẫn với 'giữ nguyên phần còn lại'; bỏ dòng đó "
                         "(script đã khóa finish theo Image 1). Muốn đổi style cả tranh thì chạy lại lượt màu.")
 
@@ -480,24 +549,27 @@ def main():
     def desc(c):
         # Lượt màu dùng dòng nhận diện đầy đủ (có màu da, trang phục); lượt nét dùng dòng ngắn.
         s = (c["id"] if full_id and c["id"] else c["line"])
-        if a.kind == "outline":
-            # Từ 2026-11-22: lượt nét bỏ rule head tall (lọc "about N heads tall" khỏi dòng profile, profile giữ nguyên).
+        if a.kind in ("outline", "edit"):
+            # Từ 2026-11-22: lượt nét bỏ rule head tall (lọc "about N heads tall" khỏi dòng profile, profile giữ nguyên);
+            # chỉnh outline bỏ theo từ 2026-11-24 để đồng nhất với lượt nét.
             s = HEADS_TALL.sub("", s).strip(" ,;")
         s += "."
-        # Lượt edit recast nhắc "In line art" ở câu chốt cuối prompt; không lặp ở dòng Image N.
         # Lượt nét và chỉnh outline chèn "In line art"; thiếu nó lượt nét vẽ râu thành râu quai nón (p048-049 v066).
-        if a.kind in ("outline", "edit") and c["lineart"] and c["slug"] not in recast:
+        if a.kind in ("outline", "edit") and c["lineart"]:
             s += f" In line art: {c['lineart']}."
         return s + (f" Fixed face in every moment: {c['face']}." if c["face"] else "")
 
     img = [f"Image {n0 + i} = {c['name']}: {desc(c)}" for i, c in enumerate(with_ref)]
-    no_ref = "no reference image" if a.kind == "outline" else "no reference image; same realistic human proportions as the other characters"
+    no_ref = "no reference image" if a.kind in ("outline", "edit") else "no reference image; same realistic human proportions as the other characters"
     txt = [f"{c['name'][0].upper()}{c['name'][1:]} ({no_ref}): {desc(c)}" for c in text_only]
     fixed = any(c["face"] for c in cast)
     expr = ("Expressions follow the moment, not the sheets, except a fixed face given below."
             if fixed else "Expressions follow the moment, not the sheets.")
     keep_act = "where each character stands, the pose and gesture, the gaze direction, the action, any held prop and the overlap with others"
     take_sheet = "the face, head shape, ears, hair and beard, skin tone, body build and proportions, and the costume with its colors"
+    # Thêm 2026-11-24: tỷ lệ lấy từ khối STYLE ở lượt màu; script chỉ neo cỡ theo cảnh cho nhân vật recast, vì không còn nét để bám.
+    redraw_prop = ("Their height follows their character line, and their head is the same size as the heads of other people "
+                   "standing at the same depth in Image 1.")
     regrow = ("If the sheet's build is taller, broader or slimmer than the figure in Image 1, draw the sheet's build with the feet on the same ground line, "
               "and paint the background around the new silhouette to match its surroundings in Image 1.")
     # Một đoạn chung cho mọi nhân vật recast/sửa, không lặp nguyên văn từng người.
@@ -507,13 +579,6 @@ def main():
     sheet = "the sheet" if len(rc) == 1 else "each sheet"
     recasts = [f"Recast {tagged(rc)}: ignore the face, head, ears, hair, beard, body proportions and costume lines drawn in Image 1. "
                f"Keep from Image 1 only {keep_act}; take {take_sheet} from {sheet}. {regrow}"] if rc else []
-    # Lượt chỉnh outline: lệnh "giữ mọi thứ" của edit làm GPT chỉ sửa nhẹ mặt cũ; phải bảo xóa và vẽ lại cả đầu.
-    keep_line = "where the head sits, the head turn, the gaze direction, the pose and gestures, any held prop and the overlap with others"
-    recasts_line = [f"Recast {tagged(rc)}: erase and redraw the whole head, face, ears, hair or beard and neckline from {sheet}; "
-                    f"ignore the face, head shape, ears, beard, body proportions and robe lines drawn in Image 1. "
-                    f"Keep from Image 1 only {keep_line}; take the face, head shape, ears, hair and beard, body build and proportions, and the costume lines from {sheet}, drawn as clean black line art. "
-                    "If the sheet's build is taller or broader than the figure in Image 1, draw the sheet's build with the feet on the same ground line "
-                    "and redraw the background lines around the new silhouette."] if rc else []
     present = {c["slug"] for c in cast}
     contrast = [s[0].upper() + s[1:] for k, s in pairs.items() if k <= present]
 
@@ -590,8 +655,8 @@ def main():
             names = [c["name"] for c in with_ref if c["slug"] in recast]
             who = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
             open_ += (f" Exception: {who} {'is' if len(names) == 1 else 'are'} recast from the profile sheets. For recast characters, Image 1 only directs the acting"
-                      " (position, pose, gesture, gaze, action, props); faces, bodies and costumes are drawn fresh from the sheets, not from Image 1's lines,"
-                      " still with realistic adult proportions (about 7 to 7.5 heads tall, natural head and eye size).")
+                      " (position, pose, gesture, gaze, action, props); faces, bodies and costumes are drawn fresh from the sheets, not from Image 1's lines. "
+                      + redraw_prop)
         parts.append(open_)
         if a.light:
             light_line = f"Light: {a.light.strip().rstrip('.')}."
@@ -624,37 +689,35 @@ def main():
     elif a.kind == "color-edit":
         names = [c["name"] for c in with_ref]
         who = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
-        parts.append(f"Edit Image 1, the finished color illustration of {pages}. Correct only {who} and anything listed below; keep every other person, "
+        parts.append(f"Edit Image 1, the finished color illustration of {pages}. Change only what is listed below on {who}; keep every other person, "
                      "the background, light, colors, line treatment and all text of Image 1 exactly as they are.")
         if body:
             parts.append(body)
         if keep_block:
             parts.append(keep_block)
         one = len(with_ref) == 1
-        parts.append("\n".join([f"Redraw the corrected {'character' if one else 'characters'} to match {'the profile sheet' if one else 'their profile sheets'}; "
-                                f"ignore the sheets' poses, lighting and labels. {expr}"]
-                               + img
-                               + [f"For {tagged(with_ref)}: keep from Image 1 {keep_act}; take {take_sheet} from {'the sheet' if one else 'each sheet'}. {regrow}"]
-                               + contrast))
-        parts.append(f"Style: paint the corrected character in the same \"{st['name']}\" finish as the rest of Image 1: the same outline color and weight, "
-                     "cel-shading tones, light direction and shadow color; strictly 2D, no gradients or texture on the character."
+        sheet = "the profile sheet" if one else "their profile sheets"
+        # Từ 2026-11-25: color-edit chỉ sửa chi tiết trong Change:, không recast cả người (việc đó của swap).
+        parts.append("\n".join([f"Use {sheet} only as the reference for the details being changed; keep the rest of {who} "
+                                 "(face, hair, body, size, pose, expression and every costume part not listed) exactly as in Image 1. "
+                                 "Ignore the sheets' poses, lighting, labels and drawing style."]
+                                + img + contrast))
+        # Không gọi tên style: tên có thể trái với style thật của ảnh; finish và tỷ lệ bám Image 1.
+        parts.append("Style: paint the changed parts in the same finish as the rest of Image 1: the same outline color and weight, "
+                     "cel-shading tones, colors, light direction and shadow color; take only identity and design from the sheet, not its rendering; strictly 2D."
                      + (f" Keep the supernatural effect of Image 1 ({effect}) with its translucent gradients, soft glow and light particles exactly as it is;"
-                        " where it lit the old character, light the corrected one the same way." if effect else ""))
+                        " where it lit the changed parts, light them the same way." if effect else ""))
         parts.append(f"The character stays on its own page, with face and key hands out of {mid} around the center fold.")
         parts.append("No text of any kind in the image." if a.no_text else "Keep all text, folios and any highlight behind the text exactly as in Image 1; do not redraw any letters.")
     else:
-        if recasts_line:
-            parts.append(f"Edit Image 1, the clean outline of {pages}. Redraw the recast characters below and change what is listed; keep everything else in Image 1 unchanged.")
-            if re.search(r"exactly the existing|same (location and )?\S*-?facing angle|only .{0,30}identity features", body, re.I):
-                warnings.append("Body lượt chỉnh khóa cứng đầu/góc mặt ('exactly the existing', 'same angle', 'only identity features'); bỏ để --recast vẽ lại được cả đầu.")
-        else:
-            parts.append(f"Edit Image 1, the clean outline of {pages}. Change only what is listed below and keep everything else in Image 1 unchanged.")
+        parts.append(f"Edit Image 1, the clean outline of {pages}. Change only what is listed below and keep everything else in Image 1 unchanged.")
         parts.append(body)
         if keep_block:
             parts.append(keep_block)
         if img:
-            parts.append("\n".join(["Edited characters must match their profile sheets in face, hair and clothing; body proportions follow the character lines below, not the sheets' poses. Ignore the sheets' poses, framing and labels."] + img + recasts_line + contrast))
-        parts.append(f"Style: the same \"{st['name']}\" line art as Image 1: clean black outlines with natural line weight; no color, no gray, no shading, no hatching, no sketchy lines.")
+            parts.append("\n".join(["Edited characters must match their profile sheets in face, hair and clothing; ignore the sheets' poses, framing and labels."] + img + contrast))
+        # Từ 2026-11-24: chỉnh outline gọi cùng tên style với lượt nét (OUTLINE_STYLE), không theo --style.
+        parts.append(f"Style: the same \"{OUTLINE_STYLE}\" line art as Image 1: clean black outlines with natural line weight; no color, no gray, no shading, no hatching, no sketchy lines.")
         if img:
             parts.append(f"Edited characters stay on their own page, with faces and key hands out of {mid} around the center fold.")
         if across:
@@ -662,22 +725,6 @@ def main():
         parts.append("Keep all text words, type size and first-line positions; only the lines beside the edited area may reflow to wrap around the new shapes, keeping any colored highlight behind them.")
     if avoid_line:
         parts.append(avoid_line)
-    if a.kind == "edit" and recasts_line:
-        # Đặt cuối prompt: lượt edit của GPT bám ảnh nguồn rất chặt, câu Recast ở giữa prompt
-        # chỉ làm mặt cũ dịu đi (p206–207 v004). Câu chốt ở cuối đã đổi được cả đầu (v005).
-        # Chi tiết riêng (râu, cổ áo…) lấy từ "Nét vẽ line art" của profile, không viết cứng ở đây.
-        for i, c in enumerate(with_ref):
-            if c["slug"] not in recast:
-                continue
-            final = (f"Final check for {c['name']} (Image {n0 + i}): this is a full replacement of the head and neckline, not a retouch. "
-                     "The head, face, beard and collar lines drawn in Image 1 are wrong: erase them completely and draw a recognizably new head from the sheet, "
-                     "even if the head silhouette changes, at the same place, head turn and gaze, with the same gestures. "
-                     "Erase the old collar lines as well and draw the neckline and the robe or clothing edge at the neck as the sheet shows it, not as in Image 1.")
-            if c["lineart"]:
-                final += f" In line art: {c['lineart']}."
-            final += " Keep every other person, all lettering and the scenery as they are."
-            parts.append(final)
-
     out = spread / a.out if not Path(a.out).is_absolute() else Path(a.out)
     if out.exists():
         die(f"{rel(out)} đã có; dùng version mới")
@@ -686,7 +733,8 @@ def main():
     first = {"outline": canvas_ref(spread, layout) if a.kind == "outline" else None, "color": "<outline được chọn>", "edit": "<outline đang sửa>",
              "color-edit": "<ảnh màu đang sửa>"}[a.kind]
     first = rel(first) if isinstance(first, Path) else first
-    print(f"Đã ghi {rel(out)} ({len(' '.join(parts).split())} từ, style {OUTLINE_STYLE if a.kind == 'outline' else st['name']})")
+    style_label = OUTLINE_STYLE if a.kind in ("outline", "edit") else "theo finish của Image 1" if a.kind == "color-edit" else st["name"]
+    print(f"Đã ghi {rel(out)} ({len(' '.join(parts).split())} từ, style {style_label})")
     print("Đính kèm:")
     print(f"  Image 1 = {first}")
     for i, c in enumerate(with_ref):

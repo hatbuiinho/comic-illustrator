@@ -1,7 +1,8 @@
 # st01
 
-> LỊCH SỬ — từ 2026-10-29 đã được thay hoàn toàn bởi `ttpq comic light`
-> tại `docs/style-ttpq-comic-light.md` (đường dẫn từ root). Không áp dụng
+> LỊCH SỬ — từ 2026-10-29 đã được thay hoàn toàn bởi `ttpq comic light`,
+> từ 2026-11-25 bởi `ttpq comic blend` tại `docs/style-ttpq-comic-blend.md`
+> (đường dẫn từ root). Không áp dụng
 > định nghĩa, ref hoặc chỉ dẫn “hiện hành” bên dưới cho lượt mới.
 
 Tên do người dùng đặt ngày 2026-10-17: 2D mềm theo phương án 1, với mức sáng và sắc độ theo sheet khăn nâu được chỉ định ở lượt chỉnh cảnh núi v002. Bản này được giữ để tham chiếu lịch sử; style mặc định hiện tại là [st03](style-st03.md), theo lựa chọn của người dùng ngày 2026-10-18.

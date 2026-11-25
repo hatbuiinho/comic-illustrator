@@ -1,7 +1,7 @@
 # Nhánh tùy chọn: nét chì/line art và bảng màu, lên màu
 
-> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
-> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> Cập nhật người dùng 2026-10-29, 2026-11-25 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic blend** (`docs/style-ttpq-comic-blend.md`,
 > đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
 > override st03 và khối prompt style cũ bên dưới đã được thay thế; không
 > copy các phần đó vào prompt mới. Workflow và identity vẫn giữ; QA theo qa-checklist.md.
@@ -49,7 +49,7 @@ rendering mảng phẳng của SKILL.md có hiệu lực.
 
 Phương pháp nhánh màu được chốt ngày 2026-10-21, thay phương pháp tạm truyền
 ảnh gốc vào lượt tô riêng. Đây là lựa chọn workflow, không miễn QA hoặc xác nhận phương pháp
-đã ổn định trên mọi nhân vật. Style theo ttpq comic light.
+đã ổn định trên mọi nhân vật. Style theo ttpq comic blend.
 
 - Khi người dùng yêu cầu trọn nhánh nét và màu: đọc brief và ảnh gốc → tạo/kiểm chân dung
   line art sạch → lập/kiểm bảng màu theo vùng → tô mới bằng line art + bảng

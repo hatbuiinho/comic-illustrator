@@ -1,7 +1,7 @@
 # Chuyển style giữ nguồn
 
-> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
-> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> Cập nhật người dùng 2026-10-29, 2026-11-25 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic blend** (`docs/style-ttpq-comic-blend.md`,
 > đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
 > override st03 và khối prompt style cũ bên dưới đã được thay thế; không
 > copy các phần đó vào prompt mới. Workflow, identity và QA fidelity vẫn giữ.

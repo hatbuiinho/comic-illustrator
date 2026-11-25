@@ -1,7 +1,7 @@
 # Nét mặt, vùng mắt và da
 
-> Cập nhật người dùng 2026-10-29 — `SKIPPED_BY_USER`, toàn dự án:
-> style duy nhất là **ttpq comic light** (`docs/style-ttpq-comic-light.md`,
+> Cập nhật người dùng 2026-10-29, 2026-11-25 — `SKIPPED_BY_USER`, toàn dự án:
+> style duy nhất là **ttpq comic blend** (`docs/style-ttpq-comic-blend.md`,
 > đường dẫn từ root). Các yêu cầu rendering, bảng trang sức/ref style cũ,
 > override st03 và khối prompt style cũ bên dưới đã được thay thế; không
 > copy các phần đó vào prompt mới. Workflow và identity vẫn giữ; QA theo qa-checklist.md.
@@ -102,4 +102,4 @@ không thể hiện. Không dùng đặc điểm này để kết luận nguồn
   đồng nghĩa sao chép tạo khối ảnh thật.
 - Giữ quan hệ sắc bằng các mảng màu riêng có hình dạng rõ; “giữ chuyển sắc”
   không cho phép blend rộng từ hốc mắt sang má hoặc làm mượt toàn mặt.
-  Rendering da theo cel-shading 2–3 tông của ttpq comic light.
+  Rendering da theo cel-shading 2–3 tông của ttpq comic blend.

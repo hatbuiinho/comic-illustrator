@@ -86,7 +86,7 @@ ref + profile trước khi vẽ cận cảnh; quần chúng mô tả trong promp
 | Gã buôn tung tin | | S35 | APPROVED v001 (`characters/ga-buon-tung-tin/`) | Ngoài 40, áo vải thô, mặt lọc lõi |
 | Bà bán vải, bà bán gạo, bà bán gia vị | | S35–S36 | APPROVED v001 (`characters/ba-ba-ban-hang/`), profile nhóm | |
 | Moggallana | Tôn giả thần thông | S38, S45–S46 | APPROVED v001 (`characters/moggallana/`) | |
-| Tiền kiếp Pavina/Matika | | S40 | Pavina kiếp 9: APPROVED v001 (`characters/pavina-kiep-9/`); cô tiểu thư kiếp 9: APPROVED v001 (`characters/co-tieu-thu-kiep-9/`); Pavina kiếp 10: APPROVED v002 (`characters/pavina-kiep-10/`); cô gái kiếp 10: APPROVED v001 (`characters/co-gai-kiep-10/`); Pavina kiếp 11: APPROVED v001 (`characters/pavina-kiep-11/`); cô tiểu thư kiếp 11: APPROVED v001 (`characters/co-tieu-thu-kiep-11/`); còn lại — | Kiếp 9: thương nhân, tiểu thư, quan huyện; kiếp 10: cô gái, người lính; kiếp 11: chàng trai, cô gái |
+| Tiền kiếp Pavina/Matika | | S40 | Pavina kiếp 9: APPROVED v001 (`characters/pavina-kiep-9/`); cô tiểu thư kiếp 9: APPROVED v001 (`characters/co-tieu-thu-kiep-9/`); quan huyện kiếp 9: APPROVED v001 (`characters/quan-huyen-kiep-9/`); Pavina kiếp 10: APPROVED v002 (`characters/pavina-kiep-10/`); cô gái kiếp 10: APPROVED v001 (`characters/co-gai-kiep-10/`); Pavina kiếp 11: APPROVED v001 (`characters/pavina-kiep-11/`); cô tiểu thư kiếp 11: APPROVED v001 (`characters/co-tieu-thu-kiep-11/`); còn lại — | Kiếp 9: thương nhân, tiểu thư, quan huyện; kiếp 10: cô gái, người lính; kiếp 11: chàng trai, cô gái |
 | Nalini lúc bé, cha Nalini | Hồi ức | S06, S10 | — | |
 
 ## Địa hình

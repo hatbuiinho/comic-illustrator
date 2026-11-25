@@ -1,4 +1,4 @@
-# QA Character Studio — ttpq comic light
+# QA Character Studio — ttpq comic blend
 
 Người dùng chốt ngày 2026-10-29: thay toàn bộ QA cũ (bảng kiểm style theo
 vùng, kiểm da ba tông, nét đen từng đoạn mũi/miệng, bảng trang sức, kiểm
@@ -34,15 +34,17 @@ vải/da phóng lớn từng vùng). Đây là nguồn QA duy nhất của Chara
 - Tu sĩ: đầu cạo sạch, màu y và cách quấn theo `docs/monastic-robes.md`.
   Riêng tu sĩ Ni có khăn trùm đầu theo đính chính 2026-10-30; không bắt lộ da đầu, không tự bỏ khăn. Đối chiếu form khăn/cách rủ với nguồn nếu có.
 
-## 3. Style ttpq comic light — chặn khi lệch rõ
+## 3. Style ttpq comic blend — chặn khi lệch rõ
 
-Đối chiếu với [định nghĩa style](../../../../docs/style-ttpq-comic-light.md):
+Đối chiếu với [định nghĩa style](../../../../docs/style-ttpq-comic-blend.md):
 
 - Thuần 2D; không anime, 3D/CGI, ảnh thật, painterly brush texture.
-- Nét vẽ tay sạch, viền ngoài dày hơn nét trong; nét mảnh ở mặt đủ đọc mắt,
-  mũi, miệng ở kích thước sử dụng.
-- Màu mảng phẳng sạch, 2–3 tông cel-shading mềm trên da và vải. Mềm ở rìa
-  mảng được phép; chỉ là lỗi khi gradient/blend làm khối nổi như 3D.
+- Nét vẽ tay sạch, viền ngoài nâu rất đậm gần đen và dày hơn nét trong; nét
+  trong ngả theo màu mảng nhưng vẫn đọc rõ mắt, mũi, miệng ở kích thước sử dụng.
+- Màu mảng phẳng sạch, 2–3 tông cel-shading mép hơi dịu trên da và vải; không
+  gradient trên nhân vật; lỗi khi gradient/blend làm khối nổi như 3D.
+- Tỷ lệ người thật khoảng 7–7.5 đầu (trẻ em, người già theo tuổi); đầu, mắt
+  cỡ tự nhiên, không chibi/hoạt hình.
 - Không hatching hoặc bóng đen thô trên da; texture bề mặt tiết chế; tóc
   thành mảng rõ; nếp vải giản lược nhưng còn nếp chính.
 - Không đếm số tông hay độ dày nét; lệch nhỏ không đổi cảm giác style ghi

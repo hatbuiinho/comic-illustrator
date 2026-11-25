@@ -33,19 +33,18 @@ Mình gửi phương án có sẵn. Tóm tắt cách bạn hiểu và chỉ ra �
 Lệnh cố định của người dùng (không gửi nguyên câu này cho model ảnh):
 
 ```text
-dùng style ttpq comic light để vẽ hình minh họa và dàn trang cho page này ở dạng clean outline, chữ sẽ hòa với hình nhưng giữ nguyên khổ chữ, giữ nguyên vị trí dòng đầu tiên, chữ có thể được reflow để ôm hình 1 cách sống động, phần chữ bên phải là tiếng anh, bên trái là tiếng việt, truyện này là truyện về cuộc đời Đức Phật nên nhân vật sẽ là người Ấn Độ thời đó ạ
+dùng style ttpq comic blend để vẽ hình minh họa và dàn trang cho page này ở dạng clean outline, chữ sẽ hòa với hình nhưng giữ nguyên khổ chữ, giữ nguyên vị trí dòng đầu tiên, chữ có thể được reflow để ôm hình 1 cách sống động, phần chữ bên phải là tiếng anh, bên trái là tiếng việt, truyện này là truyện về cuộc đời Đức Phật nên nhân vật sẽ là người Ấn Độ thời đó ạ
 ```
 
 - Lệnh "Chọn phương án N … tạo clean outline" cũng kích hoạt bước này.
-- Lệnh ghi `ttpq comic soft` hoặc `ttpq comic blend` thay cho `ttpq comic light`
-  thì chạy script với `--style soft` hoặc `--style blend`; không ghi thì lượt
-  nét là light, lượt màu là blend; `color-edit` và lượt màu có `--recast` là
-  real (từ 2026-11-22).
+- Lượt nét và chỉnh outline luôn gọi Semi-Realistic Storybook Illustration
+  (chỉnh outline từ 2026-11-24), bỏ qua `--style`; lượt màu không ghi là blend,
+  kể cả `--recast`; `color-edit` và `swap` theo finish của ảnh đang sửa. Light và soft
+  đã bỏ từ 2026-11-25; lệnh cũ ghi hai tên này thì dùng blend.
 - Lượt màu ghi `ttpq storybook` (style test 40% semi-realistic storybook + 35% flat + 25% nền storybook, 2026-11-22) thì
   chạy `--style storybook`; định nghĩa ở `ttpq-comic/style/ttpq-storybook.md`.
-- `ttpq real` (style test 50% semi-realistic comic + 25% flat + 25% nền storybook, 2026-11-22) là mặc định của
-  `color-edit` và lượt màu có `--recast`; lượt màu thường muốn dùng thì ghi `ttpq real` để
-  chạy `--style real`; định nghĩa ở `ttpq-comic/style/ttpq-real.md`.
+- `ttpq real` (style test 50% semi-realistic comic + 25% flat + 25% nền storybook, 2026-11-22): lượt màu
+  ghi `ttpq real` thì chạy `--style real`; định nghĩa ở `ttpq-comic/style/ttpq-real.md`.
 - Viết body từ phương án active, chạy `build-prompt.py --pass outline`, rồi gọi
   ImageGen với prompt và ảnh đính kèm theo thứ tự script in ra.
 - Chữ trang phải là tiếng Anh giữ chỗ do model tự sinh; không dịch.
@@ -77,19 +76,6 @@ Luôn đưa lệnh màu cố định:
 dùng style ttpq comic blend để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
 ```
 
-Nếu người dùng muốn bản light (script `--style light`):
-
-```text
-dùng style ttpq comic light để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
-```
-
-Nếu người dùng muốn bản soft, đưa thêm lệnh song song (script `--style soft`;
-outline light vẫn dùng được):
-
-```text
-dùng style ttpq comic soft để dàn trang màu, outline chỉ dùng để tham khảo scene, nhân vật phải được lấy chuẩn từ profile. Không ref lại output cũ
-```
-
 ## 4. Sửa outline
 
 - Image 1 là outline người dùng đang comment: bản vừa tạo, hoặc bản họ đính
@@ -107,11 +93,22 @@ dùng style ttpq comic soft để dàn trang màu, outline chỉ dùng để tha
 - Viết body màu, chạy `build-prompt.py --pass color`, gọi ImageGen, lưu
   `outputs/color-vNNN.png`.
 - Chỉnh màu: chạy lại lượt màu từ outline được chọn, thêm comment vào body.
-  Không đính kèm ảnh màu cũ, trừ khi người dùng yêu cầu rõ hoặc dùng `color-edit`.
+  Không đính kèm ảnh màu cũ, trừ khi người dùng yêu cầu rõ hoặc dùng `color-edit`/`swap`.
 - Nhân vật lệch profile vì outline sai (mặt, tai, chiều cao, trang phục): chạy
   lại lượt màu với `--recast <slug>` cho nhân vật đó, không bắt buộc sửa outline.
-  Cần sửa outline trước: `--pass edit --recast <slug>`, body không khóa cứng đầu
-  hay góc mặt.
-- Ảnh màu ổn nhưng một nhân vật còn sai: `--pass color-edit --cast <slug>`,
-  Image 1 là ảnh màu đó, mỗi lượt một nhân vật; lưu thành `color-vNNN.png` mới.
+  Cần outline đúng trước khi lên màu: `--pass swap` trên outline (mục dưới).
+  `--pass edit --recast` đã bỏ từ 2026-11-25.
+- Ảnh màu (hoặc outline) ổn nhưng một nhân vật lệch profile: mặc định
+  `--pass swap --cast <slug> --target "<người cần thay, tả theo vị trí>"`
+  (từ 2026-11-24). Image 1 là ảnh ref của profile, Image 2 là ảnh đang sửa; mỗi
+  lượt một nhân vật; lưu thành `color-vNNN.png` (hoặc `outline-vNNN.png`) mới.
+- Swap xong còn sai một dấu hiệu cụ thể: `--pass color-edit --cast <slug>`,
+  Image 1 là ảnh màu đó, body một dòng `Change:` cho đúng lỗi (bắt buộc; từ
+  2026-11-25 color-edit chỉ sửa chi tiết trong `Change:`, không vẽ lại cả người).
+  Trên outline, lỗi chi tiết sửa bằng `--pass edit`.
+- Bảng chọn nhánh (2026-11-25):
+  - đang lên màu, outline vẽ sai nhân vật → `color --recast`;
+  - ảnh có sẵn (màu hoặc outline), cần thay cả nhân vật → `swap`;
+  - ảnh màu, sai một chi tiết của nhân vật → `color-edit` + `Change:`;
+  - outline, sửa theo comment → `edit` + `Change:`.
 - Không tự phê duyệt bản cuối.

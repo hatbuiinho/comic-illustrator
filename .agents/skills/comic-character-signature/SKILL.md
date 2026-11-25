@@ -56,7 +56,7 @@ Xác định việc từ câu gọi; nếu không rõ, hỏi một câu với b�
 - Mức tôn kính chưa rõ (ví dụ Thái tử Tất Đạt Đa) thì hỏi người dùng, không
   tự xếp.
 - Không tự thêm nét mà ảnh gốc không có; không xấu hóa, không biếm họa.
-- Mọi đoạn tiếng Anh cho prompt theo style ttpq comic light, không dùng từ
+- Mọi đoạn tiếng Anh cho prompt theo style ttpq comic blend, không dùng từ
   kéo về ảnh thật.
 - Kết thúc bằng 1–2 bước tiếp theo khả thi, mỗi câu trả lời mẫu trong một
   code block riêng theo `AGENTS.md`.

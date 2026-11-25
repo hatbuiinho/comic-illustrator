@@ -24,7 +24,7 @@ Chỉ dẫn chung, routing workflow và khóa phong cách nằm trong `AGENTS.md
 ## Cấu trúc project
 - `AGENTS.md` — Chỉ dẫn chung và routing workflow.
 - `comic-illustrator/` — Workflow minh họa tập: contract, dữ liệu tập, tham khảo.
-- `ttpq-comic/` — Flow prompt spread truyện cuộc đời Đức Phật, độc lập về workflow, dùng style chung `ttpq comic light`; lượt màu mặc định `ttpq comic blend` (`color-edit` và recast màu mặc định `ttpq real`; tùy chọn `ttpq comic soft`).
+- `ttpq-comic/` — Flow prompt spread truyện cuộc đời Đức Phật, độc lập về workflow, dùng style chung `ttpq comic blend`.
 - `comic-illustrator/Tap XX/notes.md` — Dữ kiện và ngoại lệ theo tập.
 - `comic-illustrator/Tap XX/shot_notes.md` — Continuity notes.
 - `comic-illustrator/Tap XX/Part N/part-config.json` — Cấu hình từng part.

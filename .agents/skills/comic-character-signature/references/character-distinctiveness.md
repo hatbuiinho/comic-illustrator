@@ -2,7 +2,7 @@
 
 Người dùng chốt ngày 2026-11-02, chuyển thể cho project từ luật tạo hình nhân
 vật của `signature-shot-film` (bản gốc viết cho phim/ảnh thật). Bản này viết
-cho style **ttpq comic light** thuần 2D và truyện cuộc đời Đức Phật.
+cho style **ttpq comic blend** thuần 2D và truyện cuộc đời Đức Phật.
 
 **Tinh thần:** mỗi nhân vật có đặc điểm riêng, đúng người Ấn Độ thời Đức Phật,
 đúng tuổi, tầng lớp và đời sống của họ. Không ai mang mặt người mẫu, không ai

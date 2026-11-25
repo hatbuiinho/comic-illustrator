@@ -327,7 +327,7 @@
   - Kiếp 10: cánh đồng xác binh sĩ; cô gái trẻ cõng người lính còn thở.
   - Kiếp 11: chàng thanh niên anh tuấn bước xuống sông, nước tới cổ; cô gái túm cổ áo kéo lên.
 - **Cấm:** cảnh bạo lực, xác chết chi tiết; trang phục khác thời đại Ấn Độ cổ (tiền kiếp vẫn vẽ bối cảnh Ấn Độ cổ, suy ra).
-- **Profile:** —
+- **Profile:** pavina-kiep-9, co-tieu-thu-kiep-9, quan-huyen-kiep-9, pavina-kiep-10, co-gai-kiep-10, pavina-kiep-11, co-tieu-thu-kiep-11
 
 ### S41 — Nhập Niết Bàn, hoa mạn đà la · Ch8 L818–831 · DRAFT
 - **Thời điểm/ánh sáng:** ánh trăng tịch lặng qua khe cửa (Cần quyết #12); hoa mạn đà la trắng rơi, ánh sáng mềm trong vắt tụ quanh am.

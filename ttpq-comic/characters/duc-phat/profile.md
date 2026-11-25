@@ -35,7 +35,7 @@
 - Không lẫn với tỳ kheo (Ananda, Moggallana…): Đức Phật có tóc xoăn ốc và nhục kế, không cạo trọc; tỳ kheo đầu cạo, không bạch hào.
 - Không vẽ kiểu tượng: không da vàng kim, không hào quang, không tòa sen, không vương miện, không trang sức, trừ khi cảnh yêu cầu rõ.
 - Không vẽ già, gầy hay khổ hạnh; không thêm râu.
-- Ảnh ref có shading mềm kiểu painterly: chỉ lấy identity và màu cục bộ, vẽ theo style ttpq comic light thuần 2D. Màu y và cách quấn y theo ảnh ref của profile này, không áp `docs/monastic-robes.md`.
+- Ảnh ref có shading mềm kiểu painterly: chỉ lấy identity và màu cục bộ, vẽ theo style ttpq comic blend thuần 2D. Màu y và cách quấn y theo ảnh ref của profile này, không áp `docs/monastic-robes.md`.
 
 ## Dòng nhận diện (tiếng Anh, ≤ 45 từ; chép vào prompt cạnh "Image N = <tên>")
 

@@ -8,12 +8,9 @@ description: Chuẩn bị context truyện và menu lệnh cho spread trong ttpq
 Đọc trước mỗi phiên: [contract](../../../ttpq-comic/contract.md),
 [book-spec](../../../ttpq-comic/book-spec.md),
 [style](../../../ttpq-comic/style/ttpq-comic.md),
-[style blend](../../../ttpq-comic/style/ttpq-comic-blend.md) khi lên màu (mặc
-định của lượt màu) hoặc khi người dùng gọi `ttpq comic blend` (chỉ đọc
-[style soft](../../../ttpq-comic/style/ttpq-comic-soft.md) khi người dùng gọi
-`ttpq comic soft`),
-[style real](../../../ttpq-comic/style/ttpq-real.md) khi `color-edit` hoặc lượt
-màu có `--recast` (mặc định từ 2026-11-22) hoặc khi người dùng gọi `ttpq real`,
+[style blend](../../../docs/style-ttpq-comic-blend.md) khi lên màu (mặc
+định của lượt màu) hoặc khi người dùng gọi `ttpq comic blend`,
+[style real](../../../ttpq-comic/style/ttpq-real.md) chỉ khi người dùng gọi `ttpq real`,
 [era guide](../../../ttpq-comic/style/era-ancient-india.md). Không đọc tài liệu
 hay skill của `comic-illustrator/`, hai studio hay `docs/monastic-robes.md`.
 

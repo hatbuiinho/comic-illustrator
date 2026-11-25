@@ -1,11 +1,11 @@
 # ttpq real
 
 Style test, chỉ dùng trong flow TTPQ Comic, tạo ngày 2026-11-22. Là nhánh của
-[ttpq comic blend](ttpq-comic-blend.md): thay phần 50% Refined 2D Comic
+[ttpq comic blend](../../docs/style-ttpq-comic-blend.md): thay phần 50% Refined 2D Comic
 Illustration bằng 50% Semi-Realistic Comic Illustration, giữ 25% Flat
-Illustration + 25% nền storybook. Từ 2026-11-22 là **mặc định của `color-edit`
-và lượt màu có `--recast`**; lượt màu thường vẫn mặc định blend, dùng real khi
-người dùng gọi tên `ttpq real` (`--style real`).
+Illustration + 25% nền storybook. Từ 2026-11-22 tới 2026-11-24 là mặc định
+của `color-edit` và lượt màu có `--recast`; từ 2026-11-25 chỉ dùng khi người
+dùng gọi tên `ttpq real` (`--style real`) cho lượt màu.
 
 Hướng: nhân vật vẫn là comic có nét rõ và tô bóng theo mảng, nhưng giải phẫu,
 xương mặt, cơ tay, nếp vải được dựng sát người thật hơn; tô bóng 3 tông cel
@@ -51,9 +51,9 @@ Exclusions: no anime, 3D/CGI, photorealism, glossy airbrushed skin, painterly br
 
 ## Áp dụng
 
-- `--pass color-edit` và `--pass color --recast …` không ghi `--style` tự dùng
-  real; lượt màu thường gọi bằng `--style real`. Muốn sửa ảnh blend mà giữ
-  blend thì ghi `--style blend`. Lượt nét không đổi, nên file này không có khối LINE ART
+- Gọi bằng `--pass color --style real` (kể cả khi có `--recast`). Sửa ảnh đã
+  tô real bằng `color-edit` hoặc `swap` thì không cần ghi style: hai lượt này
+  theo finish của ảnh đang sửa. Lượt nét không đổi, nên file này không có khối LINE ART
   STAGE; tô từ outline đã chọn như blend.
 - Ánh sáng theo cảnh, dải sáng tối, nét ngả màu, tỷ lệ người thật, `--effect`:
   áp dụng và QA như blend.

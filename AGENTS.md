@@ -55,11 +55,8 @@ Một override rõ của người dùng phải được ghi là `SKIPPED_BY_USER
 
 ## Phong cách và nhân vật
 
-- Style mặc định cho mọi workflow là **ttpq comic light**, thuần 2D (riêng
-  TTPQ Comic: lượt màu mặc định `ttpq comic blend`, `color-edit` và recast
-  màu mặc định `ttpq real`, có thêm style tùy chọn
-  `ttpq comic soft` khi được gọi tên), theo
-  [định nghĩa độc lập](docs/style-ttpq-comic-light.md) và
+- Style mặc định cho mọi workflow là **ttpq comic blend**, thuần 2D, theo
+  [định nghĩa độc lập](docs/style-ttpq-comic-blend.md) và
   [policy phong cách](docs/project-style-policy.md). Đọc trước thiết kế hình,
   viết prompt, tạo ảnh hoặc visual QA. Chỉ khi ảnh cần vẽ tu sĩ mới đọc và
   dẫn chiếu [màu y/cách quấn y](docs/monastic-robes.md).

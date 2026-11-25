@@ -1,6 +1,6 @@
 # Chọn reference
 
-Style hiện hành là [ttpq comic light](../../../../docs/style-ttpq-comic-light.md),
+Style hiện hành là [ttpq comic blend](../../../../docs/style-ttpq-comic-blend.md),
 độc lập, không cần ref style cũ. Các ảnh st03 chỉ còn giá trị lịch sử, không tự
 truyền vào lượt mới. Chỉ khi có tu sĩ, đọc
 [quy chuẩn y](../../../../docs/monastic-robes.md) và dùng ref đúng vai trò.

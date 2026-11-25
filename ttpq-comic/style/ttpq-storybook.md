@@ -1,7 +1,7 @@
 # ttpq storybook
 
 Style test, chỉ dùng trong flow TTPQ Comic, tạo ngày 2026-11-22. Là nhánh của
-[ttpq comic blend](ttpq-comic-blend.md): thay phần 50% Refined 2D Comic
+[ttpq comic blend](../../docs/style-ttpq-comic-blend.md): thay phần 50% Refined 2D Comic
 Illustration bằng 40% Semi-Realistic Storybook Illustration, phần còn lại là
 35% Flat Illustration + 25% nền storybook (sửa ngày 2026-11-22).
 Chỉ dùng khi người dùng gọi tên
@@ -49,8 +49,8 @@ Exclusions: no anime, 3D/CGI, photorealism, glossy airbrushed skin, heavy impast
 
 ## Áp dụng
 
-- Gọi bằng `build-prompt.py --pass color --style storybook` (và `color-edit`
-  khi sửa ảnh đã tô storybook). Lượt nét không đổi (đã chỉ gọi tên
+- Gọi bằng `build-prompt.py --pass color --style storybook`; `color-edit` và
+  `swap` sửa ảnh storybook theo finish của ảnh, không cần ghi style. Lượt nét không đổi (đã chỉ gọi tên
   Semi-Realistic Storybook Illustration ở câu mở), nên file này không có khối
   LINE ART STAGE; tô từ outline đã chọn như blend.
 - Ánh sáng theo cảnh, dải sáng tối, nét ngả màu, tỷ lệ người thật, `--effect`:

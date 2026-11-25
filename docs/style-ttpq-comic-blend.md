@@ -1,34 +1,33 @@
 # ttpq comic blend
 
-Style chỉ dùng trong flow TTPQ Comic, tạo ngày 2026-11-15. Từ 2026-11-16 là
-**style mặc định của lượt màu** (từ 2026-11-22 `color-edit` và lượt màu có
-`--recast` chuyển sang mặc định [ttpq real](ttpq-real.md)); lượt nét và chỉnh outline
-vẫn mặc định light. Lượt màu dùng light hoặc soft khi người dùng gọi tên.
+Style mặc định duy nhất của toàn project từ 2026-11-25 (thay hoàn toàn
+`ttpq comic light` và `ttpq comic soft`, đã bỏ): minh họa tập/page/frame,
+Character Studio, Image Playground và TTPQ Comic. Tạo ngày 2026-11-15 trong
+flow TTPQ Comic, là mặc định lượt màu TTPQ Comic từ 2026-11-16.
 
-Hướng: đứng chính giữa light và soft. Nhân vật vẫn là comic sạch nét, mảng
-màu phẳng với cel-shading mép hơi dịu; tiền cảnh giữ mảng phẳng, trung cảnh
-là mảng phẳng có chuyển sắc dịu, viễn cảnh và trời được vẽ dịu kiểu sách
-truyện để cảnh có chiều sâu không khí. Cập nhật tỷ lệ ngày 2026-11-15: 50%
-comic + 25% flat + 25% nền storybook.
+Hướng: nhân vật là comic sạch nét, mảng màu phẳng với cel-shading mép hơi
+dịu; tiền cảnh giữ mảng phẳng, trung cảnh là mảng phẳng có chuyển sắc dịu,
+viễn cảnh và trời được vẽ dịu kiểu sách truyện để cảnh có chiều sâu không
+khí. Tỷ lệ: 50% comic + 25% flat + 25% nền storybook.
 
-## So với light và soft
+## Đặc điểm chính
 
-| Khía cạnh | light | blend | soft |
-| --- | --- | --- | --- |
-| Pha trộn | 50% comic + 50% flat | 50% comic + 25% flat + 25% nền storybook | 60% comic + 40% nền storybook |
-| Tô bóng | 2–3 tông cel, ranh giới rõ | 2–3 tông cel, mép hơi dịu | 3–4 tông, mép chuyển mềm |
-| Gradient | Cấm gradient quá mức | Gradient nhẹ ở trời và viễn cảnh, rất nhẹ ở mảng lớn trung cảnh; không trên nhân vật | Gradient nhẹ cho trời, mảng đá/đất lớn, nếp y |
-| Nét (ảnh màu) | Đen, rõ | Viền nhân vật nâu rất đậm gần đen, nét vừa; nét trong và nét nền tô ngả theo màu mảng, đậm hơn mảng rõ | Đen hoặc nâu rất đậm |
-| Ánh sáng | Ấm dịu, phẳng | Tự nhiên theo cảnh, có hướng rõ; mặt khuất và bóng đổ đọc được | Nguồn sáng có hướng, viền sáng nhẹ |
-| Dải sáng tối | Chưa quy định | Đủ sáng – trung – tối; mảng tối lớn ở môi trường, nhân vật tách nền bằng độ sáng | Chưa quy định |
-| Nền | Vài mảng phẳng đơn giản | Tiền cảnh mảng phẳng; trung cảnh phẳng chuyển sắc dịu; viễn cảnh vẽ dịu, nhạt dần | Chi tiết vừa, phối cảnh không khí, texture giấy tiết chế |
+| Khía cạnh | blend |
+| --- | --- |
+| Pha trộn | 50% comic + 25% flat + 25% nền storybook |
+| Tô bóng | 2–3 tông cel, mép hơi dịu |
+| Gradient | Gradient nhẹ ở trời và viễn cảnh, rất nhẹ ở mảng lớn trung cảnh; không trên nhân vật |
+| Nét (ảnh màu) | Viền nhân vật nâu rất đậm gần đen, nét vừa; nét trong và nét nền tô ngả theo màu mảng, đậm hơn mảng rõ |
+| Ánh sáng | Tự nhiên theo cảnh, có hướng rõ; mặt khuất và bóng đổ đọc được |
+| Dải sáng tối | Đủ sáng – trung – tối; mảng tối lớn ở môi trường, nhân vật tách nền bằng độ sáng |
+| Nền | Tiền cảnh mảng phẳng; trung cảnh phẳng chuyển sắc dịu; viễn cảnh vẽ dịu, nhạt dần |
 
 ## Khối STYLE (lượt màu chép nguyên; lượt nét bỏ đoạn `Color and light:` và `Value and contrast:`)
 
 ```text
 Style name: ttpq comic blend.
 
-Core mix: 50% Refined 2D Comic Illustration + 25% Flat Illustration + 25% Soft Storybook Background Painting, unified by Refined Hand-Drawn Line Art and Soft Cel Shading. Strictly 2D throughout.
+Core mix: 50% Refined 2D Comic Illustration + 25% Flat Illustration color treatment (flat color shapes only, never flat-design figure proportions) + 25% Soft Storybook Background Painting, unified by Refined Hand-Drawn Line Art and Soft Cel Shading, with realistic adult figures about 7 to 7.5 heads tall. Strictly 2D throughout.
 
 Line art: precise, clean, confident hand-drawn lines, medium-light weight, clearly readable but not bold; in the finished color illustration, outer contours of characters are a very dark warm brown close to black, never heavy pure black, and slightly thicker than interior lines; fine facial, hand, hair and fabric interior lines are color-tinted, a clearly darker shade of the color area they sit on (deep dark reddish brown on skin and robes, dark green on foliage); background lines are thinner and color-tinted but still visible, fading toward the distance; no cross-hatching on skin.
 
@@ -49,9 +48,9 @@ Exclusions: no anime, 3D/CGI, photorealism, glossy airbrushed skin, painterly br
 
 ## Khối LINE ART STAGE (blend)
 
-Thay khối LINE ART STAGE của light khi lượt nét dùng blend. Nền giữ đơn giản
-như light ở tiền/trung cảnh, thêm một lớp viễn cảnh nhẹ để lượt màu dựng
-chiều sâu.
+Dùng khi cần vẽ nét đen trắng trước rồi mới tô màu (ngoài TTPQ Comic; lượt
+nét của TTPQ Comic do `build-prompt.py` gọi tên style riêng). Nền giữ đơn giản
+ở tiền/trung cảnh, thêm một lớp viễn cảnh nhẹ để lượt màu dựng chiều sâu.
 
 ```text
 "ttpq comic blend" LINE ART STAGE: draw only the black line art of the style above; color and cel shading come in the next stage. Most of the line work goes to the characters. Robes have about 6 to 10 main simplified folds. Hair, beards and moustaches are outlined masses left white, with a few flow lines. Background is simple in clear depth layers: the foreground is a few large simple shapes (a cliff or rock is a few contour lines with few cracks, a tree is one crown shape with a few leaf clusters, ground is a few lines), the middle ground has the main shapes of rocks, trees and buildings with a little more detail, and the distance is a few light outlines of hills or trees; sky is empty white; lines get fewer and thinner toward the distance, and areas behind text stay calm with few lines. Realistic human proportions: heads in natural size relative to the body, normal-sized eyes and adult facial bone structure. An average adult stands about 7 to 7.5 heads tall; a character whose line gives another height or build (for example taller, shorter, heavier or slighter) follows that line; children and elders have age-accurate proportions. All figures stand on one consistent ground plane seen from one eye level: a figure's size follows where its feet touch the ground, so people at the same distance are the same size, and size decreases smoothly with distance, with no sudden jumps between neighboring figures or groups. Lines are pure black on plain white, with closed contours on characters and key props for coloring; no gray, no tone, no fill.
@@ -59,11 +58,17 @@ chiều sâu.
 
 ## Áp dụng
 
-- Lượt màu thường không ghi `--style` là blend; `color-edit` và lượt màu có
-  `--recast` không ghi là real (từ 2026-11-22), muốn blend thì ghi `--style blend`. Lượt nét và chỉnh
-  outline muốn dùng blend thì ghi `--style blend`; không ghi là light.
-- Lượt màu blend có thể tô từ outline light hoặc soft đã chọn; không bắt buộc
-  vẽ lại nét.
+- Đọc và đưa nguyên khối STYLE vào prompt; không chỉ ghi tên style. Lượt nét
+  đen trắng bỏ đoạn `Color and light:` và `Value and contrast:`, thêm khối
+  LINE ART STAGE.
+- Định nghĩa này không cần ảnh mẫu, profile nhân vật hoặc quy chuẩn y phục
+  để được dùng độc lập. Các nguồn đó, khi có, là dữ kiện riêng của tác vụ.
+- Gáy an toàn và vùng chữ chỉ áp dụng khi có dàn trang/spread.
+- TTPQ Comic: lượt màu không ghi `--style` là blend, kể cả `--recast`. Lượt
+  nét, chỉnh outline, `color-edit` và `swap` bỏ qua `--style`: hai lượt sửa
+  trên ảnh màu vẽ theo finish của ảnh đang sửa (từ 2026-11-25).
+- Lượt màu blend tô từ outline đã chọn, kể cả outline cũ vẽ theo light hoặc
+  soft; không bắt buộc vẽ lại nét.
 - Ánh sáng theo cảnh (`Thời điểm/ánh sáng` hoặc `--light`), không mặc định ấm
   (sửa ngày 2026-11-15): ban ngày trung tính, bóng râm/âm u/đêm ngả lạnh, chỉ
   nắng sớm/chiều hoặc ánh lửa đèn mới ấm. QA: ảnh không bị phủ đều một lớp
@@ -92,8 +97,18 @@ chiều sâu.
   chỉ khóa tỷ lệ chứ không khóa cách tô; nhân vật `--recast` lấy tỷ lệ người
   thật và cỡ đầu, mắt tự nhiên. QA: so ảnh màu với outline, cỡ
   đầu, khăn/mũ và chiều cao nhân vật không đổi.
+- Tỷ lệ ngay trong style (thêm ngày 2026-11-24, theo yêu cầu "sửa từ style
+  thay vì vá style sai tỷ lệ"): `Core mix` giới hạn Flat Illustration vào cách
+  tô màu (`color treatment … never flat-design figure proportions`) và mang
+  tỷ lệ 7–7.5 đầu; đã test tô thường cùng outline, style không đổi. Dòng
+  `Characters:` của style là nguồn tỷ lệ duy nhất: lượt màu chèn cả khối
+  STYLE. Script chỉ thêm câu neo cỡ theo cảnh (chiều cao theo dòng nhân vật,
+  cỡ đầu bằng người cùng tầng sâu trong Image 1) cho nhân vật `--recast`.
+  `color-edit` giữ cỡ nhân vật như Image 1, `swap` neo theo cỡ mặt người cũ
+  (từ 2026-11-25 không còn chèn dòng `Characters:`). QA: nhân vật `--recast`
+  hoặc `swap` có cỡ đầu bằng người cùng tầng sâu.
 - Tỷ lệ xa gần (thêm ngày 2026-11-17 sau góp ý "nhóm người gần nhau mà
-  người lớn, người rất bé"): khối LINE ART STAGE của cả ba style có câu một
+  người lớn, người rất bé"): khối LINE ART STAGE có câu một
   mặt đất, một tầm mắt; cỡ người theo vị trí chân, cùng khoảng cách thì cùng
   cỡ, nhỏ dần đều theo xa gần. Lượt màu giữ chiều cao theo nét nên lỗi phải
   sửa ở outline.
@@ -107,5 +122,5 @@ chiều sâu.
   màu da/y, không hào quang sau đầu, không neon/lóa ống kính. Ghi
   `Effect: <hiệu ứng>` trong `record.md`.
 - Ghi `Style: ttpq comic blend` trong `record.md` cho lượt dùng blend.
-- Đây là style test; sửa style blend chỉ sửa file này, script đọc hai khối
-  `text` theo thứ tự trên.
+- Sửa style blend chỉ sửa file này; `build-prompt.py` đọc khối `text` đầu
+  tiên (khối STYLE).

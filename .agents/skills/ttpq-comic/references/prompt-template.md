@@ -5,26 +5,30 @@ câu tiếng Anh tự nhiên, không nhãn viết hoa, không luật vá. Script
 thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → STYLE (trừ lượt nét) → trang sách
 (lề, bleed, gáy) → chữ → Avoid. Script tự thêm:
 
-- khối STYLE theo `--style` (không ghi: `real` cho `color-edit` và lượt màu có
-  `--recast` (từ 2026-11-22), `blend` cho lượt màu thường, `light` cho chỉnh
-  outline; style khác chỉ khi người dùng gọi tên), chép định
-  nghĩa chuẩn của style (light: `docs/style-ttpq-comic-light.md`; soft, blend, real:
-  khối đầu trong `ttpq-comic/style/`). Từ 2026-11-19 **lượt nét không chèn khối
+- khối STYLE theo `--style` ở lượt màu (không ghi: `blend`, kể cả `--recast`,
+  từ 2026-11-25; style khác chỉ khi người dùng gọi tên; `color-edit` và `swap`
+  không gọi tên style, vẽ theo finish của ảnh đang sửa), chép định
+  nghĩa chuẩn của style (blend: `docs/style-ttpq-comic-blend.md`; storybook, real:
+  khối đầu trong `ttpq-comic/style/`). Light và soft đã bỏ từ 2026-11-25. Từ 2026-11-19 **lượt nét không chèn khối
   STYLE** (cả định nghĩa lẫn LINE ART STAGE), theo yêu cầu người dùng;
 - câu mở lượt nét cố định, gọi tên style (từ 2026-11-22, theo yêu cầu người
   dùng; không chèn định nghĩa): "Use case: illustration-story. Create an
   outline illustration in a Semi-Realistic Storybook Illustration style, pure
   white background. Image 1 is the page layout."; không ghi "finished" hay
   "black and white" (làm GPT đánh bóng xám, nét tối đậm);
+- chỉnh outline (`--pass edit`, từ 2026-11-24) gọi cùng tên style với lượt
+  nét để đồng nhất: "Style: the same "Semi-Realistic Storybook Illustration"
+  line art as Image 1: …"; lượt nét và chỉnh outline bỏ qua `--style`. Chỉnh
+  outline cũng bỏ rule head tall như lượt nét (không câu "body proportions
+  follow the character lines below", lọc "about N heads tall", nhân vật không
+  ref không có "same realistic human proportions");
 - lượt nét bỏ rule head tall (từ 2026-11-22): không có câu
   "body height and proportions follow the character lines below", lọc cụm
   "about N heads tall" khỏi `Dòng prompt` (profile giữ nguyên), nhân vật không
   ref không có câu "same realistic human proportions". Riêng "In line art" của
   profile vẫn chèn (bỏ đi thì `thin close jaw beard` ra râu quai nón, p048-049 v066);
-- câu mở lượt màu: light là mảng màu phẳng, 2–3 tông cel-shading ranh giới rõ,
-  nền vài mảng phẳng; soft là ánh sáng có hướng, 3–4 tông bóng chuyển mềm,
-  gradient nhẹ, nền có lớp xa gần; blend là mảng phẳng, 2–3 tông cel mép hơi dịu,
-  tiền/trung cảnh phẳng (trung cảnh chuyển sắc dịu), viễn cảnh/trời vẽ dịu với gradient nhẹ, không gradient trên nhân vật. Cả ba giữ nét đen; tông xám trong Image 1
+- câu mở lượt màu: blend là mảng phẳng, 2–3 tông cel mép hơi dịu,
+  tiền/trung cảnh phẳng (trung cảnh chuyển sắc dịu), viễn cảnh/trời vẽ dịu với gradient nhẹ, không gradient trên nhân vật; nét giữ đúng chỗ nhưng tô lại thành viền nâu rất đậm gần đen, nét trong ngả màu; tông xám trong Image 1
   không phải ánh sáng; sau đó luôn có câu khóa tỷ lệ (giữ chiều cao, cỡ đầu,
   tỷ lệ đầu/thân, mặt, cỡ mắt, khăn/mũ như Image 1; không phóng to đầu hay vẽ
   hoạt hình; thêm 2026-11-17). Câu này chỉ khóa tỷ lệ, không ghi "color inside
@@ -89,25 +93,34 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
   tai, tóc/râu, da, vóc dáng, trang phục lấy từ sheet; vóc dáng khác outline
   thì giữ chân trên cùng mặt đất và vẽ lại nền quanh dáng mới. Dùng cho outline
   chưa đúng profile; nền và chữ vẫn tô theo nét. Tối đa 2 người mỗi lượt;
-- lượt chỉnh outline `--pass edit --recast <slug>`: xóa và vẽ lại cả đầu, mặt,
-  tai, tóc/râu, cổ áo của nhân vật theo sheet, bỏ qua mặt đã vẽ trong Image 1;
-  chỉ giữ vị trí đầu, hướng quay đầu, hướng nhìn, tư thế, cử chỉ, đạo cụ, thứ
-  tự chồng. Body không được khóa cứng đầu ("exactly the existing", "same angle",
-  "only identity features") vì lệnh giữ nguyên của edit khiến GPT chỉ sửa nhẹ
-  mặt cũ; script cảnh báo khi gặp. Cast nên gồm cả người đứng cạnh (có thể
-  `--no-ref`) để có câu tương phản trong "Cặp dễ nhầm";
-  script thêm câu chốt "Final check…" ở cuối prompt (sau Avoid) cho từng nhân
-  vật recast: thay toàn bộ đầu và cổ áo, mặt cũ là sai, được đổi silhouette
-  đầu, giữ vị trí/hướng quay/cử chỉ, nhắc lại `Nét vẽ line art`. Chi tiết đếm
-  được (số nét râu, số nếp cổ áo) viết trong profile, không thêm tay vào prompt.
-  Câu mạnh làm nền và chữ dễ đổi theo: soát chữ và nền sau mỗi lượt;
-- lượt `color-edit`: Image 1 là ảnh màu đang sửa; chỉ sửa nhân vật trong
-  `--cast` (mỗi lượt một người), giữ nguyên người khác, nền, ánh sáng, màu, nét
-  và chữ; phần giữ từ Image 1 và phần lấy từ sheet như `--recast`. Body có thể
-  trống hoặc thêm dòng `Change:`/`Keep:`. Không thêm khối STYLE hay dòng đòi vẽ
-  lại style cả tranh (script cảnh báo): muốn đổi style thì chạy lại lượt màu;
-- nhiều nhân vật recast hoặc color-edit: script gộp phần giữ/lấy từ sheet thành
-  một đoạn chung, không lặp từng người;
+- lượt chỉnh outline (`--pass edit`) không nhận `--recast` (bỏ từ 2026-11-25):
+  thay cả nhân vật trên outline dùng `swap`;
+- lượt `color-edit` (đổi ngày 2026-11-25): Image 1 là ảnh màu đang sửa; chỉ sửa
+  các dòng `Change:` (bắt buộc, script dừng nếu thiếu) trên nhân vật trong
+  `--cast` (mỗi lượt một người); sheet chỉ là nguồn cho chi tiết được sửa; phần
+  còn lại của nhân vật (mặt, tóc, thân, cỡ, tư thế, biểu cảm, trang phục không
+  nêu), người khác, nền, ánh sáng, nét và chữ giữ như Image 1. Không recast cả
+  người (việc của `swap`), không gọi tên style: câu Style bảo vẽ theo finish
+  của Image 1, chỉ lấy identity/thiết kế từ sheet, không lấy cách tô của sheet;
+  `--style` bị bỏ qua. Không thêm dòng đòi vẽ lại style cả tranh (script cảnh
+  báo): muốn đổi style thì chạy lại lượt màu;
+- lượt `swap` (từ 2026-11-24, ưu tiên khi chỉ cần nhân vật khớp profile):
+  Image 1 là ảnh ref của profile, Image 2 là ảnh cần thay (ảnh màu hoặc
+  outline). Prompt cố ý ngắn theo mẫu người dùng đã kiểm chứng: "identity-preserving
+  character replacement", vai trò hai ảnh, một câu thay người theo `--target`, câu
+  giữ nguyên chi tiết khác. Từ 2026-11-25 có thêm khối `SCALE` cố định (sau lỗi
+  đầu to khi swap vua Pasenadi): cỡ mặt (mày tới cằm) của người cũ trong Image 2
+  là mốc scale so với người xung quanh; thân dựng từ mốc đó theo tỷ lệ đầu-thân
+  và vóc dáng của Image 1; vị trí, tư thế theo Image 2; khăn/mũ được cao hơn
+  đường đầu cũ. Từ 2026-11-25 thêm khối `FINISH`: vẽ theo nét, bóng, ánh sáng
+  của Image 2; Image 1 chỉ cho identity và thiết kế, không cho cách tô. QA sau
+  swap: so cỡ mặt trước/sau, nhân vật mới cùng finish với phần còn lại. Không dòng nhận diện, không khối STYLE, không Avoid
+  của cảnh; biểu cảm, góc đầu, hướng nhìn theo Image 2. `--target` tả người cần
+  thay bằng vị trí/quan hệ (tiếng Việt thì câu task và câu giữ viết tiếng Việt),
+  không tả lại mặt hay trang phục. Mỗi lượt một người; không cần `--scenes`,
+  `--body`;
+- nhiều nhân vật recast: script gộp phần giữ/lấy từ sheet thành một đoạn chung,
+  không lặp từng người;
 - body ghi `{slug}` (ví dụ `{moggallana}`) khi cần trỏ tới ảnh ref; script thay
   bằng `Image N` đúng theo cast, dừng nếu slug không có trong cast, cảnh báo nếu
   body ghi cứng `Image N`.
@@ -120,6 +133,15 @@ scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/build-pro
   --pass <outline|color|edit|color-edit> --body prompts/vNNN-<pass>.body.txt \
   [--cast <slug> …] [--no-ref <slug> …] [--recast <slug> …] [--avoid "<không vẽ, tiếng Anh>"] \
   --out prompts/vNNN-<pass>.txt
+```
+
+Lượt `swap`:
+
+```bash
+scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/build-prompt.py \
+  --spread ttpq-comic/spreads/<layout-slug>/p<trái>-<phải> --pass swap \
+  --cast <slug> --target "<người cần thay, tả theo vị trí>" [--avoid "<tiếng Anh>"] \
+  --out prompts/vNNN-swap.txt
 ```
 
 - `--cast`: người thật sự có mặt trong spread (thường khác dòng Profile của cả cảnh); slug
@@ -220,10 +242,13 @@ body. Không đính kèm ảnh màu đã tạo, trừ lượt `color-edit`.
 Nhân vật lệch profile:
 
 - Outline vẽ sai mặt, tai, chiều cao hoặc trang phục: chạy lại lượt màu với
-  `--recast <slug>`, hoặc sửa outline bằng `--pass edit --recast <slug>` khi
+  `--recast <slug>`, hoặc thay nhân vật trên outline bằng `--pass swap` khi
   cần outline đúng trước khi lên màu.
-- Ảnh màu đã ổn, chỉ một nhân vật còn sai: `--pass color-edit --cast <slug>`
-  với Image 1 là ảnh màu đó; body trống hoặc vài dòng `Change:` cho lỗi cụ thể.
+- Ảnh đã ổn, chỉ một nhân vật lệch profile: mặc định `--pass swap --cast <slug>
+  --target "<vị trí>"` với Image 2 là ảnh đó (ảnh màu hoặc outline).
+- Sau swap còn sai một dấu hiệu cụ thể (râu, cổ y, màu y…): `--pass color-edit
+  --cast <slug>` với Image 1 là ảnh màu đó và một dòng `Change:` cho đúng lỗi;
+  chỉ chi tiết đó được sửa, phần còn lại của nhân vật giữ nguyên.
 
 ## Khối bối cảnh
 
