@@ -1,10 +1,10 @@
 # Tiền kiếp tôn giả Cittahattha
 
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v002
-- Ảnh ref: ref-v002.png (sheet "Tiền kiếp Cittahattha", 1445×910: bản v001 từ `local/Tiền kiếp tôn giả Cittahattha.png` cắt bỏ cột rear 3/4, không vẽ lại). `ref-v001.png` giữ làm lịch sử.
+- Version mô tả: v003
+- Ảnh ref: ref-v003.png (sheet "Tiền kiếp Cittahattha" người dùng gửi ngày 2026-11-25 kèm yêu cầu "cập nhập profile", 1580×995, chuyển từ webp sang png, giữ nguyên pixel). Khác v002: chân dung vẽ lại nhỏ hơn để sửa đầu to; đo theo bề rộng vai, đầu ở chân dung (tính cả tai) bằng khoảng 0,43 vai, hình đứng chính diện khoảng 0,38, tức chân dung lớn hơn khoảng 15% (v002 lớn gần gấp đôi), chấp nhận được. Khuôn mặt, y, các góc (chân dung, front 3/4, chính diện, sau lưng) và nhãn giữ như v002. `ref-v001.png`, `ref-v002.png` giữ làm lịch sử, không dùng cho prompt mới. Ghi chú v002: bản v001 từ `local/Tiền kiếp tôn giả Cittahattha.png` cắt bỏ cột rear 3/4, không vẽ lại.
 - Tên trong prompt: Cittahattha (past life)
-- Ref prompt: ref-v002.png
+- Ref prompt: ref-v003.png
 - Dòng prompt: monk with a square face and jaw, very thick straight brows, serious unsmiling look
 - Vai trò trong truyện: Cittahattha ở kiếp tỳ kheo thời Đức Phật Ca Diếp, không cố khuyên can huynh đệ giữ lý tưởng tu hành nên kiếp này hoàn tục sáu lần (Ch4 L313–317); dùng trong minh họa lồng lời kể (S19–S20).
 - Chỉ là tiền kiếp. Cittahattha kiếp hiện tại (S18–S19) dùng profile `cittahattha`; không dùng ảnh này thay.
@@ -47,3 +47,4 @@ CITTAHATTHA, PAST LIFE (Image <N>): adult monk, shaved head, no beard, square fa
 | v001 | 2026-11-08 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
 | v001 | 2026-11-13 | Màu y/cách quấn y theo ảnh ref của profile, bỏ dẫn chiếu `docs/monastic-robes.md` | Người dùng yêu cầu gỡ quy chuẩn y chung khỏi ttpq-comic |
 | v002 | 2026-11-24 | Bỏ góc rear 3/4 khỏi sheet, lưu `ref-v002.png`; trỏ sang profile kiếp hiện tại `cittahattha` | Người dùng yêu cầu "bỏ hình rear 3/4" |
+| v003 | 2026-11-25 | Ảnh ref mới `ref-v003.png`: vẽ lại chân dung nhỏ hơn, tỷ lệ đầu/vai gần khớp hình đứng; nhận diện giữ nguyên | Người dùng yêu cầu "cập nhập profile" |

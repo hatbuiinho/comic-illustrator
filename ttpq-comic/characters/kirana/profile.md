@@ -1,10 +1,10 @@
 # Trưởng lão Kirana
 
 - Trạng thái: APPROVED. Ngày 2026-11-24 người dùng yêu cầu "Tạo profile Kirana" từ sheet "Trưởng lão Karina" đã bỏ góc 3/4 và mặt nghiêng 90°. Mô tả ghi trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png. Sheet 1096×1024 gồm chân dung, khối thông tin, hình chính diện và hình sau lưng; ghép từ ảnh gốc 1536×1024, không vẽ lại. Tên trên sheet đã sửa từ "Karina" thành "Kirana" theo kịch bản bằng cách đổi chỗ chữ có sẵn trong ảnh.
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png. Sheet "Trưởng lão Kirana" người dùng gửi ngày 2026-11-25 kèm yêu cầu "cập nhật", 1297×1212, chuyển từ webp sang png, giữ nguyên pixel; gồm chân dung, khối thông tin, hình chính diện và hình sau lưng, tên trên sheet đã đúng "Kirana". Khác v001: chân dung vẽ lại nhỏ hơn để sửa đầu to. Đo theo bề rộng vai, đầu ở chân dung (tính cả tai) bằng khoảng 0,41 vai, hình đứng chính diện khoảng 0,39, tức chỉ lớn hơn khoảng 3% (v001 lớn gần gấp đôi), khớp. Khuôn mặt, y và các góc giữ như v001. `ref-v001.png` (sheet 1096×1024 ghép từ ảnh gốc 1536×1024, tên sửa từ "Karina") giữ làm lịch sử, không dùng cho prompt mới.
 - Tên trong prompt: Kirana
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: eldest monk aged 60-70, tall and gaunt, grey brows, deeply lined weathered face, rust-brown robe
 - Vai trò trong truyện: vị lớn tuổi nhất, dẫn đầu và đại diện phát ngôn cho đoàn 60 tỳ kheo từ làng Matika về Tinh xá Kỳ Viên. Chắp tay trình bạch trước Đức Phật ở S24.
 
@@ -18,6 +18,7 @@
 - **Trang phục:** y nâu đỏ gạch (rust) phủ kín hai vai, quấn mềm nhiều lớp quanh cổ. Tà dọc buông từ vai trái nhân vật xuống quá hông; lớp dưới dài tới mắt cá, nhiều nếp xếp dọc. Sau lưng y phủ kín, tà dưới vạt trên buông thành nếp cong.
 - **Phụ kiện/trang sức, đạo cụ:** không có.
 - **Biểu cảm/thần thái mặc định:** hiền, điềm tĩnh, phong sương; mỉm cười nhẹ.
+- **Các góc:** chân dung, chính diện, sau lưng.
 
 Thông tin trên sheet: tầng lớp Sa môn, địa vị Đại Trưởng lão; ngoại hình gầy, dạn dày sương gió, da sạm nắng, mặt nhiều nếp nhăn.
 
@@ -47,3 +48,4 @@ KIRANA (Image <N>): eldest monk aged 60-70, tall and thin, shaved head, no beard
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-11-24 | Tiếp nhận sheet "Trưởng lão Karina" (bỏ góc 3/4 và mặt nghiêng 90°, sửa tên trên sheet thành Kirana), lưu `ref-v001.png` và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
+| v002 | 2026-11-25 | Ảnh ref mới `ref-v002.png`: vẽ lại chân dung, tỷ lệ đầu/vai khớp hình đứng; thêm dòng "Các góc"; nhận diện giữ nguyên | Người dùng yêu cầu "cập nhật" |

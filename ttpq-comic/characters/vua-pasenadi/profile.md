@@ -1,10 +1,10 @@
 # Vua Pasenadi
 
 - Trạng thái: APPROVED — người dùng yêu cầu "check folder local và thêm nhân vật vào" ngày 2026-11-15 và duyệt "Duyệt cả 3" cùng ngày; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (sheet "Vua Pasenadi" từ `local/Vua Pasenadi.png`, 1536×1024, giữ nguyên pixel).
+- Version mô tả: v003
+- Ảnh ref: ref-v003.png (sheet "Vua Pasenadi" người dùng gửi ngày 2026-11-25 kèm yêu cầu "update lại", 1409×1117, chuyển từ webp sang png, giữ nguyên pixel; gồm chân dung, khối thông tin, trước 3/4, chính diện, sau lưng). Khác v002: chân dung vẽ lại nhỏ hơn để sửa đầu to. Đo theo bề rộng vai, đầu ở chân dung (khăn và mặt) bằng tối đa khoảng 0,50 vai (vai bị khung cắt nên tỷ lệ thật thấp hơn), hình đứng chính diện khoảng 0,41, tức chân dung lớn hơn tối đa khoảng 20%; chấp nhận được, tỷ lệ đầu–thân vẫn lấy theo các hình đứng. Trang phục, trang sức, khuôn mặt và các góc giữ như v002. `ref-v001.png`, `ref-v002.png` giữ làm lịch sử, không dùng cho prompt mới. Ghi chú v002: ref-v002.png (1292×1024) — bỏ hình sau 3/4 cùng nhãn (cắt dải x 711–954 của ref-v001), dồn hai hình chính diện và sau lưng sang trái; chân dung, khối chữ và các hình còn lại giữ nguyên pixel. `ref-v001.png` (sheet "Vua Pasenadi" từ `local/Vua Pasenadi.png`, 1536×1024) giữ làm lịch sử, không dùng cho prompt mới.
 - Tên trong prompt: King Pasenadi
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v003.png
 - Dòng prompt: portly king about 56, round belly, full face, thick curled black moustache, short black beard, wavy black hair
 - Vai trò trong truyện: vua nước Kosala; đến hương thất Jetavana, nghe Đức Phật dạy ăn vì sức khỏe, nhìn vòng bụng phình to của mình rồi cúi đầu, trán chạm đất (S22, Ch5 L385–428).
 
@@ -23,7 +23,7 @@
   - Dhoti kem dài tới mắt cá, xếp nếp nhiều.
 - **Phụ kiện/trang sức, đạo cụ:** nhiều chuỗi ngọc trai trắng dài quanh cổ; giày vàng mũi cong. Sheet không có gươm.
 - **Biểu cảm/thần thái mặc định:** uy nghi, tự tin, mỉm cười nhẹ.
-- **Các góc:** chân dung, trước 3/4, sau 3/4, chính diện, sau lưng.
+- **Các góc:** chân dung, trước 3/4, chính diện, sau lưng (đã bỏ sau 3/4 ở v002).
 
 ## Dấu hiệu bắt buộc
 
@@ -50,3 +50,5 @@ KING PASENADI (Image <N>): portly king about 56 with a clearly round belly, full
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-11-15 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng duyệt ("Duyệt cả 3") |
+| v002 | 2026-11-25 | Bỏ hình sau 3/4 khỏi sheet, lưu `ref-v002.png`; cập nhật dòng "Các góc" | Người dùng yêu cầu "bỏ hết các góc rear 3/4 của các profile đầu to rõ" |
+| v003 | 2026-11-25 | Ảnh ref mới `ref-v003.png`: vẽ lại chân dung nhỏ hơn, giảm đầu to; vẫn không có góc sau 3/4; nhận diện giữ nguyên | Người dùng yêu cầu "update lại" |

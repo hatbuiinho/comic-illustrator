@@ -1,10 +1,10 @@
 # Sariputta — Tôn giả Xá Lợi Phất
 
 - Trạng thái: APPROVED — người dùng yêu cầu tạo profile từ ảnh trong `local/` ngày 2026-11-15 và duyệt "Duyệt cả 4" cùng ngày; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (sheet "Ngài Xá Lợi Phất" từ `local/Tôn giả Sariputta.png`, 1920×1200, giữ nguyên pixel).
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png (1920×1200) — bỏ góc nghiêng 90° vì đã có góc 3/4 (xóa hai đầu nghiêng trái/phải ở hàng trên (tô nền trắng), không dời hình), đầu sau lưng còn lại ở giữa hàng trên; các hình còn lại và khối chữ giữ nguyên pixel. `ref-v001.png` (sheet "Ngài Xá Lợi Phất" từ `local/Tôn giả Sariputta.png`, 1920×1200, giữ nguyên pixel). giữ làm lịch sử, không dùng cho prompt mới. Lưu ý tỷ lệ: các đầu riêng trên sheet lớn hơn đầu ở hình ngồi (soát 2026-11-25, chưa vẽ lại); tỷ lệ đầu–thân lấy theo hình ngồi.
 - Tên trong prompt: Sariputta
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: tall monk about 8 heads tall, shaved head, angular oval face, straight sharp brows, very long earlobes
 - Vai trò trong truyện: tôn giả; chăm sóc tỳ kheo bệnh, thay khăn ấm, nhìn mọi người bình đẳng (S20).
 
@@ -18,7 +18,7 @@
 - **Trang phục:** y nâu đỏ sẫm phủ hai vai, quấn nhiều vòng quanh cổ thành cổ áo dày; một tà rộng buông dọc từ vai trái nhân vật xuống; khi ngồi, y phủ kín hai gối, nếp xếp nhiều.
 - **Phụ kiện/trang sức, đạo cụ:** không có. Khăn ấm, chậu nước chỉ theo cảnh.
 - **Biểu cảm/thần thái mặc định:** trầm tĩnh, nghiêm hòa.
-- **Các góc:** toàn thân ngồi kiết già (tay phải giơ ngang ngực lòng bàn tay hướng ra, tay trái ngửa trên đùi); đầu nghiêng trái, sau lưng, nghiêng phải; trước 3/4 hai phía.
+- **Các góc:** toàn thân ngồi kiết già (tay phải giơ ngang ngực lòng bàn tay hướng ra, tay trái ngửa trên đùi); đầu sau lưng; trước 3/4 hai phía (đã bỏ hai đầu nghiêng 90° ở v002).
 
 ## Dấu hiệu bắt buộc
 
@@ -46,3 +46,4 @@ SARIPUTTA (Image <N>): tall monk about 8 heads tall, shaved head, no beard, angu
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-11-15 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện; bổ sung chiều cao 8 đầu theo người dùng | Người dùng duyệt ("Duyệt cả 4") |
+| v002 | 2026-11-25 | Bỏ góc nghiêng 90° khỏi sheet, lưu `ref-v002.png` | Người dùng yêu cầu "bỏ góc 90 nếu đã có góc 3/4 của những profile đầu to rõ" |

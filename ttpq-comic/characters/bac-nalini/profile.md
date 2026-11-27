@@ -1,10 +1,10 @@
 # Bác Nalini
 
 - Trạng thái: APPROVED
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (chép từ `comic-illustrator/Tap 53/characters/approved/Bác Nalini.png` theo chỉ định của người dùng, 2026-10-28)
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png (1348×1024) — bỏ góc nghiêng 90° vì đã có góc 3/4 (cắt dải x 1046–1233 của ref-v001), dồn hình sau lưng sang trái; các hình còn lại và khối chữ giữ nguyên pixel. `ref-v001.png` (chép từ `comic-illustrator/Tap 53/characters/approved/Bác Nalini.png` theo chỉ định của người dùng, 2026-10-28) giữ làm lịch sử, không dùng cho prompt mới. Lưu ý tỷ lệ: chân dung trên sheet đầu to hơn hình đứng (soát 2026-11-25, chưa vẽ lại); tỷ lệ đầu–thân lấy theo các hình đứng.
 - Tên trong prompt: Nalini
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: master builder in his 40s, saffron turban with gold boss, salt-and-pepper chin beard, cream top, no jewelry
 - Vai trò trong truyện: thợ cả thiết kế và thi công tinh xá Đông Phương; tầng lớp Vaishya (Vệ-xá)
 
@@ -67,3 +67,4 @@ NALINI (master builder, the main character): South Asian man, 40–50 years old,
 | Version | Ngày | Thay đổi | Người duyệt |
 | --- | --- | --- | --- |
 | v001 | 2026-10-28 | Mô tả đầu tiên từ ref-v001.png; giữ áo ngắn tay như ảnh | Người dùng |
+| v002 | 2026-11-25 | Bỏ góc nghiêng 90° khỏi sheet, lưu `ref-v002.png` | Người dùng yêu cầu "bỏ góc 90 nếu đã có góc 3/4 của những profile đầu to rõ" |

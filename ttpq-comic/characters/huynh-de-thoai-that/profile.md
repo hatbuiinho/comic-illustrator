@@ -1,10 +1,10 @@
 # Huynh đệ thoái thất
 
 - Trạng thái: APPROVED — người dùng yêu cầu "thêm các nhân vật trong folder local vào ttpq-comic" ngày 2026-11-08; mô tả ghi nhận trực tiếp từ ảnh, không phát triển thiết kế mới.
-- Version mô tả: v001
-- Ảnh ref: ref-v001.png (sheet "Huynh đệ thoái thất" từ `local/Huynh đệ thoái thất.png`, 1536×1024, giữ nguyên pixel).
+- Version mô tả: v002
+- Ảnh ref: ref-v002.png (1311×1024) — bỏ góc nghiêng 90° vì đã có góc 3/4 (cắt dải x 996–1220 của ref-v001), dồn hình sau lưng sang trái; các hình còn lại và khối chữ giữ nguyên pixel. `ref-v001.png` (sheet "Huynh đệ thoái thất" từ `local/Huynh đệ thoái thất.png`, 1536×1024, giữ nguyên pixel). giữ làm lịch sử, không dùng cho prompt mới. Lưu ý tỷ lệ: chân dung trên sheet đầu to hơn hình đứng (soát 2026-11-25, chưa vẽ lại); tỷ lệ đầu–thân lấy theo các hình đứng.
 - Tên trong prompt: the backsliding monk
-- Ref prompt: ref-v001.png
+- Ref prompt: ref-v002.png
 - Dòng prompt: young monk, slim long oval face, pointed chin, long earlobes, quiet unsmiling look
 - Vai trò trong truyện: tỳ kheo đồng tu với tiền kiếp Cittahattha thời Đức Phật Ca Diếp; chán nản, mất lý tưởng, muốn hoàn tục mà không được khuyên can (Ch4 L313–317). Dùng trong minh họa lồng lời kể (S20).
 
@@ -18,7 +18,7 @@
 - **Trang phục:** y nâu đỏ sẫm (tối hơn y Ananda/Cittahattha tiền kiếp trong ảnh), phủ hai vai, quấn mềm quanh cổ; tà dọc buông từ vai trái nhân vật; lớp dưới dài tới mắt cá.
 - **Phụ kiện/trang sức, đạo cụ:** không có.
 - **Biểu cảm/thần thái mặc định:** trầm lặng, ánh nhìn hơi xa xăm, miệng khép, không cười.
-- **Các góc:** chân dung, chính diện, góc 3/4, nghiêng, sau lưng.
+- **Các góc:** chân dung, chính diện, góc 3/4, sau lưng (đã bỏ góc nghiêng 90° ở v002).
 
 ## Dấu hiệu bắt buộc
 
@@ -46,3 +46,4 @@ BACKSLIDING MONK (Image <N>): young monk, shaved head, no beard, slim long oval 
 | --- | --- | --- | --- |
 | v001 | 2026-11-08 | Tiếp nhận sheet từ `local/`, lưu `ref-v001.png` và ghi nhận diện | Người dùng chỉ định ảnh làm profile |
 | v001 | 2026-11-08 | Màu y giữ theo ảnh ref (`SKIPPED_BY_USER`), bỏ ghi chú chờ quyết | Người dùng chọn "Giữ màu ảnh ref" |
+| v002 | 2026-11-25 | Bỏ góc nghiêng 90° khỏi sheet, lưu `ref-v002.png` | Người dùng yêu cầu "bỏ góc 90 nếu đã có góc 3/4 của những profile đầu to rõ" |
