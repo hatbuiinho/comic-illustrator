@@ -6,7 +6,7 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
 (lề, bleed, gáy) → chữ → Avoid. Script tự thêm:
 
 - khối STYLE theo `--style` ở lượt màu (không ghi: `blend`, kể cả `--recast`,
-  từ 2026-11-25; style khác chỉ khi người dùng gọi tên; `color-edit` và `swap`
+  từ 2026-11-25; style khác chỉ khi người dùng gọi tên; `color-edit`, `pose` và `swap`
   không gọi tên style, vẽ theo finish của ảnh đang sửa), chép định
   nghĩa chuẩn của style (blend: `docs/style-ttpq-comic-blend.md`; storybook, real:
   khối đầu trong `ttpq-comic/style/`). Light và soft đã bỏ từ 2026-11-25. Từ 2026-11-19 **lượt nét không chèn khối
@@ -104,6 +104,17 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
   của Image 1, chỉ lấy identity/thiết kế từ sheet, không lấy cách tô của sheet;
   `--style` bị bỏ qua. Không thêm dòng đòi vẽ lại style cả tranh (script cảnh
   báo): muốn đổi style thì chạy lại lượt màu;
+- lượt `pose` (từ 2026-11-27, sau lỗi đầu to và người ngắn khi xoay bà Matika
+  ở p196-197 bằng prompt v029 viết tay): Image 1 là ảnh màu đang sửa, Image 2 là
+  sheet; đổi tư thế, hướng xoay hoặc vị trí của đúng một nhân vật theo các dòng
+  `Change:` (bắt buộc), `Keep:` tùy chọn. Script chèn khối `SCALE`: nhân vật trong
+  Image 1 là mốc (cả khối đầu kể cả búi/khăn, bề vai, chiều cao đứng; không to hơn
+  người cùng tầng sâu; góc sau/nghiêng/cúi không làm đầu hay mảng tóc to ra), tỷ lệ
+  đầu-thân lấy từ hình toàn thân của sheet (người lớn khoảng 7–7.5 đầu, đúng tuổi),
+  chân dung chỉ cho nét mặt, chân giữ đường đất trừ khi `Change:` dời; cấm chibi,
+  đầu to, thân ngắn. Thêm câu vẽ lại nền lộ ra quanh dáng cũ và khối `FINISH`
+  theo Image 1. `color-edit` có body đổi dáng sẽ bị cảnh báo chuyển sang `pose`.
+  QA sau pose: so cỡ khối đầu và chiều cao với bản trước và với người cạnh;
 - lượt `swap` (từ 2026-11-24, ưu tiên khi chỉ cần nhân vật khớp profile):
   Image 1 là ảnh ref của profile, Image 2 là ảnh cần thay (ảnh màu hoặc
   outline). Prompt cố ý ngắn theo mẫu người dùng đã kiểm chứng: "identity-preserving
@@ -112,9 +123,15 @@ thứ tự GPT đọc: việc cần làm → body (cảnh) → nhân vật → S
   đầu to khi swap vua Pasenadi): cỡ mặt (mày tới cằm) của người cũ trong Image 2
   là mốc scale so với người xung quanh; thân dựng từ mốc đó theo tỷ lệ đầu-thân
   và vóc dáng của Image 1; vị trí, tư thế theo Image 2; khăn/mũ được cao hơn
-  đường đầu cũ. Từ 2026-11-25 thêm khối `FINISH`: vẽ theo nét, bóng, ánh sáng
+  đường đầu cũ. Cũng từ 2026-11-25 (sau lỗi đầu Visakha to khoảng 10–15%,
+  chủ yếu theo bề ngang), mốc `SCALE` mở rộng thành cả khối đầu thật dưới
+  khăn: cao và ngang mặt, vị trí tai, điểm cằm; đầu mới không to hơn so với
+  người cạnh; giữ góc đầu (không xoay chính diện hơn), giữ khoảng cổ tới cổ
+  áo/vòng cổ; trang sức theo cỡ người trong cảnh, độ chi tiết như người xung
+  quanh; tỷ lệ lấy từ hình toàn thân của Image 1, chân dung chỉ cho nét mặt.
+  Từ 2026-11-25 thêm khối `FINISH`: vẽ theo nét, bóng, ánh sáng
   của Image 2; Image 1 chỉ cho identity và thiết kế, không cho cách tô. QA sau
-  swap: so cỡ mặt trước/sau, nhân vật mới cùng finish với phần còn lại. Không dòng nhận diện, không khối STYLE, không Avoid
+  swap: so cỡ mặt (cao và ngang), khoảng cổ, cỡ trang sức trước/sau, nhân vật mới cùng finish với phần còn lại. Không dòng nhận diện, không khối STYLE, không Avoid
   của cảnh; biểu cảm, góc đầu, hướng nhìn theo Image 2. `--target` tả người cần
   thay bằng vị trí/quan hệ (tiếng Việt thì câu task và câu giữ viết tiếng Việt),
   không tả lại mặt hay trang phục. Mỗi lượt một người; không cần `--scenes`,
@@ -130,7 +147,7 @@ Lệnh chung (đường dẫn `--body`/`--out` tính theo thư mục spread):
 ```bash
 scripts/run-with-tools.sh -- python3 .agents/skills/ttpq-comic/scripts/build-prompt.py \
   --spread ttpq-comic/spreads/<layout-slug>/p<trái>-<phải> --scenes <Snn> [<Snn>] \
-  --pass <outline|color|edit|color-edit> --body prompts/vNNN-<pass>.body.txt \
+  --pass <outline|color|edit|color-edit|pose> --body prompts/vNNN-<pass>.body.txt \
   [--cast <slug> …] [--no-ref <slug> …] [--recast <slug> …] [--avoid "<không vẽ, tiếng Anh>"] \
   --out prompts/vNNN-<pass>.txt
 ```
@@ -249,6 +266,8 @@ Nhân vật lệch profile:
 - Sau swap còn sai một dấu hiệu cụ thể (râu, cổ y, màu y…): `--pass color-edit
   --cast <slug>` với Image 1 là ảnh màu đó và một dòng `Change:` cho đúng lỗi;
   chỉ chi tiết đó được sửa, phần còn lại của nhân vật giữ nguyên.
+- Ảnh màu ổn nhưng cần xoay, đổi tư thế hoặc dời một nhân vật: `--pass pose
+  --cast <slug>` với Image 1 là ảnh màu đó, một dòng `Change:` cho tư thế mới.
 
 ## Khối bối cảnh
 

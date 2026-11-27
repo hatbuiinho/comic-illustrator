@@ -117,7 +117,11 @@ Mode mặc định là spread: một tranh liền cho cả spread. Chỉ dùng m
 Theo [mẫu prompt](references/prompt-template.md): agent viết file body (2–4 câu
 tiếng Anh) rồi chạy `build-prompt.py` để ghép prompt. Script in danh sách ảnh
 cần đính kèm theo đúng thứ tự Image. Gửi đúng file prompt script ghi ra, kèm
-các ảnh đó. Trước khi gửi tạo ảnh, tự kiểm prompt theo
+các ảnh đó. Không viết tay prompt tạo hoặc chỉnh ảnh, kể cả lượt chỉnh ảnh màu
+(prompt viết tay mất khối khóa tỷ lệ, gây lỗi đầu to ở p196-197 v029). Chọn
+lượt: chỉnh outline `edit`, sửa chi tiết ảnh màu `color-edit`, xoay/đổi tư thế/dời
+nhân vật trên ảnh màu `pose`, thay cả nhân vật `swap`. Không lượt nào phù hợp thì
+báo người dùng và bổ sung lượt vào script trước. Trước khi gửi tạo ảnh, tự kiểm prompt theo
 [checklist](references/prompt-checklist.md).
 
 - Hiển thị ảnh ngay khi công cụ trả kết quả. Sau khi đã hiển thị, tự động

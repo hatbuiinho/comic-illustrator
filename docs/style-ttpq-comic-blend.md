@@ -104,7 +104,7 @@ nét của TTPQ Comic do `build-prompt.py` gọi tên style riêng). Nền giữ
   `Characters:` của style là nguồn tỷ lệ duy nhất: lượt màu chèn cả khối
   STYLE. Script chỉ thêm câu neo cỡ theo cảnh (chiều cao theo dòng nhân vật,
   cỡ đầu bằng người cùng tầng sâu trong Image 1) cho nhân vật `--recast`.
-  `color-edit` giữ cỡ nhân vật như Image 1, `swap` neo theo cỡ mặt người cũ
+  `color-edit` giữ cỡ nhân vật như Image 1, `swap` neo theo cả khối đầu thật của người cũ (cao, ngang mặt, tai, cằm, khoảng cổ)
   (từ 2026-11-25 không còn chèn dòng `Characters:`). QA: nhân vật `--recast`
   hoặc `swap` có cỡ đầu bằng người cùng tầng sâu.
 - Tỷ lệ xa gần (thêm ngày 2026-11-17 sau góp ý "nhóm người gần nhau mà

@@ -4,7 +4,9 @@ Tự kiểm trong đầu, không cần ghi từng mục vào `record.md`.
 
 ## Mọi lượt ảnh
 
-- [ ] Prompt do `build-prompt.py` ghép, không có cảnh báo chưa xử lý (cảnh
+- [ ] Prompt do `build-prompt.py` ghép, không viết tay (kể cả lượt chỉnh ảnh
+      màu); không có lượt phù hợp thì báo người dùng hoặc thêm lượt vào script.
+      Không có cảnh báo chưa xử lý (cảnh
       DRAFT chưa duyệt, profile chưa APPROVED, thiếu dòng Profile).
 - [ ] Luôn truyền `--cast` đúng người có mặt trong spread; người ở xa hoặc
       quần chúng dùng `--no-ref`; tối đa 3 ảnh ref.
@@ -33,6 +35,7 @@ Tự kiểm trong đầu, không cần ghi từng mục vào `record.md`.
 ## Lượt chỉnh
 
 - [ ] Body chỉ gồm các dòng `Change:` (1–2 dòng mỗi lượt) và `Keep:`; không chép `Left/Right page:` của lượt nét.
+- [ ] Đổi tư thế/hướng/vị trí nhân vật trên ảnh màu dùng `--pass pose`, không dùng `color-edit`.
 
 ## Khối bối cảnh
 
